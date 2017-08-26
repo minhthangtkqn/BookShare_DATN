@@ -1,0 +1,196 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+
+#content_detail{
+	height: auto;
+	width: 100%; 
+	background-color: black;
+}
+#content_detail #menu_ngang{
+	float: left;
+}
+#content_detail #content_detail_product{
+	float: left;
+	height: auto; 
+	margin-left: 70px; 
+	width: 1130px;
+	border: solid 1px #189eff;
+}
+#content_detail_product .anh_product{
+	float: left;
+	height: auto; 
+	width: 400px; 
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.anh_product .pic{
+
+	height: 470px; 
+	width: 350px;
+	margin: 0 auto;
+
+}
+.anh_product .pic img{
+	height: 470px;
+	width: 350px;
+} 
+.zoom_pic{
+	height: 80px; 
+	width: fit-content; 
+	margin-top: 20px;
+	border:solid 1px lightgrey;
+	margin: 0 auto;
+    margin-top: 20px;
+
+}
+.des_product{
+	float: left;
+	height: 500px; 
+	width: 368px; 
+	margin-top: 20px;
+}
+.des_product p{
+	line-height: 50px;
+}
+
+.thongtin_nguoiban{
+	float: left;
+	height: 570px; 
+	width: 320px; 
+	margin-left: 20px;
+	margin-top: 20px;
+	border: solid 1px lightgrey;
+}
+.thongtin_nguoiban .anh_nguoiban{
+	height: 200px; 
+	width: 200px; 
+	background-color: black;
+	margin: 0 auto;
+}
+.thongtin_nguoiban p{
+	font-size: 12px;
+	text-align: left;
+	margin-left: 10px;
+	line-height: 40px;
+}
+.text_info{
+	margin-top: 10px;
+}
+
+.zoom_pic img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.pics{
+	height: 70px; 
+	width: 50px;
+	display: inline-block;
+	margin-top: 5px;
+	 margin-left: 2px;
+    margin-right: 2px;
+}
+
+
+
+.try{
+	height: 50px; 
+	width: auto; 
+	background-color: green;
+}
+
+
+
+.book-idea {
+    float: left;
+    height: 470px;
+    width: 1130px;
+    margin-top: 10px;
+    border: solid 1px #189eff;
+    margin-left: 70px;
+    margin-bottom: 50px;
+}
+
+.book-idea .noidung {
+    float: left;
+    height: 95%;
+    width: 100%;
+}
+
+.book-idea .box {
+    float: left;
+    height: 95%;
+    width: 95%;
+    margin-left: 30px;
+}
+
+.book-idea .box .sp {
+    float: left;
+    height: 90%;
+    width: 22.5%;
+    margin-right: 3px;
+    margin-left: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.book-idea .box .sp .des_product h5,
+.book-idea .box .sp p,
+.book-idea .box .sp h4 {
+    text-align: center;
+}
+
+
+.book-idea .box .sp p {
+    font-style: italic;
+}
+
+.book-idea .box .sp h4 {
+    font-size: 16px;
+    color: red;
+}
+
+.book-idea h3 {
+    display: block;
+    height: 40px;
+    margin: 0;
+    line-height: 40px;
+    color: #189eff;
+    background-color: white;
+    margin-top: -20px;
+    text-align: center;
+}
+
+.book-idea h3 {
+    width: 40%;
+    margin-left: 370px;
+}
+
+.text_mota {
+	height: auto; 
+	width: 1130px; 
+	float: left;
+	margin-left: 70px;
+	margin-top: 20px;
+	border: solid 1px #189eff;
+	margin-bottom: 50px;
+}
+.text_mota textarea{
+	float: left;
+	height: 300px; 
+	margin-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: justify;
+	width: 1090px;
+	margin-left: 20px;
+}
+.text_mota h6{
+	margin-left: 20px;
+}
