@@ -2,21 +2,20 @@ package form;
 
 import org.apache.struts.action.ActionForm;
 
-public class DangNhapForm extends ActionForm {
+/**
+ * @author HCD-Fresher005
+ *
+ */
+public class DangKyForm extends ActionForm {
+
 	private String taiKhoan;
 	private String matKhau;
+	private String nhapLaiMatKhau;
+
 	private String loiTaiKhoan;
 	private String loiMatKhau;
-	private boolean nhoDangNhap;
-	private String thongBao = "";
-
-	public String getThongBao() {
-		return thongBao;
-	}
-
-	public void setThongBao(String thongBao) {
-		this.thongBao = thongBao;
-	}
+	private String loiNhapLaiMatKhau;
+	private String loiDangKy;
 
 	public String getTaiKhoan() {
 		return taiKhoan;
@@ -32,6 +31,14 @@ public class DangNhapForm extends ActionForm {
 
 	public void setMatKhau(String matKhau) {
 		this.matKhau = matKhau;
+	}
+
+	public String getNhapLaiMatKhau() {
+		return nhapLaiMatKhau;
+	}
+
+	public void setNhapLaiMatKhau(String nhapLaiMatKhau) {
+		this.nhapLaiMatKhau = nhapLaiMatKhau;
 	}
 
 	public String getLoiTaiKhoan() {
@@ -50,12 +57,20 @@ public class DangNhapForm extends ActionForm {
 		this.loiMatKhau = loiMatKhau;
 	}
 
-	public boolean isNhoDangNhap() {
-		return nhoDangNhap;
+	public String getLoiNhapLaiMatKhau() {
+		return loiNhapLaiMatKhau;
 	}
 
-	public void setNhoDangNhap(boolean nhoDangNhap) {
-		this.nhoDangNhap = nhoDangNhap;
+	public void setLoiNhapLaiMatKhau(String loiNhapLaiMatKhau) {
+		this.loiNhapLaiMatKhau = loiNhapLaiMatKhau;
+	}
+
+	public String getLoiDangKy() {
+		return loiDangKy;
+	}
+
+	public void setLoiDangKy(String loiDangKy) {
+		this.loiDangKy = loiDangKy;
 	}
 
 }

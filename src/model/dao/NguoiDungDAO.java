@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import common.Constant;
 import model.bean.NguoiDung;
 
 public class NguoiDungDAO {
@@ -15,6 +16,8 @@ public class NguoiDungDAO {
 	String userName = "sa";
 	String password = "12345678";
 	Connection connection;
+
+	PreparedStatement statement;
 
 	// Ket Noi Co So Du Lieu
 	void connect() {
@@ -94,10 +97,8 @@ public class NguoiDungDAO {
 	// Chan Nguoi Dung
 	public void khoaNguoiDung(String maNguoiDung, String ghiChu) {
 		connect();
-		String sql = String
-				.format(
-						"update tblnguoidung set loainguoidung=2,ghichu=N'%s' where manguoidung='%s'",
-						maNguoiDung, ghiChu);
+		String sql = String.format("update tblnguoidung set loainguoidung=2,ghichu=N'%s' where manguoidung='%s'",
+				maNguoiDung, ghiChu);
 		try {
 			Statement stmt = connection.createStatement();
 			stmt.executeUpdate(sql);
@@ -109,10 +110,8 @@ public class NguoiDungDAO {
 	// Bo Chan Nguoi Dung
 	public void boKhoaNguoiDung(String maNguoiDung) {
 		connect();
-		String sql = String
-				.format(
-						"update tblnguoidung set loainguoidung=1,ghichu='' where manguoidung='%s'",
-						maNguoiDung);
+		String sql = String.format("update tblnguoidung set loainguoidung=1,ghichu='' where manguoidung='%s'",
+				maNguoiDung);
 		try {
 			Statement stmt = connection.createStatement();
 			stmt.executeUpdate(sql);
@@ -124,8 +123,7 @@ public class NguoiDungDAO {
 	// Xoa Nguoi Dung ---Chua Su Dung Phai Dung Procedure
 	public void xoaNguoiDung(String maNguoiDung) {
 		connect();
-		String sql = String.format(
-				"delete tblnguoidung where manguoidung='%s'", maNguoiDung);
+		String sql = String.format("delete tblnguoidung where manguoidung='%s'", maNguoiDung);
 		try {
 			Statement stmt = connection.createStatement();
 			stmt.executeUpdate(sql);
@@ -137,8 +135,7 @@ public class NguoiDungDAO {
 	// Kiem Tra Xem Tai Khoan Da Ton Tai Hay Chua
 	public boolean kiemTraTaiKhoanTonTai(String taikhoan) {
 		connect();
-		String sql = String.format("select * from dbo.f_checkaccount('%s')",
-				taikhoan);
+		String sql = String.format("select * from dbo.f_checkaccount('%s')", taikhoan);
 		try {
 			ResultSet rs = null;
 			Statement stmt = connection.createStatement();
@@ -164,8 +161,7 @@ public class NguoiDungDAO {
 	// 4 sai tai khoan
 	public int kiemTraDangNhap(String taiKhoan, String matKhau) {
 		connect();
-		String sql = String.format("select * from dbo.f_checklogin('%s','%s')",
-				taiKhoan, matKhau);
+		String sql = String.format("select * from dbo.f_checklogin('%s','%s')", taiKhoan, matKhau);
 		System.out.println(sql);
 		ResultSet rs = null;
 		try {
@@ -184,10 +180,8 @@ public class NguoiDungDAO {
 	// Lay li do khoa
 	public String layLiDoKhoa(String taiKhoan, String matKhau) {
 		connect();
-		String sql = String
-				.format(
-						"select ghichu from tblnguoidung where taikhoan='%s' and matkhau='%s'",
-						taiKhoan, matKhau);
+		String sql = String.format("select ghichu from tblnguoidung where taikhoan='%s' and matkhau='%s'", taiKhoan,
+				matKhau);
 		ResultSet rs = null;
 		try {
 			Statement stmt = connection.createStatement();
@@ -205,17 +199,31 @@ public class NguoiDungDAO {
 	// Lay ma nguoi dung
 	public String layMaNguoiDung(String taiKhoan, String matKhau) {
 		connect();
-		String sql = String
-				.format(
-						"select manguoidung from tblnguoidung where taikhoan='%s' and matkhau='%s'",
-						taiKhoan, matKhau);
+
+		/*
+		 * String sql = String .format(
+		 * "select manguoidung from tblnguoidung where taikhoan='%s' and matkhau='%s'"
+		 * , taiKhoan, matKhau);
+		 */
+
+		String sql = "select MaNguoiDung from " + Constant.TABLE_NGUOI_DUNG + " where TaiKhoan = ? and MatKhau = ? ";
+
 		ResultSet rs = null;
+
 		try {
-			Statement stmt = connection.createStatement();
-			rs = stmt.executeQuery(sql);
+			statement = connection.prepareStatement(sql);
+
+			statement.setString(1, taiKhoan);
+			statement.setString(2, matKhau);
+
+			rs = statement.executeQuery();
+
 			rs.next();
-			String maNguoiDung = rs.getString(1);
+
+			String maNguoiDung = rs.getString("MaNguoiDung");
+
 			return maNguoiDung;
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -225,17 +233,21 @@ public class NguoiDungDAO {
 
 	public String layAnhNguoiDung(String taiKhoan, String matKhau) {
 		connect();
-		String sql = String
-				.format(
-						"select anh from tblnguoidung where taikhoan='%s' and matkhau='%s'",
-						taiKhoan, matKhau);
+		String sql = "SELECT Anh FROM " + Constant.TABLE_NGUOI_DUNG + " WHERE TaiKhoan = ? and MatKhau = ?";
 		ResultSet rs = null;
 		try {
-			Statement stmt = connection.createStatement();
-			rs = stmt.executeQuery(sql);
+			statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, taiKhoan);
+			statement.setString(2, matKhau);
+			
+			rs = statement.executeQuery();
+			
 			rs.next();
-			String maNguoiDung = rs.getString(1);
-			return maNguoiDung;
+
+			String linkAnhNguoiDung = rs.getString("Anh");
+			
+			return linkAnhNguoiDung;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -244,17 +256,21 @@ public class NguoiDungDAO {
 	}
 
 	// Dang Ki Tai Khoan
-	public void dangKiTaiKhoan(String taiKhoan, String matKhau) {
+	public boolean dangKiTaiKhoan(String taiKhoan, String matKhau) {
 		connect();
-		String sql = String
-				.format("exec p_dangki '%s','%s'", taiKhoan, matKhau);
+		String sql = "exec p_dangki ?, ?";
 		try {
-			Statement stmt = connection.createStatement();
-			stmt.executeUpdate(sql);
-
+			statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, taiKhoan);
+			statement.setString(2, matKhau);
+			
+			statement.executeUpdate();
+			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return false;
 	}
 
 	public NguoiDung layNguoiDung(String maNguoiDung) {
@@ -268,13 +284,13 @@ public class NguoiDungDAO {
 			stmt.setString(1, maNguoiDung);
 
 			rs = stmt.executeQuery();
-			
+
 			nguoiDung = new NguoiDung();
-			
+
 			rs.next();
-			
+
 			System.out.println("tai khoan: " + rs.getString("taikhoan"));
-			
+
 			nguoiDung.setMaNguoiDung(rs.getString("manguoidung"));
 			nguoiDung.setTaiKhoan(rs.getString("taikhoan"));
 			nguoiDung.setHoTen(rs.getString("hoten"));
@@ -284,7 +300,7 @@ public class NguoiDungDAO {
 			nguoiDung.setAnh(rs.getString("anh"));
 			nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
 			nguoiDung.setNamSinh(rs.getInt("namSinh"));
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

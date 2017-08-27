@@ -36,78 +36,74 @@ public class DangNhapAction extends Action {
 
 		HttpSession session = request.getSession();
 		DangNhapForm dangNhapForm = (DangNhapForm) form;
+		
 		// set time out session
-		session.setMaxInactiveInterval(30000);
+//		session.setMaxInactiveInterval(30000);
 		dangNhapForm.setThongBao((String)session.getAttribute("thongBao"));
+		
 		if (session.getAttribute("userID") != null)
-			// return mapping.findForward("trangchu"); // neu da dang nhap dua
-			// ve
-			// trang hom.jsp
-			System.out.println("aaaaaaaaaaaaaaaaaa");
+			return mapping.findForward("trangchu"); // neu da dang nhap dua ve trang chu
+		
 		String maNguoiDung;
 		String anh;
-		
-		
-		String taiKhoan = dangNhapForm.getTaiKhoan(); // lay ten dang nhap tu
-		// form
+				
+		String taiKhoan = dangNhapForm.getTaiKhoan(); // lay ten dang nhap tu form
 		String matKhau = dangNhapForm.getMatKhau(); // lay mat khau tu form
 
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 
-		int key = nguoiDungBO.kiemTraDangNhap(taiKhoan, matKhau); // kiem tra
-		// dang nhap
+		int key = nguoiDungBO.kiemTraDangNhap(taiKhoan, matKhau); // key ~ kiem tra dang nhap
 
 		switch (key) {
 		case 0: // Day la admin
-
+			System.out.println("Tai khoan admin dang nhap");
 			maNguoiDung = nguoiDungBO.layMaNguoiDung(taiKhoan, matKhau); // lay
-			
 			
 			session.setAttribute("userName", taiKhoan);
 			session.setAttribute("type", 0);
 			session.setAttribute("userID", maNguoiDung);
-			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau); 
-			session.setAttribute("Avatar", anh);;
+			
+			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau);
+			session.setAttribute("Avatar", anh);
 
 			return mapping.findForward("trangquanli");
 
 		case 1:// Day la nguoi dung
-			maNguoiDung = nguoiDungBO.layMaNguoiDung(taiKhoan, matKhau); // lay
-			// ma
-			// nguoi
-			// dung
+			System.out.println("Tai khoan user dang nhap");
+			
+			maNguoiDung = nguoiDungBO.layMaNguoiDung(taiKhoan, matKhau); 
+			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau); 
 
 			session.setAttribute("userName", taiKhoan);
 			session.setAttribute("type", 1);
 			session.setAttribute("userID", maNguoiDung);
-			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau); 
 			session.setAttribute("Avatar", anh);
-// lay
-
-
+			
 			return mapping.findForward("trangnguoidung");
 
 		case 2:// Day la nguoi dung bi chan
 
-			String liDoChan = nguoiDungBO.layLiDoKhoa(taiKhoan, matKhau); // Lay
-			maNguoiDung = nguoiDungBO.layMaNguoiDung(taiKhoan, matKhau); // lay
-
+			System.out.println("Tai khoan block dang nhap");
+			
+			//String liDoChan = nguoiDungBO.layLiDoKhoa(taiKhoan, matKhau); 
+			
+			maNguoiDung = nguoiDungBO.layMaNguoiDung(taiKhoan, matKhau);
+			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau); 
 
 			session.setAttribute("userName", taiKhoan);
 			session.setAttribute("type", 2);
 			session.setAttribute("userID", maNguoiDung);
-			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau); 
 			session.setAttribute("Avatar", anh);
-
+			
 			return mapping.findForward("trangbichan");
 
 		case 3:
 
-			dangNhapForm.setLoiMatKhau("Mật khẩu không chính xác!");
+			dangNhapForm.setLoiMatKhau("Mat khau khong chinh xac!");
 			return mapping.findForward("saimatkhau");
 
 		case 4:
-			dangNhapForm.setLoiTaiKhoan("Tài khoản không tồn tại!");
+			dangNhapForm.setLoiTaiKhoan("Tai khoan khong ton tai!");
 			return mapping.findForward("saitaikhoan");
 		}
 		return mapping.findForward("trangchu");

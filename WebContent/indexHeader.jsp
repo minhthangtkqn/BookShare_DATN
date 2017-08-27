@@ -75,8 +75,8 @@
                     <div class="col-sm-3" style="margin-top: 15px;">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="reg.jsp"><i class="fa fa-user"></i> Đăng ký</a></li>
-                                <li><a href="log.jsp"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                                <li><a href="dangKy.jsp"><i class="fa fa-user"></i> Đăng ký</a></li>
+                                <li><a href="dangNhap.jsp"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                             </ul>
                         </div>
                     </div>

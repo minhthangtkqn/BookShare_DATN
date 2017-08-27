@@ -46,8 +46,8 @@ public class NguoiDungBO {
 		return nguoiDungDAO.layLiDoKhoa(taiKhoan, matKhau);
 	}
 
-	public void dangKi(String taiKhoan, String matKhau) {
-		nguoiDungDAO.dangKiTaiKhoan(taiKhoan, matKhau);
+	public boolean dangKi(String taiKhoan, String matKhau) {
+		return nguoiDungDAO.dangKiTaiKhoan(taiKhoan, matKhau);
 	}
 
 	public NguoiDung layNguoiDung(String maNguoiDung) {

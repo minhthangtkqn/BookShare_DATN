@@ -11,7 +11,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TEST PAGE</title>
+	<title>ĐĂNG NHẬP</title>
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
@@ -72,7 +72,6 @@
 					<html:password property="matKhau" styleClass="form-control"
 						></html:password><br>
 						<p style="color: red;"><bean:write name="dangNhapForm" property="loiMatKhau"/></p><br>
-
 				</div>
 			</div>
 			<div class="row form-group">
