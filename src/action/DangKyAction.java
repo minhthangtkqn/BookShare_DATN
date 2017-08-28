@@ -63,7 +63,6 @@ public class DangKyAction extends Action {
 			dangKiForm.setLoiDangKy("Đã xảy ra lỗi khi đăng ký");
 			return mapping.findForward("loi");
 		}
-
 	}
 
 }

@@ -3,7 +3,7 @@
 Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
 	<form-beans>
-		<!-- <form-bean name="trangChuForm" type="form.TrangChuForm" /> -->
+		<form-bean name="trangChuForm" type="form.TrangChuForm" />
 		<form-bean name="dangNhapForm" type="form.DangNhapForm" />
 		<!-- <form-bean name="chiTietBaiDangForm" type="form.ChiTietBaiDangForm" 
 			/> -->
@@ -42,11 +42,11 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="trangchu" path="/home.jsp" />
 		</action>
 
-		<!-- <action input="/index.jsp" name="trangChuForm" path="/trang-chu" -->
-		<!-- scope="request" type="action.TrangChuAction"> -->
-		<!-- <forward name="index" path="/index.jsp" /> -->
-		<!-- <forward name="home" path="/home.jsp" /> -->
-		<!-- </action> -->
+		<action input="/index.jsp" name="trangChuForm" path="/trang-chu"
+			scope="request" type="action.TrangChuAction">
+			<forward name="index" path="/index.jsp" />
+			<forward name="home" path="/home.jsp" />
+		</action>
 
 		<!-- <action input="/log.jsp" name="" path="/dang-xuat" scope="request" -->
 		<!-- type="action.DangXuatAction"> -->

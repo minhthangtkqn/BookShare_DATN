@@ -252,17 +252,19 @@ a#scrollUp i {
 #slider {
 	float: left;
 	height: 100%;
-	width: 800px;
+/* 	width: 800px; */
+	width: 60%;
 }
 
 #menu_ngang {
 	float: left;
 	height: 470px;
-	width: 220px;
+/* 	width: 220px; */
 	margin-left: 70px;
 	margin-right: 40px;
 	border: solid 1px lightgrey;
 	margin-bottom: 45px;
+	width: 23%;
 }
 
 #menu_ngang h4 {
@@ -286,6 +288,8 @@ a#scrollUp i {
 	margin-top: 0px;
 	border-bottom: solid 1px lightgrey;
 	/*border-bottom: solid 1px grey;*/
+	overflow: hidden;
+	font-size: 13px;
 }
 
 #menu_ngang ul li a {
