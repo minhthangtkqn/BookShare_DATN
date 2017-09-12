@@ -57,12 +57,12 @@ public class DanhMucDAO {
 		return list;
 	}
 
-	public ArrayList<DanhMuc> layTop5DanhMucBanNhieu(int soLuong) {
+	public ArrayList<DanhMuc> layTopDanhMucBanNhieu(int soLuong) {
 		System.out.println("DANH MUC DAO lay Top 5 Danh Muc Ban Nhieu Nhat");
 
 		connect();
 		String sql = "select top " + soLuong + " madanhmuc,tendanhmuc from " + Constant.TABLE_DANH_MUC
-				+ " order by SoLuongDaBan asc";
+				+ " order by SoLuongDaBan desc";
 		ArrayList<DanhMuc> list = new ArrayList<DanhMuc>();
 		DanhMuc danhMuc;
 		ResultSet rs = null;

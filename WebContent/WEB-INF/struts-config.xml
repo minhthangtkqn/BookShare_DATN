@@ -5,10 +5,8 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 	<form-beans>
 		<form-bean name="trangChuForm" type="form.TrangChuForm" />
 		<form-bean name="dangNhapForm" type="form.DangNhapForm" />
-		<!-- <form-bean name="chiTietBaiDangForm" type="form.ChiTietBaiDangForm" 
-			/> -->
-		<!-- <form-bean name="ketQuaTimKiemForm" type="form.KetQuaTimKiemForm" 
-			/> -->
+		<form-bean name="chiTietBaiDangForm" type="form.ChiTietBaiDangForm" />
+		<form-bean name="ketQuaTimKiemForm" type="form.KetQuaTimKiemForm" />
 		<!-- <form-bean name="dangBanForm" type="form.DangBanForm" /> -->
 		<form-bean name="dangKyForm" type="form.DangKyForm" />
 		<!-- <form-bean name="trangNguoiDungForm" type="form.TrangNguoiDungForm" 
@@ -42,6 +40,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="trangchu" path="/home.jsp" />
 		</action>
 
+		<!-- TRANG CHU -->
 		<action input="/index.jsp" name="trangChuForm" path="/trang-chu"
 			scope="request" type="action.TrangChuAction">
 			<forward name="index" path="/index.jsp" />
@@ -54,20 +53,21 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<!-- <forward name="dangXuatThatBai" path="/trang-chu.do" /> -->
 		<!-- </action> -->
 
-		<!-- <action input="/log.jsp" name="chiTietBaiDangForm" path="/chi-tiet-bai-dang" -->
-		<!-- scope="request" type="action.ChiTietBaiDangAction"> -->
-		<!-- <forward name="xemCheDoKhach" path="/chiTietBaiDang.jsp" /> -->
-		<!-- <forward name="trangbichan" path="/chiTietBaiDangLogged.jsp" /> -->
-		<!-- <forward name="xemchedonguoidung" path="/chiTietBaiDangLogged.jsp" 
-			/> -->
-		<!-- <forward name="xemchedoquanli" path="/chiTietBaiDangLogged.jsp" /> -->
-		<!-- </action> -->
+		<!-- CHI TIET BAI DANG -->
+		<action input="/index.jsp" name="chiTietBaiDangForm" path="/chi-tiet-bai-dang"
+			scope="request" type="action.ChiTietBaiDangAction">
+			<forward name="xemCheDoKhach" path="/chiTietBaiDang.jsp" />
+			<forward name="trangBiChan" path="/chiTietBaiDangLogged.jsp" />
+			<forward name="xemCheDoNguoiDung" path="/chiTietBaiDangLogged.jsp" />
+			<forward name="xemCheDoQuanLy" path="/chiTietBaiDangLogged.jsp" />
+		</action>
 
-		<!-- <action input="/log.jsp" name="ketQuaTimKiemForm" path="/ket-qua-tim-kiem" -->
-		<!-- scope="request" type="action.KetQuaTimKiemAction"> -->
-		<!-- <forward name="ketQua" path="/ketQuaTimKiem.jsp" /> -->
-		<!-- <forward name="ketQuaLogged" path="/ketQuaTimKiemLogged.jsp" /> -->
-		<!-- </action> -->
+		<!-- KET QUA TIM KIEM -->
+		<action input="/log.jsp" name="ketQuaTimKiemForm" path="/ket-qua-tim-kiem"
+			scope="request" type="action.KetQuaTimKiemAction">
+			<forward name="ketQua" path="/ketQuaTimKiem.jsp" />
+			<forward name="ketQuaLogged" path="/ketQuaTimKiemLogged.jsp" />
+		</action>
 
 		<!-- <action input="/post.jsp" name="dangBanForm" path="/dang-ban" -->
 		<!-- scope="request" type="action.DangBanAction"> -->

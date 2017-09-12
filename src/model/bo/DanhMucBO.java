@@ -13,7 +13,7 @@ public class DanhMucBO {
 	}
 
 	public ArrayList<DanhMuc> layTopDanhMucBanNhieu(int soLuong) {
-		return danhMucDAO.layTop5DanhMucBanNhieu(soLuong);
+		return danhMucDAO.layTopDanhMucBanNhieu(soLuong);
 	}
 	
 }

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import common.Constant;
 import model.bean.RaoBan;
 
 public class RaoBanDAO {
@@ -107,6 +108,7 @@ public class RaoBanDAO {
 	}
 
 	public RaoBan layThongTinBaiDang(String maRaoBan) {
+
 		System.out.println("Ma rao ban DAO: " + maRaoBan);
 
 		connect();
@@ -134,7 +136,7 @@ public class RaoBanDAO {
 			raoBan.setHoTenNguoiBan(rs.getString("hoten"));
 			raoBan.setTaiKhoanNguoiBan(rs.getString("taikhoan"));
 			raoBan.setAnhNguoiBan(rs.getString("anh"));
-			raoBan.setGioiTinh(rs.getInt("gioitinh"));
+			raoBan.setGioiTinh(rs.getString("gioitinh"));
 			raoBan.setNamSinhNguoiBan(rs.getInt("namsinh"));
 			raoBan.setTenSach(rs.getString("tensach"));
 			raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
@@ -143,9 +145,14 @@ public class RaoBanDAO {
 			raoBan.setNxb(rs.getString("nxb"));
 			raoBan.setTacGia(rs.getString("tacgia"));
 
-			System.out.print("ten sach: " + raoBan.getTenSach());
-			System.out.print(" --- ten nguoi dang: " + raoBan.getHoTenNguoiBan());
+			System.out.println("THONG TIN SACH:");
+			System.out.println("ten sach: " + raoBan.getTenSach());
+			System.out.println(" --- ten nguoi dang: " + raoBan.getHoTenNguoiBan());
 			System.out.println(" --- nam sinh: " + raoBan.getNamSinhNguoiBan());
+			System.out.println(" --- link anh 1: " + raoBan.getLinkAnh1());
+			System.out.println(" --- gioi tinh: " + raoBan.getGioiTinh());
+			System.out.println(" --- danh muc: " + raoBan.getTenDanhMuc());
+			System.out.println(" --- nha xuat ban: " + raoBan.getNxb());
 
 			raoBan.toString();
 
@@ -396,21 +403,21 @@ public class RaoBanDAO {
 			Statement stm = connection.createStatement();
 			ResultSet rs = null;
 			rs = stm.executeQuery(sql);
-			
+
 			RaoBan baiRaoBan;
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
-				
+
 				baiRaoBan.setGia(rs.getFloat("Gia"));
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
-				
+
 				System.out.print("Ten sach: " + rs.getString("TenSach"));
 				System.out.println("  --  Link anh: " + rs.getString("LinkAnh1"));
-				
+
 				list.add(baiRaoBan);
 			}
 
@@ -433,14 +440,14 @@ public class RaoBanDAO {
 			RaoBan baiRaoBan;
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
-				
+
 				baiRaoBan.setGia(rs.getFloat("Gia"));
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
-				
+
 				list.add(baiRaoBan);
 			}
 
@@ -454,7 +461,7 @@ public class RaoBanDAO {
 		connect();
 
 		String sql = "select * from v_dsDanhMucBanNhieuNhat";
-		
+
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
 		try {
@@ -464,7 +471,7 @@ public class RaoBanDAO {
 			RaoBan baiRaoBan;
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
-				
+
 				baiRaoBan.setGia(rs.getFloat("Gia"));
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
@@ -473,7 +480,7 @@ public class RaoBanDAO {
 				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 				baiRaoBan.setTenDanhMuc(rs.getString("TenDanhMuc"));
 				baiRaoBan.setMaDanhMuc(rs.getString("MaDanhMuc"));
-				
+
 				list.add(baiRaoBan);
 			}
 
@@ -486,26 +493,33 @@ public class RaoBanDAO {
 	public ArrayList<RaoBan> layDanhSachTimKiemTenSach(String tuKhoa) {
 		connect();
 
-		String sql = "select maraoban,tensach,tacgia,gia,tentinh,linkanh1 from tblraoban rb inner join tblsach sa on rb.masach =sa.masach inner join tbltinh ti on ti.matinh =rb.matinh inner join tbldanhmuc dm on dm.madanhmuc=sa.madanhmuc where trangthaiban=0 and tensach like N'%"
-				+ tuKhoa + "%' order by gia,ngayban";
+		String sql = "SELECT TenSach, TacGia, Gia, MaRaoBan, LinkAnh1, TrangThaiBan, NgayBan FROM "
+				+ Constant.TABLE_RAO_BAN + " WHERE TrangThaiBan = 1 AND TenSach LIKE N'%" + tuKhoa + "%' "
+				+ " ORDER BY NgayBan DESC";
+
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
+		
 		System.out.println("SQL: " + sql);
+		
 		try {
 			Statement pstm = connection.createStatement();
-			// pstm.setString(1, tuKhoa);
+			
 			ResultSet rs = null;
+			
 			rs = pstm.executeQuery(sql);
+			
 			RaoBan baiRaoBan;
+			
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
-				
+
 				baiRaoBan.setGia(rs.getFloat("Gia"));
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
-				
+//				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
+
 				list.add(baiRaoBan);
 			}
 
@@ -530,14 +544,14 @@ public class RaoBanDAO {
 			RaoBan baiRaoBan;
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
-				
+
 				baiRaoBan.setGia(rs.getFloat("Gia"));
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
-				
+
 				list.add(baiRaoBan);
 			}
 
@@ -561,14 +575,14 @@ public class RaoBanDAO {
 			RaoBan baiRaoBan;
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
-				
+
 				baiRaoBan.setGia(rs.getFloat("Gia"));
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
-				
+
 				list.add(baiRaoBan);
 			}
 

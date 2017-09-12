@@ -31,7 +31,7 @@ public class RaoBan {
 	private int namSinhNguoiBan;
 	private String tenTinhNguoiBan;
 	private String anhNguoiBan;
-	private int gioiTinh;
+	private String gioiTinh;
 
 	// Sach
 	private String tenSach;
@@ -39,10 +39,6 @@ public class RaoBan {
 	private String nxb;
 	private int namxb;
 	private String tenDanhMuc;
-
-//	public RaoBan() {
-//		linkAnh1 = "images/No-image.jpg";
-//	}
 
 	public String getMaRaoBan() {
 		return maRaoBan;
@@ -236,11 +232,11 @@ public class RaoBan {
 		this.anhNguoiBan = anhNguoiBan;
 	}
 
-	public int getGioiTinh() {
+	public String getGioiTinh() {
 		return gioiTinh;
 	}
 
-	public void setGioiTinh(int gioiTinh) {
+	public void setGioiTinh(String gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
 

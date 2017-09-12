@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>INDEX</title>
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -50,13 +50,6 @@
 				<b>DANH MỤC</b>
 			</h4>
 			<ul>
-<!-- 				<li><a href="#"><b>Truyện tranh</b></a></li> -->
-<!-- 				<li><a href="#"><b>Tiểu thuyết</b></a></li> -->
-<!-- 				<li><a href="#"><b>Văn học nước ngoài</b></a></li> -->
-<!-- 				<li><a href="#"><b>Văn học Việt Nam</b></a></li> -->
-<!-- 				<li><a href="#"><b>Sách thủ công</b></a></li> -->
-<!-- 				<li><a href="#"><b>Kỹ năng sống</b></a></li> -->
-<!-- 				<li><a href="#"><b>Tài liệu tham khảo</b></a></li> -->
 				<logic:iterate id="danhMuc" property="dsDanhMuc" name="trangChuForm">
 					<li><a href="#"><b><bean:write name="danhMuc" property="tenDanhMuc" /></b></a></li>
 				</logic:iterate>

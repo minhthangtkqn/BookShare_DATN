@@ -9,6 +9,7 @@ import model.bean.Banner;
 import model.bean.DanhMuc;
 
 public class TrangChuForm extends ActionForm {
+	
 	private ArrayList<RaoBan> dsMoiNhat;
 	private ArrayList<RaoBan> dsNgauNhien;
 	private ArrayList<RaoBan> dsDanhMucBanNhieu;
