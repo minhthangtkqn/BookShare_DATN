@@ -32,6 +32,7 @@
 	<!-- ++++++ -->
 	<!-- ++++++ -->
 
+	<!-- SET UTF-8 FOR ALL JSP PAGE +++ AFTER THAT -> DON'T NEED TO WRITE pageEncoding  -->
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>
@@ -42,10 +43,5 @@
 	<welcome-file-list>
 		<welcome-file>trang-chu.do</welcome-file>
 	</welcome-file-list>
-	
-
-	<!-- ++++++ -->
-	<!-- ++++++ -->
-	<!-- ++++++ -->
 
 </web-app>
