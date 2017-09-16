@@ -15,10 +15,10 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 	</form-beans>
 	<action-mappings>
 
+		<!-- DANG NHAP -->
 		<action input="/dangNhap.jsp" name="dangNhapForm" path="/dang-nhap"
 			scope="request" type="action.DangNhapAction">
-			<!-- <forward name="trangquanli" path="/trang-quan-ly.do" redirect="true" 
-				/> -->
+			<!-- <forward name="trangquanli" path="/trang-quan-ly.do" redirect="true" /> -->
 			<!-- <forward name="trangnguoidung" path="/trang-chu.do" /> -->
 			<!-- <forward name="trangbichan" path="/block.jsp" /> -->
 			<!-- <forward name="saimatkhau" path="/login.jsp" /> -->
@@ -26,10 +26,10 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<!-- <forward name="trangchu" path="/trang-chu.do" /> -->
 			<forward name="trangquanli" path="/admin.jsp" redirect="true" />
 			<forward name="trangnguoidung" path="/user.jsp" />
-			<forward name="trangbichan" path="/block.jsp" />
+			<forward name="trangbichan" path="/blockInfo.jsp" />
 			<forward name="saimatkhau" path="/dangNhap.jsp" />
 			<forward name="saitaikhoan" path="/dangNhap.jsp" />
-			<forward name="trangchu" path="/home.jsp" />
+			<forward name="trangchu" path="/trang-chu.do" />
 		</action>
 
 		<!-- DANG KY -->
@@ -42,16 +42,17 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 
 		<!-- TRANG CHU -->
 		<action input="/index.jsp" name="trangChuForm" path="/trang-chu"
-			scope="request" type="action.TrangChuAction">
+			scope="session" type="action.TrangChuAction">
 			<forward name="index" path="/index.jsp" />
 			<forward name="home" path="/home.jsp" />
 		</action>
 
-		<!-- <action input="/log.jsp" name="" path="/dang-xuat" scope="request" -->
-		<!-- type="action.DangXuatAction"> -->
-		<!-- <forward name="dangXuatThanhCong" path="/trang-chu.do" /> -->
-		<!-- <forward name="dangXuatThatBai" path="/trang-chu.do" /> -->
-		<!-- </action> -->
+		<!-- DANG XUAT -->
+		<action input="/log.jsp" name="" path="/dang-xuat" scope="request"
+			type="action.DangXuatAction">
+			<forward name="dangXuatThanhCong" path="/trang-chu.do" />
+			<forward name="dangXuatThatBai" path="/trang-chu.do" />
+		</action>
 
 		<!-- CHI TIET BAI DANG -->
 		<action input="/index.jsp" name="chiTietBaiDangForm" path="/chi-tiet-bai-dang"

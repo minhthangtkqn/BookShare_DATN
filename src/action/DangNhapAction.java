@@ -79,13 +79,13 @@ public class DangNhapAction extends Action {
 			session.setAttribute("userID", maNguoiDung);
 			session.setAttribute("Avatar", anh);
 			
-			return mapping.findForward("trangnguoidung");
+			return mapping.findForward("trangchu");
 
 		case 2:// Day la nguoi dung bi chan
 
 			System.out.println("Tai khoan block dang nhap");
 			
-			//String liDoChan = nguoiDungBO.layLiDoKhoa(taiKhoan, matKhau); 
+			String liDoChan = nguoiDungBO.layLiDoKhoa(taiKhoan, matKhau); 
 			
 			maNguoiDung = nguoiDungBO.layMaNguoiDung(taiKhoan, matKhau);
 			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau); 
@@ -94,6 +94,8 @@ public class DangNhapAction extends Action {
 			session.setAttribute("type", 2);
 			session.setAttribute("userID", maNguoiDung);
 			session.setAttribute("Avatar", anh);
+			
+			session.setAttribute("reason", liDoChan);
 			
 			return mapping.findForward("trangbichan");
 

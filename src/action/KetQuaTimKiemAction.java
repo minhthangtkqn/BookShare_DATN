@@ -1,5 +1,7 @@
 package action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,6 +12,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.KetQuaTimKiemForm;
+import model.bean.RaoBan;
 import model.bo.RaoBanBO;
 
 public class KetQuaTimKiemAction extends Action {
@@ -19,7 +22,7 @@ public class KetQuaTimKiemAction extends Action {
 			HttpServletResponse response) throws Exception {
 
 		request.setCharacterEncoding("UTF-8");
-		
+
 		System.out.println("Ket Qua Tim Kiem Action");
 
 		HttpSession session = request.getSession();
@@ -30,8 +33,43 @@ public class KetQuaTimKiemAction extends Action {
 		String tuKhoa = (ketQuaTimKiemForm.getTuKhoa() == null) ? "" : ketQuaTimKiemForm.getTuKhoa();
 
 		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");
+		
+		// Lưu từ khóa tìm kiếm vào CSDL
+		.
 
+		// Xử lý từ khóa tìm kiếm
+		String[] arrayTuKhoa = tuKhoa.split("\\s+");
+		System.out.println("Các từ khóa con:");
+		for (String item : arrayTuKhoa) {
+			System.out.println("-|" + item + "|-");
+		}
+		// END xử lý từ khóa
+
+		// -----------------
+
+		// Tim kiem dua theo cac tu khoa
 		ketQuaTimKiemForm.setListRaoBan(raoBanBO.layDanhSachTimKiemTenSach(tuKhoa));
+		for (String item : arrayTuKhoa) {
+			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenSach(item));
+		}
+		// END Tim kiem dua theo cac tu khoa
+
+		// -----------------
+
+		// Lọc lại các kết quả tìm kiếm trùng nhau
+		for (int i = 0; i < ketQuaTimKiemForm.getListRaoBan().size(); i++) {
+			for (int j = i + 1; j < ketQuaTimKiemForm.getListRaoBan().size(); j++) {
+				
+				if (ketQuaTimKiemForm.getListRaoBan().get(i).getMaRaoBan().equals(ketQuaTimKiemForm.getListRaoBan().get(j).getMaRaoBan())) {
+					ketQuaTimKiemForm.getListRaoBan().remove(j);
+					j--;
+				}
+				
+			}
+		}
+		// END Lọc lại các kết quả tìm kiếm trùng nhau
+
+		// -----------------
 
 		if (session.getAttribute("userID") == null)
 
