@@ -53,19 +53,38 @@ public class ChiTietBaiDangAction extends Action {
 		else
 			chiTietBaiDangForm.getChiTiet().setGioiTinh("Chưa xác định");
 
-
-		// kiem tra nguoi dung de phan luong hien thi
-		if (session.getAttribute("userID") == null)
-			return mapping.findForward("xemCheDoKhach"); // neu chua dang nhap
-															// xem che do khach
+		/**
+		 * Kiem tra nguoi dung de phan luong hien thi
+		 */
+		// neu chua dang nhap xem che do khach
+		if (session.getAttribute("userID") == null) {
+			String userID = "";
+			if (raoBanBO.luuLichSuXemRaoBan(userID, chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {
+				System.out.println("Da~ luu vao CSDL:");
+				System.out.println("Ma Nguoi Dung: " + userID + "  ---  Ma Rao Ban: "
+						+ chiTietBaiDangForm.getChiTiet().getMaRaoBan());
+			} else {
+				System.out.println("Luu vao` CSDL that bai");
+			}
+			return mapping.findForward("xemCheDoKhach");
+		}
 
 		// Neu da dang nhap
 		int userType = (Integer) session.getAttribute("type");
 		String userID = (String) session.getAttribute("userID");
 
+		// luu lich su xem rao ban vao` CSDL
+		if (raoBanBO.luuLichSuXemRaoBan(userID, chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {
+			System.out.println("Da~ luu vao CSDL:");
+			System.out.println(
+					"Ma Nguoi Dung: " + userID + "  ---  Ma Rao Ban: " + chiTietBaiDangForm.getChiTiet().getMaRaoBan());
+		} else {
+			System.out.println("Luu vao` CSDL that bai");
+		}
+
 		// Nguoi dung bi chan
 		if (userType == 2)
-			return mapping.findForward("trangBiChan");
+			return mapping.findForward("nguoiDungBiChan");
 
 		if (userType == 1) {
 			// Kiem tra chua mua

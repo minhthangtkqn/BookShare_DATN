@@ -12,6 +12,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<!-- <form-bean name="trangNguoiDungForm" type="form.TrangNguoiDungForm" 
 			/> -->
 		<form-bean name="testForm" type="form.TestForm" />
+		<form-bean name="testUploadFileForm" type="form.TestUploadFileForm" />
 	</form-beans>
 	<action-mappings>
 
@@ -39,6 +40,12 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="loi" path="/dangKy.jsp" />
 			<forward name="trangchu" path="/home.jsp" />
 		</action>
+		
+		<!-- TEST UPLOAD IMAGE -->
+		<action input="/TestUploadFile.jsp" name="testUploadFileForm" path="/test-upload"
+			scope="request" type="action.TestUploadFileAction">
+			<forward name="dung" path="/uploadThanhCong.jsp" />
+		</action>
 
 		<!-- TRANG CHU -->
 		<action input="/index.jsp" name="trangChuForm" path="/trang-chu"
@@ -58,7 +65,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<action input="/index.jsp" name="chiTietBaiDangForm" path="/chi-tiet-bai-dang"
 			scope="request" type="action.ChiTietBaiDangAction">
 			<forward name="xemCheDoKhach" path="/chiTietBaiDang.jsp" />
-			<forward name="trangBiChan" path="/chiTietBaiDangLogged.jsp" />
+			<forward name="nguoiDungBiChan" path="/chiTietBaiDangLogged.jsp" />
 			<forward name="xemCheDoNguoiDung" path="/chiTietBaiDangLogged.jsp" />
 			<forward name="xemCheDoQuanLy" path="/chiTietBaiDangLogged.jsp" />
 		</action>

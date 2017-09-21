@@ -2,6 +2,7 @@ package model.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -498,9 +499,46 @@ public class RaoBanDAO {
 				+ " ORDER BY NgayBan DESC";
 
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
-		
+
 		System.out.println("SQL: " + sql);
+
+		try {
+			Statement pstm = connection.createStatement();
+
+			ResultSet rs = null;
+
+			rs = pstm.executeQuery(sql);
+
+			RaoBan baiRaoBan;
+
+			while (rs.next()) {
+				baiRaoBan = new RaoBan();
+
+				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setTacGia(rs.getString("TacGia"));
+				baiRaoBan.setTenSach(rs.getString("TenSach"));
+				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
+				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
+				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
+
+				list.add(baiRaoBan);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa) {
+		connect();
+
+		String sql = "SELECT TenSach, TacGia, Gia, MaRaoBan, LinkAnh1, TrangThaiBan, NgayBan FROM "
+				+ Constant.TABLE_RAO_BAN + " WHERE TrangThaiBan = 1 AND TacGia LIKE N'%" + tuKhoa + "%' "
+				+ " ORDER BY NgayBan DESC";
 		
+		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
+
 		try {
 			Statement pstm = connection.createStatement();
 			
@@ -519,38 +557,6 @@ public class RaoBanDAO {
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 //				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
-
-				list.add(baiRaoBan);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-
-	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa) {
-		connect();
-
-		String sql = "select maraoban,tensach,tacgia,gia,tentinh,linkanh1 from tblraoban rb inner join tblsach sa on rb.masach =sa.masach inner join tbltinh ti on ti.matinh =rb.matinh inner join tbldanhmuc dm on dm.madanhmuc=sa.madanhmuc where trangthaiban=0 and tacgia like like N'%"
-				+ tuKhoa + "%' order by gia,ngayban)";
-		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
-
-		try {
-			PreparedStatement pstm = connection.prepareStatement(sql);
-			pstm.setString(1, tuKhoa);
-			ResultSet rs = null;
-			rs = pstm.executeQuery(sql);
-			RaoBan baiRaoBan;
-			while (rs.next()) {
-				baiRaoBan = new RaoBan();
-
-				baiRaoBan.setGia(rs.getFloat("Gia"));
-				baiRaoBan.setTacGia(rs.getString("TacGia"));
-				baiRaoBan.setTenSach(rs.getString("TenSach"));
-				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
-				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				list.add(baiRaoBan);
 			}
@@ -590,6 +596,48 @@ public class RaoBanDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	public boolean luuTuKhoaTimKiem(String maNguoiDung, String tuKhoa) {
+		connect();
+
+		String sql = "INSERT INTO " + Constant.TABLE_TU_KHOA_TIM_KIEM + " VALUES(?, ?, GETDATE())";
+
+		try {
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, maNguoiDung);
+			statement.setNString(2, tuKhoa);
+			
+			statement.executeUpdate();
+			return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean luuLichSuXemRaoBan(String maNguoiDung, String maRaoBan) {
+		connect();
+
+		String sql = "INSERT INTO " + Constant.TABLE_RAO_BAN_DA_XEM + " VALUES(?, ?, GETDATE())";
+
+		try {
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, maNguoiDung);
+			statement.setNString(2, maRaoBan);
+			
+			statement.executeUpdate();
+			return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

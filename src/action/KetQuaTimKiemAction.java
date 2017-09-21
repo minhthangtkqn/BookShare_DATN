@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import common.StringProcess;
 import form.KetQuaTimKiemForm;
 import model.bean.RaoBan;
 import model.bo.RaoBanBO;
@@ -33,9 +34,10 @@ public class KetQuaTimKiemAction extends Action {
 		String tuKhoa = (ketQuaTimKiemForm.getTuKhoa() == null) ? "" : ketQuaTimKiemForm.getTuKhoa();
 
 		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");
-		
+
 		// Lưu từ khóa tìm kiếm vào CSDL
-		.
+		raoBanBO.luuTuKhoaTimKiem(
+				(session.getAttribute("userID") == null) ? "" : (String) (session.getAttribute("userID")), tuKhoa);
 
 		// Xử lý từ khóa tìm kiếm
 		String[] arrayTuKhoa = tuKhoa.split("\\s+");
@@ -43,28 +45,55 @@ public class KetQuaTimKiemAction extends Action {
 		for (String item : arrayTuKhoa) {
 			System.out.println("-|" + item + "|-");
 		}
+
+		// loai bo dau tieng Viet
+		String tuKhoaKhongDau = StringProcess.removeDiacritics(tuKhoa);
+		String[] arrayTuKhoaKhongDau = tuKhoaKhongDau.split("\\s+");
+		System.out.println("Các từ khóa con KHÔNG DẤU:");
+		for (String item : arrayTuKhoa) {
+			System.out.println("-|" + item + "|-");
+		}
 		// END xử lý từ khóa
 
 		// -----------------
 
-		// Tim kiem dua theo cac tu khoa
+		
+		
+		// Tim kiem ten SACH dua theo cac tu khoa
 		ketQuaTimKiemForm.setListRaoBan(raoBanBO.layDanhSachTimKiemTenSach(tuKhoa));
 		for (String item : arrayTuKhoa) {
 			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenSach(item));
 		}
-		// END Tim kiem dua theo cac tu khoa
+		for (String item : arrayTuKhoaKhongDau) {
+			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenSach(item));
+		}
+		// END Tim kiem SACH dua theo cac tu khoa
+
+		// -----------------
+
+		// Tim kiem ten TAC GIA dua theo cac tu khoa
+		ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(tuKhoa));
+		
+		for (String item : arrayTuKhoa) {
+			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item));
+		}
+		for (String item : arrayTuKhoaKhongDau) {
+			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item));
+		}
+		// END Tim kiem TAC GIA dua theo cac tu khoa
 
 		// -----------------
 
 		// Lọc lại các kết quả tìm kiếm trùng nhau
 		for (int i = 0; i < ketQuaTimKiemForm.getListRaoBan().size(); i++) {
 			for (int j = i + 1; j < ketQuaTimKiemForm.getListRaoBan().size(); j++) {
-				
-				if (ketQuaTimKiemForm.getListRaoBan().get(i).getMaRaoBan().equals(ketQuaTimKiemForm.getListRaoBan().get(j).getMaRaoBan())) {
+
+				if (ketQuaTimKiemForm.getListRaoBan().get(i).getMaRaoBan()
+						.equals(ketQuaTimKiemForm.getListRaoBan().get(j).getMaRaoBan())) {
 					ketQuaTimKiemForm.getListRaoBan().remove(j);
 					j--;
 				}
-				
+
 			}
 		}
 		// END Lọc lại các kết quả tìm kiếm trùng nhau

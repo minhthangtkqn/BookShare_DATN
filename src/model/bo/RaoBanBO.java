@@ -78,4 +78,18 @@ public class RaoBanBO {
 	public ArrayList<RaoBan> layDanhSachGoiY(String userID) {
 		return raoBanDAO.layDanhSachGoiY(userID);
 	}
+	
+	/**
+	 * Luu tu khoa vao CSDL khi tim kiem
+	 */
+	public boolean luuTuKhoaTimKiem(String maNguoiDung, String tuKhoa) {
+		return raoBanDAO.luuTuKhoaTimKiem(maNguoiDung, tuKhoa);
+	}
+	
+	/**
+	 * Luu lich su xem rao ban vao CSDL
+	 */
+	public boolean luuLichSuXemRaoBan(String maNguoiDung, String maRaoBan) {
+		return raoBanDAO.luuLichSuXemRaoBan(maNguoiDung, maRaoBan);
+	}
 }

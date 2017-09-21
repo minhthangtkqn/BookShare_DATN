@@ -8,4 +8,8 @@ public class Constant {
 	public static final String TABLE_RAO_BAN = "[tblRaoBan]";
 	public static final String TABLE_DANH_MUC = "[tblDanhMuc]";
 	public static final String TABLE_NGUOI_DUNG = "[tblNguoiDung]";
+	public static final String TABLE_RAO_BAN_DA_XEM = "[tblRaoBanDaXem]";
+	public static final String TABLE_TU_KHOA_TIM_KIEM = "[tblTuKhoaTimKiem]";
+	
+	
 }
