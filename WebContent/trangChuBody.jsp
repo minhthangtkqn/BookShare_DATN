@@ -68,7 +68,7 @@
 		<%-- 		action="/ket-qua-tim-kiem.do?page=1">Tim kiem</html:link> --%>
 
 		<!-- -sanpham -->
-		<!--book new-->
+		<!--BOOK NEW-->
 		<div class="book-new">
 			<h3>
 				<img src="images/home/newn.png"
@@ -99,8 +99,9 @@
 				<!-- sp -->
 			</div>
 		</div>
+		<!--END BOOK NEW-->
 
-		<!--book hot-->
+		<!--BOOK HOT-->
 		<div class="book-hot">
 			<h3>
 				<img src="images/home/hotn.png" class="w3-hover-opacity"
@@ -131,6 +132,41 @@
 				<!-- sp -->
 			</div>
 		</div>
+		<!-- END BOOK HOT-->
+
+		<!--RECOMMENDED BOOK-->
+		<div class="book-hot">
+			<h3>
+<!-- 				<img src="images/home/hotn.png" class="w3-hover-opacity"style="height: 50px; width: 70px; margin-right: 10px;"> -->
+				<b>MỌI NGƯỜI CŨNG XEM</b>
+			</h3>
+
+			<div class="box">
+				<!-- sp -->
+				<logic:iterate name="trangChuForm" property="dsGoiYMoiNguoiCungXem" id="sp">
+					<div class="sp">
+						<bean:define id="linkAnh1" name="sp" property="linkAnh1"></bean:define>
+						<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
+						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><img
+							src="${linkAnh1}" class="w3-hover-opacity"
+							style="height: 73%; width: 90%; display: block; margin-left: 10px; margin-top: 10px;"></a>
+						<h5>
+							<b><bean:write name="sp" property="tenSach" /></b>
+						</h5>
+						<p>
+							<bean:write name="sp" property="tacGia" />
+						</p>
+						<h4>
+							<b><bean:write name="sp" property="gia" /></b>
+						</h4>
+					</div>
+				</logic:iterate>
+				<!-- sp -->
+			</div>
+			<br>
+			<a style="float: left; font-weight: bold; margin-left: 30px; text-decoration: underline;" href="goi-y-moi-nguoi-cung-xem.do">Xem tất cả >>></a>
+		</div>
+		<!-- END RECOMMENDED BOOK-->
 
 	</div>
 	<!--    END BODY        -->

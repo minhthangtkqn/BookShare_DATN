@@ -44,6 +44,9 @@ public class TrangChuAction extends Action {
 		// lay ds hot
 		trangChuForm.setDsDanhMucBanNhieu(baiRaoBanBO.layDanhSachDanhMucBanNhieuNhat());
 
+		// lay ds GOI Y moi nguoi cung xem
+		trangChuForm.setDsGoiYMoiNguoiCungXem(baiRaoBanBO.layDanhSachGoiYMoiNguoiCungXem());
+		
 		if (session.getAttribute("userID") == null) {
 			return mapping.findForward("index"); // neu chua dang nhap dua ve
 													// index

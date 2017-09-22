@@ -9,13 +9,22 @@ import model.bean.Banner;
 import model.bean.DanhMuc;
 
 public class TrangChuForm extends ActionForm {
-	
+
 	private ArrayList<RaoBan> dsMoiNhat;
 	private ArrayList<RaoBan> dsNgauNhien;
 	private ArrayList<RaoBan> dsDanhMucBanNhieu;
 	private ArrayList<RaoBan> dsGoiY;
+	private ArrayList<RaoBan> dsGoiYMoiNguoiCungXem;
 	private ArrayList<Banner> dsBanner;
 	private ArrayList<DanhMuc> dsDanhMuc;
+
+	public ArrayList<RaoBan> getDsGoiYMoiNguoiCungXem() {
+		return dsGoiYMoiNguoiCungXem;
+	}
+
+	public void setDsGoiYMoiNguoiCungXem(ArrayList<RaoBan> dsGoiYMoiNguoiCungXem) {
+		this.dsGoiYMoiNguoiCungXem = dsGoiYMoiNguoiCungXem;
+	}
 
 	public ArrayList<DanhMuc> getDsDanhMuc() {
 		return dsDanhMuc;

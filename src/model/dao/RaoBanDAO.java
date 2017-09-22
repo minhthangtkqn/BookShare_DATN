@@ -536,18 +536,18 @@ public class RaoBanDAO {
 		String sql = "SELECT TenSach, TacGia, Gia, MaRaoBan, LinkAnh1, TrangThaiBan, NgayBan FROM "
 				+ Constant.TABLE_RAO_BAN + " WHERE TrangThaiBan = 1 AND TacGia LIKE N'%" + tuKhoa + "%' "
 				+ " ORDER BY NgayBan DESC";
-		
+
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
 		try {
 			Statement pstm = connection.createStatement();
-			
+
 			ResultSet rs = null;
-			
+
 			rs = pstm.executeQuery(sql);
-			
+
 			RaoBan baiRaoBan;
-			
+
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
 
@@ -556,7 +556,7 @@ public class RaoBanDAO {
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-//				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
+				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				list.add(baiRaoBan);
 			}
@@ -604,15 +604,15 @@ public class RaoBanDAO {
 		String sql = "INSERT INTO " + Constant.TABLE_TU_KHOA_TIM_KIEM + " VALUES(?, ?, GETDATE())";
 
 		try {
-			
+
 			PreparedStatement statement = connection.prepareStatement(sql);
-			
+
 			statement.setString(1, maNguoiDung);
 			statement.setNString(2, tuKhoa);
-			
+
 			statement.executeUpdate();
 			return true;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -625,19 +625,59 @@ public class RaoBanDAO {
 		String sql = "INSERT INTO " + Constant.TABLE_RAO_BAN_DA_XEM + " VALUES(?, ?, GETDATE())";
 
 		try {
-			
+
 			PreparedStatement statement = connection.prepareStatement(sql);
-			
+
 			statement.setString(1, maNguoiDung);
 			statement.setNString(2, maRaoBan);
-			
+
 			statement.executeUpdate();
 			return true;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public ArrayList<RaoBan> layDanhSachGoiYMoiNguoiCungXem() {
+		connect();
+
+		String sql = "SELECT TOP 4 * FROM " + Constant.VIEW_GOI_Y_MOI_NGUOI_CUNG_XEM
+				+ "	order by case when MaDanhMuc = (select TOP 1 dm.MaDanhMuc from tblDanhMuc as dm "
+				+ " join tblRaoBan as rb on dm.MaDanhMuc = rb.MaDanhMuc "
+				+ " join tblRaoBanDaXem as rbdx on rb.MaRaoBan = rbdx.MaRaoBan "
+				+ " group by dm.MaDanhMuc "
+				+ " order by count(*) desc ) then null else MaDanhMuc end, NgayBan desc";
+
+		ArrayList<RaoBan> list = new ArrayList<>();
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			ResultSet rs = statement.executeQuery();
+
+			RaoBan baiRaoBan;
+
+			while (rs.next()) {
+
+				baiRaoBan = new RaoBan();
+
+				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setTacGia(rs.getString("TacGia"));
+				baiRaoBan.setTenSach(rs.getString("TenSach"));
+				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
+				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
+				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
+
+				list.add(baiRaoBan);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+
 	}
 
 }

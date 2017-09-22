@@ -79,6 +79,10 @@ public class RaoBanBO {
 		return raoBanDAO.layDanhSachGoiY(userID);
 	}
 	
+	public ArrayList<RaoBan> layDanhSachGoiYMoiNguoiCungXem() {
+		return raoBanDAO.layDanhSachGoiYMoiNguoiCungXem();
+	}
+	
 	/**
 	 * Luu tu khoa vao CSDL khi tim kiem
 	 */
