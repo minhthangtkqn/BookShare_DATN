@@ -671,6 +671,8 @@ public class RaoBanDAO {
 				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				list.add(baiRaoBan);
+				
+				System.out.println("Danh Muc: " + rs.getString("MaDanhMuc"));
 			}
 
 		} catch (Exception e) {
