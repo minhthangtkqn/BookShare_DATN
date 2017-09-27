@@ -2,6 +2,10 @@ package common;
 
 public class Constant {
 
+	// Link upload image files
+	public static final String LINK_IMAGE_STORAGE = "E:/WorkSpace/WorkSpaceJavaEclipse/BookShare_DATN/WebContent/images/raoban/";
+	public static final String LINK_IMAGE_DATABASE = "images/raoban/";
+	
 	// TABLE NAME
 	public static final String TABLE_TINH = "[tblTinh]";
 	public static final String TABLE_BANNER = "[tblBanner]";

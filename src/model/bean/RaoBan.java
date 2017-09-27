@@ -37,7 +37,7 @@ public class RaoBan {
 	private String tenSach;
 	private String tacGia;
 	private String nxb;
-	private int namxb;
+	private String namxb;
 	private String tenDanhMuc;
 
 	public String getMaRaoBan() {
@@ -264,11 +264,11 @@ public class RaoBan {
 		this.nxb = nxb;
 	}
 
-	public int getNamxb() {
+	public String getNamxb() {
 		return namxb;
 	}
 
-	public void setNamxb(int namxb) {
+	public void setNamxb(String namxb) {
 		this.namxb = namxb;
 	}
 

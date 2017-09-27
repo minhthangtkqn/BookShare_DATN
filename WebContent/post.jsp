@@ -44,7 +44,7 @@
 	<div class="container">
 		<h3>Đăng tin bán sách</h3>
 		<br>
-		<html:form action="/dang-ban" method="post">
+		<html:form action="/dang-ban.do" method="post" enctype="multipart/form-data">
 			<div class="row form-group">
 				<label class="col-lg-2">Tên sách</label>
 				<div class="col-lg-3">
@@ -109,35 +109,40 @@
 			<div class="row form-group">
 				<label class="col-lg-2">Ảnh 1</label>
 				<div class="col-lg-3">
-					<html:text property="linkAnh1" styleClass="form-control" value=""></html:text>
+					<html:file property="linkAnh1" />
+<%-- 					<html:text property="linkAnh1" styleClass="form-control" value=""></html:text> --%>
 					<html:errors property="linkAnh1Error"/>
 				</div>
 			</div>
 			<div class="row form-group">
 				<label class="col-lg-2">Ảnh 2</label>
 				<div class="col-lg-3">
-					<html:text property="linkAnh2" styleClass="form-control" value=""></html:text>
+					<html:file property="linkAnh2" />
+<%-- 					<html:text property="linkAnh2" styleClass="form-control" value=""></html:text> --%>
 					<html:errors property="linkAnh2Error"/>
 				</div>
 			</div>
 			<div class="row form-group">
 				<label class="col-lg-2">Ảnh 3</label>
 				<div class="col-lg-3">
-					<html:text property="linkAnh3" styleClass="form-control" value=""></html:text>
+					<html:file property="linkAnh3" />
+<%-- 					<html:text property="linkAnh3" styleClass="form-control" value=""></html:text> --%>
 					<html:errors property="linkAnh3Error"/>
 				</div>
 			</div>
 			<div class="row form-group">
 				<label class="col-lg-2">Ảnh 4</label>
 				<div class="col-lg-3">
-					<html:text property="linkAnh4" styleClass="form-control" value=""></html:text>
+					<html:file property="linkAnh4" />
+<%-- 					<html:text property="linkAnh4" styleClass="form-control" value=""></html:text> --%>
 					<html:errors property="linkAnh4Error"/>
 				</div>
 			</div>
 			<div class="row form-group">
 				<label class="col-lg-2">Ảnh 5</label>
 				<div class="col-lg-3">
-					<html:text property="linkAnh5" styleClass="form-control" value=""></html:text>
+					<html:file property="linkAnh5" />
+<%-- 					<html:text property="linkAnh5" styleClass="form-control" value=""></html:text> --%>
 					<html:errors property="linkAnh5Error"/>
 				</div>
 			</div>

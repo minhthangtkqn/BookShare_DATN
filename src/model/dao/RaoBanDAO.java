@@ -64,15 +64,15 @@ public class RaoBanDAO {
 			// PreparedStatement pstm = connection.prepareStatement(sql);
 
 			CallableStatement cstm = connection.prepareCall("{call p_themraoban (?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
-			cstm.setString(1, raoBan.getTenSach());
+			cstm.setNString(1, raoBan.getTenSach());
 			cstm.setString(2, raoBan.getMaDanhMuc());
-			cstm.setString(3, raoBan.getTacGia());
-			cstm.setString(4, raoBan.getNxb());
-			cstm.setInt(5, raoBan.getNamxb());
+			cstm.setNString(3, raoBan.getTacGia());
+			cstm.setNString(4, raoBan.getNxb());
+			cstm.setString(5, raoBan.getNamxb());
 			cstm.setString(6, raoBan.getMaNguoiRaoBan());
 			cstm.setInt(7, raoBan.getMaTinhBan());
 			cstm.setFloat(8, raoBan.getGia());
-			cstm.setString(9, raoBan.getMoTa());
+			cstm.setNString(9, raoBan.getMoTa());
 			cstm.setString(10, raoBan.getLinkAnh1());
 			cstm.setString(11, raoBan.getLinkAnh2());
 			cstm.setString(12, raoBan.getLinkAnh3());
@@ -96,7 +96,7 @@ public class RaoBanDAO {
 			 * pstm.executeUpdate(sql);
 			 */
 
-			System.out.println("Dang bai thanh cong");
+			System.out.println("Dang bai thanh cong - RaoBanDAO");
 
 			return true;
 
@@ -142,7 +142,7 @@ public class RaoBanDAO {
 			raoBan.setTenSach(rs.getString("tensach"));
 			raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
 			raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
-			raoBan.setNamxb(rs.getInt("namxb"));
+			raoBan.setNamxb(rs.getString("namxb"));
 			raoBan.setNxb(rs.getString("nxb"));
 			raoBan.setTacGia(rs.getString("tacgia"));
 
@@ -189,7 +189,7 @@ public class RaoBanDAO {
 				raoBan.setAnhNguoiBan(rs.getString("anh"));
 				raoBan.setTenSach(rs.getString("tensach"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
-				raoBan.setNamxb(rs.getInt("namxb"));
+				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);
@@ -225,7 +225,7 @@ public class RaoBanDAO {
 				raoBan.setNgayBan(rs.getDate("ngayban"));
 				raoBan.setTenSach(rs.getString("tensach"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
-				raoBan.setNamxb(rs.getInt("namxb"));
+				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);
@@ -263,7 +263,7 @@ public class RaoBanDAO {
 				raoBan.setAnhNguoiBan(rs.getString("anh"));
 				raoBan.setTenSach(rs.getString("tensach"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
-				raoBan.setNamxb(rs.getInt("namxb"));
+				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);
@@ -299,7 +299,7 @@ public class RaoBanDAO {
 				raoBan.setNgayBan(rs.getDate("ngayban"));
 				raoBan.setTenSach(rs.getString("tensach"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
-				raoBan.setNamxb(rs.getInt("namxb"));
+				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);
@@ -337,7 +337,7 @@ public class RaoBanDAO {
 				raoBan.setAnhNguoiBan(rs.getString("anh"));
 				raoBan.setTenSach(rs.getString("tensach"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
-				raoBan.setNamxb(rs.getInt("namxb"));
+				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);
@@ -375,7 +375,7 @@ public class RaoBanDAO {
 				raoBan.setNgayDuocBan(rs.getDate("ngayduocban"));
 				raoBan.setTenSach(rs.getString("tensach"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
-				raoBan.setNamxb(rs.getInt("namxb"));
+				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);

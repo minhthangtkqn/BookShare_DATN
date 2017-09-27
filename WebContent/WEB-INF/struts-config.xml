@@ -83,6 +83,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			scope="request" type="action.DangBanAction">
 			<forward name="thanhcong" path="/trang-chu.do" />
 			<forward name="dangban" path="/post.jsp" />
+			<forward name="thatbai" path="/post.jsp" />
 			<forward name="dangnhaplai" path="/dangNhap.jsp" />
 		</action>
 

@@ -29,10 +29,15 @@ public class TestUploadFileAction extends Action {
 			file = uploadForm.getFile();
 
 			// getRealPath("") does not work properly
-			// ==> use direct path like "E:\Workspace\WorkspaceEclipse\...\images\\users" + fileName
+			// ==> use direct path like
+			// "E:\Workspace\WorkspaceEclipse\...\images\\users" + fileName
 			String path = getServlet().getServletContext().getRealPath("") + "/" + file.getFileName();
 
 			System.out.println("Path: " + path);
+			System.out.println("Old File Name: " + file.getFileName());
+
+			String suffix = file.getFileName().split("\\.")[file.getFileName().split("\\.").length - 1];
+			System.out.println("Prefix: " + suffix);
 
 			outputStream = new FileOutputStream(new File(path));
 			outputStream.write(file.getFileData());
