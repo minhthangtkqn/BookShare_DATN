@@ -36,8 +36,11 @@ public class KetQuaTimKiemAction extends Action {
 		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");
 
 		// Lưu từ khóa tìm kiếm vào CSDL
-		raoBanBO.luuTuKhoaTimKiem(
-				(session.getAttribute("userID") == null) ? "" : (String) (session.getAttribute("userID")), tuKhoa);
+		// 		nếu từ khóa rỗng thì không lưu vào CSDL những vẫn tìm kiếm
+		if (!StringProcess.notVaild(tuKhoa)) {
+			raoBanBO.luuTuKhoaTimKiem(
+					(session.getAttribute("userID") == null) ? "" : (String) (session.getAttribute("userID")), tuKhoa);
+		}
 
 		// Xử lý từ khóa tìm kiếm
 		String[] arrayTuKhoa = tuKhoa.split("\\s+");
@@ -57,8 +60,6 @@ public class KetQuaTimKiemAction extends Action {
 
 		// -----------------
 
-		
-		
 		// Tim kiem ten SACH dua theo cac tu khoa
 		ketQuaTimKiemForm.setListRaoBan(raoBanBO.layDanhSachTimKiemTenSach(tuKhoa));
 		for (String item : arrayTuKhoa) {
@@ -73,7 +74,7 @@ public class KetQuaTimKiemAction extends Action {
 
 		// Tim kiem ten TAC GIA dua theo cac tu khoa
 		ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(tuKhoa));
-		
+
 		for (String item : arrayTuKhoa) {
 			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item));
 		}

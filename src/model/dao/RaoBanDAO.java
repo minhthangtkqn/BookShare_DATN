@@ -646,8 +646,7 @@ public class RaoBanDAO {
 		String sql = "SELECT TOP 4 * FROM " + Constant.VIEW_GOI_Y_MOI_NGUOI_CUNG_XEM
 				+ "	order by case when MaDanhMuc = (select TOP 1 dm.MaDanhMuc from tblDanhMuc as dm "
 				+ " join tblRaoBan as rb on dm.MaDanhMuc = rb.MaDanhMuc "
-				+ " join tblRaoBanDaXem as rbdx on rb.MaRaoBan = rbdx.MaRaoBan "
-				+ " group by dm.MaDanhMuc "
+				+ " join tblRaoBanDaXem as rbdx on rb.MaRaoBan = rbdx.MaRaoBan " + " group by dm.MaDanhMuc "
 				+ " order by count(*) desc ) then null else MaDanhMuc end, NgayBan desc";
 
 		ArrayList<RaoBan> list = new ArrayList<>();
@@ -671,7 +670,7 @@ public class RaoBanDAO {
 				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				list.add(baiRaoBan);
-				
+
 				System.out.println("Danh Muc: " + rs.getString("MaDanhMuc"));
 			}
 
@@ -680,6 +679,77 @@ public class RaoBanDAO {
 		}
 		return list;
 
+	}
+
+	public ArrayList<RaoBan> layDsMoiNhatTheoDanhMuc(String maDanhMuc) {
+		connect();
+
+		String sql = "SELECT * FROM " + Constant.TABLE_RAO_BAN
+				+ " WHERE MaDanhMuc = ? AND TrangThaiBan = 1 ORDER BY NgayBan DESC";
+
+		ArrayList<RaoBan> list = new ArrayList<>();
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maDanhMuc);
+
+			ResultSet rs = statement.executeQuery();
+
+			RaoBan baiRaoBan;
+
+			while (rs.next()) {
+
+				baiRaoBan = new RaoBan();
+
+				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setTacGia(rs.getString("TacGia"));
+				baiRaoBan.setTenSach(rs.getString("TenSach"));
+				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
+				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
+
+				list.add(baiRaoBan);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return list;
+	}
+
+	public ArrayList<RaoBan> timKiemTrongDanhMuc(String maDanhMuc, String tuKhoa) {
+		connect();
+
+		String sql = "SELECT * FROM " + Constant.TABLE_RAO_BAN
+				+ " WHERE MaDanhMuc = ? AND TrangThaiBan = 1 AND TenSach LIKE N'%" + tuKhoa + "%' "
+				+ " ORDER BY NgayBan DESC";
+
+		ArrayList<RaoBan> list = new ArrayList<>();
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maDanhMuc);
+
+			ResultSet rs = statement.executeQuery();
+
+			RaoBan baiRaoBan;
+
+			while (rs.next()) {
+
+				baiRaoBan = new RaoBan();
+
+				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setTacGia(rs.getString("TacGia"));
+				baiRaoBan.setTenSach(rs.getString("TenSach"));
+				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
+				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
+
+				list.add(baiRaoBan);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return list;
 	}
 
 }

@@ -78,22 +78,31 @@ public class RaoBanBO {
 	public ArrayList<RaoBan> layDanhSachGoiY(String userID) {
 		return raoBanDAO.layDanhSachGoiY(userID);
 	}
-	
+
 	public ArrayList<RaoBan> layDanhSachGoiYMoiNguoiCungXem() {
 		return raoBanDAO.layDanhSachGoiYMoiNguoiCungXem();
 	}
+
+	public ArrayList<RaoBan> layDsMoiNhatTheoDanhMuc(String maDanhMuc) {
+		return raoBanDAO.layDsMoiNhatTheoDanhMuc(maDanhMuc);
+	}
 	
+	public ArrayList<RaoBan> timKiemTrongDanhMuc(String maDanhMuc, String tuKhoa){
+		return raoBanDAO.timKiemTrongDanhMuc(maDanhMuc, tuKhoa);
+	}
+
 	/**
 	 * Luu tu khoa vao CSDL khi tim kiem
 	 */
 	public boolean luuTuKhoaTimKiem(String maNguoiDung, String tuKhoa) {
 		return raoBanDAO.luuTuKhoaTimKiem(maNguoiDung, tuKhoa);
 	}
-	
+
 	/**
 	 * Luu lich su xem rao ban vao CSDL
 	 */
 	public boolean luuLichSuXemRaoBan(String maNguoiDung, String maRaoBan) {
 		return raoBanDAO.luuLichSuXemRaoBan(maNguoiDung, maRaoBan);
 	}
+
 }
