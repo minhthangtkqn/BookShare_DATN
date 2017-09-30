@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/demoHeader.jsp=UTF-8
 encoding//src/action/ChiTietBaiDangAction.java=UTF-8
 encoding//src/action/DangBanAction.java=UTF-8
 encoding//src/action/DangKyAction.java=UTF-8

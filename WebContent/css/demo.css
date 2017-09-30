@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+
+.container{
+	width: 90%;
+	margin: 10px 4.5% 10px 5%;
+	border: 1px solid red;
+}
+.logo{
+	display: inline-block;
+	width: 200px;
+	height: 60px;
+	border: 1px solid;
+}
+.search{
+	display: inline-block;
+	width: 60%;
+	height: auto;
+	vertical-align: top;
+    margin-top: 10px;
+}
+.search-form{
+	height: 40px;
+}
+.search-item{
+	height: 100%;
+}
+.search-input{
+	width: 80%;
+	font-size: 17px;
+}
+.search-button{
+	width: 50px;
+}

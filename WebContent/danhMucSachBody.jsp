@@ -8,6 +8,6 @@
 
 <!--    BODY        -->
 <div id="slider-content">
- 	
+ 	<p>danh muc sach Body</p>
 </div>
 <!--    END BODY    -->
