@@ -105,7 +105,7 @@
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="trang-chu.do" class=""><b>Trang Chủ</b></a></li>
 <!-- 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a> -->
-								<li class=""><a href="#">Danh Mục Sách</a>
+								<li class=""><a href="danh-muc.do">Danh Mục Sách</a>
 <!--                                     <ul role="menu" class="sub-menu"> -->
 <!--                                         <li><a href="blog.html">Blog List</a></li> -->
 <!-- 										<li><a href="blog-single.html">Blog Single</a></li> -->

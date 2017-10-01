@@ -15,7 +15,7 @@
 			</h4>
 			<ul>
 				<logic:iterate id="danhMuc" property="dsDanhMuc" name="trangChuForm">
-					<li><a href="#"><b><bean:write name="danhMuc" property="tenDanhMuc" /></b></a></li>
+					<li><a href="danh-muc.do?maDanhMuc=<bean:write name="danhMuc" property="maDanhMuc"/>"><b><bean:write name="danhMuc" property="tenDanhMuc" /></b></a></li>
 				</logic:iterate>
 			</ul>
 		</div>

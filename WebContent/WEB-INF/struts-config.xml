@@ -92,10 +92,10 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		
 		<!-- DANH MUC -->
 		<action input="/index.jsp" name="danhMucForm" path="/danh-muc"
-			scope="session" type="action.DanhMucAction">
+			scope="request" type="action.DanhMucAction">
 			<forward name="trangChu" path="/trang-chu.do" />
-			<forward name="" path="/" />
-			
+			<forward name="chuaDangNhap" path="/danhMucSach.jsp" />
+			<forward name="daDangNhap" path="/danhMucSachLogged.jsp" />
 		</action>
 
 

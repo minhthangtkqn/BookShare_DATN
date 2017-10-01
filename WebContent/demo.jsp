@@ -6,5 +6,7 @@
 </head>
 <body>
 	<jsp:include page="/demoHeader.jsp"></jsp:include>
+	
+	<jsp:include page="/demoBody.jsp"></jsp:include>
 </body>
 </html>

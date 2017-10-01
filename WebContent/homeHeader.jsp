@@ -109,7 +109,7 @@
 								<li><a href="trang-chu.do" class=""><b>Trang Chủ</b></a></li>
 							
 
-								<li class=""><a href="#">Danh Mục</a>
+								<li class=""><a href="danh-muc.do">Danh Mục</a>
 <!--                                     <ul role="menu" class="sub-menu"> -->
 <!--                                         <li><a href="blog.html">Blog List</a></li> -->
 <!-- 										<li><a href="blog-single.html">Blog Single</a></li> -->
