@@ -166,7 +166,7 @@ public class RaoBanDAO {
 
 	public ArrayList<RaoBan> layDanhSachChoDuyet() {
 		connect();
-		String sql = "select * from v_danhsachchoduyet";
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_CHO_DUYET;
 		RaoBan raoBan = null;
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 		try {
@@ -176,7 +176,7 @@ public class RaoBanDAO {
 			rs.next();
 			while (rs.next()) {
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
-				raoBan.setTenTinhBan(rs.getString("tentinhban"));
+				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
@@ -188,6 +188,7 @@ public class RaoBanDAO {
 				raoBan.setTaiKhoanNguoiBan(rs.getString("taikhoan"));
 				raoBan.setAnhNguoiBan(rs.getString("anh"));
 				raoBan.setTenSach(rs.getString("tensach"));
+				raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
@@ -203,7 +204,7 @@ public class RaoBanDAO {
 
 	public ArrayList<RaoBan> layDanhSachChoDuyet(String maNguoiDung) {
 		connect();
-		String sql = "select * from v_danhsachchoduyet where manguoiraoban='?'";
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_CHO_DUYET + " where manguoiraoban = ?";
 		RaoBan raoBan = null;
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 		try {
@@ -214,7 +215,7 @@ public class RaoBanDAO {
 			rs.next();
 			while (rs.next()) {
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
-				raoBan.setTenTinhBan(rs.getString("tentinhban"));
+				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
@@ -224,6 +225,7 @@ public class RaoBanDAO {
 				raoBan.setLinkAnh5(rs.getString("linkanh5"));
 				raoBan.setNgayBan(rs.getDate("ngayban"));
 				raoBan.setTenSach(rs.getString("tensach"));
+				raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
@@ -240,7 +242,7 @@ public class RaoBanDAO {
 
 	public ArrayList<RaoBan> layDanhSachDangBan() {
 		connect();
-		String sql = "select * from v_danhsachdangban";
+		String sql = "select * from " + Constant.VIEW_DANH_SACH_DANG_BAN;
 		RaoBan raoBan = null;
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 		try {
@@ -250,7 +252,7 @@ public class RaoBanDAO {
 			rs.next();
 			while (rs.next()) {
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
-				raoBan.setTenTinhBan(rs.getString("tentinhban"));
+				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
@@ -262,6 +264,7 @@ public class RaoBanDAO {
 				raoBan.setTaiKhoanNguoiBan(rs.getString("taikhoan"));
 				raoBan.setAnhNguoiBan(rs.getString("anh"));
 				raoBan.setTenSach(rs.getString("tensach"));
+				raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
@@ -277,7 +280,7 @@ public class RaoBanDAO {
 
 	public ArrayList<RaoBan> layDanhSachDangBan(String maNguoiDung) {
 		connect();
-		String sql = "select * from v_danhsachdangban where manguoidung ='?'";
+		String sql = "select * from " + Constant.VIEW_DANH_SACH_DANG_BAN + " where MaNguoiRaoBan = ?";
 		RaoBan raoBan = null;
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 		try {
@@ -288,7 +291,7 @@ public class RaoBanDAO {
 			rs.next();
 			while (rs.next()) {
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
-				raoBan.setTenTinhBan(rs.getString("tentinhban"));
+				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
@@ -298,6 +301,7 @@ public class RaoBanDAO {
 				raoBan.setLinkAnh5(rs.getString("linkanh5"));
 				raoBan.setNgayBan(rs.getDate("ngayban"));
 				raoBan.setTenSach(rs.getString("tensach"));
+				raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
@@ -313,7 +317,7 @@ public class RaoBanDAO {
 
 	public ArrayList<RaoBan> layDanhSachDaBan() {
 		connect();
-		String sql = "select * from v_danhsachdabanad";
+		String sql = "select * from " + Constant.VIEW_DANH_SACH_DA_BAN_ADMIN;
 		RaoBan raoBan = null;
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 		try {
@@ -323,7 +327,7 @@ public class RaoBanDAO {
 			rs.next();
 			while (rs.next()) {
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
-				raoBan.setTenTinhBan(rs.getString("tentinhban"));
+				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
@@ -336,6 +340,7 @@ public class RaoBanDAO {
 				raoBan.setTaiKhoanNguoiBan(rs.getString("taikhoan"));
 				raoBan.setAnhNguoiBan(rs.getString("anh"));
 				raoBan.setTenSach(rs.getString("tensach"));
+				raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
@@ -352,7 +357,7 @@ public class RaoBanDAO {
 
 	public ArrayList<RaoBan> layDanhSachDaBan(String maNguoiDung) {
 		connect();
-		String sql = "select * from v_danhsachdabannd where manguoiraoban='?'";
+		String sql = "select * from " + Constant.VIEW_DANH_SACH_DA_BAN_ND + " where manguoiraoban = ?";
 		RaoBan raoBan = null;
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 		try {
@@ -363,7 +368,7 @@ public class RaoBanDAO {
 			rs.next();
 			while (rs.next()) {
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
-				raoBan.setTenTinhBan(rs.getString("tentinhban"));
+				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
@@ -374,6 +379,7 @@ public class RaoBanDAO {
 				raoBan.setNgayBan(rs.getDate("ngayban"));
 				raoBan.setNgayDuocBan(rs.getDate("ngayduocban"));
 				raoBan.setTenSach(rs.getString("tensach"));
+				raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
 				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
@@ -414,7 +420,7 @@ public class RaoBanDAO {
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
+				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				System.out.print("Ten sach: " + rs.getString("TenSach"));
 				System.out.println("  --  Link anh: " + rs.getString("LinkAnh1"));

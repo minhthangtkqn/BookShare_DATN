@@ -378,8 +378,11 @@ a#scrollUp i {
 }
 
 .book-hot h3 {
-	width: 20%;
-	margin-left: 430px;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .book-new h3 {

@@ -54,4 +54,8 @@ public class NguoiDungBO {
 		return nguoiDungDAO.layNguoiDung(maNguoiDung);
 	}
 
+	public NguoiDung layAdmin(String maNguoiDung) {
+		return nguoiDungDAO.layAdmin(maNguoiDung);
+	}
+
 }

@@ -53,6 +53,9 @@ public class ChiTietBaiDangAction extends Action {
 		else
 			chiTietBaiDangForm.getChiTiet().setGioiTinh("Chưa xác định");
 
+		// lay thong tin goi y cho moi nguoi
+		chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachGoiYMoiNguoiCungXem());
+		
 		/**
 		 * Kiem tra nguoi dung de phan luong hien thi
 		 */

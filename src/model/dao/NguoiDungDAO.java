@@ -237,16 +237,16 @@ public class NguoiDungDAO {
 		ResultSet rs = null;
 		try {
 			statement = connection.prepareStatement(sql);
-			
+
 			statement.setString(1, taiKhoan);
 			statement.setString(2, matKhau);
-			
+
 			rs = statement.executeQuery();
-			
+
 			rs.next();
 
 			String linkAnhNguoiDung = rs.getString("Anh");
-			
+
 			return linkAnhNguoiDung;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -261,10 +261,10 @@ public class NguoiDungDAO {
 		String sql = "exec p_dangki ?, ?";
 		try {
 			statement = connection.prepareStatement(sql);
-			
+
 			statement.setString(1, taiKhoan);
 			statement.setString(2, matKhau);
-			
+
 			statement.executeUpdate();
 			return true;
 		} catch (SQLException e) {
@@ -275,7 +275,7 @@ public class NguoiDungDAO {
 
 	public NguoiDung layNguoiDung(String maNguoiDung) {
 		connect();
-		String sql = "select * from [v_danhsachnguoidung] where [manguoidung] = ?";
+		String sql = "select * from " + Constant.VIEW_DANH_SACH_NGUOI_DUNG + " where [manguoidung] = ?";
 		NguoiDung nguoiDung = new NguoiDung();
 		ResultSet rs = null;
 		try {
@@ -300,6 +300,44 @@ public class NguoiDungDAO {
 			nguoiDung.setAnh(rs.getString("anh"));
 			nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
 			nguoiDung.setNamSinh(rs.getInt("namSinh"));
+			nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return nguoiDung;
+	}
+
+	public NguoiDung layAdmin(String maNguoiDung) {
+		connect();
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_ADMIN + " where [manguoidung] = ?";
+		NguoiDung nguoiDung = new NguoiDung();
+		ResultSet rs = null;
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, maNguoiDung);
+
+			rs = stmt.executeQuery();
+
+			nguoiDung = new NguoiDung();
+
+			rs.next();
+
+			System.out.println("tai khoan: " + rs.getString("taikhoan"));
+
+			nguoiDung.setMaNguoiDung(rs.getString("manguoidung"));
+			nguoiDung.setTaiKhoan(rs.getString("taikhoan"));
+			nguoiDung.setHoTen(rs.getString("hoten"));
+			nguoiDung.setTenTinh(rs.getString("tentinh"));
+			nguoiDung.setDienThoai(rs.getString("dienthoai"));
+			nguoiDung.setEmail(rs.getString("email"));
+			nguoiDung.setAnh(rs.getString("anh"));
+			nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
+			nguoiDung.setNamSinh(rs.getInt("namSinh"));
+			nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
 
 		} catch (SQLException e) {
 			e.printStackTrace();
