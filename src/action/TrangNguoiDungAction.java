@@ -30,7 +30,7 @@ public class TrangNguoiDungAction extends Action {
 		}
 		
 		/**
-		 * get data
+		 * get data for showing
 		 */
 		TrangNguoiDungForm trangNguoiDungForm = (TrangNguoiDungForm) form;
 

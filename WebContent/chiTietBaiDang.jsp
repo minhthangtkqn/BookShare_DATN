@@ -29,7 +29,6 @@
 <!--    <script src="js/jquery.scrollUp.min.js"></script>-->
 <!--    <script src="js/jquery.prettyPhoto.js"></script>-->
 </head>
-<!--/head-->
 
 <body>
 

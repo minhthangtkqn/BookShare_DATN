@@ -347,4 +347,49 @@ public class NguoiDungDAO {
 		return nguoiDung;
 	}
 
+	public boolean suaThongTin(NguoiDung nguoiDung) {
+		connect();
+
+		String sql = "UPDATE " + Constant.TABLE_NGUOI_DUNG
+				+ " SET HoTen = ?, MaTinh = ?, DienThoai = ?, Email = ?, GioiTinh = ?, Anh = ?, NamSinh = ? WHERE MaNguoiDung = ?";
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setNString(1, nguoiDung.getHoTen());
+			statement.setInt(2, nguoiDung.getMaTinh());
+			statement.setString(3, nguoiDung.getDienThoai());
+			statement.setString(4, nguoiDung.getEmail());
+			statement.setInt(5, nguoiDung.getGioiTinh());
+			statement.setString(6, nguoiDung.getAnh());
+			statement.setInt(7, nguoiDung.getNamSinh());
+			statement.setString(8, nguoiDung.getMaNguoiDung());
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public boolean suaMatKhau(NguoiDung nguoiDung) {
+		connect();
+
+		String sql = "UPDATE " + Constant.TABLE_NGUOI_DUNG
+				+ " SET MatKhau = ? WHERE MaNguoiDung = ?";
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setString(1, nguoiDung.getMatKhau());
+			statement.setString(2, nguoiDung.getMaNguoiDung());
+			
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 }

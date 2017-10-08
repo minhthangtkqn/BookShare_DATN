@@ -58,4 +58,12 @@ public class NguoiDungBO {
 		return nguoiDungDAO.layAdmin(maNguoiDung);
 	}
 
+	public boolean suaThongTin(NguoiDung nguoiDung) {
+		return nguoiDungDAO.suaThongTin(nguoiDung);
+	}
+
+	public boolean suaMatKhau(NguoiDung nguoiDung) {
+		return nguoiDungDAO.suaMatKhau(nguoiDung);
+	}
+
 }

@@ -106,20 +106,29 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="nguoiDung" path="/nguoi-dung.do" />
 		</action>
 
-		<!-- TRANG CA NHAN NGUOI DUNG-->
+		<!-- TRANG CA NHAN NGUOI DUNG -->
 		<action input="/dangNhap.jsp" name="trangNguoiDungForm" path="/nguoi-dung"
 			scope="request" type="action.TrangNguoiDungAction">
 			<forward name="trangChu" path="/trang-chu.do" />
 			<forward name="trangCaNhan" path="/user.jsp" />
 			<forward name="dangXuat" path="/dang-xuat.do" />
 		</action>
-		
-		<!-- TRANG CA NHAN ADMIN-->
+
+		<!-- TRANG CA NHAN ADMIN -->
 		<action input="/dangNhap.jsp" name="trangQuanLyForm" path="/quan-ly"
 			scope="request" type="action.TrangQuanLyAction">
 			<forward name="trangChu" path="/trang-chu.do" />
 			<forward name="trangCaNhan" path="/admin.jsp" />
 			<forward name="dangXuat" path="/dang-xuat.do" />
+		</action>
+
+		<!-- SUA THONG TIN NGUOI DUNG -->
+		<action input="/dangNhap.jsp" name="trangNguoiDungForm" path="/sua-nguoi-dung"
+			scope="request" type="action.SuaNguoiDungAction">
+			<forward name="trangChu" path="/trang-chu.do" />
+			<forward name="dangXuat" path="/dang-xuat.do" />
+			<forward name="suaND" path="/suaND.jsp" />
+			<forward name="suaNDXong" path="/trang-ca-nhan.do" />
 		</action>
 
 		<action input="" name="testForm" path="/test" scope="request"
