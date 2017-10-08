@@ -212,7 +212,6 @@ public class RaoBanDAO {
 			pstm.setString(1, maNguoiDung);
 			ResultSet rs = pstm.executeQuery();
 			raoBan = new RaoBan();
-			rs.next();
 			while (rs.next()) {
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
@@ -230,6 +229,11 @@ public class RaoBanDAO {
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
+				
+				System.out.println("Ten sach: " + rs.getString("tensach"));
+				System.out.println("Ma rao ban: " + rs.getString("maraoban"));
+				System.out.println("+++++++++++++++++");
+				
 				list.add(raoBan);
 			}
 		} catch (SQLException e) {

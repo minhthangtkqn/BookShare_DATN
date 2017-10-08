@@ -1,0 +1,26 @@
+.user-info{
+    width: 650px;
+    height: 250px;
+    vertical-align: top;
+}
+.user-img{
+    width: 250px;
+    height: 250px;
+    border: solid 1px;
+}
+
+.user-function{
+    width: 270px;
+    height: 100px;
+    margin: 0 10px;
+    border: solid 1px;
+    vertical-align: top;
+}
+.books-table{
+    width: 100%;
+    height: auto;
+}
+.book-img-cell{
+    width: 80px;
+    height: 100px;
+}

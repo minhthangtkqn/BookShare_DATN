@@ -1,0 +1,87 @@
+#page-body {
+    margin-top: 20px;
+}
+
+.body-row {
+    width: 100%;
+    margin: 40px auto;
+}
+
+.body-row select {
+    font-size: 16px;
+    width: 50%;
+    height: 40px;
+    margin-right: 50px;
+    margin-left: 50px;
+    border-radius: 10px;
+    border-width: 2px;
+}
+
+.row-item {
+    display: inline-block;
+}
+
+.books {
+    border: solid 3px #189eff;
+    padding: 10px 20px;
+}
+
+.books table,
+td,
+th {
+    border: 1px solid black;
+}
+
+.books table {
+    border-collapse: collapse;
+}
+
+.books td{
+    overflow: hidden;
+}
+
+.books h3 {
+    width: 30%;
+    height: 40px;
+    display: block;
+    margin: -35px 0 0 35%;
+    line-height: 40px;
+    color: #189eff;
+    text-align: center;
+    background-color: white;
+    font-size: 20px;
+}
+
+.sp {
+    width: 250px;
+    height: 420px;
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin: 10px 16px;
+}
+
+.sp .tac-gia {
+    font-style: italic;
+    margin: 10px 5px 5px 5px;
+}
+
+.sp .ten-sach {
+    margin: 10px 5px 5px 5px;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.sp .gia-tien {
+    margin: 10px 5px 5px 5px;
+    font-size: 18px;
+    color: red;
+}
+
+.sp img {
+    width: 90%;
+    height: 280px;
+    display: block;
+    margin-left: 5%;
+    border: solid 1px black;
+}

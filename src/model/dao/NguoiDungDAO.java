@@ -275,7 +275,7 @@ public class NguoiDungDAO {
 
 	public NguoiDung layNguoiDung(String maNguoiDung) {
 		connect();
-		String sql = "select * from " + Constant.VIEW_DANH_SACH_NGUOI_DUNG + " where [manguoidung] = ?";
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_NGUOI_DUNG + " where [manguoidung] = ?";
 		NguoiDung nguoiDung = new NguoiDung();
 		ResultSet rs = null;
 		try {
