@@ -10,8 +10,6 @@ import model.bean.Tinh;
 
 public class TrangNguoiDungForm extends ActionForm {
 
-	private ArrayList<Tinh> dsTinh;
-
 	private NguoiDung nguoiDung;
 
 	private ArrayList<RaoBan> dsChoDuyet;
@@ -20,39 +18,12 @@ public class TrangNguoiDungForm extends ActionForm {
 	private ArrayList<RaoBan> dsDaMua;
 	private ArrayList<RaoBan> dsGoiY;
 
-	private String submit;
-	private String action;
-
-	public String getAction() {
-		return action;
-	}
-
-	public void setAction(String action) {
-		this.action = action;
-	}
-
-	public String getSubmit() {
-		return submit;
-	}
-
-	public void setSubmit(String submit) {
-		this.submit = submit;
-	}
-
 	public NguoiDung getNguoiDung() {
 		return nguoiDung;
 	}
 
 	public void setNguoiDung(NguoiDung nguoiDung) {
 		this.nguoiDung = nguoiDung;
-	}
-
-	public ArrayList<Tinh> getDsTinh() {
-		return dsTinh;
-	}
-
-	public void setDsTinh(ArrayList<Tinh> dsTinh) {
-		this.dsTinh = dsTinh;
 	}
 
 	public ArrayList<RaoBan> getDsChoDuyet() {

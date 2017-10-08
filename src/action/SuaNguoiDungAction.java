@@ -9,6 +9,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import form.NguoiDungForm;
 import form.TrangNguoiDungForm;
 import model.bean.NguoiDung;
 import model.bo.NguoiDungBO;
@@ -31,11 +32,7 @@ public class SuaNguoiDungAction extends Action {
 			return mapping.findForward("trangChu");
 		}
 
-		/**
-		 * get data for showing
-		 */
-		TrangNguoiDungForm nguoiDungForm = (TrangNguoiDungForm) form;
-
+		NguoiDungForm nguoiDungForm = (NguoiDungForm) form;
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 		RaoBanBO raoBanBO = new RaoBanBO();
 		TinhBO tinhBO = new TinhBO();
@@ -45,20 +42,20 @@ public class SuaNguoiDungAction extends Action {
 			
 			if("suaThongTin".equals(nguoiDungForm.getAction())){
 				nguoiDung.setMaNguoiDung((String)session.getAttribute("userID"));
-				nguoiDung.setHoTen(nguoiDungForm.getNguoiDung().getHoTen());
-				nguoiDung.setDienThoai(nguoiDungForm.getNguoiDung().getDienThoai());
-				nguoiDung.setEmail(nguoiDungForm.getNguoiDung().getEmail());
-				nguoiDung.setGioiTinh(nguoiDungForm.getNguoiDung().getGioiTinh());
-				nguoiDung.setMaTinh(nguoiDungForm.getNguoiDung().getMaTinh());
-				nguoiDung.setAnh(nguoiDungForm.getNguoiDung().getAnh());
-				nguoiDung.setNamSinh(nguoiDungForm.getNguoiDung().getNamSinh());
+				nguoiDung.setHoTen(nguoiDungForm.getHoTen());
+				nguoiDung.setDienThoai(nguoiDungForm.getDienThoai());
+				nguoiDung.setEmail(nguoiDungForm.getEmail());
+				nguoiDung.setGioiTinh(nguoiDungForm.getGioiTinh());
+				nguoiDung.setMaTinh(nguoiDungForm.getMaTinh());
+				nguoiDung.setAnh(nguoiDungForm.getAnh());
+				nguoiDung.setNamSinh(nguoiDungForm.getNamSinh());
 				
 				nguoiDungBO.suaThongTin(nguoiDung);
 				return mapping.findForward("suaThongTinXong");
 			}else{
 				if("suaMatKhau".equals(nguoiDungForm.getAction())){
 					nguoiDung.setMaNguoiDung((String)session.getAttribute("userID"));
-					nguoiDung.setMatKhau(nguoiDungForm.getNguoiDung().getMatKhau());
+					nguoiDung.setMatKhau(nguoiDungForm.getMatKhau());
 					
 					nguoiDungBO.suaMatKhau(nguoiDung);
 					return mapping.findForward("suaMatKhauXong");
@@ -70,15 +67,24 @@ public class SuaNguoiDungAction extends Action {
 			}
 		} else {
 			// lay thong tin nguoi dung
-			nguoiDungForm.setNguoiDung(nguoiDungBO.layNguoiDung((String) session.getAttribute("userID")));
-			if (nguoiDungForm.getNguoiDung() == null) {
+			NguoiDung nguoiDung = nguoiDungBO.layNguoiDung((String) session.getAttribute("userID"));
+			if (nguoiDung == null) {
 				System.out.println("Nguoi dung khong ton tai");
 				return mapping.findForward("dangXuat");
 			}
-
+			
+			nguoiDungForm.setTaiKhoan(nguoiDung.getTaiKhoan());
+			nguoiDungForm.setHoTen(nguoiDung.getHoTen());
+			nguoiDungForm.setDienThoai(nguoiDung.getDienThoai());
+			nguoiDungForm.setEmail(nguoiDung.getEmail());
+			nguoiDungForm.setGioiTinh(nguoiDung.getGioiTinh());
+			nguoiDungForm.setMaTinh(nguoiDung.getMaTinh());
+			nguoiDungForm.setAnh(nguoiDung.getAnh());
+			
 			// lay ds Tinh
 			nguoiDungForm.setDsTinh(tinhBO.getListTinh());
 
+			// hien thi form chinh sua thong tin
 			return mapping.findForward("suaND");
 		}
 	}

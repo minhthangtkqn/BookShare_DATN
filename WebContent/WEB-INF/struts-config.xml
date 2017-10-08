@@ -12,6 +12,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="trangNguoiDungForm" type="form.TrangNguoiDungForm" />
 		<form-bean name="trangQuanLyForm" type="form.TrangQuanLyForm" />
 		<form-bean name="danhMucForm" type="form.DanhMucForm" />
+		<form-bean name="nguoiDungForm" type="form.NguoiDungForm" />
 
 
 		<form-bean name="testForm" type="form.TestForm" />
@@ -123,12 +124,13 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		</action>
 
 		<!-- SUA THONG TIN NGUOI DUNG -->
-		<action input="/dangNhap.jsp" name="trangNguoiDungForm" path="/sua-nguoi-dung"
+		<action input="/dangNhap.jsp" name="nguoiDungForm" path="/sua-nguoi-dung"
 			scope="request" type="action.SuaNguoiDungAction">
 			<forward name="trangChu" path="/trang-chu.do" />
 			<forward name="dangXuat" path="/dang-xuat.do" />
 			<forward name="suaND" path="/suaND.jsp" />
-			<forward name="suaNDXong" path="/trang-ca-nhan.do" />
+			<forward name="suaMatKhauXong" path="/trang-ca-nhan.do" />
+			<forward name="suaThongTinXong" path="/trang-ca-nhan.do" />
 		</action>
 
 		<action input="" name="testForm" path="/test" scope="request"

@@ -9,6 +9,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import common.StringProcess;
 import form.TrangNguoiDungForm;
 import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
@@ -28,7 +29,7 @@ public class TrangNguoiDungAction extends Action {
 		if (session.getAttribute("userID") == null) {
 			return mapping.findForward("trangChu");
 		}
-		
+
 		/**
 		 * get data for showing
 		 */
@@ -36,19 +37,22 @@ public class TrangNguoiDungAction extends Action {
 
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 		RaoBanBO raoBanBO = new RaoBanBO();
-		
+
 		System.out.println("Bat dau lay du lieu nguoi dung");
 		// lay thong tin nguoi dung
 		trangNguoiDungForm.setNguoiDung(nguoiDungBO.layNguoiDung((String) session.getAttribute("userID")));
 
-		if(trangNguoiDungForm.getNguoiDung() == null){
+		if (trangNguoiDungForm.getNguoiDung() == null) {
 			System.out.println("Nguoi dung khong ton tai");
 			return mapping.findForward("dangXuat");
 		}
-		
+		if (StringProcess.notVaild(trangNguoiDungForm.getNguoiDung().getAnh())) {
+			trangNguoiDungForm.getNguoiDung().setAnh("images/No-image.jpg");
+		}
+
 		// lay ds goi y
 		trangNguoiDungForm.setDsGoiY(raoBanBO.layDanhSachGoiYMoiNguoiCungXem());
-		
+
 		System.out.println("lay ds cho duyet");
 		// lay ds cho duyet
 		trangNguoiDungForm.setDsChoDuyet(raoBanBO.layDanhSachChoDuyet((String) session.getAttribute("userID")));

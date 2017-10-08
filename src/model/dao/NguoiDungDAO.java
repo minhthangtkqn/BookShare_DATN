@@ -300,6 +300,7 @@ public class NguoiDungDAO {
 			nguoiDung.setAnh(rs.getString("anh"));
 			nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
 			nguoiDung.setNamSinh(rs.getInt("namSinh"));
+			nguoiDung.setMaTinh(rs.getInt("matinh"));
 			nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
 
 		} catch (SQLException e) {
@@ -351,7 +352,8 @@ public class NguoiDungDAO {
 		connect();
 
 		String sql = "UPDATE " + Constant.TABLE_NGUOI_DUNG
-				+ " SET HoTen = ?, MaTinh = ?, DienThoai = ?, Email = ?, GioiTinh = ?, Anh = ?, NamSinh = ? WHERE MaNguoiDung = ?";
+				+ " SET HoTen = ?, MaTinh = ?, DienThoai = ?, Email = ?, GioiTinh = ? WHERE MaNguoiDung = ?";
+		// , Anh = ?, NamSinh = ?
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
@@ -360,9 +362,9 @@ public class NguoiDungDAO {
 			statement.setString(3, nguoiDung.getDienThoai());
 			statement.setString(4, nguoiDung.getEmail());
 			statement.setInt(5, nguoiDung.getGioiTinh());
-			statement.setString(6, nguoiDung.getAnh());
-			statement.setInt(7, nguoiDung.getNamSinh());
-			statement.setString(8, nguoiDung.getMaNguoiDung());
+//			statement.setString(6, nguoiDung.getAnh());
+//			statement.setInt(7, nguoiDung.getNamSinh());
+			statement.setString(6, nguoiDung.getMaNguoiDung());
 			
 			statement.executeUpdate();
 			

@@ -28,6 +28,7 @@
                 <p>
                     Điện thoại: <bean:write name="nguoiDung" property="dienThoai" />
                 </p>
+                <a href="sua-nguoi-dung.do">Sửa thông tin của bạn >>></a>
             </div>
 
             <div class="row-item user-img">
