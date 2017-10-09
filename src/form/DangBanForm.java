@@ -9,6 +9,15 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.upload.FormFile;
 
 public class DangBanForm extends ActionForm {
+	// dung` khi SUA va XOA bai rao ban
+	private String maRaoBan;
+	private String linkAnh1;
+	private String linkAnh2;
+	private String linkAnh3;
+	private String linkAnh4;
+	private String linkAnh5;
+
+	// cac bien dung` chung
 	private ArrayList<Tinh> dsTinh;
 	private ArrayList<DanhMuc> dsDanhMuc;
 	private String tenSach;
@@ -20,11 +29,11 @@ public class DangBanForm extends ActionForm {
 	private Float gia;
 	private String moTa;
 
-	private FormFile linkAnh1;
-	private FormFile linkAnh2;
-	private FormFile linkAnh3;
-	private FormFile linkAnh4;
-	private FormFile linkAnh5;
+	private FormFile anh1;
+	private FormFile anh2;
+	private FormFile anh3;
+	private FormFile anh4;
+	private FormFile anh5;
 
 	private String submit;
 
@@ -39,6 +48,56 @@ public class DangBanForm extends ActionForm {
 	private String linkAnh3Error;
 	private String linkAnh4Error;
 	private String linkAnh5Error;
+
+	// ++++++++++++++++++++++
+
+	public String getMaRaoBan() {
+		return maRaoBan;
+	}
+
+	public void setMaRaoBan(String maRaoBan) {
+		this.maRaoBan = maRaoBan;
+	}
+
+	public String getLinkAnh1() {
+		return linkAnh1;
+	}
+
+	public void setLinkAnh1(String linkAnh1) {
+		this.linkAnh1 = linkAnh1;
+	}
+
+	public String getLinkAnh2() {
+		return linkAnh2;
+	}
+
+	public void setLinkAnh2(String linkAnh2) {
+		this.linkAnh2 = linkAnh2;
+	}
+
+	public String getLinkAnh3() {
+		return linkAnh3;
+	}
+
+	public void setLinkAnh3(String linkAnh3) {
+		this.linkAnh3 = linkAnh3;
+	}
+
+	public String getLinkAnh4() {
+		return linkAnh4;
+	}
+
+	public void setLinkAnh4(String linkAnh4) {
+		this.linkAnh4 = linkAnh4;
+	}
+
+	public String getLinkAnh5() {
+		return linkAnh5;
+	}
+
+	public void setLinkAnh5(String linkAnh5) {
+		this.linkAnh5 = linkAnh5;
+	}
 
 	public ArrayList<Tinh> getDsTinh() {
 		return dsTinh;
@@ -120,44 +179,44 @@ public class DangBanForm extends ActionForm {
 		this.moTa = moTa;
 	}
 
-	public FormFile getLinkAnh1() {
-		return linkAnh1;
+	public FormFile getAnh1() {
+		return anh1;
 	}
 
-	public void setLinkAnh1(FormFile linkAnh1) {
-		this.linkAnh1 = linkAnh1;
+	public void setAnh1(FormFile anh1) {
+		this.anh1 = anh1;
 	}
 
-	public FormFile getLinkAnh2() {
-		return linkAnh2;
+	public FormFile getAnh2() {
+		return anh2;
 	}
 
-	public void setLinkAnh2(FormFile linkAnh2) {
-		this.linkAnh2 = linkAnh2;
+	public void setAnh2(FormFile anh2) {
+		this.anh2 = anh2;
 	}
 
-	public FormFile getLinkAnh3() {
-		return linkAnh3;
+	public FormFile getAnh3() {
+		return anh3;
 	}
 
-	public void setLinkAnh3(FormFile linkAnh3) {
-		this.linkAnh3 = linkAnh3;
+	public void setAnh3(FormFile anh3) {
+		this.anh3 = anh3;
 	}
 
-	public FormFile getLinkAnh4() {
-		return linkAnh4;
+	public FormFile getAnh4() {
+		return anh4;
 	}
 
-	public void setLinkAnh4(FormFile linkAnh4) {
-		this.linkAnh4 = linkAnh4;
+	public void setAnh4(FormFile anh4) {
+		this.anh4 = anh4;
 	}
 
-	public FormFile getLinkAnh5() {
-		return linkAnh5;
+	public FormFile getAnh5() {
+		return anh5;
 	}
 
-	public void setLinkAnh5(FormFile linkAnh5) {
-		this.linkAnh5 = linkAnh5;
+	public void setAnh5(FormFile anh5) {
+		this.anh5 = anh5;
 	}
 
 	public String getSubmit() {

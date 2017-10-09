@@ -68,6 +68,9 @@
                         <td>Ngày bán</td>
                         <td>Nhà xuất bản</td>
                         <td>Năm xuất bản</td>
+                        <td>Sửa</td>
+                        <td>Xóa</td>
+                        
                     </thead>
                     <!-- ++++++++++++++++++  -->
                     <logic:iterate name="trangNguoiDungForm" property="dsChoDuyet" id="sp">
@@ -78,7 +81,10 @@
 	                        <td><bean:write name="sp" property="ngayBan" /></td>
 	                        <td><bean:write name="sp" property="nxb" /></td>
 	                        <td><bean:write name="sp" property="namxb" /></td>
-	                        
+	                        <td>
+                        		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
+	                        	<a href="sua-bai-dang.do?maRaoBan=${maRaoBan}">Sửa</a>
+	                        </td>
 	                    </tr>
                     </logic:iterate>
                 </table>

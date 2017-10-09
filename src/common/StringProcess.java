@@ -3,6 +3,8 @@ package common;
 import java.text.Normalizer;
 import java.util.regex.Pattern;
 
+import org.apache.struts.upload.FormFile;
+
 public class StringProcess {
 	
 	/**
@@ -63,5 +65,14 @@ public class StringProcess {
 		String regex = "[0-9]+"; 
 		if(s.matches(regex)) return false;
 		return true;
+	}
+	
+	/**
+	 * Hàm lấy định dạng file ảnh
+	 * @param file
+	 * @return
+	 */
+	public static String getSuffix(FormFile file) {
+		return "." + file.getFileName().split("\\.")[file.getFileName().split("\\.").length - 1];
 	}
 }

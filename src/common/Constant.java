@@ -2,6 +2,9 @@ package common;
 
 public class Constant {
 
+	// default image for no image case
+	public static final String NO_IMAGE_DEFAULT = "images/No-image.jpg";
+	
 	// Link upload image files
 	public static final String LINK_IMAGE_STORAGE = "E:/WorkSpace/WorkSpaceJavaEclipse/BookShare_DATN/WebContent/images/raoban/";
 	public static final String LINK_IMAGE_DATABASE = "images/raoban/";

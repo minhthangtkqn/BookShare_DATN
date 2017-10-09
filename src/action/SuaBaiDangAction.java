@@ -3,17 +3,11 @@ package action;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import model.bean.RaoBan;
-import model.bo.DanhMucBO;
-import model.bo.RaoBanBO;
-import model.bo.TinhBO;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionErrors;
@@ -26,34 +20,24 @@ import org.apache.struts.upload.FormFile;
 import common.Constant;
 import common.StringProcess;
 import form.DangBanForm;
+import model.bean.RaoBan;
+import model.bo.DanhMucBO;
+import model.bo.RaoBanBO;
+import model.bo.TinhBO;
 
-/**
- * SinhVienAction.java
- * 
- * Version 1.0
- * 
- * Date: Jan 21, 2015
- * 
- * Copyright
- * 
- * Modification Logs: DATE AUTHOR DESCRIPTION
- * ----------------------------------------------------------------------- Jan
- * 21, 2015 DaiLV2 Create
- */
+public class SuaBaiDangAction extends Action {
 
-public class DangBanAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		System.out.println("DangBanAction");
-
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 
+		System.out.println("Sua Bai Dang Action");
 		// neu chua dang nhap --> den trang dang Nhap
 		if (session.getAttribute("userID") == null) {
-			return mapping.findForward("dangnhaplai");
+			return mapping.findForward("dangNhapLai");
 		}
 
 		// Neu da dang nhap
@@ -72,9 +56,8 @@ public class DangBanAction extends Action {
 		dangBanForm.setDsDanhMuc(danhMucBO.layDanhSachDanhMuc());
 		dangBanForm.setDsTinh(tinhBo.getListTinh());
 
-		// nhan nut Xac nhan o trang dang ban
+		// Kiem tra nhan button Xac nhan o trang sua bai dang
 		if ("submit".equals(dangBanForm.getSubmit())) {
-
 			// validate du lieu nhap vao
 			ActionErrors actionErrors = new ActionErrors();
 
@@ -86,9 +69,6 @@ public class DangBanAction extends Action {
 
 			System.out.println("VALIDATE DU LIEU");
 
-			if (StringProcess.notVaild(anh1.getFileName())) {
-				actionErrors.add("linkAnh1Error", new ActionMessage("error.linkAnh1.trong"));
-			}
 			if (StringProcess.notVaild(dangBanForm.getTenSach())) {
 				actionErrors.add("tenSachError", new ActionMessage("error.tenSach.trong"));
 			}
@@ -111,22 +91,23 @@ public class DangBanAction extends Action {
 
 			saveErrors(request, actionErrors);
 			if (actionErrors.size() > 0) {
-				return mapping.findForward("thatbai");
+				System.out.println("Du lieu co loi");
+				return mapping.findForward("thatBai");
 			}
 		}
 
-		// dang tin rao ban neu du lieu OK
+		// Nếu dữ liệu OK --> Nạp dữ liệu
 		if ("submit".equals(dangBanForm.getSubmit())) {
-
 			System.out.println("Bat dau nap du lieu");
 			RaoBan raoBan = new RaoBan();
+			raoBan.setMaRaoBan(dangBanForm.getMaRaoBan());
+			raoBan.setMaNguoiRaoBan((String) session.getAttribute("userID"));
 
 			raoBan.setTenSach(dangBanForm.getTenSach());
 			raoBan.setMaDanhMuc(dangBanForm.getMaDanhMuc());
 			raoBan.setTacGia(dangBanForm.getTacGia());
 			raoBan.setNxb(dangBanForm.getNxb());
 			raoBan.setNamxb(dangBanForm.getNamxb());
-			raoBan.setMaNguoiRaoBan((String) session.getAttribute("userID"));
 			raoBan.setMaTinhBan(dangBanForm.getMaTinh());
 			raoBan.setGia(dangBanForm.getGia());
 			raoBan.setMoTa(StringProcess.getVaildString(dangBanForm.getMoTa()));
@@ -139,14 +120,25 @@ public class DangBanAction extends Action {
 			String prefixDatabaseLink = Constant.LINK_IMAGE_DATABASE + session.getAttribute("userID") + "_"
 					+ new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(Calendar.getInstance().getTime());
 
-			String storageLink = prefixStorageLink + "(1)" + StringProcess.getSuffix(anh1);
-			String databaseLink = prefixDatabaseLink + "(1)" + StringProcess.getSuffix(anh1);
-			outputStream = new FileOutputStream(new File(storageLink));
-			outputStream.write(anh1.getFileData());
-			raoBan.setLinkAnh1(databaseLink);
+			String storageLink = "";
+			String databaseLink = "";
+
+			if (StringProcess.notVaild(anh1.getFileName())) {
+				raoBan.setLinkAnh1(dangBanForm.getLinkAnh1());
+			} else {
+				storageLink = prefixStorageLink + "(1)" + StringProcess.getSuffix(anh1);
+				databaseLink = prefixDatabaseLink + "(1)" + StringProcess.getSuffix(anh1);
+				outputStream = new FileOutputStream(new File(storageLink));
+				outputStream.write(anh1.getFileData());
+				raoBan.setLinkAnh2(databaseLink);
+			}
 
 			if (StringProcess.notVaild(anh2.getFileName())) {
-				raoBan.setLinkAnh2("");
+				if (dangBanForm.getLinkAnh2().equals(Constant.NO_IMAGE_DEFAULT)) {
+					raoBan.setLinkAnh2("");
+				} else {
+					raoBan.setLinkAnh2(dangBanForm.getLinkAnh2());
+				}
 			} else {
 				storageLink = prefixStorageLink + "(2)" + StringProcess.getSuffix(anh2);
 				databaseLink = prefixDatabaseLink + "(2)" + StringProcess.getSuffix(anh2);
@@ -156,7 +148,11 @@ public class DangBanAction extends Action {
 			}
 
 			if (StringProcess.notVaild(anh3.getFileName())) {
-				raoBan.setLinkAnh3("");
+				if (dangBanForm.getLinkAnh3().equals(Constant.NO_IMAGE_DEFAULT)) {
+					raoBan.setLinkAnh3("");
+				} else {
+					raoBan.setLinkAnh3(dangBanForm.getLinkAnh3());
+				}
 			} else {
 				storageLink = prefixStorageLink + "(3)" + StringProcess.getSuffix(anh3);
 				databaseLink = prefixDatabaseLink + "(3)" + StringProcess.getSuffix(anh3);
@@ -166,7 +162,11 @@ public class DangBanAction extends Action {
 			}
 
 			if (StringProcess.notVaild(anh4.getFileName())) {
-				raoBan.setLinkAnh4("");
+				if (dangBanForm.getLinkAnh4().equals(Constant.NO_IMAGE_DEFAULT)) {
+					raoBan.setLinkAnh4("");
+				} else {
+					raoBan.setLinkAnh4(dangBanForm.getLinkAnh4());
+				}
 			} else {
 				storageLink = prefixStorageLink + "(4)" + StringProcess.getSuffix(anh4);
 				databaseLink = prefixDatabaseLink + "(4)" + StringProcess.getSuffix(anh4);
@@ -176,7 +176,11 @@ public class DangBanAction extends Action {
 			}
 
 			if (StringProcess.notVaild(anh5.getFileName())) {
-				raoBan.setLinkAnh5("");
+				if (dangBanForm.getLinkAnh4().equals(Constant.NO_IMAGE_DEFAULT)) {
+					raoBan.setLinkAnh4("");
+				} else {
+					raoBan.setLinkAnh4(dangBanForm.getLinkAnh4());
+				}
 			} else {
 				storageLink = prefixStorageLink + "(5)" + StringProcess.getSuffix(anh5);
 				databaseLink = prefixDatabaseLink + "(5)" + StringProcess.getSuffix(anh5);
@@ -187,17 +191,50 @@ public class DangBanAction extends Action {
 
 			outputStream.close();
 
-			System.out.println("Goi ham dang bai");
-
-			if (raoBanBO.dangBai(raoBan)) {
-				System.out.println("Dang bai thanh cong !!! - DangBanAction");
-				return mapping.findForward("thanhcong");
+			// chạy hàm sửa bài đăng
+			System.out.println("Goi ham` sua bai");
+			if (raoBanBO.suaBaiDang(raoBan)) {
+				System.out.println("Sua bai dang thanh cong !!! - SuaBaiDangAction");
+				return mapping.findForward("thanhCong");
 			}
-			return mapping.findForward("thatbai");
+			return mapping.findForward("thatBai");
 		}
 
+		// Nếu không bấm button submit
+		// Nạp dữ liệu cũ và hiển thị form sửa
 		System.out.println("SUBMIT: " + dangBanForm.getSubmit());
-		return mapping.findForward("dangban");
+
+		if (StringProcess.notVaild(dangBanForm.getMaRaoBan())) {
+			System.out.println("Khong co ma rao ban --> Tra ve trang chu");
+			return mapping.findForward("trangChu");
+		}
+
+		RaoBan raoBan = raoBanBO.layThongTinBaiDang(dangBanForm.getMaRaoBan());
+
+		dangBanForm.setMaRaoBan(raoBan.getMaRaoBan());
+
+		dangBanForm.setTenSach(raoBan.getTenSach());
+		dangBanForm.setMaDanhMuc(raoBan.getMaDanhMuc());
+		dangBanForm.setTacGia(raoBan.getTacGia());
+		dangBanForm.setNxb(raoBan.getNxb());
+		dangBanForm.setNamxb(raoBan.getNamxb());
+		dangBanForm.setMaTinh(raoBan.getMaTinhBan());
+		dangBanForm.setGia(raoBan.getGia());
+		dangBanForm.setMoTa(raoBan.getMoTa());
+
+		dangBanForm.setLinkAnh1(
+				StringProcess.notVaild(raoBan.getLinkAnh1()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh1());
+		dangBanForm.setLinkAnh2(
+				StringProcess.notVaild(raoBan.getLinkAnh2()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh2());
+		dangBanForm.setLinkAnh3(
+				StringProcess.notVaild(raoBan.getLinkAnh3()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh3());
+		dangBanForm.setLinkAnh4(
+				StringProcess.notVaild(raoBan.getLinkAnh4()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh4());
+		dangBanForm.setLinkAnh5(
+				StringProcess.notVaild(raoBan.getLinkAnh5()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh5());
+
+		System.out.println("Forward den giao dien sua bai dang");
+		return mapping.findForward("suaBaiDang");
 	}
 
 }

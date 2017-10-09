@@ -192,7 +192,7 @@ public class RaoBanDAO {
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
-				
+
 				System.out.print("Ten sach: " + rs.getString("TenSach"));
 				System.out.println("  --  Link anh: " + rs.getString("LinkAnh1"));
 				list.add(raoBan);
@@ -231,11 +231,11 @@ public class RaoBanDAO {
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
-				
+
 				System.out.println("Ten sach: " + rs.getString("tensach"));
 				System.out.println("Ma rao ban: " + rs.getString("maraoban"));
 				System.out.println("+++++++++++++++++");
-				
+
 				list.add(raoBan);
 			}
 		} catch (SQLException e) {
@@ -758,6 +758,54 @@ public class RaoBanDAO {
 			ex.printStackTrace();
 		}
 		return list;
+	}
+
+	public boolean suaBaiDang(RaoBan raoBan) {
+		// 1 maraoban
+		// 2'manguoiraoban',
+
+		// 3'tensach',
+		// 4'madanhmuc',
+		// 5'tacgia',
+		// 6'nxb',
+		// 7 namxb,
+		// 8 matinhban,
+		// 9 gia,
+		// 10'mota',
+		// 11'linkanh1',
+		// 12'linkanh2',
+		// 13'linkanh3',
+		// 14'linkanh4',
+		// 15'linkanh5'
+		connect();
+		String sql = "exec p_suaRaoBan ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, raoBan.getMaRaoBan());
+			statement.setString(2, raoBan.getMaNguoiRaoBan());
+
+			statement.setNString(3, raoBan.getTenSach());
+			statement.setString(4, raoBan.getMaDanhMuc());
+			statement.setNString(5, raoBan.getTacGia());
+			statement.setNString(6, raoBan.getNxb());
+			statement.setString(7, raoBan.getNamxb());
+			statement.setInt(8, raoBan.getMaTinhBan());
+			statement.setFloat(9, raoBan.getGia());
+			statement.setNString(10, raoBan.getMoTa());
+			statement.setString(11, raoBan.getLinkAnh1());
+			statement.setString(12, raoBan.getLinkAnh2());
+			statement.setString(13, raoBan.getLinkAnh3());
+			statement.setString(14, raoBan.getLinkAnh4());
+			statement.setString(15, raoBan.getLinkAnh5());
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

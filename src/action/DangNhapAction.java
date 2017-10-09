@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import common.Constant;
 import common.StringProcess;
 import form.DangNhapForm;
 
@@ -66,7 +67,7 @@ public class DangNhapAction extends Action {
 			session.setAttribute("userID", maNguoiDung);
 
 			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau);
-			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? "images/No-image.jpg" : anh);
+			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? Constant.NO_IMAGE_DEFAULT : anh);
 
 			System.out.println("Foward den trang-ca-nhan.do");
 			return mapping.findForward("trangQuanLy");

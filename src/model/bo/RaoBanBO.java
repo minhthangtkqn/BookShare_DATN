@@ -105,4 +105,8 @@ public class RaoBanBO {
 		return raoBanDAO.luuLichSuXemRaoBan(maNguoiDung, maRaoBan);
 	}
 
+	public boolean suaBaiDang(RaoBan raoBan) {
+		return raoBanDAO.suaBaiDang(raoBan);
+	}
+
 }

@@ -82,6 +82,16 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="thatbai" path="/post.jsp" />
 			<forward name="dangnhaplai" path="/dangNhap.jsp" />
 		</action>
+		
+		<!-- SUA BAI DANG -->
+		<action input="/dangNhap.jsp" name="dangBanForm" path="/sua-bai-dang"
+			scope="request" type="action.SuaBaiDangAction">
+			<forward name="thanhCong" path="/trang-ca-nhan.do" />
+			<forward name="thatBai" path="/suaBaiDang.jsp"/>
+			<forward name="suaBaiDang" path="/suaBaiDang.jsp"></forward>
+			<forward name="dangNhapLai" path="/dangNhap.jsp" />
+			<forward name="trangChu" path="/trang-chu.do" />
+		</action>
 
 		<!-- DANH MUC -->
 		<action input="/index.jsp" name="danhMucForm" path="/danh-muc"

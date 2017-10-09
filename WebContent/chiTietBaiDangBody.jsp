@@ -15,7 +15,7 @@
 	<div id="content_detail_product">
 		<!--example-->
 		<div class="anh_product">
-			<!--Ảnh chính được hiện thị-->
+			<!--Ảnh chính được hiển thị-->
 			<div class="pic">
 
 				<!-- 				<div class="w3-display-container mySlides"> -->
@@ -65,10 +65,8 @@
 					<img src="${linkAnh5}">
 					<div class="w3-display-bottomleft w3-container w3-black"></div>
 				</div>
-
-
 			</div>
-			<!--/Ảnh chính được hiện thị-->
+			<!--/Ảnh chính được hiển thị-->
 
 			<!--Ảnh nhỏ để zoom lớn-->
 			<div class="zoom_pic">
