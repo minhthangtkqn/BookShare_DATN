@@ -23,15 +23,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<!-- DANG NHAP -->
 		<action input="/dangNhap.jsp" name="dangNhapForm" path="/dang-nhap"
 			scope="request" type="action.DangNhapAction">
-			<!-- <forward name="trangquanli" path="/trang-quan-ly.do" redirect="true" 
-				/> -->
-			<!-- <forward name="trangnguoidung" path="/trang-chu.do" /> -->
-			<!-- <forward name="trangbichan" path="/block.jsp" /> -->
-			<!-- <forward name="saimatkhau" path="/login.jsp" /> -->
-			<!-- <forward name="saitaikhoan" path="/login.jsp" /> -->
-			<!-- <forward name="trangchu" path="/trang-chu.do" /> -->
-			<forward name="trangquanli" path="/admin.jsp" redirect="true" />
-			<forward name="trangnguoidung" path="/user.jsp" />
+			<forward name="trangQuanLy" path="/trang-ca-nhan.do" />
 			<forward name="trangbichan" path="/blockInfo.jsp" />
 			<forward name="saimatkhau" path="/dangNhap.jsp" />
 			<forward name="saitaikhoan" path="/dangNhap.jsp" />

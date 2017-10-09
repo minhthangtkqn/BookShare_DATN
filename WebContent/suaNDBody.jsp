@@ -52,4 +52,21 @@
             </div>
         </div>
     </html:form>
+    
+    <h3>ĐỔI MẬT KHẨU</h3>
+    <html:form action="/sua-nguoi-dung" method="post">
+        <div class="row form-group">
+            <label class="col-lg-2">Mật khẩu mới</label>
+            <div class="col-lg-3">
+                <html:password property="matKhau" styleClass="form-control"></html:password>
+            </div>
+        </div>
+        <input name="action" value="suaMatKhau" style="display: none;">
+        <div class="row form-group">
+            <div class="col-lg-3 col-lg-offset-2">
+                <html:submit styleClass="btn btn-primary" property="submit" value="submit">Lưu lại</html:submit>
+                <button class="btn btn-primary" onclick="history.go(-1);">Quay lại</button>
+            </div>
+        </div>
+	</html:form>
 </div>

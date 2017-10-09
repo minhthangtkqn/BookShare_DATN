@@ -172,9 +172,8 @@ public class RaoBanDAO {
 		try {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
-			raoBan = new RaoBan();
-			rs.next();
 			while (rs.next()) {
+				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
@@ -193,6 +192,9 @@ public class RaoBanDAO {
 				raoBan.setNamxb(rs.getString("namxb"));
 				raoBan.setNxb(rs.getString("nxb"));
 				raoBan.setTacGia(rs.getString("tacgia"));
+				
+				System.out.print("Ten sach: " + rs.getString("TenSach"));
+				System.out.println("  --  Link anh: " + rs.getString("LinkAnh1"));
 				list.add(raoBan);
 			}
 		} catch (SQLException e) {
@@ -211,8 +213,8 @@ public class RaoBanDAO {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			pstm.setString(1, maNguoiDung);
 			ResultSet rs = pstm.executeQuery();
-			raoBan = new RaoBan();
 			while (rs.next()) {
+				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
@@ -252,9 +254,8 @@ public class RaoBanDAO {
 		try {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
-			raoBan = new RaoBan();
-			rs.next();
 			while (rs.next()) {
+				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
@@ -291,9 +292,8 @@ public class RaoBanDAO {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			pstm.setString(1, maNguoiDung);
 			ResultSet rs = pstm.executeQuery();
-			raoBan = new RaoBan();
-			rs.next();
 			while (rs.next()) {
+				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
@@ -327,9 +327,8 @@ public class RaoBanDAO {
 		try {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
-			raoBan = new RaoBan();
-			rs.next();
 			while (rs.next()) {
+				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));
@@ -368,9 +367,8 @@ public class RaoBanDAO {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			pstm.setString(1, maNguoiDung);
 			ResultSet rs = pstm.executeQuery();
-			raoBan = new RaoBan();
-			rs.next();
 			while (rs.next()) {
+				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
 				raoBan.setGia(rs.getFloat("gia"));

@@ -53,9 +53,8 @@ public class DangNhapAction extends Action {
 
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 
-		int key = nguoiDungBO.kiemTraDangNhap(taiKhoan, matKhau); // key ~ kiem
-																	// tra dang
-																	// nhap
+		// kiem tra loai TAI KHOAN la ADMIN hay NGUOI DUNG 
+		int key = nguoiDungBO.kiemTraDangNhap(taiKhoan, matKhau); 
 
 		switch (key) {
 		case 0: // Day la admin
@@ -69,7 +68,8 @@ public class DangNhapAction extends Action {
 			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau);
 			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? "images/No-image.jpg" : anh);
 
-			return mapping.findForward("trangquanli");
+			System.out.println("Foward den trang-ca-nhan.do");
+			return mapping.findForward("trangQuanLy");
 
 		case 1:// Day la nguoi dung
 			System.out.println("Tai khoan user dang nhap");
@@ -80,7 +80,7 @@ public class DangNhapAction extends Action {
 			session.setAttribute("userName", taiKhoan);
 			session.setAttribute("type", 1);
 			session.setAttribute("userID", maNguoiDung);
-			session.setAttribute("Avatar", anh);
+			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? "images/No-image.jpg" : anh);
 
 			return mapping.findForward("trangchu");
 
@@ -96,7 +96,7 @@ public class DangNhapAction extends Action {
 			session.setAttribute("userName", taiKhoan);
 			session.setAttribute("type", 2);
 			session.setAttribute("userID", maNguoiDung);
-			session.setAttribute("Avatar", anh);
+			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? "images/No-image.jpg" : anh);
 
 			session.setAttribute("reason", liDoChan);
 
