@@ -7,13 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import common.Constant;
 import model.bean.Banner;
 
 public class BannerDAO {
 
-	String url = "jdbc:sqlserver://localhost:1433;databaseName=LineBook";
-	String userName = "sa";
-	String password = "12345678";
 	Connection connection;
 	PreparedStatement statement;	
 	
@@ -21,7 +19,7 @@ public class BannerDAO {
 	void connect(){
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			connection = DriverManager.getConnection(url, userName, password);
+			connection = DriverManager.getConnection(Constant.URL, Constant.DATABASE_USERNAME, Constant.DATABASE_PASSWORD);
 			System.out.println("Ket noi thanh cong");
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -2,7 +2,11 @@ package common;
 
 public class Constant {
 
-	// default image for no image case
+	// INFORMATION FOR CONNECTION
+	public static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=LineBook";
+	public static final String DATABASE_USERNAME = "sa";
+	public static final String DATABASE_PASSWORD = "12345678";
+	// Default image for no image case
 	public static final String NO_IMAGE_DEFAULT = "images/No-image.jpg";
 	
 	// Link upload image files
