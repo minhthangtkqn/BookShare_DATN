@@ -8,10 +8,13 @@ import model.bean.RaoBan;
 import model.bo.RaoBanBO;
 
 import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
+import common.StringProcess;
 import form.ChiTietBaiDangForm;
 
 /**
@@ -44,6 +47,19 @@ public class ChiTietBaiDangAction extends Action {
 		ChiTietBaiDangForm chiTietBaiDangForm = (ChiTietBaiDangForm) form;
 
 		RaoBan raoBan = raoBanBO.layThongTinBaiDang(request.getParameter("maRaoBan"));
+		// Kiem tra bai rao ban co ton tai hay khong
+		if (raoBan == null) {
+			System.out.println("Bai dang khong ton tai");
+			ActionErrors errors = new ActionErrors();
+			errors.add("error", new ActionMessage("error.baiDang.null"));
+			saveErrors(request, errors);
+			
+			if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
+				return mapping.findForward("baiDangKhongTonTai");
+			}
+			return mapping.findForward("baiDangKhongTonTaiLogged");
+		}
+
 		chiTietBaiDangForm.setChiTiet(raoBan);
 
 		if (raoBan.getGioiTinh().equals("0"))
@@ -55,28 +71,23 @@ public class ChiTietBaiDangAction extends Action {
 
 		// lay thong tin goi y cho moi nguoi
 		chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachGoiYMoiNguoiCungXem());
-		
+
 		/**
 		 * Kiem tra nguoi dung de phan luong hien thi
 		 */
-		// neu chua dang nhap xem che do khach
-		if (session.getAttribute("userID") == null) {
-			String userID = "";
-			if (raoBanBO.luuLichSuXemRaoBan(userID, chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {
-				System.out.println("Da~ luu vao CSDL:");
-				System.out.println("Ma Nguoi Dung: " + userID + "  ---  Ma Rao Ban: "
-						+ chiTietBaiDangForm.getChiTiet().getMaRaoBan());
-			} else {
-				System.out.println("Luu vao` CSDL that bai");
-			}
-			return mapping.findForward("xemCheDoKhach");
+		String userID;
+		int userType;
+
+		// kiem tra da dang nhap hay chua
+		if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
+			userID = "";
+			userType = -1;
+		} else {
+			userType = (Integer) session.getAttribute("type");
+			userID = (String) session.getAttribute("userID");
 		}
-
-		// Neu da dang nhap
-		int userType = (Integer) session.getAttribute("type");
-		String userID = (String) session.getAttribute("userID");
-
-		// luu lich su xem rao ban vao` CSDL
+		
+		// luu lich su xem vao` CSDL
 		if (raoBanBO.luuLichSuXemRaoBan(userID, chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {
 			System.out.println("Da~ luu vao CSDL:");
 			System.out.println(
@@ -85,20 +96,20 @@ public class ChiTietBaiDangAction extends Action {
 			System.out.println("Luu vao` CSDL that bai");
 		}
 
-		// Nguoi dung bi chan
-		if (userType == 2)
-			return mapping.findForward("nguoiDungBiChan");
-
-		if (userType == 1) {
-			// Kiem tra chua mua
-			return mapping.findForward("xemCheDoNguoiDung");
-			// Kiem tra da mua
-			// return mapping.findForward("xemchedodamua");
-		}
-
-		if (userType == 0)
+		switch (userType) {
+		case 0:
+			// admin
 			return mapping.findForward("xemCheDoQuanLy");
-		return null;
+		case 1:
+			// nguoi dung binh thuong
+			return mapping.findForward("xemCheDoNguoiDung");
+		case 2:
+			// Nguoi dung bi chan
+			return mapping.findForward("nguoiDungBiChan");
+		default:
+			// chua dang nhap
+			return mapping.findForward("xemCheDoKhach");
+		}
 
 	}
 }

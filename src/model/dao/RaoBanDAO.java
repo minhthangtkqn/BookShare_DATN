@@ -119,6 +119,9 @@ public class RaoBanDAO {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			pstm.setString(1, maRaoBan);
 			ResultSet rs = pstm.executeQuery();
+			if(!rs.isBeforeFirst()){
+				return null;
+			}
 			raoBan = new RaoBan();
 			rs.next();
 

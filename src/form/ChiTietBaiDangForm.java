@@ -12,6 +12,16 @@ public class ChiTietBaiDangForm extends ActionForm {
 	private RaoBan chiTiet;
 	private ArrayList<RaoBan> dsGoiYMoiNguoiCungXem;
 
+	private String error;
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
+
 	public RaoBan getChiTiet() {
 		return chiTiet;
 	}
