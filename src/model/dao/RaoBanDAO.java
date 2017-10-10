@@ -719,6 +719,9 @@ public class RaoBanDAO {
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 
+				System.out.print("Ten sach: " + rs.getString("TenSach"));
+				System.out.println(" --- Ma Rao Ban: " + rs.getString("MaRaoBan"));
+				
 				list.add(baiRaoBan);
 			}
 		} catch (Exception ex) {

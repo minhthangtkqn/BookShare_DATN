@@ -11,10 +11,13 @@
 	<div class="body-row">
 		<div class="row-item">
 			<html:form action="/danh-muc.do" method="post">
-				<html:select property="maDanhMuc" styleClass="form-control" onchange="this.form.submit()">
+				<!-- onchange="this.form.submit()" -->
+				<html:select property="maDanhMuc" styleClass="form-control" >
 					<html:optionsCollection name="danhMucForm" property="dsDanhMuc"
 						label="tenDanhMuc" value="maDanhMuc" />
 				</html:select>
+				<html:text property="tuKhoa" styleClass="form-control"></html:text>
+				<html:submit styleClass="btn btn-primary">Tìm kiếm</html:submit>
 			</html:form>
 		</div>
 		<div class="row-item">

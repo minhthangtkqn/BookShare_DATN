@@ -26,7 +26,6 @@ public class DanhMucAction extends Action {
 
 		HttpSession session = request.getSession();
 		DanhMucForm danhMucForm = (DanhMucForm) form;
-
 		DanhMucBO danhMucBO = new DanhMucBO();
 		RaoBanBO raoBanBO = new RaoBanBO();
 
@@ -42,19 +41,19 @@ public class DanhMucAction extends Action {
 			danhMucForm.setDsRaoBanTrongDanhMuc(raoBanBO.layDanhSachMoiNhat());
 		} else {
 			// neu co ma danh muc --> kiem tra keyword
+			System.out.println("Ma DM tim kiem: " + danhMucForm.getMaDanhMuc());
 			if (StringProcess.notVaild(danhMucForm.getTuKhoa())) {
-				// neu KHONG co TU KHOA --> load cac rao ban moi nhat trong danh
-				// muc
+				// neu KHONG co TU KHOA
+				// --> load cac rao ban moi nhat trong danh muc
+				System.out.println("Khong co tu khoa");
 				danhMucForm.setDsRaoBanTrongDanhMuc(raoBanBO.layDsMoiNhatTheoDanhMuc(danhMucForm.getMaDanhMuc()));
 			} else {
 				// neu co TU KHOA --> load cac bai tim kiem tuong ung
-				// ----- luu tu khoa vao du lieu tim kiem (rong~ thi` KHONG luu)
-				if (!StringProcess.notVaild(danhMucForm.getTuKhoa())) {
-					raoBanBO.luuTuKhoaTimKiem(
-							(session.getAttribute("userID") == null) ? "" : (String) (session.getAttribute("userID")),
-							danhMucForm.getTuKhoa());
-				}
-
+				// ----- luu tu khoa vao du lieu tim kiem
+				raoBanBO.luuTuKhoaTimKiem(
+						(session.getAttribute("userID") == null) ? "" : (String) (session.getAttribute("userID")),
+						danhMucForm.getTuKhoa());
+				System.out.println("TU KHOA: " + danhMucForm.getTuKhoa());
 				// xu ly chuc nang tim kiem
 				// ----- xu ly tu khoa
 				String arrayTuKhoa[] = danhMucForm.getTuKhoa().split("\\s+");
@@ -64,12 +63,12 @@ public class DanhMucAction extends Action {
 				danhMucForm.setDsRaoBanTrongDanhMuc(
 						raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), danhMucForm.getTuKhoa()));
 				for (String item : arrayTuKhoa) {
-					danhMucForm.setDsRaoBanTrongDanhMuc(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
+					danhMucForm.getDsRaoBanTrongDanhMuc().addAll(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
 				}
 				for (String item : arrayTuKhoaKhongDau) {
-					danhMucForm.setDsRaoBanTrongDanhMuc(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
+					danhMucForm.getDsRaoBanTrongDanhMuc().addAll(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
 				}
-				
+
 				// filter duplicate results
 				for (int i = 0; i < danhMucForm.getDsRaoBanTrongDanhMuc().size(); i++) {
 					for (int j = i + 1; j < danhMucForm.getDsRaoBanTrongDanhMuc().size(); j++) {
@@ -88,11 +87,11 @@ public class DanhMucAction extends Action {
 		}
 
 		// kiem tra dang nhap de phan luong`
-		if(StringProcess.notVaild((String)session.getAttribute("userID"))){
+		if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
 			// neu chua dang nhap
 			return mapping.findForward("chuaDangNhap");
 		}
-		
+
 		// neu da dang nhap
 		return mapping.findForward("daDangNhap");
 
