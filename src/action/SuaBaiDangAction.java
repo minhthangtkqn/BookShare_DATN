@@ -41,12 +41,6 @@ public class SuaBaiDangAction extends Action {
 		}
 
 		// Neu da dang nhap
-		FileOutputStream outputStream = null;
-		FormFile anh1 = null;
-		FormFile anh2 = null;
-		FormFile anh3 = null;
-		FormFile anh4 = null;
-		FormFile anh5 = null;
 		DangBanForm dangBanForm = (DangBanForm) form;
 		TinhBO tinhBo = new TinhBO();
 		DanhMucBO danhMucBO = new DanhMucBO();
@@ -56,8 +50,16 @@ public class SuaBaiDangAction extends Action {
 		dangBanForm.setDsDanhMuc(danhMucBO.layDanhSachDanhMuc());
 		dangBanForm.setDsTinh(tinhBo.getListTinh());
 
+		FileOutputStream outputStream = null;
+		FormFile anh1 = null;
+		FormFile anh2 = null;
+		FormFile anh3 = null;
+		FormFile anh4 = null;
+		FormFile anh5 = null;
+
 		// Kiem tra nhan button Xac nhan o trang sua bai dang
 		if ("submit".equals(dangBanForm.getSubmit())) {
+
 			// validate du lieu nhap vao
 			ActionErrors actionErrors = new ActionErrors();
 
@@ -188,8 +190,9 @@ public class SuaBaiDangAction extends Action {
 				outputStream.write(anh5.getFileData());
 				raoBan.setLinkAnh5(databaseLink);
 			}
-
-			outputStream.close();
+			if (outputStream != null) {
+				outputStream.close();
+			}
 
 			// chạy hàm sửa bài đăng
 			System.out.println("Goi ham` sua bai");
@@ -208,33 +211,45 @@ public class SuaBaiDangAction extends Action {
 			System.out.println("Khong co ma rao ban --> Tra ve trang chu");
 			return mapping.findForward("trangChu");
 		}
-
 		RaoBan raoBan = raoBanBO.layThongTinBaiDang(dangBanForm.getMaRaoBan());
 
-		dangBanForm.setMaRaoBan(raoBan.getMaRaoBan());
+		// Trước tiên kiểm tra trạng thái rao bán CHỜ DUYỆT (0) và ĐANG BÁN (1)
+		// mới có thể sửa
+		System.out.println("TRANG THAI BAI DANG: " + raoBan.getTrangThaiRaoBan());
+		if (Constant.TRANG_THAI_CHO_DUYET == raoBan.getTrangThaiRaoBan()
+				|| Constant.TRANG_THAI_DANG_BAN == raoBan.getTrangThaiRaoBan()) {
 
-		dangBanForm.setTenSach(raoBan.getTenSach());
-		dangBanForm.setMaDanhMuc(raoBan.getMaDanhMuc());
-		dangBanForm.setTacGia(raoBan.getTacGia());
-		dangBanForm.setNxb(raoBan.getNxb());
-		dangBanForm.setNamxb(raoBan.getNamxb());
-		dangBanForm.setMaTinh(raoBan.getMaTinhBan());
-		dangBanForm.setGia(raoBan.getGia());
-		dangBanForm.setMoTa(raoBan.getMoTa());
+			dangBanForm.setMaRaoBan(raoBan.getMaRaoBan());
 
-		dangBanForm.setLinkAnh1(
-				StringProcess.notVaild(raoBan.getLinkAnh1()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh1());
-		dangBanForm.setLinkAnh2(
-				StringProcess.notVaild(raoBan.getLinkAnh2()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh2());
-		dangBanForm.setLinkAnh3(
-				StringProcess.notVaild(raoBan.getLinkAnh3()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh3());
-		dangBanForm.setLinkAnh4(
-				StringProcess.notVaild(raoBan.getLinkAnh4()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh4());
-		dangBanForm.setLinkAnh5(
-				StringProcess.notVaild(raoBan.getLinkAnh5()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh5());
+			dangBanForm.setTenSach(raoBan.getTenSach());
+			dangBanForm.setMaDanhMuc(raoBan.getMaDanhMuc());
+			dangBanForm.setTacGia(raoBan.getTacGia());
+			dangBanForm.setNxb(raoBan.getNxb());
+			dangBanForm.setNamxb(raoBan.getNamxb());
+			dangBanForm.setMaTinh(raoBan.getMaTinhBan());
+			dangBanForm.setGia(raoBan.getGia());
+			dangBanForm.setMoTa(raoBan.getMoTa());
 
-		System.out.println("Forward den giao dien sua bai dang");
-		return mapping.findForward("suaBaiDang");
+			dangBanForm.setLinkAnh1(
+					StringProcess.notVaild(raoBan.getLinkAnh1()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh1());
+			dangBanForm.setLinkAnh2(
+					StringProcess.notVaild(raoBan.getLinkAnh2()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh2());
+			dangBanForm.setLinkAnh3(
+					StringProcess.notVaild(raoBan.getLinkAnh3()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh3());
+			dangBanForm.setLinkAnh4(
+					StringProcess.notVaild(raoBan.getLinkAnh4()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh4());
+			dangBanForm.setLinkAnh5(
+					StringProcess.notVaild(raoBan.getLinkAnh5()) ? Constant.NO_IMAGE_DEFAULT : raoBan.getLinkAnh5());
+
+			System.out.println("Forward den giao dien sua bai dang");
+			return mapping.findForward("suaBaiDang");
+		} else {
+			System.out.println("Ban chi co the sua bai dang chua ban hoac dang ban");
+			ActionErrors errors = new ActionErrors();
+			errors.add("error", new ActionMessage("error.suaBaiDang.notValid"));
+			saveErrors(request, errors);
+			return mapping.findForward("khongTheSuaLogged");
+		}
 	}
 
 }

@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>PRODUCT DETAIL</title>
+<title>DUYỆT BÀI ĐĂNG</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -29,12 +29,13 @@
    <script src="js/jquery.scrollUp.min.js"></script>
    <script src="js/jquery.prettyPhoto.js"></script>
 </head>
+<!--/head-->
 
 <body>
 
-	<jsp:include page="/indexHeader.jsp"></jsp:include>
+	<jsp:include page="/homeHeader.jsp"></jsp:include>
 
-	<jsp:include page="/chiTietBaiDangBody.jsp"></jsp:include>
+	<jsp:include page="/duyetBaiDangBody.jsp"></jsp:include>
 
 	<jsp:include page="/footer.jsp"></jsp:include>
 

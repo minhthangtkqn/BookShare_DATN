@@ -16,10 +16,14 @@ import model.bean.RaoBan;
 public class RaoBanDAO {
 	Connection connection;
 
+	String url = "jdbc:sqlserver://localhost:1433;databaseName=BookShare";
+	String username = "sa";
+	String password = "12345678";
+
 	void connect() {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			connection = DriverManager.getConnection(Constant.URL, Constant.DATABASE_USERNAME, Constant.DATABASE_PASSWORD);
+			connection = DriverManager.getConnection(url, username, password);
 			System.out.println("Ket noi thanh cong");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -116,7 +120,7 @@ public class RaoBanDAO {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			pstm.setString(1, maRaoBan);
 			ResultSet rs = pstm.executeQuery();
-			if(!rs.isBeforeFirst()){
+			if (!rs.isBeforeFirst()) {
 				return null;
 			}
 			raoBan = new RaoBan();
@@ -145,6 +149,7 @@ public class RaoBanDAO {
 			raoBan.setNamxb(rs.getString("namxb"));
 			raoBan.setNxb(rs.getString("nxb"));
 			raoBan.setTacGia(rs.getString("tacgia"));
+			raoBan.setTrangThaiRaoBan(rs.getInt("TrangThaiBan"));
 
 			System.out.println("THONG TIN SACH:");
 			System.out.println("ten sach: " + raoBan.getTenSach());
@@ -718,7 +723,7 @@ public class RaoBanDAO {
 
 				System.out.print("Ten sach: " + rs.getString("TenSach"));
 				System.out.println(" --- Ma Rao Ban: " + rs.getString("MaRaoBan"));
-				
+
 				list.add(baiRaoBan);
 			}
 		} catch (Exception ex) {
@@ -781,7 +786,7 @@ public class RaoBanDAO {
 		// 14'linkanh4',
 		// 15'linkanh5'
 		connect();
-		String sql = "exec p_suaRaoBan ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
+		String sql = "exec " + Constant.FUNCTION_SUA_BAI_DANG + " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -802,6 +807,44 @@ public class RaoBanDAO {
 			statement.setString(13, raoBan.getLinkAnh3());
 			statement.setString(14, raoBan.getLinkAnh4());
 			statement.setString(15, raoBan.getLinkAnh5());
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean xoaBaiDang(String maNguoiRaoBan, String maRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_XOA_BAI_DANG + " ?, ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maNguoiRaoBan);
+			statement.setString(2, maRaoBan);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean banBaiDang(String maNguoiRaoBan, String maRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_BAN_BAI_DANG + " ?, ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maNguoiRaoBan);
+			statement.setString(2, maRaoBan);
 
 			statement.executeUpdate();
 			return true;

@@ -8,7 +8,7 @@ public class Constant {
 	public static final String DATABASE_PASSWORD = "12345678";
 	// Default image for no image case
 	public static final String NO_IMAGE_DEFAULT = "images/No-image.jpg";
-	
+
 	// Link upload image files
 	public static final String LINK_IMAGE_STORAGE = "E:/WorkSpace/WorkSpaceJavaEclipse/BookShare_DATN/WebContent/images/raoban/";
 	public static final String LINK_IMAGE_DATABASE = "images/raoban/";
@@ -30,4 +30,17 @@ public class Constant {
 	public static final String VIEW_DANH_SACH_DA_BAN_ND = "[v_dsDaBanND]";
 	public static final String VIEW_DANH_SACH_NGUOI_DUNG = "[v_danhsachnguoidung]";
 	public static final String VIEW_DANH_SACH_ADMIN = "[v_danhSachAdmin]";
+
+	// Functions Name
+	public static final String FUNCTION_XOA_BAI_DANG = "p_xoaRaoBan";
+	public static final String FUNCTION_SUA_BAI_DANG = "p_suaRaoBan";
+	public static final String FUNCTION_BAN_BAI_DANG = "p_baiDangDaBan";
+	
+
+	// POST STATUS
+	public static final int TRANG_THAI_CHO_DUYET = 0;
+	public static final int TRANG_THAI_DANG_BAN = 1;
+	public static final int TRANG_THAI_DA_BAN = 2;
+	public static final int TRANG_THAI_DA_BAN_VA_DA_XOA = 3;
+
 }

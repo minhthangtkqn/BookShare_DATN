@@ -12,15 +12,16 @@ import common.Constant;
 import model.bean.NguoiDung;
 
 public class NguoiDungDAO {
-	Connection connection;
-
 	PreparedStatement statement;
+	Connection connection;
+	String url = "jdbc:sqlserver://localhost:1433;databaseName=BookShare";
+	String username = "sa";
+	String password = "12345678";
 
-	// Ket Noi Co So Du Lieu
 	void connect() {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			connection = DriverManager.getConnection(Constant.URL, Constant.DATABASE_USERNAME, Constant.DATABASE_PASSWORD);
+			connection = DriverManager.getConnection(url, username, password);
 			System.out.println("Ket noi thanh cong");
 		} catch (SQLException e) {
 			e.printStackTrace();

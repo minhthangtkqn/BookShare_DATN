@@ -49,10 +49,20 @@ public class DangBanForm extends ActionForm {
 	private String linkAnh4Error;
 	private String linkAnh5Error;
 
+	private String error;
+
 	// ++++++++++++++++++++++
 
 	public String getMaRaoBan() {
 		return maRaoBan;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
 	}
 
 	public void setMaRaoBan(String maRaoBan) {

@@ -86,8 +86,8 @@ public class RaoBanBO {
 	public ArrayList<RaoBan> layDsMoiNhatTheoDanhMuc(String maDanhMuc) {
 		return raoBanDAO.layDsMoiNhatTheoDanhMuc(maDanhMuc);
 	}
-	
-	public ArrayList<RaoBan> timKiemTrongDanhMuc(String maDanhMuc, String tuKhoa){
+
+	public ArrayList<RaoBan> timKiemTrongDanhMuc(String maDanhMuc, String tuKhoa) {
 		return raoBanDAO.timKiemTrongDanhMuc(maDanhMuc, tuKhoa);
 	}
 
@@ -107,6 +107,14 @@ public class RaoBanBO {
 
 	public boolean suaBaiDang(RaoBan raoBan) {
 		return raoBanDAO.suaBaiDang(raoBan);
+	}
+
+	public boolean xoaBaiDang(String maNguoiRaoBan, String maRaoBan) {
+		return raoBanDAO.xoaBaiDang(maNguoiRaoBan, maRaoBan);
+	}
+
+	public boolean banBaiDang(String maNguoiRaoBan, String maRaoBan) {
+		return raoBanDAO.banBaiDang(maNguoiRaoBan, maRaoBan);		
 	}
 
 }

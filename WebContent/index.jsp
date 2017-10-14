@@ -23,10 +23,10 @@
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-<!-- 	<script src="js/jquery.scrollUp.min.js"></script> -->
-<!-- 	<script src="js/price-range.js"></script> -->
-<!-- 	<script src="js/jquery.prettyPhoto.js"></script> -->
-<!-- 	<script src="js/main.js"></script> -->
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/main.js"></script>
 	
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 <link rel="apple-touch-icon-precomposed" sizes="144x144"

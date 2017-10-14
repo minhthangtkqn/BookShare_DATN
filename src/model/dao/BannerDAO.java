@@ -11,15 +11,17 @@ import common.Constant;
 import model.bean.Banner;
 
 public class BannerDAO {
-
-	Connection connection;
 	PreparedStatement statement;	
+	Connection connection;
 	
-	//Ket Noi Co So Du Lieu
-	void connect(){
+	String url = "jdbc:sqlserver://localhost:1433;databaseName=BookShare";
+	String username = "sa";
+	String password = "12345678";
+
+	void connect() {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			connection = DriverManager.getConnection(Constant.URL, Constant.DATABASE_USERNAME, Constant.DATABASE_PASSWORD);
+			connection = DriverManager.getConnection(url, username, password);
 			System.out.println("Ket noi thanh cong");
 		} catch (SQLException e) {
 			e.printStackTrace();

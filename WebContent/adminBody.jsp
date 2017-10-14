@@ -68,17 +68,21 @@
                         <td>Ngày bán</td>
                         <td>Nhà xuất bản</td>
                         <td>Năm xuất bản</td>
+                        <td>Duyệt</td>
                     </thead>
                     <!-- ++++++++++++++++++  -->
                     <logic:iterate name="trangQuanLyForm" property="dsChoDuyet" id="sp">
 	                    <tr>
+	                       	<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
 	                        <td><bean:write name="sp" property="tenSach" /></td>
 	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
 	                        <td><bean:write name="sp" property="gia" /></td>
 	                        <td><bean:write name="sp" property="ngayBan" /></td>
 	                        <td><bean:write name="sp" property="nxb" /></td>
 	                        <td><bean:write name="sp" property="namxb" /></td>
-	                        
+	                        <td>
+	                        	<a href="duyet-bai-dang.do?maRaoBan=${maRaoBan}">Duyệt</a>
+	                        </td>
 	                    </tr>
                     </logic:iterate>
                 </table>
