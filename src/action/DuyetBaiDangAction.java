@@ -33,29 +33,27 @@ public class DuyetBaiDangAction extends Action {
 			return mapping.findForward("dangNhap");
 		}
 
-		ChiTietBaiDangForm chiTietBaiDangForm = new ChiTietBaiDangForm();
+		ChiTietBaiDangForm chiTietBaiDangForm = (ChiTietBaiDangForm) form;
 
 		// Neu da dang nhap
 		// Check Ma Rao Ban
-		System.out.println("maRaoBan: " + request.getParameter("maRaoBan"));
-		System.out.println("maRaoBan Form: " + chiTietBaiDangForm.getMaRaoBan());
-		if (StringProcess.notVaild(request.getParameter("maRaoBan"))) {
+		if (StringProcess.notVaild(chiTietBaiDangForm.getMaRaoBan())) {
 			// neu ko co Ma Rao Ban --> trang ca nhan
 			System.out.println("Khong co MA RAO BAN");
 			return mapping.findForward("thatBai");
 		}
-		String maRaoBan = request.getParameter("maRaoBan");
 		RaoBanBO raoBanBO = new RaoBanBO();
 
 		// Check submit
-		if ("submit".equals(chiTietBaiDangForm.getSubmit())) {
+		if (!StringProcess.notVaild(chiTietBaiDangForm.getSubmit())) {
 			// Neu co submit --> goi ham` duyet bai dang
-			raoBanBO.duyetBaiDang(maRaoBan);
+			System.out.println("Submit tu` trang duyet bai dang");
+			raoBanBO.duyetBaiDang(chiTietBaiDangForm.getMaRaoBan());
 			return mapping.findForward("thanhCong");
 		} else {
 			// goi ham` lay du~ lieu va` hien thi giao dien chi tiet bai dang
 			// cho admin
-			RaoBan raoBan = raoBanBO.layThongTinBaiDang(maRaoBan);
+			RaoBan raoBan = raoBanBO.layThongTinBaiDang(chiTietBaiDangForm.getMaRaoBan());
 			// kiem tra bai dang co ton tai khong
 			if (raoBan == null) {
 				System.out.println("Bai dang khong ton tai");
@@ -67,13 +65,7 @@ public class DuyetBaiDangAction extends Action {
 			}
 
 			chiTietBaiDangForm.setChiTiet(raoBan);
-			chiTietBaiDangForm.setMaRaoBan(maRaoBan);
-			System.out.println("Thong tin chi tiet");
-			System.out.println("Ten Sach: " + chiTietBaiDangForm.getChiTiet().getTenSach());
-			System.out.println("Ma rao ban: " + chiTietBaiDangForm.getChiTiet().getMaRaoBan());
 			return mapping.findForward("giaoDienDuyetBai");
 		}
-
 	}
-
 }

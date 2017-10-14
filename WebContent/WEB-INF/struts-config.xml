@@ -128,7 +128,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="error" path="/errorLogged.jsp"></forward>
 			<forward name="giaoDienDuyetBai" path="/duyetBaiDang.jsp" />
 		</action>
-
+		
 		<!-- DANH MUC -->
 		<action input="/index.jsp" name="danhMucForm" path="/danh-muc"
 			scope="request" type="action.DanhMucAction">
