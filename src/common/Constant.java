@@ -35,6 +35,7 @@ public class Constant {
 	public static final String FUNCTION_XOA_BAI_DANG = "p_xoaRaoBan";
 	public static final String FUNCTION_SUA_BAI_DANG = "p_suaRaoBan";
 	public static final String FUNCTION_BAN_BAI_DANG = "p_baiDangDaBan";
+	public static final String FUNCTION_DUYET_BAI_DANG = "p_duyetRaoBan";
 	
 
 	// POST STATUS

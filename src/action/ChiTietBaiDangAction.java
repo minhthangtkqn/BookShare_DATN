@@ -36,6 +36,7 @@ public class ChiTietBaiDangAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
+		request.setCharacterEncoding("UTF-8");
 		System.out.println("ChiTietBaiDangAction");
 
 		HttpSession session = request.getSession();
@@ -61,13 +62,6 @@ public class ChiTietBaiDangAction extends Action {
 		}
 
 		chiTietBaiDangForm.setChiTiet(raoBan);
-
-		if (raoBan.getGioiTinh().equals("0"))
-			chiTietBaiDangForm.getChiTiet().setGioiTinh("Nữ");
-		else if (raoBan.getGioiTinh().equals("1"))
-			chiTietBaiDangForm.getChiTiet().setGioiTinh("Nam");
-		else
-			chiTietBaiDangForm.getChiTiet().setGioiTinh("Chưa xác định");
 
 		// lay thong tin goi y cho moi nguoi
 		chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachGoiYMoiNguoiCungXem());

@@ -117,4 +117,8 @@ public class RaoBanBO {
 		return raoBanDAO.banBaiDang(maNguoiRaoBan, maRaoBan);		
 	}
 
+	public boolean duyetBaiDang(String maRaoBan) {
+		return raoBanDAO.duyetBaiDang(maRaoBan);
+	}
+
 }

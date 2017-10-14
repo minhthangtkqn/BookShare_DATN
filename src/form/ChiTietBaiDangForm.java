@@ -9,10 +9,30 @@ import org.apache.struts.action.ActionForm;
 
 public class ChiTietBaiDangForm extends ActionForm {
 
+	private String maRaoBan;
+
 	private RaoBan chiTiet;
 	private ArrayList<RaoBan> dsGoiYMoiNguoiCungXem;
 
+	private String submit;
+
 	private String error;
+
+	public String getMaRaoBan() {
+		return maRaoBan;
+	}
+
+	public void setMaRaoBan(String maRaoBan) {
+		this.maRaoBan = maRaoBan;
+	}
+
+	public String getSubmit() {
+		return submit;
+	}
+
+	public void setSubmit(String submit) {
+		this.submit = submit;
+	}
 
 	public String getError() {
 		return error;

@@ -141,7 +141,7 @@ public class RaoBanDAO {
 			raoBan.setHoTenNguoiBan(rs.getString("hoten"));
 			raoBan.setTaiKhoanNguoiBan(rs.getString("taikhoan"));
 			raoBan.setAnhNguoiBan(rs.getString("anh"));
-			raoBan.setGioiTinh(rs.getString("gioitinh"));
+
 			raoBan.setNamSinhNguoiBan(rs.getInt("namsinh"));
 			raoBan.setTenSach(rs.getString("tensach"));
 			raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
@@ -150,6 +150,16 @@ public class RaoBanDAO {
 			raoBan.setNxb(rs.getString("nxb"));
 			raoBan.setTacGia(rs.getString("tacgia"));
 			raoBan.setTrangThaiRaoBan(rs.getInt("TrangThaiBan"));
+
+			if ("0".equals(rs.getString("gioitinh"))) {
+				raoBan.setGioiTinh("Nữ");
+			} else {
+				if ("1".equals(rs.getString("gioitinh"))) {
+					raoBan.setGioiTinh("Nam");
+				} else {
+					raoBan.setGioiTinh("Chưa xác định");
+				}
+			}
 
 			System.out.println("THONG TIN SACH:");
 			System.out.println("ten sach: " + raoBan.getTenSach());
@@ -845,6 +855,24 @@ public class RaoBanDAO {
 
 			statement.setString(1, maNguoiRaoBan);
 			statement.setString(2, maRaoBan);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean duyetBaiDang(String maRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_DUYET_BAI_DANG + " ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maRaoBan);
 
 			statement.executeUpdate();
 			return true;
