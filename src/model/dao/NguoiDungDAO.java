@@ -92,32 +92,6 @@ public class NguoiDungDAO {
 		return list;
 	}
 
-	// Chan Nguoi Dung
-	public void khoaNguoiDung(String maNguoiDung, String ghiChu) {
-		connect();
-		String sql = String.format("update tblnguoidung set loainguoidung=2,ghichu=N'%s' where manguoidung='%s'",
-				maNguoiDung, ghiChu);
-		try {
-			Statement stmt = connection.createStatement();
-			stmt.executeUpdate(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	// Bo Chan Nguoi Dung
-	public void boKhoaNguoiDung(String maNguoiDung) {
-		connect();
-		String sql = String.format("update tblnguoidung set loainguoidung=1,ghichu='' where manguoidung='%s'",
-				maNguoiDung);
-		try {
-			Statement stmt = connection.createStatement();
-			stmt.executeUpdate(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
 	// Xoa Nguoi Dung ---Chua Su Dung Phai Dung Procedure
 	public void xoaNguoiDung(String maNguoiDung) {
 		connect();
@@ -355,18 +329,18 @@ public class NguoiDungDAO {
 		// , Anh = ?, NamSinh = ?
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
-			
+
 			statement.setNString(1, nguoiDung.getHoTen());
 			statement.setInt(2, nguoiDung.getMaTinh());
 			statement.setString(3, nguoiDung.getDienThoai());
 			statement.setString(4, nguoiDung.getEmail());
 			statement.setInt(5, nguoiDung.getGioiTinh());
-//			statement.setString(6, nguoiDung.getAnh());
-//			statement.setInt(7, nguoiDung.getNamSinh());
+			// statement.setString(6, nguoiDung.getAnh());
+			// statement.setInt(7, nguoiDung.getNamSinh());
 			statement.setString(6, nguoiDung.getMaNguoiDung());
-			
+
 			statement.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -377,20 +351,56 @@ public class NguoiDungDAO {
 	public boolean suaMatKhau(NguoiDung nguoiDung) {
 		connect();
 
-		String sql = "UPDATE " + Constant.TABLE_NGUOI_DUNG
-				+ " SET MatKhau = ? WHERE MaNguoiDung = ?";
+		String sql = "UPDATE " + Constant.TABLE_NGUOI_DUNG + " SET MatKhau = ? WHERE MaNguoiDung = ?";
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
-			
+
 			statement.setString(1, nguoiDung.getMatKhau());
 			statement.setString(2, nguoiDung.getMaNguoiDung());
-			
+
 			statement.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}
 		return true;
+	}
+
+	public boolean khoaNguoiDung(String maNguoiDung, String ghiChu) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_KHOA_NGUOI_DUNG + " ?, ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maNguoiDung);
+			statement.setNString(2, ghiChu);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean moKhoaNguoiDung(String maNguoiDung) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_MO_KHOA_NGUOI_DUNG + " ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maNguoiDung);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

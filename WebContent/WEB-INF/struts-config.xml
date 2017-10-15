@@ -64,9 +64,10 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="xemCheDoKhach" path="/chiTietBaiDang.jsp" />
 			<forward name="nguoiDungBiChan" path="/chiTietBaiDangLogged.jsp" />
 			<forward name="xemCheDoNguoiDung" path="/chiTietBaiDangLogged.jsp" />
-			<forward name="xemCheDoQuanLy" path="/chiTietBaiDangLogged.jsp" />
+			<forward name="xemCheDoQuanLy" path="/duyetBaiDang.jsp" />
 			<forward name="baiDangKhongTonTai" path="/error.jsp" />
 			<forward name="baiDangKhongTonTaiLogged" path="/errorLogged.jsp" />
+			<forward name="trangChu" path="/trang-chu.do"></forward>
 		</action>
 
 		<!-- KET QUA TIM KIEM -->

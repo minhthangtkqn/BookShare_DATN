@@ -17,20 +17,6 @@ import org.apache.struts.action.ActionMessage;
 import common.StringProcess;
 import form.ChiTietBaiDangForm;
 
-/**
- * SinhVienAction.java
- * 
- * Version 1.0
- * 
- * Date: Jan 21, 2015
- * 
- * Copyright
- * 
- * Modification Logs: DATE AUTHOR DESCRIPTION
- * ----------------------------------------------------------------------- Jan
- * 21, 2015 DaiLV2 Create
- */
-
 public class ChiTietBaiDangAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -40,21 +26,25 @@ public class ChiTietBaiDangAction extends Action {
 		System.out.println("ChiTietBaiDangAction");
 
 		HttpSession session = request.getSession();
+		ChiTietBaiDangForm chiTietBaiDangForm = (ChiTietBaiDangForm) form;
 
-		System.out.println("Ma rao ban: " + request.getParameter("maRaoBan"));
+		// Kiem tra MA RAO BAN co hay khong
+		if (StringProcess.notVaild(chiTietBaiDangForm.getMaRaoBan())) {
+			System.out.println("Khong co MA RAO BAN");
+			return mapping.findForward("trangChu");
+		}
 
 		// lay du lieu hien thi
 		RaoBanBO raoBanBO = new RaoBanBO();
-		ChiTietBaiDangForm chiTietBaiDangForm = (ChiTietBaiDangForm) form;
+		RaoBan raoBan = raoBanBO.layThongTinBaiDang(chiTietBaiDangForm.getMaRaoBan());
 
-		RaoBan raoBan = raoBanBO.layThongTinBaiDang(request.getParameter("maRaoBan"));
 		// Kiem tra bai rao ban co ton tai hay khong
 		if (raoBan == null) {
 			System.out.println("Bai dang khong ton tai");
 			ActionErrors errors = new ActionErrors();
 			errors.add("error", new ActionMessage("error.baiDang.null"));
 			saveErrors(request, errors);
-			
+
 			if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
 				return mapping.findForward("baiDangKhongTonTai");
 			}
@@ -62,9 +52,6 @@ public class ChiTietBaiDangAction extends Action {
 		}
 
 		chiTietBaiDangForm.setChiTiet(raoBan);
-
-		// lay thong tin goi y cho moi nguoi
-		chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachGoiYMoiNguoiCungXem());
 
 		/**
 		 * Kiem tra nguoi dung de phan luong hien thi
@@ -80,29 +67,34 @@ public class ChiTietBaiDangAction extends Action {
 			userType = (Integer) session.getAttribute("type");
 			userID = (String) session.getAttribute("userID");
 		}
-		
-		// luu lich su xem vao` CSDL
-		if (raoBanBO.luuLichSuXemRaoBan(userID, chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {
-			System.out.println("Da~ luu vao CSDL:");
-			System.out.println(
-					"Ma Nguoi Dung: " + userID + "  ---  Ma Rao Ban: " + chiTietBaiDangForm.getChiTiet().getMaRaoBan());
-		} else {
-			System.out.println("Luu vao` CSDL that bai");
-		}
 
-		switch (userType) {
-		case 0:
+		// PHÂN LUỒNG
+		if (userType == 0) {
 			// admin
 			return mapping.findForward("xemCheDoQuanLy");
-		case 1:
-			// nguoi dung binh thuong
-			return mapping.findForward("xemCheDoNguoiDung");
-		case 2:
-			// Nguoi dung bi chan
-			return mapping.findForward("nguoiDungBiChan");
-		default:
-			// chua dang nhap
-			return mapping.findForward("xemCheDoKhach");
+		} else {
+			chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachGoiYMoiNguoiCungXem());
+
+			// luu lich su xem vao` CSDL
+			if (raoBanBO.luuLichSuXemRaoBan(userID, chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {
+				System.out.println("Da~ luu vao CSDL:");
+				System.out.println("Ma Nguoi Dung: " + userID + "  ---  Ma Rao Ban: "
+						+ chiTietBaiDangForm.getChiTiet().getMaRaoBan());
+			} else {
+				System.out.println("Luu vao` CSDL that bai");
+			}
+
+			switch (userType) {
+			case 1:
+				// nguoi dung binh thuong
+				return mapping.findForward("xemCheDoNguoiDung");
+			case 2:
+				// Nguoi dung bi chan
+				return mapping.findForward("nguoiDungBiChan");
+			default:
+				// chua dang nhap
+				return mapping.findForward("xemCheDoKhach");
+			}
 		}
 
 	}

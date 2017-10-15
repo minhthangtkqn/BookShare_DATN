@@ -882,4 +882,42 @@ public class RaoBanDAO {
 		return false;
 	}
 
+	public boolean khoaBaiDang(String maRaoBan, String maNguoiRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_KHOA_BAI_DANG + " ?, ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maRaoBan);
+			statement.setString(2, maNguoiRaoBan);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean moKhoaBaiDang(String maRaoBan, String maNguoiRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_MO_KHOA_BAI_DANG + " ?, ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maRaoBan);
+			statement.setString(2, maNguoiRaoBan);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

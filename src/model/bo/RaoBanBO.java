@@ -114,11 +114,15 @@ public class RaoBanBO {
 	}
 
 	public boolean banBaiDang(String maNguoiRaoBan, String maRaoBan) {
-		return raoBanDAO.banBaiDang(maNguoiRaoBan, maRaoBan);		
+		return raoBanDAO.banBaiDang(maNguoiRaoBan, maRaoBan);
 	}
 
 	public boolean duyetBaiDang(String maRaoBan) {
 		return raoBanDAO.duyetBaiDang(maRaoBan);
+	}
+
+	public boolean khoaBaiDang(String maRaoBan, String maNguoiRaoBan) {
+		return raoBanDAO.khoaBaiDang(maRaoBan, maNguoiRaoBan);
 	}
 
 }

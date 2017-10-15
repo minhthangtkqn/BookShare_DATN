@@ -5,53 +5,54 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
 import common.StringProcess;
-import form.ChiTietBaiDangForm;
-import model.bean.RaoBan;
+import form.DangBanForm;
 import model.bo.RaoBanBO;
 
-public class DuyetBaiDangAction extends Action {
+public class KhoaBaiDangAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
 		request.setCharacterEncoding("UTF-8");
-		System.out.println("Duyet Bai Dang Action");
+		System.out.println("--- KHOA BAI DANG ACTION ---");
 
 		HttpSession session = request.getSession();
 
-		// Kiem tra dang nhap
+		// kiem tra dang nhap ADMIN
 		if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
 			System.out.println("Chua dang nhap");
 			return mapping.findForward("dangNhap");
 		}
-
-		ChiTietBaiDangForm chiTietBaiDangForm = (ChiTietBaiDangForm) form;
-
-		// Check Ma Rao Ban
-		if (StringProcess.notVaild(chiTietBaiDangForm.getMaRaoBan())) {
+		
+		DangBanForm dangBanForm = (DangBanForm) form;
+		RaoBanBO raoBanBO = new RaoBanBO();
+		
+		if (StringProcess.notVaild(dangBanForm.getMaRaoBan())) {
 			// neu ko co Ma Rao Ban --> trang ca nhan
 			System.out.println("Khong co MA RAO BAN");
 			return mapping.findForward("thatBai");
 		}
-		RaoBanBO raoBanBO = new RaoBanBO();
-
-		// Check submit
-		if (!StringProcess.notVaild(chiTietBaiDangForm.getSubmit())) {
-			// Neu co submit --> goi ham` duyet bai dang
-			System.out.println("Submit tu` trang duyet bai dang");
-			raoBanBO.duyetBaiDang(chiTietBaiDangForm.getMaRaoBan());
-			return mapping.findForward("thanhCong");
-		} else {
-			// KHONG CO submit
+		
+		if (StringProcess.notVaild(dangBanForm.getMaNguoiRaoBan())) {
+			// neu ko co Ma Nguoi Rao Ban --> trang ca nhan
+			System.out.println("Khong co MA Nguoi RAO BAN");
 			return mapping.findForward("thatBai");
 		}
+		
+		// kiem tra submit
+		if (!StringProcess.notVaild(dangBanForm.getSubmit())) {
+			// Neu co submit --> goi ham` khoa bai dang
+			System.out.println("Submit tu` trang ");
+			raoBanBO.khoaBaiDang(dangBanForm.getMaRaoBan(), maNguoiRaoBan);
+			return mapping.findForward("thanhCong");
+		}
+		return mapping.findForward("thatBai");
 	}
+
 }

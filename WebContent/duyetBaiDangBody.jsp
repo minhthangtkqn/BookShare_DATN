@@ -144,7 +144,7 @@
 			<bean:define id="maRaoBan" name="chiTietBaiDang" property="maRaoBan"></bean:define>
 			<html:form action="duyet-bai-dang.do" method="post">
 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="submit" name="submit" class="w3-btn w3-ripple w3-red">DUYỆT</input>
+				<input type="submit" name="submit" value="DUYỆT" class="w3-btn w3-ripple w3-red"></input>
 			</html:form>
 			<a href="#" class="w3-btn w3-ripple w3-red">KHÓA</a>
 			

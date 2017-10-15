@@ -26,12 +26,12 @@ public class NguoiDungBO {
 		return nguoiDungDAO.kiemTraDangNhap(taiKhoan, matKhau);
 	}
 
-	public void khoaNguoiDung(String maNguoiDung, String ghiChu) {
-		nguoiDungDAO.khoaNguoiDung(maNguoiDung, ghiChu);
+	public boolean khoaNguoiDung(String maNguoiDung, String ghiChu) {
+		return nguoiDungDAO.khoaNguoiDung(maNguoiDung, ghiChu);
 	}
 
-	public void boKhoaNguoiDung(String maNguoiDung) {
-		nguoiDungDAO.boKhoaNguoiDung(maNguoiDung);
+	public boolean moKhoaNguoiDung(String maNguoiDung) {
+		return nguoiDungDAO.moKhoaNguoiDung(maNguoiDung);
 	}
 
 	public String layMaNguoiDung(String taiKhoan, String matKhau) {
