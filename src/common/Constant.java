@@ -31,7 +31,7 @@ public class Constant {
 	public static final String VIEW_DANH_SACH_NGUOI_DUNG = "[v_danhsachnguoidung]";
 	public static final String VIEW_DANH_SACH_ADMIN = "[v_danhSachAdmin]";
 
-	// Functions Name
+	// Post Functions
 	public static final String FUNCTION_XOA_BAI_DANG = "p_xoaRaoBan";
 	public static final String FUNCTION_SUA_BAI_DANG = "p_suaRaoBan";
 	public static final String FUNCTION_BAN_BAI_DANG = "p_baiDangDaBan";
@@ -39,9 +39,9 @@ public class Constant {
 	public static final String FUNCTION_KHOA_BAI_DANG = "p_khoaBaiDang";
 	public static final String FUNCTION_MO_KHOA_BAI_DANG = "p_moKhoaBaiDang";
 	
+	// USER FUNCTION
 	public static final String FUNCTION_KHOA_NGUOI_DUNG = "p_khoaNguoiDung";
 	public static final String FUNCTION_MO_KHOA_NGUOI_DUNG = "p_moKhoaNguoiDung";
-	
 
 	// POST STATUS
 	public static final int TRANG_THAI_CHO_DUYET = 0;

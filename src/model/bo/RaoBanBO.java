@@ -125,4 +125,8 @@ public class RaoBanBO {
 		return raoBanDAO.khoaBaiDang(maRaoBan, maNguoiRaoBan);
 	}
 
+	public boolean moKhoaBaiDang(String maRaoBan, String maNguoiRaoBan) {
+		return raoBanDAO.moKhoaBaiDang(maRaoBan, maNguoiRaoBan);
+	}
+
 }

@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import common.Constant;
+import common.StringProcess;
 import model.bean.RaoBan;
 
 public class RaoBanDAO {
@@ -132,11 +133,13 @@ public class RaoBanDAO {
 			raoBan.setTenTinhBan(rs.getString("tentinhban"));
 			raoBan.setGia(rs.getFloat("gia"));
 			raoBan.setMoTa(rs.getString("mota"));
-			raoBan.setLinkAnh1(rs.getString("linkanh1"));
-			raoBan.setLinkAnh2(rs.getString("linkanh2"));
-			raoBan.setLinkAnh3(rs.getString("linkanh3"));
-			raoBan.setLinkAnh4(rs.getString("linkanh4"));
-			raoBan.setLinkAnh5(rs.getString("linkanh5"));
+			
+			raoBan.setLinkAnh1(StringProcess.notVaild(rs.getString("linkanh1")) ? "" : rs.getString("linkanh1"));
+			raoBan.setLinkAnh2(StringProcess.notVaild(rs.getString("linkanh2")) ? "" : rs.getString("linkanh2"));
+			raoBan.setLinkAnh3(StringProcess.notVaild(rs.getString("linkanh3")) ? "" : rs.getString("linkanh3"));
+			raoBan.setLinkAnh4(StringProcess.notVaild(rs.getString("linkanh4")) ? "" : rs.getString("linkanh4"));
+			raoBan.setLinkAnh5(StringProcess.notVaild(rs.getString("linkanh5")) ? "" : rs.getString("linkanh5"));
+			
 			raoBan.setNgayBan(rs.getDate("ngayban"));
 			raoBan.setHoTenNguoiBan(rs.getString("hoten"));
 			raoBan.setTaiKhoanNguoiBan(rs.getString("taikhoan"));
@@ -900,7 +903,7 @@ public class RaoBanDAO {
 		}
 		return false;
 	}
-	
+
 	public boolean moKhoaBaiDang(String maRaoBan, String maNguoiRaoBan) {
 		connect();
 

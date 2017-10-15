@@ -81,7 +81,7 @@
 	                        <td><bean:write name="sp" property="nxb" /></td>
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
-	                        	<a href="duyet-bai-dang.do?maRaoBan=${maRaoBan}">Duyệt</a>
+	                        	<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}">Duyệt</a>
 	                        </td>
 	                    </tr>
                     </logic:iterate>

@@ -13,14 +13,13 @@ import common.StringProcess;
 import form.DuyetBaiDangForm;
 import model.bo.RaoBanBO;
 
-public class KhoaBaiDangAction extends Action {
+public class MoKhoaBaiDangAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
 		request.setCharacterEncoding("UTF-8");
-		System.out.println("--- KHOA BAI DANG ACTION ---");
+		System.out.println("--- MO KHOA BAI DANG ACTION ---");
 
 		HttpSession session = request.getSession();
 
@@ -47,9 +46,9 @@ public class KhoaBaiDangAction extends Action {
 
 		// kiem tra submit
 		if (!StringProcess.notVaild(duyetBaiDangForm.getSubmit())) {
-			// Neu co submit --> goi ham` khoa bai dang
-			System.out.println("Submit tu` trang ");
-			raoBanBO.khoaBaiDang(duyetBaiDangForm.getMaRaoBan(), duyetBaiDangForm.getMaNguoiRaoBan());
+			// Neu co submit --> goi ham` MO KHOA bai dang
+			System.out.println("Submit tu` trang duyet bai dang");
+			raoBanBO.moKhoaBaiDang(duyetBaiDangForm.getMaRaoBan(), duyetBaiDangForm.getMaNguoiRaoBan());
 			return mapping.findForward("thanhCong");
 		}
 		return mapping.findForward("thatBai");
