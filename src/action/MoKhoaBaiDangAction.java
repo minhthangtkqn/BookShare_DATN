@@ -38,6 +38,7 @@ public class MoKhoaBaiDangAction extends Action {
 			return mapping.findForward("thatBai");
 		}
 
+		// kiem tra ma nguoi rao ban --> tranh truong hop loi CSDL
 		if (StringProcess.notVaild(duyetBaiDangForm.getMaNguoiRaoBan())) {
 			// neu ko co Ma Nguoi Rao Ban --> trang ca nhan
 			System.out.println("Khong co MA Nguoi RAO BAN");

@@ -8,6 +8,12 @@ import model.bean.NguoiDung;
 import model.bean.Tinh;
 
 public class NguoiDungForm extends ActionForm {
+
+	// dung de khoa || mo khoa nguoi dung
+	private String maNguoiDung;
+	private String ghiChu;
+	// ---------------------
+
 	private ArrayList<Tinh> dsTinh;
 	private NguoiDung nguoiDung;
 
@@ -23,6 +29,22 @@ public class NguoiDungForm extends ActionForm {
 	private int namSinh;
 	private String anh;
 	private String matKhau;
+
+	public String getMaNguoiDung() {
+		return maNguoiDung;
+	}
+
+	public void setMaNguoiDung(String maNguoiDung) {
+		this.maNguoiDung = maNguoiDung;
+	}
+
+	public String getGhiChu() {
+		return ghiChu;
+	}
+
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
+	}
 
 	public String getTaiKhoan() {
 		return taiKhoan;

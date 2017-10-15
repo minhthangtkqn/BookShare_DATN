@@ -17,20 +17,6 @@
 		<div class="anh_product">
 			<!--Ảnh chính được hiển thị-->
 			<div class="pic">
-
-				<!-- 				<div class="w3-display-container mySlides"> -->
-				<!-- 					<img src="images/product-details/b1.jpg"> -->
-				<!-- 					<div class="w3-display-bottomleft w3-container w3-black"></div> -->
-				<!-- 				</div> -->
-				<!-- 				<div class="w3-display-container mySlides"> -->
-				<!-- 					<img src="images/product-details/b2.jpg"> -->
-				<!-- 					<div class="w3-display-bottomleft w3-container w3-black"></div> -->
-				<!-- 				</div> -->
-				<!-- 				<div class="w3-display-container mySlides"> -->
-				<!-- 					<img src="images/product-details/b3.jpg"> -->
-				<!-- 					<div class="w3-display-bottomleft w3-container w3-black"></div> -->
-				<!-- 				</div> -->
-
 				<div class="w3-display-container mySlides">
 					<bean:define id="linkAnh1" name="chiTietBaiDang"
 						property="linkAnh1"></bean:define>
@@ -142,11 +128,24 @@
 <!--				data-target="#myModal">Try Buy</button>-->
 		
 			<bean:define id="maRaoBan" name="chiTietBaiDang" property="maRaoBan"></bean:define>
+			<bean:define id="maNguoiRaoBan" name="chiTietBaiDang" property="maNguoiRaoBan"></bean:define>
+			
 			<html:form action="duyet-bai-dang.do" method="post">
 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
 				<input type="submit" name="submit" value="DUYỆT" class="w3-btn w3-ripple w3-red"></input>
 			</html:form>
-			<a href="#" class="w3-btn w3-ripple w3-red">KHÓA</a>
+			
+			<html:form style="display: inline-block;" action="khoa-bai-dang.do" method="post">
+				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
+				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
+				<input type="submit" name="submit" value="KHÓA" class="w3-btn w3-ripple w3-green"></input>
+			</html:form>
+			
+			<html:form style="display: inline-block;" action="mo-khoa-bai-dang.do" method="post">
+				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
+				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
+				<input type="submit" name="submit" value="MỞ KHÓA" class="w3-btn w3-ripple w3-green"></input>
+			</html:form>
 			
 			<!-- login -->
 			<div class="modal fade" id="myModal" role="dialog">

@@ -13,6 +13,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="trangQuanLyForm" type="form.TrangQuanLyForm" />
 		<form-bean name="danhMucForm" type="form.DanhMucForm" />
 		<form-bean name="nguoiDungForm" type="form.NguoiDungForm" />
+		<form-bean name="duyetBaiDangForm" type="form.DuyetBaiDangForm"></form-bean>
 
 
 		<form-bean name="testForm" type="form.TestForm" />
@@ -129,7 +130,43 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="error" path="/errorLogged.jsp"></forward>
 			<forward name="giaoDienDuyetBai" path="/duyetBaiDang.jsp" />
 		</action>
+
+		<!-- KHOA BAI DANG -->
+		<action input="/dangNhap.jsp" name="duyetBaiDangForm" path="/khoa-bai-dang"
+			scope="request" type="action.KhoaBaiDangAction">
+			<forward name="trangChu" path="/trang-chu.do"></forward>
+			<forward name="thanhCong" path="/trang-ca-nhan.do"></forward>
+			<forward name="thatBai" path="/trang-ca-nhan.do"></forward>
+			<forward name="dangNhap" path="/dangNhap.jsp"></forward>
+		</action>
+
+		<!-- MO KHOA BAI DANG -->
+		<action input="/dangNhap.jsp" name="duyetBaiDangForm" path="/mo-khoa-bai-dang"
+			scope="request" type="action.MoKhoaBaiDangAction">
+			<forward name="trangChu" path="/trang-chu.do"></forward>
+			<forward name="thanhCong" path="/trang-ca-nhan.do"></forward>
+			<forward name="thatBai" path="/trang-ca-nhan.do"></forward>
+			<forward name="dangNhap" path="/dangNhap.jsp"></forward>
+		</action>
+
+		<!-- KHOA NGUOI DUNG -->
+		<action input="/dangNhap.jsp" name="nguoiDungForm" path="/khoa-nguoi-dung"
+			scope="request" type="action.KhoaNguoiDungAction">
+			<forward name="dangNhap" path="/dangNhap.jsp"></forward>
+			<forward name="thanhCong" path="/trang-ca-nhan.do"></forward>
+			<forward name="thatBai" path="/trang-ca-nhan.do"></forward>
+			<forward name="trangChu" path="/trang-chu.do"></forward>
+		</action>
 		
+		<!-- MO KHOA NGUOI DUNG -->
+		<action input="/dangNhap.jsp" name="nguoiDungForm" path="/mo-khoa-nguoi-dung"
+			scope="request" type="action.MoKhoaNguoiDungAction">
+			<forward name="dangNhap" path="/dangNhap.jsp"></forward>
+			<forward name="thanhCong" path="/trang-ca-nhan.do"></forward>
+			<forward name="thatBai" path="/trang-ca-nhan.do"></forward>
+			<forward name="trangChu" path="/trang-chu.do"></forward>
+		</action>
+
 		<!-- DANH MUC -->
 		<action input="/index.jsp" name="danhMucForm" path="/danh-muc"
 			scope="request" type="action.DanhMucAction">
