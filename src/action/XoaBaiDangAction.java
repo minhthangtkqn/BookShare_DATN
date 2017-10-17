@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 
 import common.StringProcess;
 import form.DangBanForm;
+import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
 
 public class XoaBaiDangAction extends Action {
@@ -34,7 +35,10 @@ public class XoaBaiDangAction extends Action {
 		// trong CSDL
 
 		// 1. Kiểm tra đăng nhập
-		if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		if (type != 1 && type != 2) {
 			return mapping.findForward("dangNhapLai");
 		}
 

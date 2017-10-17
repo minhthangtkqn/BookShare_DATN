@@ -32,16 +32,19 @@ public class Constant {
 	public static final String VIEW_DANH_SACH_ADMIN = "[v_danhSachAdmin]";
 
 	// Post Functions
-	public static final String FUNCTION_XOA_BAI_DANG = "p_xoaRaoBan";
-	public static final String FUNCTION_SUA_BAI_DANG = "p_suaRaoBan";
-	public static final String FUNCTION_BAN_BAI_DANG = "p_baiDangDaBan";
-	public static final String FUNCTION_DUYET_BAI_DANG = "p_duyetRaoBan";
-	public static final String FUNCTION_KHOA_BAI_DANG = "p_khoaRaoBan";
-	public static final String FUNCTION_MO_KHOA_BAI_DANG = "p_moKhoaRaoBan";
+	public static final String FUNCTION_XOA_BAI_DANG = "[p_xoaRaoBan]";
+	public static final String FUNCTION_SUA_BAI_DANG = "[p_suaRaoBan]";
+	public static final String FUNCTION_BAN_BAI_DANG = "[p_baiDangDaBan]";
+	public static final String FUNCTION_KHOA_BAI_DANG = "[p_khoaRaoBan]";
+	public static final String FUNCTION_MO_KHOA_BAI_DANG = "[p_moKhoaRaoBan]";
+	public static final String FUNCTION_DUYET_BAI_DANG = "[p_duyetRaoBan]";
+	public static final String FUNCTION_KHONG_DUYET_BAI_DANG ="[p_khongDuyetRaoBan]";
 	
 	// USER FUNCTION
-	public static final String FUNCTION_KHOA_NGUOI_DUNG = "p_khoaNguoiDung";
-	public static final String FUNCTION_MO_KHOA_NGUOI_DUNG = "p_moKhoaNguoiDung";
+	public static final String FUNCTION_KHOA_NGUOI_DUNG = "[p_khoaNguoiDung]";
+	public static final String FUNCTION_MO_KHOA_NGUOI_DUNG = "[p_moKhoaNguoiDung]";
+	
+	public static final String FUNCTION_THEM_DANH_MUC = "[p_themDanhMuc]";
 
 	// POST STATUS
 	public static final int TRANG_THAI_CHO_DUYET = 0;

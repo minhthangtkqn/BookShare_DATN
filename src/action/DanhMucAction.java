@@ -87,7 +87,7 @@ public class DanhMucAction extends Action {
 		}
 
 		// kiem tra dang nhap de phan luong`
-		if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
+		if (StringProcess.notVaild((String) session.getAttribute("userName"))) {
 			// neu chua dang nhap
 			return mapping.findForward("chuaDangNhap");
 		}

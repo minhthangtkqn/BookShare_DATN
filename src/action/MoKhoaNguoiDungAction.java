@@ -23,10 +23,12 @@ public class MoKhoaNguoiDungAction extends Action {
 		System.out.println("--- MO KHOA NGUOI DUNG ACTION ---");
 		HttpSession session = request.getSession();
 
-		// kiem tra dang nhap
-		if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
-			System.out.println("chua dang nhap");
-			return mapping.findForward("dangNhap");
+		// Kiem tra admin dang nhap
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password")) != 0) {
+			System.out.println("chua dang nhap hoac khong phai admin");
+			return mapping.findForward("trangChu");
 		}
 
 		NguoiDungForm nguoiDungForm = (NguoiDungForm) form;

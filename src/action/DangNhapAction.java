@@ -7,9 +7,11 @@ import javax.servlet.http.HttpSession;
 import model.bo.NguoiDungBO;
 
 import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 import common.Constant;
 import common.StringProcess;
@@ -34,6 +36,8 @@ public class DangNhapAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
+		request.setCharacterEncoding("UTF-8");
+		
 		HttpSession session = request.getSession();
 		DangNhapForm dangNhapForm = (DangNhapForm) form;
 
@@ -41,10 +45,10 @@ public class DangNhapAction extends Action {
 		// session.setMaxInactiveInterval(30000);
 		dangNhapForm.setThongBao((String) session.getAttribute("thongBao"));
 
-		if (session.getAttribute("userID") != null)
-			return mapping.findForward("trangchu"); // neu da dang nhap dua ve
-													// trang chu
-
+		if (!StringProcess.notVaild((String)session.getAttribute("userName"))){
+			// neu da dang nhap dua ve trang chu
+			return mapping.findForward("trangchu");
+		}
 		String maNguoiDung;
 		String anh;
 
@@ -54,8 +58,8 @@ public class DangNhapAction extends Action {
 
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 
-		// kiem tra loai TAI KHOAN la ADMIN hay NGUOI DUNG 
-		int key = nguoiDungBO.kiemTraDangNhap(taiKhoan, matKhau); 
+		// kiem tra loai TAI KHOAN la ADMIN hay NGUOI DUNG
+		int key = nguoiDungBO.kiemTraDangNhap(taiKhoan, matKhau);
 
 		switch (key) {
 		case 0: // Day la admin
@@ -65,6 +69,7 @@ public class DangNhapAction extends Action {
 			session.setAttribute("userName", taiKhoan);
 			session.setAttribute("type", 0);
 			session.setAttribute("userID", maNguoiDung);
+			session.setAttribute("password", dangNhapForm.getMatKhau());
 
 			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau);
 			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? Constant.NO_IMAGE_DEFAULT : anh);
@@ -105,14 +110,17 @@ public class DangNhapAction extends Action {
 
 		case 3:
 
-			dangNhapForm.setLoiMatKhau("Mat khau khong chinh xac!");
+			dangNhapForm.setLoiMatKhau("TÊN TÀI KHOẢN HOẶC MẬT KHẨU KHÔNG CHÍNH XÁC");
 			return mapping.findForward("saimatkhau");
 
 		case 4:
-			dangNhapForm.setLoiTaiKhoan("Tai khoan khong ton tai!");
+			dangNhapForm.setLoiMatKhau("TÊN TÀI KHOẢN HOẶC MẬT KHẨU KHÔNG CHÍNH XÁC");
 			return mapping.findForward("saitaikhoan");
+		default:
+			// co loi khi dang nhap
+			dangNhapForm.setLoiMatKhau("CÓ LỖI XẢY RA TRONG QUÁ TRÌNH ĐĂNG NHẬP");
+			return mapping.findForward("error");
 		}
-		return mapping.findForward("trangchu");
 
 	}
 

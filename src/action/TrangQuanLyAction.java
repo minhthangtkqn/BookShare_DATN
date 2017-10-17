@@ -29,8 +29,10 @@ public class TrangQuanLyAction extends Action {
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 		RaoBanBO raoBanBO = new RaoBanBO();
 
-		// neu chua dang nhap --> dua ve trang chu
-		if (session.getAttribute("userID") == null) {
+		// Kiem tra admin dang nhap
+		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password")) != 0) {
+			System.out.println("chua dang nhap hoac khong phai admin");
 			return mapping.findForward("trangChu");
 		}
 

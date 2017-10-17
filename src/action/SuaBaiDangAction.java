@@ -22,6 +22,7 @@ import common.StringProcess;
 import form.DangBanForm;
 import model.bean.RaoBan;
 import model.bo.DanhMucBO;
+import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
 import model.bo.TinhBO;
 
@@ -35,8 +36,11 @@ public class SuaBaiDangAction extends Action {
 		HttpSession session = request.getSession();
 
 		System.out.println("Sua Bai Dang Action");
-		// neu chua dang nhap --> den trang dang Nhap
-		if (session.getAttribute("userID") == null) {
+		// Kiem tra user dang nhap
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password")) != 0) {
+			System.out.println("chua dang nhap hoac khong phai tai khoan nguoi dung");
 			return mapping.findForward("dangNhapLai");
 		}
 

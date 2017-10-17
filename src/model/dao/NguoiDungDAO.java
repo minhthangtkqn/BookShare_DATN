@@ -133,12 +133,17 @@ public class NguoiDungDAO {
 	// 4 sai tai khoan
 	public int kiemTraDangNhap(String taiKhoan, String matKhau) {
 		connect();
-		String sql = String.format("select * from dbo.f_checklogin('%s','%s')", taiKhoan, matKhau);
+//		String sql = String.format("select * from dbo.f_checklogin('%s','%s')", taiKhoan, matKhau);
+		String sql = "SELECT * FROM f_checklogin( ?, ? )";
 		System.out.println(sql);
 		ResultSet rs = null;
 		try {
-			Statement stmt = connection.createStatement();
-			rs = stmt.executeQuery(sql);
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			
+			stmt.setString(1, taiKhoan);
+			stmt.setString(2, matKhau);
+			
+			rs = stmt.executeQuery();
 			rs.next();
 			int key = rs.getInt(1);
 			return key;

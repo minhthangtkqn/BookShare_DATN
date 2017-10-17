@@ -5,33 +5,30 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
-import common.Constant;
 import common.StringProcess;
 import form.ChiTietBaiDangForm;
-import model.bean.RaoBan;
 import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
 
-public class DuyetBaiDangAction extends Action {
+public class KhongDuyetBaiDangAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
 		request.setCharacterEncoding("UTF-8");
-		System.out.println("Duyet Bai Dang Action");
+		System.out.println("Khong Duyet Bai Dang Action");
 
 		HttpSession session = request.getSession();
 
 		// Kiem tra admin dang nhap
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
-		if(nguoiDungBO.kiemTraDangNhap((String)session.getAttribute("userName"), (String)session.getAttribute("password")) != 0){
+		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password")) != 0) {
 			System.out.println("chua dang nhap hoac khong phai admin");
 			return mapping.findForward("trangChu");
 		}
@@ -50,7 +47,7 @@ public class DuyetBaiDangAction extends Action {
 		if (!StringProcess.notVaild(chiTietBaiDangForm.getSubmit())) {
 			// Neu co submit --> goi ham` duyet bai dang
 			System.out.println("Submit tu` trang duyet bai dang");
-			raoBanBO.duyetBaiDang(chiTietBaiDangForm.getMaRaoBan());
+			raoBanBO.khongDuyetBaiDang(chiTietBaiDangForm.getMaRaoBan());
 			return mapping.findForward("thanhCong");
 		} else {
 			// KHONG CO submit

@@ -133,13 +133,13 @@ public class RaoBanDAO {
 			raoBan.setTenTinhBan(rs.getString("tentinhban"));
 			raoBan.setGia(rs.getFloat("gia"));
 			raoBan.setMoTa(rs.getString("mota"));
-			
+
 			raoBan.setLinkAnh1(StringProcess.notVaild(rs.getString("linkanh1")) ? "" : rs.getString("linkanh1"));
 			raoBan.setLinkAnh2(StringProcess.notVaild(rs.getString("linkanh2")) ? "" : rs.getString("linkanh2"));
 			raoBan.setLinkAnh3(StringProcess.notVaild(rs.getString("linkanh3")) ? "" : rs.getString("linkanh3"));
 			raoBan.setLinkAnh4(StringProcess.notVaild(rs.getString("linkanh4")) ? "" : rs.getString("linkanh4"));
 			raoBan.setLinkAnh5(StringProcess.notVaild(rs.getString("linkanh5")) ? "" : rs.getString("linkanh5"));
-			
+
 			raoBan.setNgayBan(rs.getDate("ngayban"));
 			raoBan.setHoTenNguoiBan(rs.getString("hoten"));
 			raoBan.setTaiKhoanNguoiBan(rs.getString("taikhoan"));
@@ -867,24 +867,6 @@ public class RaoBanDAO {
 		return false;
 	}
 
-	public boolean duyetBaiDang(String maRaoBan) {
-		connect();
-
-		String sql = "EXEC " + Constant.FUNCTION_DUYET_BAI_DANG + " ?";
-
-		try {
-			PreparedStatement statement = connection.prepareStatement(sql);
-
-			statement.setString(1, maRaoBan);
-
-			statement.executeUpdate();
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
 	public boolean khoaBaiDang(String maRaoBan, String maNguoiRaoBan) {
 		connect();
 
@@ -914,6 +896,42 @@ public class RaoBanDAO {
 
 			statement.setString(1, maRaoBan);
 			statement.setString(2, maNguoiRaoBan);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean duyetBaiDang(String maRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_DUYET_BAI_DANG + " ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maRaoBan);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean khongDuyetBaiDang(String maRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_KHONG_DUYET_BAI_DANG + " ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maRaoBan);
 
 			statement.executeUpdate();
 			return true;

@@ -36,7 +36,7 @@ public class KetQuaTimKiemAction extends Action {
 		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");
 
 		// Lưu từ khóa tìm kiếm vào CSDL
-		// 		nếu từ khóa rỗng thì không lưu vào CSDL những vẫn tìm kiếm
+		// nếu từ khóa rỗng thì không lưu vào CSDL những vẫn tìm kiếm
 		if (!StringProcess.notVaild(tuKhoa)) {
 			raoBanBO.luuTuKhoaTimKiem(
 					(session.getAttribute("userID") == null) ? "" : (String) (session.getAttribute("userID")), tuKhoa);
@@ -101,7 +101,7 @@ public class KetQuaTimKiemAction extends Action {
 
 		// -----------------
 
-		if (session.getAttribute("userID") == null)
+		if (StringProcess.notVaild((String) session.getAttribute("userName")))
 
 			return mapping.findForward("ketQua");
 

@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 
 import common.StringProcess;
 import form.DangBanForm;
+import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
 
 public class BanBaiDangAction extends Action {
@@ -22,15 +23,18 @@ public class BanBaiDangAction extends Action {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 
-		System.out.println("Xoa Bai Dang Action");
+		System.out.println("Da Ban Bai Dang Action");
 
 		// Chỉ có bài đăng đang bán mới có thể chuyển sang trạng thái đã bán
 
-		// 1. Kiểm tra đăng nhập
-		if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
+		// Kiem tra user dang nhap
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password")) != 0) {
+			System.out.println("chua dang nhap hoac khong phai tai khoan nguoi dung");
 			return mapping.findForward("dangNhapLai");
 		}
-		
+
 		DangBanForm dangBanForm = (DangBanForm) form;
 		RaoBanBO raoBanBO = new RaoBanBO();
 

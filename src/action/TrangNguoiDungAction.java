@@ -25,8 +25,11 @@ public class TrangNguoiDungAction extends Action {
 
 		System.out.println("Trang Nguoi Dung Action");
 
-		// neu chua dang nhap --> dua ve trang chu
-		if (session.getAttribute("userID") == null) {
+		// Kiem tra dang nhap
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		if (type != 1 && type != 2) {
 			return mapping.findForward("trangChu");
 		}
 
@@ -35,7 +38,6 @@ public class TrangNguoiDungAction extends Action {
 		 */
 		TrangNguoiDungForm trangNguoiDungForm = (TrangNguoiDungForm) form;
 
-		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 		RaoBanBO raoBanBO = new RaoBanBO();
 
 		System.out.println("Bat dau lay du lieu nguoi dung");

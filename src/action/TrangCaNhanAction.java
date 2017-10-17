@@ -9,6 +9,9 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import common.StringProcess;
+import model.bo.NguoiDungBO;
+
 public class TrangCaNhanAction extends Action {
 
 	@Override
@@ -21,25 +24,25 @@ public class TrangCaNhanAction extends Action {
 		System.out.println("TrangCaNhanAction");
 
 		// neu chua dang nhap dua ve trang chu
-		if (session.getAttribute("userID") == null) {
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		if (type != 0 && type != 1 && type != 2) {
 			return mapping.findForward("trangChu");
 		}
 
 		/**
 		 * Neu da dang nhap
 		 */
-		int userType = (Integer) session.getAttribute("type");
-		String userID = (String) session.getAttribute("userID");
-
 		System.out.println("Phan luong` trang ca nhan");
 
-		switch (userType) {
+		switch (type) {
+		case 0:
+			return mapping.findForward("quanLy");
 		case 1:
 			return mapping.findForward("nguoiDung");
 		case 2:
 			return mapping.findForward("nguoiDung");
-		case 0:
-			return mapping.findForward("quanLy");
 		default:
 			return mapping.findForward("trangChu");
 		}

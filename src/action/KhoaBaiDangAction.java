@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 
 import common.StringProcess;
 import form.DuyetBaiDangForm;
+import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
 
 public class KhoaBaiDangAction extends Action {
@@ -24,10 +25,12 @@ public class KhoaBaiDangAction extends Action {
 
 		HttpSession session = request.getSession();
 
-		// kiem tra dang nhap ADMIN
-		if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
-			System.out.println("Chua dang nhap");
-			return mapping.findForward("dangNhap");
+		// Kiem tra admin dang nhap
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password")) != 0) {
+			System.out.println("chua dang nhap hoac khong phai admin");
+			return mapping.findForward("trangChu");
 		}
 
 		DuyetBaiDangForm duyetBaiDangForm = (DuyetBaiDangForm) form;
