@@ -197,6 +197,27 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="thatBai" path="/quanLyDanhMuc.jsp"></forward>
 			<forward name="dangNhap" path="/dangNhap.jsp"></forward>
 		</action>
+		
+		<!-- SUA DANH MUC -->
+		<action input="/index.jsp" name="danhMucForm" path="/sua-danh-muc"
+			scope="request" type="action.SuaDanhMucAction">
+			<forward name="trangChu" path="/trang-chu.do" />
+			<forward name="thanhCong" path="/quanLyDanhMuc.jsp"></forward>
+			<forward name="thatBai" path="/suaDanhMuc.jsp"></forward>
+			<forward name="dangNhap" path="/dangNhap.jsp"></forward>
+			<forward name="listDanhMuc" path="/danh-muc.do"></forward>
+			<forward name="suaDanhMucPage" path="/suaDanhMuc.jsp"></forward>
+		</action>
+		
+		<!-- XOA DANH MUC -->
+		<action input="/index.jsp" name="danhMucForm" path="/xoa-danh-muc"
+			scope="request" type="action.XoaDanhMucAction">
+			<forward name="trangChu" path="/trang-chu.do" />
+			<forward name="thanhCong" path="/quanLyDanhMuc.jsp"></forward>
+			<forward name="thatBai" path="/quanLyDanhMuc.jsp"></forward>
+			<forward name="dangNhap" path="/dangNhap.jsp"></forward>
+			<forward name="listDanhMuc" path="/danh-muc.do"></forward>
+		</action>
 
 		<!-- PHAN LUONG TRANG CA NHAN -->
 		<action input="/dangNhap.jsp" name="" path="/trang-ca-nhan"

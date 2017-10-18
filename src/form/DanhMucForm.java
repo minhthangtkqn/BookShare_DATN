@@ -19,9 +19,18 @@ public class DanhMucForm extends ActionForm {
 
 	// dung de them, sua, xoa danhMuc
 	private String submit;
+	private String action;
 	private String tenDanhMuc;
 
 	private String tenDanhMucError;
+
+	public String getAction() {
+		return action;
+	}
+
+	public void setAction(String action) {
+		this.action = action;
+	}
 
 	public String getTenDanhMucError() {
 		return tenDanhMucError;

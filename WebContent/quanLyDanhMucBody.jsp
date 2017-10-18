@@ -29,8 +29,9 @@
 							method="post"
 							onsubmit="return confirm('Bạn thực sự muốn xóa danh mục này ?');">
 							<input name="maDanhMuc" value="${maDanhMuc}"
-								style="display: none;"> <a
-								onclick="if(document.getElementById('xoa_danh_muc_${maDanhMuc}').onsubmit()){document.getElementById('xoa_danh_muc_${maDanhMuc}').submit()};"
+								style="display: none;"> 
+							<input name="action" value="submit" style="display: none;">
+							<a	onclick="if(document.getElementById('xoa_danh_muc_${maDanhMuc}').onsubmit()){document.getElementById('xoa_danh_muc_${maDanhMuc}').submit()};"
 								href="javascript:{}">Xóa</a>
 						</form>
 					</td>

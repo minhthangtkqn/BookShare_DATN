@@ -26,5 +26,8 @@ public class DanhMucBO {
 	public boolean xoaDanhMuc(String maDanhMuc){
 		return danhMucDAO.xoaDanhMuc(maDanhMuc);
 	}
+	public DanhMuc layThongTinDanhMuc (String maDanhMuc){
+		return danhMucDAO.layThongTinDanhMuc(maDanhMuc);
+	}
 	
 }

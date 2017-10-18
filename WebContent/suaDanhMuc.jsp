@@ -20,7 +20,7 @@
 	<!-- Latest compiled JavaScript -->
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<title>SỦA TÊN DANH MỤC</title>
+	<title>QUẢN LÝ DANH MỤC</title>
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
 <body>
 	<jsp:include page="/homeHeader.jsp"></jsp:include>
 	
-	<jsp:include page="/quanLyDanhMucBody.jsp"></jsp:include>
+	<jsp:include page="/suaDanhMucBody.jsp"></jsp:include>
 	
 	<jsp:include page="/footer.jsp"></jsp:include>
 </body>
