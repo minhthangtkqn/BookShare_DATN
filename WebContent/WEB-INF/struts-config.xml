@@ -51,7 +51,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			scope="session" type="action.TrangChuAction">
 			<forward name="index" path="/index.jsp" />
 			<forward name="home" path="/home.jsp" />
-			<forward name="trangCaNhan" path="trang-ca-nhan.do"></forward>
+			<forward name="trangCaNhan" path="/trang-ca-nhan.do"></forward>
 		</action>
 
 		<!-- DANG XUAT -->
@@ -186,6 +186,16 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="trangChu" path="/trang-chu.do" />
 			<forward name="chuaDangNhap" path="/danhMucSach.jsp" />
 			<forward name="daDangNhap" path="/danhMucSachLogged.jsp" />
+			<forward name="admin" path="/quanLyDanhMuc.jsp"></forward>
+		</action>
+		
+		<!-- THEM DANH MUC -->
+		<action input="/index.jsp" name="danhMucForm" path="/them-danh-muc"
+			scope="request" type="action.ThemDanhMucAction">
+			<forward name="trangChu" path="/trang-chu.do" />
+			<forward name="thanhCong" path="/quanLyDanhMuc.jsp"></forward>
+			<forward name="thatBai" path="/quanLyDanhMuc.jsp"></forward>
+			<forward name="dangNhap" path="/dangNhap.jsp"></forward>
 		</action>
 
 		<!-- PHAN LUONG TRANG CA NHAN -->

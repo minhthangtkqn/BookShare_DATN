@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionMapping;
 import common.StringProcess;
 import form.DanhMucForm;
 import model.bo.DanhMucBO;
+import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
 
 public class DanhMucAction extends Action {
@@ -26,11 +27,20 @@ public class DanhMucAction extends Action {
 
 		HttpSession session = request.getSession();
 		DanhMucForm danhMucForm = (DanhMucForm) form;
+		
 		DanhMucBO danhMucBO = new DanhMucBO();
 		RaoBanBO raoBanBO = new RaoBanBO();
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 
 		// lay list danh muc
 		danhMucForm.setDsDanhMuc(danhMucBO.layDanhSachDanhMuc());
+
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		if (type == 0) {
+			System.out.println("hien thi list danh muc cho admin");
+			return mapping.findForward("admin");
+		}
 
 		// lay ds Goi Y chung
 		danhMucForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachGoiYMoiNguoiCungXem());
@@ -63,10 +73,12 @@ public class DanhMucAction extends Action {
 				danhMucForm.setDsRaoBanTrongDanhMuc(
 						raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), danhMucForm.getTuKhoa()));
 				for (String item : arrayTuKhoa) {
-					danhMucForm.getDsRaoBanTrongDanhMuc().addAll(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
+					danhMucForm.getDsRaoBanTrongDanhMuc()
+							.addAll(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
 				}
 				for (String item : arrayTuKhoaKhongDau) {
-					danhMucForm.getDsRaoBanTrongDanhMuc().addAll(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
+					danhMucForm.getDsRaoBanTrongDanhMuc()
+							.addAll(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
 				}
 
 				// filter duplicate results
@@ -87,13 +99,10 @@ public class DanhMucAction extends Action {
 		}
 
 		// kiem tra dang nhap de phan luong`
-		if (StringProcess.notVaild((String) session.getAttribute("userName"))) {
-			// neu chua dang nhap
-			return mapping.findForward("chuaDangNhap");
+		if (type == 1 || type == 2) {
+			return mapping.findForward("daDangNhap");
 		}
-
-		// neu da dang nhap
-		return mapping.findForward("daDangNhap");
+		return mapping.findForward("chuaDangNhap");
 
 	}
 

@@ -45,6 +45,7 @@ public class Constant {
 	public static final String FUNCTION_MO_KHOA_NGUOI_DUNG = "[p_moKhoaNguoiDung]";
 	
 	public static final String FUNCTION_THEM_DANH_MUC = "[p_themDanhMuc]";
+	public static final String FUNCTION_SUA_DANH_MUC = "[p_suaDanhMuc]";
 
 	// POST STATUS
 	public static final int TRANG_THAI_CHO_DUYET = 0;

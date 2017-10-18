@@ -15,5 +15,16 @@ public class DanhMucBO {
 	public ArrayList<DanhMuc> layTopDanhMucBanNhieu(int soLuong) {
 		return danhMucDAO.layTopDanhMucBanNhieu(soLuong);
 	}
+
+	public boolean themDanhMuc(String tenDanhMuc) {
+		return danhMucDAO.themDanhMuc(tenDanhMuc);
+	}
+	
+	public boolean suaDanhMuc(String tenDanhMuc, String maDanhMuc){
+		return danhMucDAO.suaDanhMuc(tenDanhMuc, maDanhMuc);
+	}
+	public boolean xoaDanhMuc(String maDanhMuc){
+		return danhMucDAO.xoaDanhMuc(maDanhMuc);
+	}
 	
 }

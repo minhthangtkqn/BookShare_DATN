@@ -36,20 +36,23 @@ public class DanhMucDAO {
 		System.out.println("DANH MUC DAO layDS Danh Muc");
 
 		connect();
-		String sql = "select madanhmuc,tendanhmuc from tblDanhMuc";
+		String sql = "SELECT * FROM " + Constant.TABLE_DANH_MUC;
 		ArrayList<DanhMuc> list = new ArrayList<DanhMuc>();
 		DanhMuc danhMuc;
 		ResultSet rs = null;
 		try {
-			Statement stmt = connection.createStatement();
-			rs = stmt.executeQuery(sql);
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			
 			while (rs.next()) {
 				danhMuc = new DanhMuc();
 				danhMuc.setMaDanhMuc(rs.getString("madanhmuc"));
 				danhMuc.setTenDanhMuc(rs.getString("tendanhmuc"));
+				danhMuc.setSoLuongDaBan(rs.getInt("SoLuongDaBan"));
 
 				System.out.print("Ma DM: " + danhMuc.getMaDanhMuc());
 				System.out.println("Ten DM: " + danhMuc.getTenDanhMuc());
+				System.out.println("So luong da ban: " + danhMuc.getSoLuongDaBan());
 
 				list.add(danhMuc);
 			}
@@ -104,4 +107,69 @@ public class DanhMucDAO {
 		}
 		return false;
 	}
+
+	public boolean suaDanhMuc(String tenDanhMuc, String maDanhMuc) {
+		connect();
+
+		String sql = "EXEC " + Constant.FUNCTION_SUA_DANH_MUC + " ?, ? ";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setNString(1, tenDanhMuc);
+			statement.setString(2, maDanhMuc);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean xoaDanhMuc(String maDanhMuc) {
+		connect();
+
+		String sql = "DELETE FROM " + Constant.TABLE_DANH_MUC + " WHERE MaDanhMuc = ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maDanhMuc);
+
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public DanhMuc layThongTinDanhMuc(String maDanhMuc) {
+		connect();
+
+		String sql = "SELECT * FROM " + Constant.TABLE_DANH_MUC + " WHERE MaDanhMuc = ?";
+
+		try {
+			DanhMuc danhMuc = new DanhMuc();
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maDanhMuc);
+
+			ResultSet rs = statement.executeQuery();
+
+			if (rs.isBeforeFirst()) {
+				rs.next();
+				danhMuc.setMaDanhMuc(rs.getString("MaDanhMuc"));
+				danhMuc.setTenDanhMuc(rs.getNString("TenDanhMuc"));
+				danhMuc.setSoLuongDaBan(rs.getInt("SoLuongDaBan"));
+				return danhMuc;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
