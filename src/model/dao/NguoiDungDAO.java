@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import common.Constant;
+import common.StringProcess;
 import model.bean.NguoiDung;
 
 public class NguoiDungDAO {
@@ -44,19 +45,21 @@ public class NguoiDungDAO {
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				nguoiDung = new NguoiDung();
-				
+
 				nguoiDung.setMaNguoiDung(rs.getString("manguoidung"));
 				nguoiDung.setTaiKhoan(rs.getString("taikhoan"));
 				nguoiDung.setHoTen(rs.getString("hoten"));
 				nguoiDung.setTenTinh(rs.getString("tentinh"));
 				nguoiDung.setDienThoai(rs.getString("dienthoai"));
 				nguoiDung.setEmail(rs.getString("email"));
-				nguoiDung.setAnh(rs.getString("anh"));
 				nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
 				nguoiDung.setNamSinh(rs.getInt("namSinh"));
 				nguoiDung.setMaTinh(rs.getInt("MaTinh"));
 				nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
-				
+
+				nguoiDung.setAnh(
+						StringProcess.notVaild(rs.getString("anh")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("anh"));
+
 				list.add(nguoiDung);
 			}
 		} catch (SQLException e) {
@@ -137,16 +140,17 @@ public class NguoiDungDAO {
 	// 4 sai tai khoan
 	public int kiemTraDangNhap(String taiKhoan, String matKhau) {
 		connect();
-//		String sql = String.format("select * from dbo.f_checklogin('%s','%s')", taiKhoan, matKhau);
+		// String sql = String.format("select * from
+		// dbo.f_checklogin('%s','%s')", taiKhoan, matKhau);
 		String sql = "SELECT * FROM f_checklogin( ?, ? )";
 		System.out.println(sql);
 		ResultSet rs = null;
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			
+
 			stmt.setString(1, taiKhoan);
 			stmt.setString(2, matKhau);
-			
+
 			rs = stmt.executeQuery();
 			rs.next();
 			int key = rs.getInt(1);

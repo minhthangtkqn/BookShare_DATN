@@ -23,7 +23,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 	<action-mappings>
 
 		<!-- DANH SACH NGUOI DUNG -->
-		<action path="danh-sach-nguoi-dung" name="danhSachNguoiDungForm"
+		<action path="/danh-sach-nguoi-dung" name="danhSachNguoiDungForm"
 			input="/dangNhap.jsp" scope="request" type="action.DanhSachNguoiDungAction">
 			<forward name="trangChu" path="/trang-chu.do"></forward>
 			<forward name="danhSachNguoiDung" path="/danhSachNguoiDung.jsp"></forward>

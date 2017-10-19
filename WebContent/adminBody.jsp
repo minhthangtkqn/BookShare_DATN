@@ -31,6 +31,8 @@
                 <a href="sua-admin.do">Sửa thông tin của bạn >>></a>
             </div>
 
+			<h3><a href="danh-sach-nguoi-dung.do">DANH SACH NGUOI DUNG</a></h3>
+
             <div class="row-item user-img">
             	<bean:define id="anh" name="admin" property="anh"></bean:define>
                 <img src="${anh}" alt="" style="height: 100%; width: 100%" />
