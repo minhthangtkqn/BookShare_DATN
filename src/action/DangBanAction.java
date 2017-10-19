@@ -51,13 +51,14 @@ public class DangBanAction extends Action {
 
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		DangBanForm dangBanForm = (DangBanForm) form;
 
 		// Kiem tra user dang nhap
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
-				(String) session.getAttribute("password")) != 0) {
-			System.out.println("chua dang nhap hoac khong phai tai khoan nguoi dung");
-			return mapping.findForward("dangnhaplai");
+				(String) session.getAttribute("password")) != 1) {
+			System.out.println("CHỈ CÓ TÀI KHOẢN NGƯỜI DÙNG VÀ KHÔNG BỊ KHÓA MỚI CÓ THỂ ĐĂNG BÁN");
+			return mapping.findForward("trangChu");
 		}
 
 		FileOutputStream outputStream = null;
@@ -66,7 +67,6 @@ public class DangBanAction extends Action {
 		FormFile anh3 = null;
 		FormFile anh4 = null;
 		FormFile anh5 = null;
-		DangBanForm dangBanForm = (DangBanForm) form;
 		TinhBO tinhBo = new TinhBO();
 		DanhMucBO danhMucBO = new DanhMucBO();
 		RaoBanBO raoBanBO = new RaoBanBO();

@@ -14,12 +14,21 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="danhMucForm" type="form.DanhMucForm" />
 		<form-bean name="nguoiDungForm" type="form.NguoiDungForm" />
 		<form-bean name="duyetBaiDangForm" type="form.DuyetBaiDangForm"></form-bean>
+		<form-bean name="danhSachNguoiDungForm" type="form.DanhSachNguoiDungForm"></form-bean>
 
 
 		<form-bean name="testForm" type="form.TestForm" />
 		<form-bean name="testUploadFileForm" type="form.TestUploadFileForm" />
 	</form-beans>
 	<action-mappings>
+
+		<!-- DANH SACH NGUOI DUNG -->
+		<action path="danh-sach-nguoi-dung" name="danhSachNguoiDungForm"
+			input="/dangNhap.jsp" scope="request" type="action.DanhSachNguoiDungAction">
+			<forward name="trangChu" path="/trang-chu.do"></forward>
+			<forward name="danhSachNguoiDung" path="/danhSachNguoiDung.jsp"></forward>
+			<forward name="trangCaNhan" path="/trang-ca-nhan.do"></forward>
+		</action>
 
 		<!-- DANG NHAP -->
 		<action input="/dangNhap.jsp" name="dangNhapForm" path="/dang-nhap"
@@ -87,6 +96,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="dangban" path="/post.jsp" />
 			<forward name="thatbai" path="/post.jsp" />
 			<forward name="dangnhaplai" path="/dangNhap.jsp" />
+			<forward name="trangChu" path="/trang-chu.do"></forward>
 		</action>
 
 		<!-- SUA BAI DANG -->
@@ -132,7 +142,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="error" path="/errorLogged.jsp"></forward>
 			<forward name="giaoDienDuyetBai" path="/duyetBaiDang.jsp" />
 		</action>
-		
+
 		<!-- KHONG DUYET BAI DANG -->
 		<action input="/dangNhap.jsp" name="chiTietBaiDangForm" path="/khong-duyet-bai-dang"
 			scope="request" type="action.KhongDuyetBaiDangAction">
@@ -170,7 +180,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="thatBai" path="/trang-ca-nhan.do"></forward>
 			<forward name="trangChu" path="/trang-chu.do"></forward>
 		</action>
-		
+
 		<!-- MO KHOA NGUOI DUNG -->
 		<action input="/dangNhap.jsp" name="nguoiDungForm" path="/mo-khoa-nguoi-dung"
 			scope="request" type="action.MoKhoaNguoiDungAction">
@@ -188,7 +198,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="daDangNhap" path="/danhMucSachLogged.jsp" />
 			<forward name="admin" path="/quanLyDanhMuc.jsp"></forward>
 		</action>
-		
+
 		<!-- THEM DANH MUC -->
 		<action input="/index.jsp" name="danhMucForm" path="/them-danh-muc"
 			scope="request" type="action.ThemDanhMucAction">
@@ -197,7 +207,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="thatBai" path="/quanLyDanhMuc.jsp"></forward>
 			<forward name="dangNhap" path="/dangNhap.jsp"></forward>
 		</action>
-		
+
 		<!-- SUA DANH MUC -->
 		<action input="/index.jsp" name="danhMucForm" path="/sua-danh-muc"
 			scope="request" type="action.SuaDanhMucAction">
@@ -208,7 +218,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="listDanhMuc" path="/danh-muc.do"></forward>
 			<forward name="suaDanhMucPage" path="/suaDanhMuc.jsp"></forward>
 		</action>
-		
+
 		<!-- XOA DANH MUC -->
 		<action input="/index.jsp" name="danhMucForm" path="/xoa-danh-muc"
 			scope="request" type="action.XoaDanhMucAction">

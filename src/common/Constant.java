@@ -28,7 +28,7 @@ public class Constant {
 	public static final String VIEW_DANH_SACH_DANG_BAN = "[v_dsDangBan]";
 	public static final String VIEW_DANH_SACH_DA_BAN_ADMIN = "[v_dsDaBanAD]";
 	public static final String VIEW_DANH_SACH_DA_BAN_ND = "[v_dsDaBanND]";
-	public static final String VIEW_DANH_SACH_NGUOI_DUNG = "[v_danhsachnguoidung]";
+	public static final String VIEW_DANH_SACH_NGUOI_DUNG = "[v_danhSachNguoiDung]";
 	public static final String VIEW_DANH_SACH_ADMIN = "[v_danhSachAdmin]";
 
 	// Post Functions

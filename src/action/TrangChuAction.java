@@ -29,6 +29,15 @@ public class TrangChuAction extends Action {
 		BannerBO bannerBO = new BannerBO();
 		DanhMucBO danhMucBO = new DanhMucBO();
 		RaoBanBO baiRaoBanBO = new RaoBanBO();
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		
+		if (type == 0) {
+			// admin
+			return mapping.findForward("trangCaNhan");
+		}
 
 		// Lay danh sach banner
 		trangChuForm.setDsBanner(bannerBO.layDSBanner());
@@ -48,23 +57,14 @@ public class TrangChuAction extends Action {
 		// lay ds GOI Y moi nguoi cung xem
 		trangChuForm.setDsGoiYMoiNguoiCungXem(baiRaoBanBO.layDanhSachGoiYMoiNguoiCungXem());
 
-		//Kiem tra dang nhap
-		NguoiDungBO nguoiDungBO = new NguoiDungBO();
-		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
-				(String) session.getAttribute("password"));
-		if (type != 0 && type != 1 && type != 2) {
+		// Kiem tra dang nhap
+		if (type != 1 && type != 2) {
 			return mapping.findForward("index");
 		}
 
 		// NEU DA DANG NHAP --> Bat Dau xu li
-		switch (type) {
-		case 0:
-			return mapping.findForward("trangCaNhan");
-			
-		default:
-			trangChuForm.setDsGoiY(baiRaoBanBO.layDanhSachGoiY((String) session.getAttribute("userID")));
-			return mapping.findForward("home");
-		}
+		trangChuForm.setDsGoiY(baiRaoBanBO.layDanhSachGoiY((String) session.getAttribute("userID")));
+		return mapping.findForward("home");
 	}
 
 }

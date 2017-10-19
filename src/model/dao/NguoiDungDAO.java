@@ -35,7 +35,7 @@ public class NguoiDungDAO {
 	// Danh Sach Nguoi Dung Cho Admin
 	public ArrayList<NguoiDung> layDanhSachNguoiDung() {
 		connect();
-		String sql = "select * from v_danhsachnguoidung";
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_NGUOI_DUNG;
 		ResultSet rs = null;
 		ArrayList<NguoiDung> list = new ArrayList<NguoiDung>();
 		NguoiDung nguoiDung;
@@ -44,6 +44,7 @@ public class NguoiDungDAO {
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				nguoiDung = new NguoiDung();
+				
 				nguoiDung.setMaNguoiDung(rs.getString("manguoidung"));
 				nguoiDung.setTaiKhoan(rs.getString("taikhoan"));
 				nguoiDung.setHoTen(rs.getString("hoten"));
@@ -53,6 +54,9 @@ public class NguoiDungDAO {
 				nguoiDung.setAnh(rs.getString("anh"));
 				nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
 				nguoiDung.setNamSinh(rs.getInt("namSinh"));
+				nguoiDung.setMaTinh(rs.getInt("MaTinh"));
+				nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
+				
 				list.add(nguoiDung);
 			}
 		} catch (SQLException e) {
