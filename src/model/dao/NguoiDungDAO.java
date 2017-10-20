@@ -143,6 +143,9 @@ public class NguoiDungDAO {
 		// String sql = String.format("select * from
 		// dbo.f_checklogin('%s','%s')", taiKhoan, matKhau);
 		String sql = "SELECT * FROM f_checklogin( ?, ? )";
+		System.out.println("KIEM TRA DANG NHAP FUNCTION");
+		System.out.println("TaiKhoan: " + taiKhoan);
+		System.out.println("MatKhau: " + matKhau);
 		System.out.println(sql);
 		ResultSet rs = null;
 		try {
@@ -191,7 +194,7 @@ public class NguoiDungDAO {
 		 * , taiKhoan, matKhau);
 		 */
 
-		String sql = "select MaNguoiDung from " + Constant.TABLE_NGUOI_DUNG + " where TaiKhoan = ? and MatKhau = ? ";
+		String sql = "SELECT MaNguoiDung from " + Constant.TABLE_NGUOI_DUNG + " where TaiKhoan = ? and MatKhau = ? ";
 
 		ResultSet rs = null;
 
@@ -271,7 +274,7 @@ public class NguoiDungDAO {
 			rs = stmt.executeQuery();
 
 			rs.next();
-			
+
 			nguoiDung = new NguoiDung();
 
 			System.out.println("tai khoan: " + rs.getString("taikhoan"));
@@ -286,8 +289,9 @@ public class NguoiDungDAO {
 			nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
 			nguoiDung.setNamSinh(rs.getInt("namSinh"));
 			nguoiDung.setMaTinh(rs.getInt("matinh"));
-			nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
-			
+
+			nguoiDung.setLoaiNguoiDung((rs.getInt("LoaiNguoiDung") == 1) ? "Bình thường" : "Bị khóa");
+
 			return nguoiDung;
 		} catch (SQLException e) {
 			e.printStackTrace();

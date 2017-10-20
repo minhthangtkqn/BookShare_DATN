@@ -16,6 +16,7 @@ import org.apache.struts.action.ActionMessage;
 import common.Constant;
 import common.StringProcess;
 import form.DangNhapForm;
+import form.NguoiDungForm;
 
 /**
  * NguoiDungAction.java
@@ -37,7 +38,7 @@ public class DangNhapAction extends Action {
 			HttpServletResponse response) throws Exception {
 
 		request.setCharacterEncoding("UTF-8");
-		
+
 		HttpSession session = request.getSession();
 		DangNhapForm dangNhapForm = (DangNhapForm) form;
 
@@ -45,18 +46,24 @@ public class DangNhapAction extends Action {
 		// session.setMaxInactiveInterval(30000);
 		dangNhapForm.setThongBao((String) session.getAttribute("thongBao"));
 
-		if (!StringProcess.notVaild((String)session.getAttribute("userName"))){
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		
+		if (type == 0 || type == 1 || type == 2) {
 			// neu da dang nhap dua ve trang chu
+			System.out.println("DA DANG NHAP");
+			System.out.println("TYPE: " + type);
 			return mapping.findForward("trangchu");
 		}
+
 		String maNguoiDung;
 		String anh;
 
 		String taiKhoan = dangNhapForm.getTaiKhoan(); // lay ten dang nhap tu
 														// form
 		String matKhau = dangNhapForm.getMatKhau(); // lay mat khau tu form
-
-		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 
 		// kiem tra loai TAI KHOAN la ADMIN hay NGUOI DUNG
 		int key = nguoiDungBO.kiemTraDangNhap(taiKhoan, matKhau);
@@ -65,16 +72,15 @@ public class DangNhapAction extends Action {
 		case 0: // Day la admin
 			System.out.println("Tai khoan admin dang nhap");
 			maNguoiDung = nguoiDungBO.layMaNguoiDung(taiKhoan, matKhau); // lay
+			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau);
 
 			session.setAttribute("userName", taiKhoan);
 			session.setAttribute("type", 0);
 			session.setAttribute("userID", maNguoiDung);
 			session.setAttribute("password", dangNhapForm.getMatKhau());
-
-			anh = nguoiDungBO.layAnhNguoiDung(taiKhoan, matKhau);
 			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? Constant.NO_IMAGE_DEFAULT : anh);
 
-			System.out.println("Foward den trang-ca-nhan.do");
+			System.out.println("Forward den trang-ca-nhan.do");
 			return mapping.findForward("trangQuanLy");
 
 		case 1:// Day la nguoi dung
@@ -86,8 +92,14 @@ public class DangNhapAction extends Action {
 			session.setAttribute("userName", taiKhoan);
 			session.setAttribute("type", 1);
 			session.setAttribute("userID", maNguoiDung);
+			session.setAttribute("password", dangNhapForm.getMatKhau());
 			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? "images/No-image.jpg" : anh);
 
+			System.out.println("USERID: " + maNguoiDung);
+			System.out.println("TYPE: " + type);
+			System.out.println("USERNAME: " + taiKhoan);
+			System.out.println("LINK ANH: " + anh);
+			
 			return mapping.findForward("trangchu");
 
 		case 2:// Day la nguoi dung bi chan
@@ -102,6 +114,7 @@ public class DangNhapAction extends Action {
 			session.setAttribute("userName", taiKhoan);
 			session.setAttribute("type", 2);
 			session.setAttribute("userID", maNguoiDung);
+			session.setAttribute("password", dangNhapForm.getMatKhau());
 			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? "images/No-image.jpg" : anh);
 
 			session.setAttribute("reason", liDoChan);

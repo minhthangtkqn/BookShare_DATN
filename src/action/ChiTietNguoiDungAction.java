@@ -48,6 +48,12 @@ public class ChiTietNguoiDungAction extends Action {
 		
 		nguoiDungForm.setNguoiDung(nguoiDung);
 		
+		if(nguoiDung.getLoaiNguoiDung().equals("Bình thường")){
+			nguoiDungForm.setThaoTacKhaDung(0);
+		}else{
+			nguoiDungForm.setThaoTacKhaDung(1);
+		}
+		System.out.println("Hành động: " + nguoiDungForm.getThaoTacKhaDung());
 		return mapping.findForward("chiTietNguoiDung");
 
 	}

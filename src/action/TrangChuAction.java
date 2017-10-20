@@ -59,11 +59,13 @@ public class TrangChuAction extends Action {
 
 		// Kiem tra dang nhap
 		if (type != 1 && type != 2) {
+			System.out.println("Type: " + type);
 			return mapping.findForward("index");
 		}
 
 		// NEU DA DANG NHAP --> Bat Dau xu li
 		trangChuForm.setDsGoiY(baiRaoBanBO.layDanhSachGoiY((String) session.getAttribute("userID")));
+		System.out.println("forward to home");
 		return mapping.findForward("home");
 	}
 

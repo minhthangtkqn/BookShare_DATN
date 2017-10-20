@@ -6,7 +6,6 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 
-
 <div>
 	<div class="container">
 		<bean:define id="nd" name="nguoiDungForm" property="nguoiDung"></bean:define>
@@ -15,8 +14,7 @@
 				<b>THÔNG TIN CHI TIẾT</b>
 			</p>
 			<div class="anh_nguoiban">
-				<bean:define id="anh" name="nd"
-					property="anh"></bean:define>
+				<bean:define id="anh" name="nd" property="anh"></bean:define>
 				<img style="height: 200px; width: 200px;" src="${anh}">
 			</div>
 			<div class="text_info">
@@ -52,14 +50,31 @@
 				</p>
 				<p>
 					Ghi chú:
-					<bean:write name="nd" property="ghiChu"/>
+					<bean:write name="nd" property="ghiChu" />
 				</p>
 				<p>
 					Tình trạng:
-					<bean:write name="nd" property="loaiNguoiDung"/>
+					<bean:write name="nd" property="loaiNguoiDung" />
 				</p>
 			</div>
 			
+			<bean:define id="maNguoiDung" name="nguoiDungForm" property="maNguoiDung"></bean:define>
+			
+			<html:form action="mo-khoa-nguoi-dung.do" method="post">
+				<input type="text" name="maNguoiDung" value="${maNguoiDung}" style="display: none;">
+				<input type="text" name="ghiChu">
+				<input type="submit" name="submit" value="MỞ KHÓA"
+					class="w3-btn w3-ripple w3-red"></input>
+			</html:form>
+			
+			<br>	<br>	<br>
+			
+			<html:form action="khoa-nguoi-dung.do" method="post">
+				<input type="text" name="maNguoiDung" value="${maNguoiDung}" style="display: none;">
+				<input type="text" name="ghiChu">
+				<input type="submit" name="submit" value="KHÓA"
+					class="w3-btn w3-ripple w3-red"></input>
+			</html:form>
 		</div>
 	</div>
 </div>

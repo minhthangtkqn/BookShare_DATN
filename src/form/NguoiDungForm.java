@@ -12,6 +12,7 @@ public class NguoiDungForm extends ActionForm {
 	// dung de khoa || mo khoa nguoi dung
 	private String maNguoiDung;
 	private String ghiChu;
+	private int thaoTacKhaDung; // 0 --> khoa || 1 --> mo khoa
 	// ---------------------
 
 	private ArrayList<Tinh> dsTinh;
@@ -29,6 +30,14 @@ public class NguoiDungForm extends ActionForm {
 	private int namSinh;
 	private String anh;
 	private String matKhau;
+
+	public int getThaoTacKhaDung() {
+		return thaoTacKhaDung;
+	}
+
+	public void setThaoTacKhaDung(int thaoTacKhaDung) {
+		this.thaoTacKhaDung = thaoTacKhaDung;
+	}
 
 	public String getMaNguoiDung() {
 		return maNguoiDung;
