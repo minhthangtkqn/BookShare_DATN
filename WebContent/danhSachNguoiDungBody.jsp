@@ -23,13 +23,15 @@
 					<td>Email</td>
 					<td>Giới tính</td>
 					<td>Năm sinh</td>
-					<td>Ghi chú</td>
+					<td>Xem chi tiết</td>
 				</thead>
 				<!-- ++++++++++++++++++  -->
 				<logic:iterate name="danhSachNguoiDungForm" property="dsNguoiDung"
 					id="sp">
 					<tr>
 						<bean:define id="anh" name="sp" property="anh"></bean:define>
+						<bean:define id="maNguoiDung" name="sp" property="maNguoiDung"></bean:define>
+						
 						<td><img src="${anh}" style="width: 160px; height: 200px;"></td>
 						<td><bean:write name="sp" property="hoTen" /></td>
 						<td><bean:write name="sp" property="taiKhoan" /></td>
@@ -38,6 +40,7 @@
 						<td><bean:write name="sp" property="email" /></td>
 						<td><bean:write name="sp" property="gioiTinh"></bean:write></td>
 						<td><bean:write name="sp" property="namSinh"></bean:write></td>
+						<td><a href="chi-tiet-nguoi-dung.do?maNguoiDung=${maNguoiDung}">Chi tiết</a></td>
 					</tr>
 				</logic:iterate>
 			</table>

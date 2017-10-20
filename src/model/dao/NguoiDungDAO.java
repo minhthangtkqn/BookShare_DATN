@@ -261,7 +261,7 @@ public class NguoiDungDAO {
 	public NguoiDung layNguoiDung(String maNguoiDung) {
 		connect();
 		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_NGUOI_DUNG + " where [manguoidung] = ?";
-		NguoiDung nguoiDung = new NguoiDung();
+		NguoiDung nguoiDung = null;
 		ResultSet rs = null;
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -270,9 +270,9 @@ public class NguoiDungDAO {
 
 			rs = stmt.executeQuery();
 
-			nguoiDung = new NguoiDung();
-
 			rs.next();
+			
+			nguoiDung = new NguoiDung();
 
 			System.out.println("tai khoan: " + rs.getString("taikhoan"));
 
@@ -287,13 +287,12 @@ public class NguoiDungDAO {
 			nguoiDung.setNamSinh(rs.getInt("namSinh"));
 			nguoiDung.setMaTinh(rs.getInt("matinh"));
 			nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
-
+			
+			return nguoiDung;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return null;
 		}
-
-		return nguoiDung;
+		return null;
 	}
 
 	public NguoiDung layAdmin(String maNguoiDung) {
