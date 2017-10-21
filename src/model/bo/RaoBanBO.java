@@ -87,8 +87,12 @@ public class RaoBanBO {
 		return raoBanDAO.layDsMoiNhatTheoDanhMuc(maDanhMuc);
 	}
 
-	public ArrayList<RaoBan> timKiemTrongDanhMuc(String maDanhMuc, String tuKhoa) {
-		return raoBanDAO.timKiemTrongDanhMuc(maDanhMuc, tuKhoa);
+	public ArrayList<RaoBan> timKiemTenSachTrongDanhMuc(String maDanhMuc, String tuKhoa) {
+		return raoBanDAO.timKiemTenSachTrongDanhMuc(maDanhMuc, tuKhoa);
+	}
+	
+	public ArrayList<RaoBan> timKiemTacGiaTrongDanhMuc(String maDanhMuc, String tuKhoa) {
+		return raoBanDAO.timKiemTacGiaTrongDanhMuc(maDanhMuc, tuKhoa);
 	}
 
 	/**

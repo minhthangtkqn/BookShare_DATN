@@ -27,7 +27,7 @@ public class DanhMucAction extends Action {
 
 		HttpSession session = request.getSession();
 		DanhMucForm danhMucForm = (DanhMucForm) form;
-		
+
 		DanhMucBO danhMucBO = new DanhMucBO();
 		RaoBanBO raoBanBO = new RaoBanBO();
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
@@ -67,20 +67,24 @@ public class DanhMucAction extends Action {
 				// xu ly chuc nang tim kiem
 				// ----- xu ly tu khoa
 				String arrayTuKhoa[] = danhMucForm.getTuKhoa().split("\\s+");
-				String arrayTuKhoaKhongDau[] = StringProcess.removeDiacritics(danhMucForm.getTuKhoa()).split("\\s+");
 
 				// ----- chay cac ham` tim kiem
+				// tim kiem ten sach
 				danhMucForm.setDsRaoBanTrongDanhMuc(
-						raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), danhMucForm.getTuKhoa()));
+						raoBanBO.timKiemTenSachTrongDanhMuc(danhMucForm.getMaDanhMuc(), danhMucForm.getTuKhoa()));
 				for (String item : arrayTuKhoa) {
 					danhMucForm.getDsRaoBanTrongDanhMuc()
-							.addAll(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
-				}
-				for (String item : arrayTuKhoaKhongDau) {
-					danhMucForm.getDsRaoBanTrongDanhMuc()
-							.addAll(raoBanBO.timKiemTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
+							.addAll(raoBanBO.timKiemTenSachTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
 				}
 
+				// tim kiem tac gia
+				danhMucForm.getDsRaoBanTrongDanhMuc()
+						.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(danhMucForm.getTuKhoa()));
+				for (String item : arrayTuKhoa) {
+					danhMucForm.getDsRaoBanTrongDanhMuc()
+							.addAll(raoBanBO.timKiemTacGiaTrongDanhMuc(danhMucForm.getMaDanhMuc(), item));
+				}
+				
 				// filter duplicate results
 				for (int i = 0; i < danhMucForm.getDsRaoBanTrongDanhMuc().size(); i++) {
 					for (int j = i + 1; j < danhMucForm.getDsRaoBanTrongDanhMuc().size(); j++) {

@@ -46,6 +46,10 @@ public class Constant {
 	
 	public static final String FUNCTION_THEM_DANH_MUC = "[p_themDanhMuc]";
 	public static final String FUNCTION_SUA_DANH_MUC = "[p_suaDanhMuc]";
+	
+	// Table-valued function
+	public static final String FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU = "f_TimKiemTenSachKhongDau";
+	public static final String FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU = "f_TimKiemTacGiaKhongDau";
 
 	// POST STATUS
 	public static final int TRANG_THAI_CHO_DUYET = 0;

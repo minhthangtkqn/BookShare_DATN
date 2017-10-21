@@ -50,12 +50,12 @@ public class KetQuaTimKiemAction extends Action {
 		}
 
 		// loai bo dau tieng Viet
-		String tuKhoaKhongDau = StringProcess.removeDiacritics(tuKhoa);
-		String[] arrayTuKhoaKhongDau = tuKhoaKhongDau.split("\\s+");
-		System.out.println("Các từ khóa con KHÔNG DẤU:");
-		for (String item : arrayTuKhoa) {
-			System.out.println("-|" + item + "|-");
-		}
+//		String tuKhoaKhongDau = StringProcess.removeDiacritics(tuKhoa);
+//		String[] arrayTuKhoaKhongDau = tuKhoaKhongDau.split("\\s+");
+//		System.out.println("Các từ khóa con KHÔNG DẤU:");
+//		for (String item : arrayTuKhoa) {
+//			System.out.println("-|" + item + "|-");
+//		}
 		// END xử lý từ khóa
 
 		// -----------------
@@ -63,9 +63,6 @@ public class KetQuaTimKiemAction extends Action {
 		// Tim kiem ten SACH dua theo cac tu khoa
 		ketQuaTimKiemForm.setListRaoBan(raoBanBO.layDanhSachTimKiemTenSach(tuKhoa));
 		for (String item : arrayTuKhoa) {
-			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenSach(item));
-		}
-		for (String item : arrayTuKhoaKhongDau) {
 			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenSach(item));
 		}
 		// END Tim kiem SACH dua theo cac tu khoa
@@ -76,9 +73,6 @@ public class KetQuaTimKiemAction extends Action {
 		ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(tuKhoa));
 
 		for (String item : arrayTuKhoa) {
-			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item));
-		}
-		for (String item : arrayTuKhoaKhongDau) {
 			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item));
 		}
 		// END Tim kiem TAC GIA dua theo cac tu khoa

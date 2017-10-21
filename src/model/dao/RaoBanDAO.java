@@ -520,20 +520,17 @@ public class RaoBanDAO {
 	public ArrayList<RaoBan> layDanhSachTimKiemTenSach(String tuKhoa) {
 		connect();
 
-		String sql = "SELECT TenSach, TacGia, Gia, MaRaoBan, LinkAnh1, TrangThaiBan, NgayBan FROM "
-				+ Constant.TABLE_RAO_BAN + " WHERE TrangThaiBan = 1 AND TenSach LIKE N'%" + tuKhoa + "%' "
-				+ " ORDER BY NgayBan DESC";
+		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU + "(?) WHERE TrangThaiBan = 1 ORDER BY NgayBan DESC";
 
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
-		System.out.println("SQL: " + sql);
-
 		try {
-			Statement pstm = connection.createStatement();
+			PreparedStatement pstm = connection.prepareStatement(sql);
 
+			pstm.setNString(1, tuKhoa);
+			
 			ResultSet rs = null;
-
-			rs = pstm.executeQuery(sql);
+			rs = pstm.executeQuery();
 
 			RaoBan baiRaoBan;
 
@@ -545,7 +542,6 @@ public class RaoBanDAO {
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				list.add(baiRaoBan);
 			}
@@ -559,18 +555,18 @@ public class RaoBanDAO {
 	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa) {
 		connect();
 
-		String sql = "SELECT TenSach, TacGia, Gia, MaRaoBan, LinkAnh1, TrangThaiBan, NgayBan FROM "
-				+ Constant.TABLE_RAO_BAN + " WHERE TrangThaiBan = 1 AND TacGia LIKE N'%" + tuKhoa + "%' "
-				+ " ORDER BY NgayBan DESC";
+		String sql = "SELECT * FROM "
+				+ Constant.FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU + "(?) WHERE TrangThaiBan = 1 ORDER BY NgayBan DESC";
 
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
 		try {
-			Statement pstm = connection.createStatement();
+			PreparedStatement pstm = connection.prepareStatement(sql);
 
+			pstm.setNString(1, tuKhoa);
+			
 			ResultSet rs = null;
-
-			rs = pstm.executeQuery(sql);
+			rs = pstm.executeQuery();
 
 			RaoBan baiRaoBan;
 
@@ -582,7 +578,6 @@ public class RaoBanDAO {
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				list.add(baiRaoBan);
 			}
@@ -745,19 +740,55 @@ public class RaoBanDAO {
 		return list;
 	}
 
-	public ArrayList<RaoBan> timKiemTrongDanhMuc(String maDanhMuc, String tuKhoa) {
+	public ArrayList<RaoBan> timKiemTenSachTrongDanhMuc(String maDanhMuc, String tuKhoa) {
 		connect();
 
-		String sql = "SELECT * FROM " + Constant.TABLE_RAO_BAN
-				+ " WHERE MaDanhMuc = ? AND TrangThaiBan = 1 AND TenSach LIKE N'%" + tuKhoa + "%' "
-				+ " ORDER BY NgayBan DESC";
+		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU
+				+ "(?) WHERE MaDanhMuc = ? AND TrangThaiBan = 1 ORDER BY NgayBan DESC";
 
 		ArrayList<RaoBan> list = new ArrayList<>();
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
 
-			statement.setString(1, maDanhMuc);
+			statement.setNString(1, tuKhoa);
+			statement.setString(2, maDanhMuc);
+
+			ResultSet rs = statement.executeQuery();
+
+			RaoBan baiRaoBan;
+
+			while (rs.next()) {
+
+				baiRaoBan = new RaoBan();
+
+				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setTacGia(rs.getString("TacGia"));
+				baiRaoBan.setTenSach(rs.getString("TenSach"));
+				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
+				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
+
+				list.add(baiRaoBan);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<RaoBan> timKiemTacGiaTrongDanhMuc(String maDanhMuc, String tuKhoa) {
+		connect();
+
+		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU
+				+ "(?) WHERE MaDanhMuc = ? AND TrangThaiBan = 1 ORDER BY NgayBan DESC";
+
+		ArrayList<RaoBan> list = new ArrayList<>();
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setNString(1, tuKhoa);
+			statement.setString(2, maDanhMuc);
 
 			ResultSet rs = statement.executeQuery();
 
