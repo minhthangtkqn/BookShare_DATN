@@ -10,9 +10,9 @@
     
  <!--   HEADER       -->
  	<script>
- 	//jQuery(function(){
-	//$("#tuKhoa").autocomplete("List.jsp")
-	//})
+//  	jQuery(function(){
+// 	$("#tuKhoa").autocomplete("List.jsp")
+// 	})
 	</script>
     <header id="header">
 
@@ -65,7 +65,7 @@
                                 <form action="ket-qua-tim-kiem.do" method="post">
                                 	<input style="display: none;" name="page" value="1">
                                 	
-	                                <input id="tuKhoa" type="text" name="tuKhoa" value="" placeholder="Nhập tên sách hoặc tên tác giả để tìm kiếm ... " style="width: 92%; padding-left: 10px;" class="input_text">
+	                                <input oninput="recommend()" id="tuKhoa" type="text" name="tuKhoa" value="" placeholder="Nhập tên sách hoặc tên tác giả để tìm kiếm ... " style="width: 92%; padding-left: 10px;" class="input_text">
     	                            <button type="submit" id="search-link"><i class="glyphicon glyphicon-search"></i></button>
                                 
                                 </form>
