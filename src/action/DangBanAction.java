@@ -55,10 +55,21 @@ public class DangBanAction extends Action {
 
 		// Kiem tra user dang nhap
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
-		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
-				(String) session.getAttribute("password")) != 1) {
-			System.out.println("CHỈ CÓ TÀI KHOẢN NGƯỜI DÙNG VÀ KHÔNG BỊ KHÓA MỚI CÓ THỂ ĐĂNG BÁN");
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		
+		if(type == 0){
+			System.out.println("ADMIN KHÔNG THỂ ĐĂNG BÁN");
 			return mapping.findForward("trangChu");
+		}
+		
+		if (type == 2) {
+			System.out.println("CHỈ CÓ TÀI KHOẢN NGƯỜI DÙNG KHÔNG BỊ KHÓA MỚI CÓ THỂ ĐĂNG BÁN");
+			return mapping.findForward("dangNhapDO");
+		}
+		if(type != 1){
+			System.out.println("CHƯA ĐĂNG NHẬP THÀNH CÔNG");
+			return mapping.findForward("dangnhaplai");
 		}
 
 		FileOutputStream outputStream = null;

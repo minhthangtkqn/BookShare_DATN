@@ -38,6 +38,7 @@ public class DangNhapAction extends Action {
 			HttpServletResponse response) throws Exception {
 
 		request.setCharacterEncoding("UTF-8");
+		System.out.println("--- DANG NHAP ACTION ---");
 
 		HttpSession session = request.getSession();
 		DangNhapForm dangNhapForm = (DangNhapForm) form;
@@ -47,15 +48,18 @@ public class DangNhapAction extends Action {
 		dangNhapForm.setThongBao((String) session.getAttribute("thongBao"));
 
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
-		
+
 		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
 				(String) session.getAttribute("password"));
-		
-		if (type == 0 || type == 1 || type == 2) {
+
+		if (type == 0 || type == 1) {
 			// neu da dang nhap dua ve trang chu
 			System.out.println("DA DANG NHAP");
 			System.out.println("TYPE: " + type);
 			return mapping.findForward("trangchu");
+		}
+		if (type == 2) {
+			return mapping.findForward("trangbichan");
 		}
 
 		String maNguoiDung;
@@ -99,7 +103,7 @@ public class DangNhapAction extends Action {
 			System.out.println("TYPE: " + type);
 			System.out.println("USERNAME: " + taiKhoan);
 			System.out.println("LINK ANH: " + anh);
-			
+
 			return mapping.findForward("trangchu");
 
 		case 2:// Day la nguoi dung bi chan

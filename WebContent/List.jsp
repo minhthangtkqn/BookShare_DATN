@@ -46,7 +46,13 @@
            //if(str[j].toUpperCase().startsWith(query.toUpperCase()))
            if(StringProcess.removeDiacritics(str[j]).toLowerCase().contains(StringProcess.removeDiacritics(query).toLowerCase()))
            {
+        	   %>
+        	   <p style="background-color: white;">
+        	   <%
               out.print(str[j]+"\n");
+        	   %>
+        	   </p>
+              <%
               if(cnt >= 5)// 5=How many results have to show while we are typing(auto suggestions)
               break;
               cnt++;

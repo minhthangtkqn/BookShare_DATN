@@ -140,8 +140,7 @@ public class NguoiDungDAO {
 	// 4 sai tai khoan
 	public int kiemTraDangNhap(String taiKhoan, String matKhau) {
 		connect();
-		// String sql = String.format("select * from
-		// dbo.f_checklogin('%s','%s')", taiKhoan, matKhau);
+		
 		String sql = "SELECT * FROM f_checklogin( ?, ? )";
 		System.out.println("KIEM TRA DANG NHAP FUNCTION");
 		System.out.println("TaiKhoan: " + taiKhoan);

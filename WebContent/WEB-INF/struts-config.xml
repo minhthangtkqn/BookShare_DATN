@@ -105,6 +105,8 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="thatbai" path="/post.jsp" />
 			<forward name="dangnhaplai" path="/dangNhap.jsp" />
 			<forward name="trangChu" path="/trang-chu.do"></forward>
+			<forward name="error" path="/errorLogged.jsp"></forward>
+			<forward name="dangNhapDO" path="/dang-nhap.do"></forward>
 		</action>
 
 		<!-- SUA BAI DANG -->
