@@ -6,167 +6,176 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 
+<!-- BODY -->
+<div id="page-body" class="container">
 
-<!--    BODY        -->
-	<div id="slider-content">
-		<div id="menu_ngang">
-			<h4>
-				<b>DANH MỤC</b>
-			</h4>
-			<ul>
-				<logic:iterate id="danhMuc" property="dsDanhMuc" name="trangChuForm">
-					<li><a href="danh-muc.do?maDanhMuc=<bean:write name="danhMuc" property="maDanhMuc"/>"><b><bean:write name="danhMuc" property="tenDanhMuc" /></b></a></li>
-				</logic:iterate>
-			</ul>
+	<div class="body-row">
+		<div class="search">
+			<form action="" class="search-form">
+				<input class="search-input search-item" type="text"
+					placeholder="Bạn muốn tìm sản phẩm gì?">
+				<button class="search-button search-item" type="submit">X</button>
+			</form>
+
+			<select name="danh-muc">
+				<option value="1">Tieu thuyet</option>
+				<option value="2">Sach giao khoa lop 1</option>
+				<option value="3">Truyen trinh tham</option>
+			</select> <select name="tinh-thanh">
+				<option value="1">Da Nang</option>
+				<option value="2">Ha Noi</option>
+				<option value="3">TP Ho Chi Minh</option>
+			</select> <select name="loc-gia">
+				<option value="1">Gia thap truoc</option>
+				<option value="2">Gia cao truoc</option>
+			</select>
 		</div>
 
-		<!--slider-->
-		<section id="slider">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<%
-					int i = 0;
-				%>
-				<logic:iterate name="trangChuForm" property="dsBanner" id="banner">
-					<%
-						i++;
-					%>
-					<div class="item <%if (i == 1) {%>active<%}%>">
-						<bean:define id="linkAnh" name="banner"
-							property="linkAnh"></bean:define>
-						<img src="${linkAnh}" alt="book1" width="1200" height="700">
-						<div class="carousel-caption">
-							<h3>
-								<bean:write name="banner" property="tieuDe" />
-							</h3>
-							<p>"Những gì sách dạy chúng ta cũng giống như lửa. Chúng ta
-								lấy nó từ nhà hàng xóm, thắp nó trong nhà ta, đem nó truyền cho
-								người khác và nó trở thành tài sản của tất cả mọi người."</p>
-						</div>
-					</div>
-				</logic:iterate>
-			</div>
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" role="button"
-				data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel" role="button"
-				data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
+		<div id="goi-y">
+			<p>Vai goi y cho nguoi xem de tim duoc san pham mong muon</p>
 		</div>
-		</section>
-		<!--/slider-->
-
-		<%-- 	<html:link styleClass="btn btn-primary" --%>
-		<%-- 		action="/ket-qua-tim-kiem.do?page=1">Tim kiem</html:link> --%>
-
-		<!-- -sanpham -->
-		<!--BOOK NEW-->
-		<div class="book-new">
-			<h3>
-				<img src="images/home/newn.png"
-					style="height: 30px; width: 70px; margin-right: 10px;"><b>SÁCH
-					MỚI NHẤT </b>
-			</h3>
-
-			<div class="box">
-				<!-- sp -->
-				<logic:iterate name="trangChuForm" property="dsMoiNhat" id="sp">
-					<div class="sp">
-						<bean:define id="linkAnh1" name="sp" property="linkAnh1"></bean:define>
-						<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><img
-							src="${linkAnh1}" class="w3-hover-opacity"
-							style="height: 73%; width: 90%; display: block; margin-left: 10px; margin-top: 10px;"></a>
-						<h5>
-							<b><bean:write name="sp" property="tenSach" /></b>
-						</h5>
-						<p>
-							<bean:write name="sp" property="tacGia" />
-						</p>
-						<h4>
-							<b><bean:write name="sp" property="gia" /></b>
-						</h4>
-					</div>
-				</logic:iterate>
-				<!-- sp -->
-			</div>
-		</div>
-		<!--END BOOK NEW-->
-
-		<!--BOOK HOT-->
-		<div class="book-hot">
-			<h3>
-				<img src="images/home/hotn.png" class="w3-hover-opacity"
-					style="height: 50px; width: 70px; margin-right: 10px;"><b>SÁCH
-					HOT</b>
-			</h3>
-
-			<div class="box">
-				<!-- sp -->
-				<logic:iterate name="trangChuForm" property="dsNgauNhien" id="sp">
-					<div class="sp">
-						<bean:define id="linkAnh1" name="sp" property="linkAnh1"></bean:define>
-						<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><img
-							src="${linkAnh1}" class="w3-hover-opacity"
-							style="height: 73%; width: 90%; display: block; margin-left: 10px; margin-top: 10px;"></a>
-						<h5>
-							<b><bean:write name="sp" property="tenSach" /></b>
-						</h5>
-						<p>
-							<bean:write name="sp" property="tacGia" />
-						</p>
-						<h4>
-							<b><bean:write name="sp" property="gia" /></b>
-						</h4>
-					</div>
-				</logic:iterate>
-				<!-- sp -->
-			</div>
-		</div>
-		<!-- END BOOK HOT-->
-
-		<!--RECOMMENDED BOOK-->
-		<div class="book-hot">
-			<h3>
-<!-- 				<img src="images/home/hotn.png" class="w3-hover-opacity"style="height: 50px; width: 70px; margin-right: 10px;"> -->
-				<b>MỌI NGƯỜI CŨNG XEM</b>
-			</h3>
-
-			<div class="box">
-				<!-- sp -->
-				<logic:iterate name="trangChuForm" property="dsGoiYMoiNguoiCungXem" id="sp">
-					<div class="sp">
-						<bean:define id="linkAnh1" name="sp" property="linkAnh1"></bean:define>
-						<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><img
-							src="${linkAnh1}" class="w3-hover-opacity"
-							style="height: 73%; width: 90%; display: block; margin-left: 10px; margin-top: 10px;"></a>
-						<h5>
-							<b><bean:write name="sp" property="tenSach" /></b>
-						</h5>
-						<p>
-							<bean:write name="sp" property="tacGia" />
-						</p>
-						<h4>
-							<b><bean:write name="sp" property="gia" /></b>
-						</h4>
-					</div>
-				</logic:iterate>
-				<!-- sp -->
-			</div>
-			<br>
-			<a style="float: left; font-weight: bold; margin-left: 30px; text-decoration: underline;" href="goi-y-moi-nguoi-cung-xem.do">Xem tất cả >>></a>
-		</div>
-		<!-- END RECOMMENDED BOOK-->
-
 	</div>
-	<!--    END BODY        -->
+
+	<div class="row-item">
+		<p style="font-size: 18px;">20 trong tong so 1234 ket qua</p>
+	</div>
+
+	<div class="body-row">
+		<div class="books">
+
+			<div class="box">
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>Hai van dam duoi day bien tac gia mario puzo bien tac gia
+							mario puzo</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>Hai van dam duoi day bien tac gia mario puzo bien tac gia
+							mario puzo</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>Hai van dam duoi day bien tac gia mario puzo bien tac gia
+							mario puzo</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>Hai van dam duoi day bien tac gia mario puzo bien tac gia
+							mario puzo</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<br>
+		<br>
+		<p>Goi y</p>
+
+		<div class="books">
+			<div class="owl-carousel owl-theme">
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>SACH 1</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>SACH 2</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>SACH 3</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>SACH 4</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>SACH 5</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+
+				<div class="sp">
+					<a href="#"><img src="images/No-image.jpg"
+						class="w3-hover-opacity"></a>
+					<h4 class="ten-sach">
+						<b>SACH 6</b>
+					</h4>
+					<p class="tac-gia">Tac gia</p>
+					<h4 class="gia-tien">
+						<b>Gia tien</b>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END BODY -->
