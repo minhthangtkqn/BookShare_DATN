@@ -1,0 +1,109 @@
+
+/*******Admin**********/ 
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+#menu_ngang{
+	float: left;
+	height: 50px; 
+	background-color: black;
+	width: 100%;
+}
+#content_admin{
+	float: left;
+	height: auto; 
+	width: 1360px; 
+	margin-left: 0px;
+}
+#content_admin .menu_doc{
+	float: left;
+	height: 500px;
+	width: 250px;
+
+
+}
+.menu_doc nav{
+	border-right: solid 1px lightgrey;
+}
+#content_admin .manager_admin{
+	float: left;
+	height: 500px; 
+	width: 1010px; 
+	background-color: blue;
+	margin-left: 200px;
+}
+.content_main{
+	float: left;
+	height: auto;
+	width: 990px; 
+	margin-left: 10px; 
+
+}
+.welcome{
+	float: left;
+	display: block;
+	height: 50px; 
+	width: 100%; 
+	background-color: white;
+	border-bottom: solid 1px lightgrey;
+}
+.welcome img{
+	float: left;
+	margin-left: 20px;
+	margin-top: 0px;
+}
+.icon_avatar{
+	float: left;
+	height: 100%; 
+	width: 50px; 
+	margin-left: 20px;
+	float: left;
+}
+.icon_avatar img{
+	height: 100%; 
+	width: 100%; 
+
+}
+.welcome p{
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px; 
+}
+.menu_doc a{
+	color: grey;
+	height: 30px; 
+	line-height: 30px;
+	float: left;
+	text-align: left;
+}
+.w3-bar-block.w3-center .w3-bar-item{
+	text-align: none;
+}
+.content_main .w3-striped th{
+	text-align: center;
+	font-size: 13px;
+}
+.content_main .w3-striped td{
+	font-size: 13px;
+}
+
+.thongtincanhan{
+	float: left;
+	height: auto; 
+	width: 100%; 
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.thongtin_admin p{
+	text-align: left;
+	margin-left: 20px;
+	margin-top: 20px;
+	font-style: normal;
+	height: 5px;
+	font-size: 12px;
+	color: black;
+}
+.thongtin_admin button{
+	margin-top: 20px;
+}

@@ -77,7 +77,7 @@
 					<p>Bản cũ</p>
 					<bean:define id="linkAnh1" name="dangBanForm" property="linkAnh1"></bean:define>
 					<img src="${linkAnh1}" style="width: 130px; height: 200px;">
-					<input name="linkAnh1" value="${linkAnh1}" style="display: none;"">
+					<input name="linkAnh1" value="${linkAnh1}" style="display: none;">
 				</div>
 				<div class="col-lg-3">
 					<html:file property="anh1" />
@@ -90,7 +90,7 @@
 					<p>Bản cũ</p>
 					<bean:define id="linkAnh2" name="dangBanForm" property="linkAnh2"></bean:define>
 					<img src="${linkAnh2}" style="width: 130px; height: 200px;">
-					<input name="linkAnh2" value="${linkAnh2}" style="display: none;"">
+					<input name="linkAnh2" value="${linkAnh2}" style="display: none;">
 				</div>
 				<div class="col-lg-3">
 					<html:file property="anh2" />
@@ -103,7 +103,7 @@
 					<p>Bản cũ</p>
 					<bean:define id="linkAnh3" name="dangBanForm" property="linkAnh3"></bean:define>
 					<img src="${linkAnh3}" style="width: 130px; height: 200px;">
-					<input name="linkAnh3" value="${linkAnh3}" style="display: none;"">
+					<input name="linkAnh3" value="${linkAnh3}" style="display: none;">
 				</div>
 				<div class="col-lg-3">
 					<html:file property="anh3" />
@@ -116,7 +116,7 @@
 					<p>Bản cũ</p>
 					<bean:define id="linkAnh4" name="dangBanForm" property="linkAnh4"></bean:define>
 					<img src="${linkAnh4}" style="width: 130px; height: 200px;">
-					<input name="linkAnh4" value="${linkAnh4}" style="display: none;"">
+					<input name="linkAnh4" value="${linkAnh4}" style="display: none;">
 				</div>
 				<div class="col-lg-3">
 					<html:file property="anh4" />
@@ -129,7 +129,7 @@
 					<p>Bản cũ</p>
 					<bean:define id="linkAnh5" name="dangBanForm" property="linkAnh5"></bean:define>
 					<img src="${linkAnh5}" style="width: 130px; height: 200px;">
-					<input name="linkAnh5" value="${linkAnh5}" style="display: none;"">
+					<input name="linkAnh5" value="${linkAnh5}" style="display: none;">
 				</div>
 				<div class="col-lg-3">
 					<html:file property="anh5" />
