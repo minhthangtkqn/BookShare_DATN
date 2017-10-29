@@ -1,6 +1,9 @@
 #header {
     /*	padding: 10px 0 10px 0;*/
-    border-bottom: 1px solid #8c8c8c;
+/*    border-bottom: 1px solid #8c8c8c;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #6ea001;
 }
 
 .logo {
@@ -9,66 +12,37 @@
     height: 80px;
 }
 
-.search {
-    display: inline-block;
-    width: 600px;
-    height: auto;
-    vertical-align: top;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-.search-form {
-    height: 60px;
-}
-
-.search-form button {}
-
-.search-item {
-    height: 100%;
-}
-
-.search-input {
-    width: 530px;
-    font-size: 17px;
-    border-radius: 5px;
-    border-width: 1px;
-    padding-left: 10px;
-}
-
-.search-button {
-    width: 50px;
-}
-
-.credentials {
+#credentials {
     width: 320px;
     display: inline-block;
     vertical-align: top;
-    margin-top: 10px;
+    margin-top: 30px;
+    float: right;
 }
 
-.credentials ul {
+#credentials ul {
     list-style-type: none;
 }
 
-.credentials ul li {
+#credentials ul li {
     display: inline-block;
     font-size: 17px;
 }
 
-.credentials a:VISITED,
+#credentials a:VISITED,
 a:LINK {
-    color: #9b9fa5;
+    color: white;
     text-decoration-line: none;
     font-weight: bold;
     cursor: auto;
 }
 
-.credentials a:link:active,
+#credentials a:link:active,
 a:visited:active {
     color: #52555b;
 }
 
-.credentials a:HOVER {
-    color: #52555b;
+#credentials a:HOVER {
+    color: white;
+    text-decoration: underline;
 }

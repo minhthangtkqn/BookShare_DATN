@@ -1,0 +1,19 @@
+.img_user {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto 20px auto    ;
+}
+
+.info_user_left{
+    display: inline-block;
+    width: 47%;
+    margin: 0;
+    vertical-align: top;
+}
+.info_user_right{
+    display: inline-block;
+    width: 47%;
+    float: right;
+    margin-right: 30px;
+    vertical-align: top;
+}

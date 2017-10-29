@@ -1,19 +1,23 @@
 #page-body {
-    margin-top: 20px;
+    background-color: white;
+    padding: 10px;
+}
+
+table a:LINK,
+a:VISITED {
+    color: black;
 }
 
 .body-row {
     width: 100%;
-    margin: 40px auto;
+    margin: 20px auto;
 }
 
 .body-row select {
     font-size: 16px;
     width: 50%;
     height: 40px;
-    margin-right: 50px;
-    margin-left: 50px;
-    border-radius: 10px;
+    border-radius: 7px;
     border-width: 2px;
 }
 
@@ -22,7 +26,7 @@
 }
 
 .books {
-    border: solid 3px #189eff;
+    border: solid 1.5px #189eff;
     padding: 10px 20px;
 }
 
@@ -36,7 +40,7 @@ th {
     border-collapse: collapse;
 }
 
-.books td{
+.books td {
     overflow: hidden;
 }
 
@@ -84,4 +88,50 @@ th {
     display: block;
     margin-left: 5%;
     border: solid 1px black;
+}
+
+.search {
+    display: inline-block;
+    width: 840px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.search-form {
+    height: 40px;
+}
+
+.search-item {
+    height: 100%;
+}
+
+.search-input {
+    width: 790px;
+    font-size: 17px;
+    border-radius: 5px;
+    border-width: 1px;
+    padding-left: 10px;
+}
+
+.search-button {
+    width: 40px;
+}
+
+.search select {
+    display: inline-block;
+    width: 415px;
+}
+
+#goi-y {
+    display: inline-block;
+    width: 350px;
+    height: 120px;
+    vertical-align: bottom;
+    border: 1px solid;
+    padding: 10px;
+}
+
+#goi-y p {
+    font-family: cursive;
+    font-size: 17px;
 }
