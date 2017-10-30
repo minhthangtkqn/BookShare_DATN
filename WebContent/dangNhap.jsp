@@ -12,84 +12,65 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ĐĂNG NHẬP</title>
-	
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/prettyPhoto.css" rel="stylesheet">
-	<link href="css/price-range.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-	<link rel="shortcut icon" href="images/ico/favicon.ico">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144"
-		href="images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114"
-		href="images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72"
-		href="images/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed"
-		href="images/ico/apple-touch-icon-57-precomposed.png">
-
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/price-range.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/main.js"></script>
-<!-- 	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script> -->
-	<script src="js/jquery.autocomplete.js"></script>
-	
-	<script>
-		jQuery(function() {
-			$("#bookname11").autocomplete("List.jsp")
-		})
-	</script>
+	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/body.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/user.css">
 </head>
 <body>
 
 	<!--    HEADER       -->
-	<jsp:include page="/indexHeader.jsp"></jsp:include>
+	<jsp:include page="/unloggedHeader.jsp"></jsp:include>
 	<!--    END HEADER   -->
 
 	<!-- 	BODY -->
-	<div class="container">
-		<h3>Đăng nhập hệ thống</h3>
-		<br>
-		<html:form action="/dang-nhap" method="post">
-			<div class="row form-group">
-				<label class="col-lg-2">Tên đăng nhập</label>
-				<div class="col-lg-3">
-					<html:text property="taiKhoan" styleClass="form-control"
-						></html:text><br>
-					<p style="color: red;"><bean:write name="dangNhapForm" property="loiTaiKhoan"/></p><br>
+	<div id="page-body" class="container">
+		<br> <br> <br> <br>
+
+		<div class="body-row">
+			<html:form action="/dang-nhap" method="post" styleClass="form-horizontal">
+				<div class="form-group">
+					<label for="" class="col-sm-offset-2 col-sm-2 control-label">Username</label>
+					<div class="col-sm-4">
+						<html:text property="taiKhoan" styleClass="form-control"></html:text>
+						<p style="color: red;">
+							<bean:write name="dangNhapForm" property="loiTaiKhoan" />
+						</p>
+					</div>
 				</div>
-			</div>
-			<div class="row form-group">
-				<label class="col-lg-2">Mật khẩu</label>
-				<div class="col-lg-3">
-					<html:password property="matKhau" styleClass="form-control"
-						></html:password><br>
-						<p style="color: red;"><bean:write name="dangNhapForm" property="loiMatKhau"/></p><br>
+				<div class="form-group">
+					<label for="" class="col-sm-offset-2 col-sm-2 control-label">Password</label>
+					<div class="col-sm-4">
+						<html:password property="matKhau" styleClass="form-control"></html:password>
+						<p style="color: red;">
+							<bean:write name="dangNhapForm" property="loiMatKhau" />
+						</p>
+					</div>
 				</div>
-			</div>
-			<div class="row form-group">
-				<div class="col-lg-3 col-lg-offset-2">
-					<p style="color: red;">
-					</p>
+
+				<div class="form-group">
+					<div class="col-sm-offset-4 col-sm-5">
+						<div class="checkbox">
+							<label> <input type="checkbox"> Remember me
+							</label>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="row form-group">
-				<div class="col-lg-3 col-lg-offset-2">
-					<html:submit styleClass="btn btn-primary">Đăng nhập</html:submit>
-					<button class="btn btn-primary" type="reset">Hủy</button>
+
+				<div class="form-group">
+					<div class="col-sm-offset-4 col-sm-5">
+						<button type="submit" class="btn btn-primary">Sign in</button>
+					</div>
 				</div>
-			</div>
-		</html:form>
+			</html:form>
+		</div>
+
+		<br> <br> <br> <br>
 	</div>
 	<!-- 	END BODY -->
-	
+
 	<!--    FOOTER      -->
 	<jsp:include page="/footer.jsp"></jsp:include>
 	<!--    END FOOTER  -->
