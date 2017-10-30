@@ -26,9 +26,9 @@
     </script>
     
 	<script>
-		function recommend() {
-			$("#tuKhoa").autocomplete("List.jsp");
-		}
+// 		function recommend() {
+// 			$("#tuKhoa").autocomplete("List.jsp");
+// 		}
 	</script>
 
 </head>
@@ -46,7 +46,7 @@
 	<script src="owlcarousel/owl.carousel.min.js"></script>
 	<script>
 		$('.owl-carousel').owlCarousel({
-			rtl : true,
+			rtl : false,
 			loop : true,
 			margin : 10,
 			nav : true,

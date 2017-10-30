@@ -5,23 +5,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Home | Book Share</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="body.css">
-    <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="user.css">
+    <title>PROFILE</title>
+    <link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstraps/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/user.css">
 </head>
 <body>
 	<jsp:include page="/homeHeader.jsp"></jsp:include>
@@ -29,5 +20,17 @@
 	<jsp:include page="/userBody.jsp"></jsp:include>
 	
 	<jsp:include page="/footer.jsp"></jsp:include>
+
+	<!-- SCRIPT TABLE PAGINATION -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="bootstraps/js/dataTables.bootstrap.min.js"></script>
+
+	<script>
+            $(document).ready(function() {
+                $('#danh-sach-cho-duyet').DataTable();
+            });
+        </script>
+	<!-- END SCRIPT TABLE PAGINATION -->
 </body>
 </html>

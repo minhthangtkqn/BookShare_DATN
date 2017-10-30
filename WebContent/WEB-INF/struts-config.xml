@@ -4,8 +4,10 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
 	<form-beans>
 		<form-bean name="trangChuForm" type="form.TrangChuForm" />
-		<form-bean name="dangNhapForm" type="form.DangNhapForm" />
 		<form-bean name="chiTietBaiDangForm" type="form.ChiTietBaiDangForm" />
+		<form-bean name="dangNhapForm" type="form.DangNhapForm" />
+		<form-bean name="duyetBaiDangForm" type="form.DuyetBaiDangForm"></form-bean>
+		<form-bean name="danhSachNguoiDungForm" type="form.DanhSachNguoiDungForm"></form-bean>
 		<form-bean name="ketQuaTimKiemForm" type="form.KetQuaTimKiemForm" />
 		<form-bean name="dangBanForm" type="form.DangBanForm" />
 		<form-bean name="dangKyForm" type="form.DangKyForm" />
@@ -13,8 +15,6 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="trangQuanLyForm" type="form.TrangQuanLyForm" />
 		<form-bean name="danhMucForm" type="form.DanhMucForm" />
 		<form-bean name="nguoiDungForm" type="form.NguoiDungForm" />
-		<form-bean name="duyetBaiDangForm" type="form.DuyetBaiDangForm"></form-bean>
-		<form-bean name="danhSachNguoiDungForm" type="form.DanhSachNguoiDungForm"></form-bean>
 
 
 		<form-bean name="testForm" type="form.TestForm" />

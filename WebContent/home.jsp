@@ -10,48 +10,25 @@
 <head lang="en">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>Trang chủ | LineBook (Home)</title>
+	<title>Trang chủ</title>
+	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    
+    <script>
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel();
+        });
+    </script>
 
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/prettyPhoto.css" rel="stylesheet">
-	<link href="css/price-range.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-<link rel="shortcut icon" href="images/ico/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="images/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="images/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="images/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="images/ico/apple-touch-icon-57-precomposed.png">
-
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/price-range.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/main.js"></script>
-
-	<!--<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>-->
-	<script src="js/jquery.autocomplete.js"></script>
-
-	<script>
-		jQuery(function() {
-			$("#bookname11").autocomplete("List.jsp")
-		})
-	</script>
 </head>
 <body>
 	<!--   HEADER       -->
-	<jsp:include page="/homeHeader.jsp"></jsp:include>
+	<jsp:include page="/loggedHeader.jsp"></jsp:include>
 	<!--   END HEADER   -->
 	
 	<jsp:include page="/trangChuBody.jsp"></jsp:include>
@@ -59,5 +36,30 @@
 	<!--    FOOTER      -->
 	<jsp:include page="/footer.jsp"></jsp:include>
 	<!--    END FOOTER  -->
+	
+	
+	<!-- SCRIPT OWL SLIDER -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="owlcarousel/owl.carousel.min.js"></script>
+	<script>
+		$('.owl-carousel').owlCarousel({
+			rtl : false,
+			loop : true,
+			margin : 10,
+			nav : true,
+			responsive : {
+				0 : {
+					items : 1
+				},
+				600 : {
+					items : 2
+				},
+				1000 : {
+					items : 4
+				}
+			}
+		})
+	</script>
+	<!-- END SCRIPT OWL SLIDER -->
 </body>
 </html>

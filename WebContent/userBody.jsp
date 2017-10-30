@@ -6,197 +6,96 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 
-<div id="page-body" class="newContainer">
-        <div class="body-row">
-            <div class="row-item user-info">
-            	<bean:define id="nguoiDung" name="trangNguoiDungForm" property="nguoiDung"></bean:define>
-                <p>
-                    Tên: <bean:write name="nguoiDung" property="hoTen" />
-                </p>
-                <p>
-                    Địa chỉ:    <bean:write name="nguoiDung" property="tenTinh" />
-                </p>
-                <p>
-                    Tài khoản:  <bean:write name="nguoiDung" property="taiKhoan" />
-                </p>
-                <p>
-                    Năm sinh:   <bean:write name="nguoiDung" property="namSinh" />
-                </p>
-                <p>
-                    Email:      <bean:write name="nguoiDung" property="email" />
-                </p>
-                <p>
-                    Điện thoại: <bean:write name="nguoiDung" property="dienThoai" />
-                </p>
-                <a href="sua-nguoi-dung.do">Sửa thông tin của bạn >>></a>
-            </div>
 
-            <div class="row-item user-img">
-            	<bean:define id="anh" name="nguoiDung" property="anh"></bean:define>
-                <img src="${anh}" alt="" style="height: 100%; width: 100%" />
-            </div>
-        </div>
+<!-- BODY -->
+<div id="page-body" class="container">
+	<div class="body-row">
+		<div class="row-item user-info">
+			<p>Tên: Hoàng Minh Thắng</p>
+			<p>Địa chỉ: Tam Kỳ, Quảng Nam</p>
+			<p>Tài sản: Nhà 4 mặt tiền</p>
+			<p>Công ty: TLDs</p>
+			<p>Năm sinh: 1990</p>
+		</div>
 
-        <div class="body-row">
-            <div class="user-function row-item">
-                DS CHỜ DUYỆT
-            </div>
+		<div class="row-item user-img">
+			<img src="images/No-image.jpg" alt=""
+				style="height: 100%; width: 100%" />
+		</div>
+	</div>
 
-            <div class="user-function row-item">
-                DS ĐANG BÁN
-            </div>
+	<div class="body-row user-functions">
+		<a href="#danh-sach-cho-duyet">
+			<div class="user-function row-item">DS CHỜ DUYỆT</div>
+		</a> <a href="#danh-sach-dang-ban">
+			<div class="user-function row-item">DS ĐANG BÁN</div>
+		</a> <a href="#danh-sach-mua-sau">
+			<div class="user-function row-item">DS MUA SAU</div>
+		</a> <a href="#danh-sach-da-ban">
+			<div class="user-function row-item">DS ĐÃ BÁN</div>
+		</a>
+	</div>
 
-            <div class="user-function row-item">
-                DS MUA SAU
-            </div>
+	<div class="body-row">
+		<div class="books">
+			<h3>
+				<b>ĐANG CHỜ DUYỆT</b>
+			</h3>
+			<table id="danh-sach-cho-duyet"
+				class="table table-striped table-bordered" cellspacing="0"
+				width="100%">
+				<thead>
+					<tr>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá bán</th>
+						<th>Ngày bán</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+					</tr>
+				</thead>
 
-            <div class="user-function row-item">
-                DS ĐÃ BÁN
-            </div>
-        </div>
-        
-        <div class="body-row">
-            <div class="books">
-                <h3>
-                    <b>ĐANG CHỜ DUYỆT</b>
-                </h3>
-                <table border="1" class="books-table">
-                    <thead>
-                        <td>Tên sách</td>
-                        <td>Danh mục</td>
-                        <td>Giá bán</td>
-                        <td>Ngày bán</td>
-                        <td>Nhà xuất bản</td>
-                        <td>Năm xuất bản</td>
-                        <td>Sửa</td>
-                        <td>Xóa</td>
-                        
-                    </thead>
-                    <!-- ++++++++++++++++++  -->
-                    <logic:iterate name="trangNguoiDungForm" property="dsChoDuyet" id="sp">
-	                    <tr>
-	                        <td><bean:write name="sp" property="tenSach" /></td>
-	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
-	                        <td><bean:write name="sp" property="gia" /></td>
-	                        <td><bean:write name="sp" property="ngayBan" /></td>
-	                        <td><bean:write name="sp" property="nxb" /></td>
-	                        <td><bean:write name="sp" property="namxb" /></td>
-	                        <td>
-                        		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-	                        	<a href="sua-bai-dang.do?maRaoBan=${maRaoBan}">Sửa</a>
-	                        </td>
-	                        <td>
-	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
-								onsubmit="return confirm('Do you want to delete this Post?');">
-								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
-								<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
-									href="javascript:{}">Xóa</a>
-								</form>
-	                        </td>
-	                    </tr>
-                    </logic:iterate>
-                </table>
-                
-            </div>
-        </div>
-        
-        <!-- ++++++++++++++++++++++++++++++++  -->
-        
-        <div class="body-row">
-            <div class="books">
-                <h3>
-                    <b>ĐANG BÁN</b>
-                </h3>
-                <table border="1" class="books-table">
-                    <thead>
-                        <td>Tên sách</td>
-                        <td>Danh mục</td>
-                        <td>Giá bán</td>
-                        <td>Ngày bán</td>
-                        <td>Nhà xuất bản</td>
-                        <td>Năm xuất bản</td>
-                        <td>Sửa</td>
-                        <td>Xóa</td>
-                        <td>Đã bán</td>
-                        
-                    </thead>
-                    <!-- ++++++++++++++++++  -->
-                    <logic:iterate name="trangNguoiDungForm" property="dsDangBan" id="sp">
-	                    <tr>
-	                        <td><bean:write name="sp" property="tenSach" /></td>
-	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
-	                        <td><bean:write name="sp" property="gia" /></td>
-	                        <td><bean:write name="sp" property="ngayBan" /></td>
-	                        <td><bean:write name="sp" property="nxb" /></td>
-	                        <td><bean:write name="sp" property="namxb" /></td>
-	                        <td>
-                        		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-	                        	<a href="sua-bai-dang.do?maRaoBan=${maRaoBan}">Sửa</a>
-	                        </td>
-	                        <td>
-	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
-								onsubmit="return confirm('Do you want to delete this Post?');">
-								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
-								<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
-									href="javascript:{}">Xóa</a>
-								</form>
-	                        </td>
-	                        <td>
-	                        	<form id="ban_bai_dang_${maRaoBan}" action="ban-bai-dang.do" method="post"
-								onsubmit="return confirm('Do you want to sell this Post?');">
-								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
-								<a onclick="if(document.getElementById('ban_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('ban_bai_dang_${maRaoBan}').submit()};"
-									href="javascript:{}">Đã bán</a>
-								</form>
-	                        </td>
-	                    </tr>
-                    </logic:iterate>
-                </table>
-                
-            </div>
-        </div>
-        
-        <!-- ++++++++++++++++++++++++++++++++  -->
-        
-        <div class="body-row">
-            <div class="books">
-                <h3>
-                    <b>ĐÃ BÁN</b>
-                </h3>
-                <table border="1" class="books-table">
-                    <thead>
-                        <td>Tên sách</td>
-                        <td>Danh mục</td>
-                        <td>Giá bán</td>
-                        <td>Ngày bán</td>
-                        <td>Nhà xuất bản</td>
-                        <td>Năm xuất bản</td>
-                        <td>Xóa</td>
-                        
-                    </thead>
-                    <!-- ++++++++++++++++++  -->
-                    <logic:iterate name="trangNguoiDungForm" property="dsDaBan" id="sp">
-	                    <tr>
-	                        <td><bean:write name="sp" property="tenSach" /></td>
-	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
-	                        <td><bean:write name="sp" property="gia" /></td>
-	                        <td><bean:write name="sp" property="ngayBan" /></td>
-	                        <td><bean:write name="sp" property="nxb" /></td>
-	                        <td><bean:write name="sp" property="namxb" /></td>
-	                        <td>
-                        		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
-								onsubmit="return confirm('Do you want to delete this Post?');">
-								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
-								<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
-									href="javascript:{}">Xóa</a>
-								</form>
-	                        </td>
-	                    </tr>
-                    </logic:iterate>
-                </table>
-                
-            </div>
-        </div>
+				<tfoot>
+					<tr>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá bán</th>
+						<th>Ngày bán</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+					</tr>
+				</tfoot>
+				<!-- ++++++++++++++++++  -->
+				<tbody>
+					<tr>
+						<td>Bố già</td>
+						<td>Tiểu thuyết nước ngoài</td>
+						<td>108.000</td>
+						<td>28/10/2016</td>
+						<td>Nhà xuất bản Văn học</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>Bố già</td>
+						<td>Tiểu thuyết trinh thám</td>
+						<td>164.000</td>
+						<td>26/10/2016</td>
+						<td>Nhà xuất bản Trẻ</td>
+						<td>2015</td>
+					</tr>
+					<tr>
+						<td>2 vạn dbiển</td>
+						<td>Tiểu thuyết nước ngoài</td>
+						<td>108.000</td>
+						<td>28/10/2016</td>
+						<td>Nhà xuất bản Văn học</td>
+						<td>2016</td>
+					</tr>
+				</tbody>
+			</table>
 
-    </div>
+		</div>
+	</div>
+</div>
+<!-- END BODY -->
+

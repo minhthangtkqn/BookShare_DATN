@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.struts.action.ActionForm;
 
 import model.bean.RaoBan;
+import model.bean.Tinh;
 import model.bean.Banner;
 import model.bean.DanhMuc;
 
@@ -15,8 +16,18 @@ public class TrangChuForm extends ActionForm {
 	private ArrayList<RaoBan> dsDanhMucBanNhieu;
 	private ArrayList<RaoBan> dsGoiY;
 	private ArrayList<RaoBan> dsGoiYMoiNguoiCungXem;
+
 	private ArrayList<Banner> dsBanner;
 	private ArrayList<DanhMuc> dsDanhMuc;
+	private ArrayList<Tinh> dsTinh;
+
+	public ArrayList<Tinh> getDsTinh() {
+		return dsTinh;
+	}
+
+	public void setDsTinh(ArrayList<Tinh> dsTinh) {
+		this.dsTinh = dsTinh;
+	}
 
 	public ArrayList<RaoBan> getDsGoiYMoiNguoiCungXem() {
 		return dsGoiYMoiNguoiCungXem;

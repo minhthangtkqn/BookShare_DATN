@@ -8,30 +8,29 @@
 <html lang="vi">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>SUA THONG TIN CA NHAN</title>
-
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
-<link href="css/product_detail.css" rel="stylesheet">
-<link rel="stylesheet" href="css/w3.css">
-
-
-<script src="js/jquery.js"></script>
-<script src="js/price-range.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SUA THONG TIN CA NHAN</title>
+	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/product_detail.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
 </head>
 
 <BODY>
-	<jsp:include page="/homeHeader.jsp"></jsp:include>
+	<jsp:include page="/loggedHeader.jsp"></jsp:include>
 	
 	<jsp:include page="/suaNDBody.jsp"></jsp:include>
 	
 	<jsp:include page="/footer.jsp"></jsp:include>
+
+	<!-- SCRIPT -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<!-- END SCRIPT -->
 </BODY>

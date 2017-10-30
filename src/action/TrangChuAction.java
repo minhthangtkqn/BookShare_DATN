@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 
 import form.TrangChuForm;
 import model.bo.RaoBanBO;
+import model.bo.TinhBO;
 import model.bo.BannerBO;
 import model.bo.DanhMucBO;
 import model.bo.NguoiDungBO;
@@ -26,6 +27,7 @@ public class TrangChuAction extends Action {
 		HttpSession session = request.getSession();
 		TrangChuForm trangChuForm = (TrangChuForm) form;
 
+		TinhBO tinhBO = new TinhBO();
 		BannerBO bannerBO = new BannerBO();
 		DanhMucBO danhMucBO = new DanhMucBO();
 		RaoBanBO baiRaoBanBO = new RaoBanBO();
@@ -40,19 +42,22 @@ public class TrangChuAction extends Action {
 		}
 
 		// Lay danh sach banner
-		trangChuForm.setDsBanner(bannerBO.layDSBanner());
+//		trangChuForm.setDsBanner(bannerBO.layDSBanner());
 
 		// Lay danh sach danh muc
-		trangChuForm.setDsDanhMuc(danhMucBO.layTopDanhMucBanNhieu(8));
+//		trangChuForm.setDsDanhMuc(danhMucBO.layTopDanhMucBanNhieu(8));
 
+		// LAY DANH SACH TINH
+//		trangChuForm.setDsTinh(tinhBO.getListTinh());
+		
 		// Lay danh sach moi nhat
 		trangChuForm.setDsMoiNhat(baiRaoBanBO.layDanhSachMoiNhat());
 
 		// lay danh sach ngau nhien
-		trangChuForm.setDsNgauNhien(baiRaoBanBO.layDanhSachNgauNhien());
+//		trangChuForm.setDsNgauNhien(baiRaoBanBO.layDanhSachNgauNhien());
 
 		// lay ds hot
-		trangChuForm.setDsDanhMucBanNhieu(baiRaoBanBO.layDanhSachDanhMucBanNhieuNhat());
+//		trangChuForm.setDsDanhMucBanNhieu(baiRaoBanBO.layDanhSachDanhMucBanNhieuNhat());
 
 		// lay ds GOI Y moi nguoi cung xem
 		trangChuForm.setDsGoiYMoiNguoiCungXem(baiRaoBanBO.layDanhSachGoiYMoiNguoiCungXem());

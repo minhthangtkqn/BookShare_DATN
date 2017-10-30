@@ -423,7 +423,7 @@ public class RaoBanDAO {
 		System.out.println("RAOBANDAO -- layDanhSachMoiNhat");
 		connect();
 
-		String sql = "select * from v_dsMoiNhat";
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_MOI_NHAT;
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
 		try {
@@ -520,7 +520,8 @@ public class RaoBanDAO {
 	public ArrayList<RaoBan> layDanhSachTimKiemTenSach(String tuKhoa) {
 		connect();
 
-		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU + "(?) WHERE TrangThaiBan = 1 ORDER BY NgayBan DESC";
+		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU
+				+ "(?) WHERE TrangThaiBan = 1 ORDER BY NgayBan DESC";
 
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
@@ -528,7 +529,7 @@ public class RaoBanDAO {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 
 			pstm.setNString(1, tuKhoa);
-			
+
 			ResultSet rs = null;
 			rs = pstm.executeQuery();
 
@@ -555,8 +556,8 @@ public class RaoBanDAO {
 	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa) {
 		connect();
 
-		String sql = "SELECT * FROM "
-				+ Constant.FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU + "(?) WHERE TrangThaiBan = 1 ORDER BY NgayBan DESC";
+		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU
+				+ "(?) WHERE TrangThaiBan = 1 ORDER BY NgayBan DESC";
 
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
@@ -564,7 +565,7 @@ public class RaoBanDAO {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 
 			pstm.setNString(1, tuKhoa);
-			
+
 			ResultSet rs = null;
 			rs = pstm.executeQuery();
 
@@ -775,7 +776,7 @@ public class RaoBanDAO {
 		}
 		return list;
 	}
-	
+
 	public ArrayList<RaoBan> timKiemTacGiaTrongDanhMuc(String maDanhMuc, String tuKhoa) {
 		connect();
 
