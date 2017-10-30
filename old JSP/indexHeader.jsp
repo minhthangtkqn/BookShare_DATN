@@ -66,6 +66,7 @@
                                 	<input style="display: none;" name="page" value="1">
                                 	
 	                                <input oninput="recommend()" id="tuKhoa" type="text" name="tuKhoa" value="" placeholder="Nhập tên sách hoặc tên tác giả để tìm kiếm ... " style="width: 92%; padding-left: 10px;" class="input_text">
+                                    
     	                            <button type="submit" id="search-link"><i class="glyphicon glyphicon-search"></i></button>
                                 
                                 </form>

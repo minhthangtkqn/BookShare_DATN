@@ -9,64 +9,37 @@
 <!--    BODY        -->
 <div id="page-body" class="container">
 
-<!-- 	<div class="body-row"> -->
-	
-<!-- 		<div class="search"> -->
-<!-- 			<form action="" class="search-form"> -->
-<!-- 				<input id="tuKhoa" class="search-input search-item" type="text" -->
-<!-- 					placeholder="Bạn muốn tìm sản phẩm gì?"> -->
-<!-- 				<button class="search-button search-item" type="submit">X</button> -->
-<!-- 			</form> -->
-
-<!-- 			<select name="danh-muc"> -->
-<!-- 				<option value="1">Tieu thuyet</option> -->
-<!-- 			</select> -->
-<!-- 			<select name="tinh-thanh"> -->
-<!-- 				<option value="1">Da Nang</option> -->
-<!-- 			</select>  -->
-<!-- 			<select name="loc-gia"> -->
-<!-- 				<option value="1">Gia thap truoc</option> -->
-<!-- 				<option value="2">Gia cao truoc</option> -->
-<!-- 			</select> -->
-			
-
-<%--  			<html:select property="maDanhMuc" <%--styleClass="form-control" >  --%>
-<%-- 				<html:optionsCollection name="trangChuForm" property="dsDanhMuc" --%>
-<%-- 					label="tenDanhMuc" value="maDanhMuc" /> --%>
-<%-- 			</html:select> --%>
-			
-<%-- 			<html:select property="maTinh" <%--styleClass="form-control" >  --%>
-<%-- 				<html:optionsCollection name="trangChuForm" property="dsTinh" --%>
-<%-- 					label="tenTinh" value="maTinh" /> --%>
-<%-- 			</html:select> --%>
-
-<!-- 		</div> -->
-
-<!-- 		<div id="goi-y"> -->
-<!-- 			<p>Vai goi y cho nguoi xem de tim duoc san pham mong muon</p> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-
 	<div class="body-row">
 		<div class="search">
-			<form action="ket-qua-tim-kiem.do" method="post" class="search-form">
-				<input id="tuKhoa" name="tuKhoa" class="search-input search-item" type="text"
-					placeholder="Bạn muốn tìm sản phẩm gì?">
+			<html:form action="/ket-qua-tim-kiem.do" method="post"
+				styleClass="search-form">
+				<input id="tuKhoa" name="tuKhoa" class="search-input search-item"
+					type="text" placeholder="Bạn muốn tìm sản phẩm gì?">
 				<button class="search-button search-item" type="submit">X</button>
-			</form>
 
-			<select name="danh-muc">
-				<option value="1">Tieu thuyet</option>
-				<option value="2">Sach giao khoa lop 1</option>
-				<option value="3">Truyen trinh tham</option>
-			</select> <select name="tinh-thanh">
-				<option value="1">Da Nang</option>
-				<option value="2">Ha Noi</option>
-				<option value="3">TP Ho Chi Minh</option>
-			</select> <select name="loc-gia">
-				<option value="1">Gia thap truoc</option>
-				<option value="2">Gia cao truoc</option>
-			</select>
+				<html:select property="maDanhMuc" styleClass="form-control">
+					<option value="all">Tất cả danh mục</option>
+					<html:optionsCollection name="ketQuaTimKiemForm"
+						property="dsDanhMuc" label="tenDanhMuc" value="maDanhMuc" />
+				</html:select>
+
+				<html:select property="maTinh" styleClass="form-control">
+					<option value="all">Tất cả tỉnh thành</option>
+					<html:optionsCollection name="ketQuaTimKiemForm" property="dsTinh"
+						label="tenTinh" value="maTinh" />
+				</html:select>
+
+				<select name="sapXepGia">
+					<option value="0">Gia cao truoc</option>
+					<option value="1">Gia thap truoc</option>
+				</select>
+
+				<select name="sapXepThoiGian">
+					<option value="0">Bai moi' truoc</option>
+					<option value="1">Bai cu~ truoc</option>
+				</select>
+			</html:form>
+
 		</div>
 
 		<div id="goi-y">
@@ -74,69 +47,35 @@
 		</div>
 	</div>
 
-	<div class="row-item">
-		<p style="font-size: 18px;">20 trong tong so 1234 ket qua</p>
-	</div>
+<!-- 	<div class="row-item"> -->
+<!-- 		<p style="font-size: 18px;">20 trong tong so 1234 ket qua</p> -->
+<!-- 	</div> -->
 
-	<div class="body-row">
-		<div class="books">
-
+	<div class="body-row" style="margin-top: 50px;">
+		<div class="books" >
+			<h3>
+				<b>KẾT QUẢ TÌM KIẾM</b>
+			</h3>
+			
 			<div class="box">
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>Hai van dam duoi day bien tac gia mario puzo bien tac gia
-							mario puzo</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
-
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>Hai van dam duoi day bien tac gia mario puzo bien tac gia
-							mario puzo</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>Hai van dam duoi day bien tac gia mario puzo bien tac gia
-							mario puzo</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>Hai van dam duoi day bien tac gia mario puzo bien tac gia
-							mario puzo</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
+				<logic:iterate id="book" property="listRaoBan" name="ketQuaTimKiemForm">
+					<div class="sp">
+						<bean:define id="anh" name="book" property="linkAnh1"></bean:define>
+						<a href="#"><img src="${anh}"
+							class="w3-hover-opacity"></a>
+						<h4 class="ten-sach">
+							<b><bean:write name="book" property="tenSach" /></b>
+						</h4>
+						<p class="tac-gia"><bean:write name="book" property="tacGia" /></p>
+						<h4 class="gia-tien">
+							<b><bean:write name="book" property="gia" /></b>
+						</h4>
+					</div>
+				</logic:iterate>
 			</div>
 		</div>
 
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<p>Goi y</p>
 
 		<div class="books">

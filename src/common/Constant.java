@@ -6,9 +6,19 @@ public class Constant {
 	public static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=LineBook";
 	public static final String DATABASE_USERNAME = "sa";
 	public static final String DATABASE_PASSWORD = "12345678";
-	// Default image for no image case
+	
+	// Default values
 	public static final String NO_IMAGE_DEFAULT = "images/No-image.jpg";
-
+	/**
+	 * gia thap -> cao (ASC)
+	 */
+	public static final String DEFAULT_SAP_XEP_GIA = "ASC";
+	
+	/**
+	 * bai` moi' truoc (DESC)
+	 */
+	public static final String DEFAULT_SAP_XEP_THOI_GIAN = "DESC";
+	
 	// Link upload image files
 	public static final String LINK_IMAGE_STORAGE = "E:/WorkSpace/WorkSpaceJavaEclipse/BookShare_DATN/WebContent/images/raoban/";
 	public static final String LINK_IMAGE_DATABASE = "images/raoban/";

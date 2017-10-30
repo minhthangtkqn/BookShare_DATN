@@ -517,18 +517,39 @@ public class RaoBanDAO {
 		return list;
 	}
 
-	public ArrayList<RaoBan> layDanhSachTimKiemTenSach(String tuKhoa) {
+	public ArrayList<RaoBan> layDanhSachTimKiemTenSach(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
+			String sapXepThoiGian) {
+		
+		System.out.println("MaDanhMuc: |" + maDanhMuc + "|");
+		System.out.println("MaTinh: |" + maTinh + "|");
 		connect();
 
-		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU
-				+ "(?) WHERE TrangThaiBan = 1 ORDER BY NgayBan DESC";
+		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU + "(?) WHERE TrangThaiBan = 1 ";
+		if (!"all".equals(maDanhMuc)) {
+			System.out.println("MaDanhMuc != all");
+			sql += " AND MaDanhMuc = ? ";
+		}
+		if (!"all".equals(maTinh)) {
+			System.out.println("MaTinh != all");
+			sql += " AND MaTinh = ? ";
+		}
+		
+		sql += "ORDER BY NgayBan " + sapXepThoiGian + " , Gia " + sapXepGia;
 
+		System.out.println("SQL command: " + sql);
+		
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
 		try {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 
 			pstm.setNString(1, tuKhoa);
+			if (!"all".equals(maDanhMuc)) {
+				pstm.setString(2, maDanhMuc);
+			}
+			if (!"all".equals(maTinh)) {
+				pstm.setString(3, maTinh);
+			}
 
 			ResultSet rs = null;
 			rs = pstm.executeQuery();

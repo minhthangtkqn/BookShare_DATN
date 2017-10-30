@@ -21,6 +21,8 @@ public class DangXuatAction extends Action {
 			session.removeAttribute("userID");
 			session.removeAttribute("type");
 			session.removeAttribute("userName");
+			session.removeAttribute("password");
+			session.removeAttribute("Avatar");
 
 			System.out.println("Dang xuat thanh cong");
 			

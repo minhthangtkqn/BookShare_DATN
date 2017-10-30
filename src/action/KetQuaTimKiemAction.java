@@ -1,7 +1,5 @@
 package action;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,10 +9,12 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import common.Constant;
 import common.StringProcess;
 import form.KetQuaTimKiemForm;
-import model.bean.RaoBan;
+import model.bo.DanhMucBO;
 import model.bo.RaoBanBO;
+import model.bo.TinhBO;
 
 public class KetQuaTimKiemAction extends Action {
 
@@ -23,15 +23,28 @@ public class KetQuaTimKiemAction extends Action {
 			HttpServletResponse response) throws Exception {
 
 		request.setCharacterEncoding("UTF-8");
-
 		System.out.println("Ket Qua Tim Kiem Action");
 
 		HttpSession session = request.getSession();
-
 		KetQuaTimKiemForm ketQuaTimKiemForm = (KetQuaTimKiemForm) form;
-		RaoBanBO raoBanBO = new RaoBanBO();
 
-		String tuKhoa = (ketQuaTimKiemForm.getTuKhoa() == null) ? "" : ketQuaTimKiemForm.getTuKhoa();
+		TinhBO tinhBO = new TinhBO();
+		RaoBanBO raoBanBO = new RaoBanBO();
+		DanhMucBO danhMucBO = new DanhMucBO();
+
+		// lay DS tinh va Danh Muc
+		ketQuaTimKiemForm.setDsDanhMuc(danhMucBO.layDanhSachDanhMuc());
+		ketQuaTimKiemForm.setDsTinh(tinhBO.getListTinh());
+
+		// xu ly cac tham so
+		String tuKhoa = (StringProcess.notVaild(ketQuaTimKiemForm.getTuKhoa()) ? "" : ketQuaTimKiemForm.getTuKhoa());
+		String sapXepThoiGian = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepThoiGian())
+				? Constant.DEFAULT_SAP_XEP_THOI_GIAN : (ketQuaTimKiemForm.getSapXepThoiGian() == "0" ? "DESC" : "ASC");
+		String sapXepGia = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepGia()) ? Constant.DEFAULT_SAP_XEP_GIA
+				: (ketQuaTimKiemForm.getSapXepGia() == "0" ? "DESC" : "ASC");
+		String maDanhMuc = (StringProcess.notVaild(ketQuaTimKiemForm.getMaDanhMuc()) ? "all"
+				: ketQuaTimKiemForm.getMaDanhMuc());
+		String maTinh = (StringProcess.notVaild(ketQuaTimKiemForm.getMaTinh()) ? "all" : ketQuaTimKiemForm.getMaTinh());
 
 		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");
 
@@ -48,22 +61,16 @@ public class KetQuaTimKiemAction extends Action {
 		for (String item : arrayTuKhoa) {
 			System.out.println("-|" + item + "|-");
 		}
-
-		// loai bo dau tieng Viet
-//		String tuKhoaKhongDau = StringProcess.removeDiacritics(tuKhoa);
-//		String[] arrayTuKhoaKhongDau = tuKhoaKhongDau.split("\\s+");
-//		System.out.println("Các từ khóa con KHÔNG DẤU:");
-//		for (String item : arrayTuKhoa) {
-//			System.out.println("-|" + item + "|-");
-//		}
 		// END xử lý từ khóa
 
 		// -----------------
 
 		// Tim kiem ten SACH dua theo cac tu khoa
-		ketQuaTimKiemForm.setListRaoBan(raoBanBO.layDanhSachTimKiemTenSach(tuKhoa));
+		ketQuaTimKiemForm.setListRaoBan(
+				raoBanBO.layDanhSachTimKiemTenSach(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 		for (String item : arrayTuKhoa) {
-			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenSach(item));
+			ketQuaTimKiemForm.getListRaoBan()
+					.addAll(raoBanBO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 		}
 		// END Tim kiem SACH dua theo cac tu khoa
 

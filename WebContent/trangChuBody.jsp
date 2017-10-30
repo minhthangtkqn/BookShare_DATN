@@ -15,7 +15,8 @@
 			<div class="box">
 				<logic:iterate id="book" property="dsMoiNhat" name="trangChuForm">
 					<div class="sp">
-						<a href="#"><img src="images/No-image.jpg"
+						<bean:define id="anh" name="book" property="linkAnh1"></bean:define>
+						<a href="#"><img src="${anh}"
 							class="w3-hover-opacity"></a>
 						<h4 class="ten-sach">
 							<b><bean:write name="book" property="tenSach" /></b>
