@@ -33,15 +33,19 @@
 
 	<jsp:include page="/footer.jsp"></jsp:include>
 
-	<script>
-		//  jQuery(function(){
-		// 		$("#tuKhoa").autocomplete("List.jsp")
-		// 	})
-	</script>
-
 	<!-- SCRIPT OWL SLIDER -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="owlcarousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+
+	<!-- SCRIPT AUTO COMPLETE -->
+	<script>
+// 		jQuery(function() {
+// 			$("#tuKhoa").autocomplete("List.jsp");
+// 		});
+	</script>
+	<!-- END SCRIPT AUTO COMPLETE -->
+
 	<script>
 		$('.owl-carousel').owlCarousel({
 			rtl : false,

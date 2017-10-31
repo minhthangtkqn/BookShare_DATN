@@ -13,10 +13,12 @@
 		<div class="books">
 
 			<div class="box">
+			
 				<logic:iterate id="book" property="dsMoiNhat" name="trangChuForm">
 					<div class="sp">
 						<bean:define id="anh" name="book" property="linkAnh1"></bean:define>
-						<a href="#"><img src="${anh}"
+						<bean:define id="maRaoBan" name="book" property="maRaoBan"></bean:define>
+						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><img src="${anh}"
 							class="w3-hover-opacity"></a>
 						<h4 class="ten-sach">
 							<b><bean:write name="book" property="tenSach" /></b>
@@ -27,19 +29,6 @@
 						</h4>
 					</div>
 				</logic:iterate>
-				
-<!-- 				<div class="sp"> -->
-<!-- 					<a href="#"><img src="images/No-image.jpg" -->
-<!-- 						class="w3-hover-opacity"></a> -->
-<!-- 					<h4 class="ten-sach"> -->
-<!-- 						<b>Hai van dam duoi day bien tac gia mario puzo bien tac gia -->
-<!-- 							mario puzo</b> -->
-<!-- 					</h4> -->
-<!-- 					<p class="tac-gia">Tac gia</p> -->
-<!-- 					<h4 class="gia-tien"> -->
-<!-- 						<b>Gia tien</b> -->
-<!-- 					</h4> -->
-<!-- 				</div> -->
 
 			</div>
 		</div>

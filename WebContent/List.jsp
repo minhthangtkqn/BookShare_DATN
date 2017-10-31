@@ -5,7 +5,6 @@
 <%@page import="common.*"%>
 
    <%
-   
    try{
         String s[]=null;
 
@@ -16,19 +15,32 @@
 		
      Connection connection = DriverManager.getConnection(url, userName, password);
      Statement st = connection.createStatement();
-     ResultSet rs = st.executeQuery("SELECT TenSach from [tblRaoBan]");
+     ResultSet rs = st.executeQuery("SELECT * from [tblRaoBan] order by NgayBan");
 
        List li = new ArrayList();
+       List link = new ArrayList();
 
        while(rs.next())
        {
-           li.add(rs.getString(1));
+           li.add(rs.getString("TenSach"));
+           link.add("chi-tiet-bai-dang.do?maRaoBan=" + rs.getString("MaRaoBan"));
        }
 
        String[] str = new String[li.size()];
        Iterator it = li.iterator();
+       
+       String[] linkStr = new String[link.size()];
+       Iterator itLink = link.iterator();
 
        int i = 0;
+       while(itLink.hasNext())
+       {
+           String p = (String)itLink.next();
+           linkStr[i] = p;
+           i++;
+       }
+       
+       i = 0;
        while(it.hasNext())
        {
            String p = (String)it.next();
@@ -46,13 +58,7 @@
            //if(str[j].toUpperCase().startsWith(query.toUpperCase()))
            if(StringProcess.removeDiacritics(str[j]).toLowerCase().contains(StringProcess.removeDiacritics(query).toLowerCase()))
            {
-        	   %>
-        	   <p style="background-color: white;">
-        	   <%
               out.print(str[j]+"\n");
-        	   %>
-        	   </p>
-              <%
               if(cnt >= 5)// 5=How many results have to show while we are typing(auto suggestions)
               break;
               cnt++;
@@ -69,5 +75,4 @@ catch(Exception e){
 e.printStackTrace();
 }
 
-//www.java4s.com
 %>

@@ -57,7 +57,7 @@
 				<b>THÔNG TIN SÁCH</b>
 			</h2>
 
-			<h3 style="color: red">
+			<h3 style="color: red; text-align: center;">
 				<b><bean:write name="chiTietBaiDang" property="tenSach" /></b>
 			</h3>
 

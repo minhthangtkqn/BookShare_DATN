@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 	<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/autoComplete.css">
 </head>
 
 <%-- <bean:define id="pageNumber" name="ketQuaTimKiemForm" property="page"></bean:define> --%>
@@ -33,15 +34,19 @@
 
 	<jsp:include page="/footer.jsp"></jsp:include>
 
-	<script>
-		//  jQuery(function(){
-		// 		$("#tuKhoa").autocomplete("List.jsp")
-		// 	})
-	</script>
-
 	<!-- SCRIPT OWL SLIDER -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="owlcarousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+
+	<!-- SCRIPT AUTO COMPLETE -->
+	<script>
+// 		jQuery(function() {
+// 			$("#tuKhoa").autocomplete("List.jsp");
+// 		});
+	</script>
+	<!-- END SCRIPT AUTO COMPLETE -->
+
 	<script>
 		$('.owl-carousel').owlCarousel({
 			rtl : false,

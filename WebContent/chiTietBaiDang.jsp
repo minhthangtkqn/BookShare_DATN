@@ -26,7 +26,7 @@
 
 <body>
 
-	<jsp:include page="/indexHeader.jsp"></jsp:include>
+	<jsp:include page="/unloggedHeader.jsp"></jsp:include>
 
 	<jsp:include page="/chiTietBaiDangBody.jsp"></jsp:include>
 

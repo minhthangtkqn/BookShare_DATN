@@ -13,9 +13,9 @@
 		<div class="search">
 			<html:form action="/ket-qua-tim-kiem.do" method="post"
 				styleClass="search-form">
-				<input id="tuKhoa" name="tuKhoa" class="search-input search-item"
+				<input id="tuKhoa" name="tuKhoa" oninput="recommend()" class="search-input search-item"
 					type="text" placeholder="Bạn muốn tìm sản phẩm gì?">
-				<button class="search-button search-item" type="submit">X</button>
+				<button class="search-button search-item btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 
 				<html:select property="maDanhMuc" styleClass="form-control">
 					<option value="all">Tất cả danh mục</option>
@@ -61,7 +61,8 @@
 				<logic:iterate id="book" property="listRaoBan" name="ketQuaTimKiemForm">
 					<div class="sp">
 						<bean:define id="anh" name="book" property="linkAnh1"></bean:define>
-						<a href="#"><img src="${anh}"
+						<bean:define id="maRaoBan" name="book" property="maRaoBan"></bean:define>
+						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><img src="${anh}"
 							class="w3-hover-opacity"></a>
 						<h4 class="ten-sach">
 							<b><bean:write name="book" property="tenSach" /></b>
@@ -156,3 +157,9 @@
 	</div>
 </div>
 <!--    END BODY    -->
+
+<script>
+	function recommend(){
+		$("#tuKhoa").autocomplete("List.jsp");
+	}
+</script>
