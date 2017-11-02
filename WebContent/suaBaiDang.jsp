@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="css/product_detail.css">
     <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
     <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/suaBaiDang.css">
+    
 </head>
 <body>
 	<jsp:include page="/loggedHeader.jsp"></jsp:include>

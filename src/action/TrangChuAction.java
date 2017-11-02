@@ -47,9 +47,6 @@ public class TrangChuAction extends Action {
 		// Lay danh sach danh muc
 //		trangChuForm.setDsDanhMuc(danhMucBO.layTopDanhMucBanNhieu(8));
 
-		// LAY DANH SACH TINH
-//		trangChuForm.setDsTinh(tinhBO.getListTinh());
-		
 		// Lay danh sach moi nhat
 		trangChuForm.setDsMoiNhat(baiRaoBanBO.layDanhSachMoiNhat());
 
@@ -57,7 +54,7 @@ public class TrangChuAction extends Action {
 //		trangChuForm.setDsNgauNhien(baiRaoBanBO.layDanhSachNgauNhien());
 
 		// lay ds hot
-//		trangChuForm.setDsDanhMucBanNhieu(baiRaoBanBO.layDanhSachDanhMucBanNhieuNhat());
+		trangChuForm.setDsHot(baiRaoBanBO.layDanhSachHot());
 
 		// lay ds GOI Y moi nguoi cung xem
 		trangChuForm.setDsGoiYMoiNguoiCungXem(baiRaoBanBO.layDanhSachGoiYMoiNguoiCungXem());

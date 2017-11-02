@@ -215,11 +215,11 @@ public class RaoBanDAO {
 				System.out.println("  --  Link anh: " + rs.getString("LinkAnh1"));
 				list.add(raoBan);
 			}
+			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
 	public ArrayList<RaoBan> layDanhSachChoDuyet(String maNguoiDung) {
@@ -256,11 +256,12 @@ public class RaoBanDAO {
 
 				list.add(raoBan);
 			}
+			return list;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 
 	}
 
@@ -270,6 +271,7 @@ public class RaoBanDAO {
 		RaoBan raoBan = null;
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 		try {
+
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
 			while (rs.next()) {
@@ -294,11 +296,11 @@ public class RaoBanDAO {
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);
 			}
+			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
 	public ArrayList<RaoBan> layDanhSachDangBan(String maNguoiDung) {
@@ -330,11 +332,11 @@ public class RaoBanDAO {
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);
 			}
+			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
 	public ArrayList<RaoBan> layDanhSachDaBan() {
@@ -368,11 +370,11 @@ public class RaoBanDAO {
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);
 			}
+			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 
 	}
 
@@ -406,11 +408,11 @@ public class RaoBanDAO {
 				raoBan.setTacGia(rs.getString("tacgia"));
 				list.add(raoBan);
 			}
+			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
 	// --------------
@@ -447,11 +449,11 @@ public class RaoBanDAO {
 
 				list.add(baiRaoBan);
 			}
-
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
 	public ArrayList<RaoBan> layDanhSachNgauNhien() {
@@ -477,11 +479,11 @@ public class RaoBanDAO {
 
 				list.add(baiRaoBan);
 			}
-
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
 	public ArrayList<RaoBan> layDanhSachDanhMucBanNhieuNhat() {
@@ -510,18 +512,16 @@ public class RaoBanDAO {
 
 				list.add(baiRaoBan);
 			}
-
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
 	public ArrayList<RaoBan> layDanhSachTimKiemTenSach(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
 			String sapXepThoiGian) {
-		
-		System.out.println("MaDanhMuc: |" + maDanhMuc + "|");
-		System.out.println("MaTinh: |" + maTinh + "|");
+
 		connect();
 
 		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU + "(?) WHERE TrangThaiBan = 1 ";
@@ -533,23 +533,25 @@ public class RaoBanDAO {
 			System.out.println("MaTinh != all");
 			sql += " AND MaTinh = ? ";
 		}
-		
+
 		sql += "ORDER BY NgayBan " + sapXepThoiGian + " , Gia " + sapXepGia;
 
 		System.out.println("SQL command: " + sql);
-		
+
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
 		try {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 
 			pstm.setNString(1, tuKhoa);
-			if (!"all".equals(maDanhMuc)) {
+			if (!"all".equals(maDanhMuc) && !"all".equals(maTinh)) {
+				pstm.setString(2, maDanhMuc);
+				pstm.setString(3, maTinh);
+			} else if (!"all".equals(maTinh)) {
+				pstm.setString(2, maTinh);
+			} else if (!"all".equals(maDanhMuc)) {
 				pstm.setString(2, maDanhMuc);
 			}
-			if (!"all".equals(maTinh)) {
-				pstm.setString(3, maTinh);
-			}
 
 			ResultSet rs = null;
 			rs = pstm.executeQuery();
@@ -565,20 +567,33 @@ public class RaoBanDAO {
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 
+				System.out.println("DanhMuc: " + rs.getString("MaDanhMuc"));
 				list.add(baiRaoBan);
 			}
-
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
-	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa) {
+	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
+			String sapXepThoiGian) {
 		connect();
 
-		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU
-				+ "(?) WHERE TrangThaiBan = 1 ORDER BY NgayBan DESC";
+		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU + "(?) WHERE TrangThaiBan = 1 ";
+		if (!"all".equals(maDanhMuc)) {
+			System.out.println("MaDanhMuc != all");
+			sql += " AND MaDanhMuc = ? ";
+		}
+		if (!"all".equals(maTinh)) {
+			System.out.println("MaTinh != all");
+			sql += " AND MaTinh = ? ";
+		}
+
+		sql += "ORDER BY NgayBan " + sapXepThoiGian + " , Gia " + sapXepGia;
+
+		System.out.println("SQL command: " + sql);
 
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
@@ -586,6 +601,14 @@ public class RaoBanDAO {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 
 			pstm.setNString(1, tuKhoa);
+			if (!"all".equals(maDanhMuc) && !"all".equals(maTinh)) {
+				pstm.setString(2, maDanhMuc);
+				pstm.setString(3, maTinh);
+			} else if (!"all".equals(maTinh)) {
+				pstm.setString(2, maTinh);
+			} else if (!"all".equals(maDanhMuc)) {
+				pstm.setString(2, maDanhMuc);
+			}
 
 			ResultSet rs = null;
 			rs = pstm.executeQuery();
@@ -601,13 +624,14 @@ public class RaoBanDAO {
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 
+				System.out.println("DanhMuc: " + rs.getString("MaDanhMuc"));
 				list.add(baiRaoBan);
 			}
-
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
 	public ArrayList<RaoBan> layDanhSachGoiY(String userID) {
@@ -634,11 +658,11 @@ public class RaoBanDAO {
 
 				list.add(baiRaoBan);
 			}
-
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return null;
 	}
 
 	public boolean luuTuKhoaTimKiem(String maNguoiDung, String tuKhoa) {
@@ -992,6 +1016,35 @@ public class RaoBanDAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public ArrayList<RaoBan> layDanhSachHot() {
+		connect();
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_HOT;
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			ResultSet rs = statement.executeQuery();
+
+			ArrayList<RaoBan> list = new ArrayList<>();
+			RaoBan rb;
+			while (rs.next()) {
+
+				rb = new RaoBan();
+				rb.setMaRaoBan(rs.getString("MaRaoBan"));
+				rb.setGia(rs.getFloat("gia"));
+				rb.setLinkAnh1(rs.getString("linkanh1"));
+				rb.setTenSach(rs.getString("tensach"));
+				rb.setNamxb(rs.getString("namxb"));
+				rb.setNxb(rs.getString("nxb"));
+				rb.setTacGia(rs.getString("tacgia"));
+
+				list.add(rb);
+			}
+			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

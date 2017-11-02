@@ -55,6 +55,10 @@ public class RaoBanBO {
 	 * LAY THONG TIN DE HIEN THI O TRANG CHU VA TIM KIEM
 	 */
 
+	public ArrayList<RaoBan> layDanhSachHot() {
+		return raoBanDAO.layDanhSachHot();
+	}
+
 	public ArrayList<RaoBan> layDanhSachMoiNhat() {
 		return raoBanDAO.layDanhSachMoiNhat();
 	}
@@ -72,8 +76,9 @@ public class RaoBanBO {
 		return raoBanDAO.layDanhSachTimKiemTenSach(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian);
 	}
 
-	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa) {
-		return raoBanDAO.layDanhSachTimKiemTenTacGia(tuKhoa);
+	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
+			String sapXepThoiGian) {
+		return raoBanDAO.layDanhSachTimKiemTenTacGia(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian);
 	}
 
 	public ArrayList<RaoBan> layDanhSachGoiY(String userID) {

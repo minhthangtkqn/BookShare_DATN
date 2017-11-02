@@ -6,19 +6,19 @@ public class Constant {
 	public static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=LineBook";
 	public static final String DATABASE_USERNAME = "sa";
 	public static final String DATABASE_PASSWORD = "12345678";
-	
+
 	// Default values
 	public static final String NO_IMAGE_DEFAULT = "images/No-image.jpg";
 	/**
 	 * gia thap -> cao (ASC)
 	 */
 	public static final String DEFAULT_SAP_XEP_GIA = "ASC";
-	
+
 	/**
 	 * bai` moi' truoc (DESC)
 	 */
 	public static final String DEFAULT_SAP_XEP_THOI_GIAN = "DESC";
-	
+
 	// Link upload image files
 	public static final String LINK_IMAGE_STORAGE = "E:/WorkSpace/WorkSpaceJavaEclipse/BookShare_DATN/WebContent/images/raoban/";
 	public static final String LINK_IMAGE_DATABASE = "images/raoban/";
@@ -41,6 +41,7 @@ public class Constant {
 	public static final String VIEW_DANH_SACH_DA_BAN_ADMIN = "[v_dsDaBanAD]";
 	public static final String VIEW_DANH_SACH_NGUOI_DUNG = "[v_danhSachNguoiDung]";
 	public static final String VIEW_DANH_SACH_ADMIN = "[v_danhSachAdmin]";
+	public static final String VIEW_DANH_SACH_HOT = "[v_dsXemNhieu1ThangGanDay]";
 
 	// Post Functions
 	public static final String FUNCTION_XOA_BAI_DANG = "[p_xoaRaoBan]";
@@ -49,15 +50,15 @@ public class Constant {
 	public static final String FUNCTION_KHOA_BAI_DANG = "[p_khoaRaoBan]";
 	public static final String FUNCTION_MO_KHOA_BAI_DANG = "[p_moKhoaRaoBan]";
 	public static final String FUNCTION_DUYET_BAI_DANG = "[p_duyetRaoBan]";
-	public static final String FUNCTION_KHONG_DUYET_BAI_DANG ="[p_khongDuyetRaoBan]";
-	
+	public static final String FUNCTION_KHONG_DUYET_BAI_DANG = "[p_khongDuyetRaoBan]";
+
 	// USER FUNCTION
 	public static final String FUNCTION_KHOA_NGUOI_DUNG = "[p_khoaNguoiDung]";
 	public static final String FUNCTION_MO_KHOA_NGUOI_DUNG = "[p_moKhoaNguoiDung]";
-	
+
 	public static final String FUNCTION_THEM_DANH_MUC = "[p_themDanhMuc]";
 	public static final String FUNCTION_SUA_DANH_MUC = "[p_suaDanhMuc]";
-	
+
 	// Table-valued function
 	public static final String FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU = "f_TimKiemTenSachKhongDau";
 	public static final String FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU = "f_TimKiemTacGiaKhongDau";

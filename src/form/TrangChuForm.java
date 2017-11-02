@@ -17,12 +17,24 @@ public class TrangChuForm extends ActionForm {
 	private ArrayList<RaoBan> dsGoiY;
 	private ArrayList<RaoBan> dsGoiYMoiNguoiCungXem;
 
+	private ArrayList<RaoBan> dsHot;
+
 	private ArrayList<Banner> dsBanner;
 	private ArrayList<DanhMuc> dsDanhMuc;
 	private ArrayList<Tinh> dsTinh;
 
+	// +++++++++++++++++++++++++++++++++++++++
+
 	public ArrayList<Tinh> getDsTinh() {
 		return dsTinh;
+	}
+
+	public ArrayList<RaoBan> getDsHot() {
+		return dsHot;
+	}
+
+	public void setDsHot(ArrayList<RaoBan> dsHot) {
+		this.dsHot = dsHot;
 	}
 
 	public void setDsTinh(ArrayList<Tinh> dsTinh) {

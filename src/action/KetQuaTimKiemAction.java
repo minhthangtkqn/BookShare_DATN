@@ -1,5 +1,7 @@
 package action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,6 +14,7 @@ import org.apache.struts.action.ActionMapping;
 import common.Constant;
 import common.StringProcess;
 import form.KetQuaTimKiemForm;
+import model.bean.RaoBan;
 import model.bo.DanhMucBO;
 import model.bo.RaoBanBO;
 import model.bo.TinhBO;
@@ -35,6 +38,9 @@ public class KetQuaTimKiemAction extends Action {
 		// lay DS tinh va Danh Muc
 		ketQuaTimKiemForm.setDsDanhMuc(danhMucBO.layDanhSachDanhMuc());
 		ketQuaTimKiemForm.setDsTinh(tinhBO.getListTinh());
+
+		// lay dsHot --> goi y
+		ketQuaTimKiemForm.setDsHot(raoBanBO.layDanhSachHot());
 
 		// xu ly cac tham so
 		String tuKhoa = (StringProcess.notVaild(ketQuaTimKiemForm.getTuKhoa()) ? "" : ketQuaTimKiemForm.getTuKhoa());
@@ -65,9 +71,10 @@ public class KetQuaTimKiemAction extends Action {
 
 		// -----------------
 
+		ketQuaTimKiemForm.setListRaoBan(new ArrayList<RaoBan>());
 		// Tim kiem ten SACH dua theo cac tu khoa
-		ketQuaTimKiemForm.setListRaoBan(
-				raoBanBO.layDanhSachTimKiemTenSach(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		ketQuaTimKiemForm.getListRaoBan()
+				.addAll(raoBanBO.layDanhSachTimKiemTenSach(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 		for (String item : arrayTuKhoa) {
 			ketQuaTimKiemForm.getListRaoBan()
 					.addAll(raoBanBO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
@@ -77,10 +84,12 @@ public class KetQuaTimKiemAction extends Action {
 		// -----------------
 
 		// Tim kiem ten TAC GIA dua theo cac tu khoa
-		ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(tuKhoa));
+		ketQuaTimKiemForm.getListRaoBan()
+				.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 
 		for (String item : arrayTuKhoa) {
-			ketQuaTimKiemForm.getListRaoBan().addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item));
+			ketQuaTimKiemForm.getListRaoBan()
+					.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 		}
 		// END Tim kiem TAC GIA dua theo cac tu khoa
 

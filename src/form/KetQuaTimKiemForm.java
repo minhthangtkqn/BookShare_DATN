@@ -16,6 +16,7 @@ public class KetQuaTimKiemForm extends ActionForm {
 
 	private ArrayList<Tinh> dsTinh;
 	private ArrayList<DanhMuc> dsDanhMuc;
+	private ArrayList<RaoBan> dsHot;
 
 	private String page;
 
@@ -37,6 +38,14 @@ public class KetQuaTimKiemForm extends ActionForm {
 
 	public ArrayList<Tinh> getDsTinh() {
 		return dsTinh;
+	}
+
+	public ArrayList<RaoBan> getDsHot() {
+		return dsHot;
+	}
+
+	public void setDsHot(ArrayList<RaoBan> dsHot) {
+		this.dsHot = dsHot;
 	}
 
 	public String getSapXepGia() {

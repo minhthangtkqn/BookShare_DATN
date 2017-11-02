@@ -61,7 +61,9 @@ public class SuaNguoiDungAction extends Action {
 					nguoiDung.setMaNguoiDung((String) session.getAttribute("userID"));
 					nguoiDung.setMatKhau(nguoiDungForm.getMatKhau());
 
-					nguoiDungBO.suaMatKhau(nguoiDung);
+					if(nguoiDungBO.suaMatKhau(nguoiDung)){
+						session.setAttribute("password", nguoiDungForm.getMatKhau());
+					}
 					return mapping.findForward("suaMatKhauXong");
 				} else {
 					System.out.println("Xuat hien hanh dong dang' ngo`");
