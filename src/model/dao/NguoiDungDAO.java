@@ -327,6 +327,8 @@ public class NguoiDungDAO {
 			nguoiDung.setNamSinh(rs.getInt("namSinh"));
 			nguoiDung.setMaTinh(rs.getInt("MaTinh"));
 			nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
+			
+			System.out.println("Ten Tinh Admin: " + rs.getString("TenTinh"));
 
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -25,13 +25,14 @@ public class SuaNguoiDungAction extends Action {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 
-		System.out.println("Sua Nguoi Dung Action");
+		System.out.println("Sua Profile Action");
 
 		// neu chua dang nhap --> dua ve trang chu
 		// Kiem tra user dang nhap
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
-		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
-				(String) session.getAttribute("password")) != 0) {
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		if (type != 1 && type != 2) {
 			System.out.println("chua dang nhap hoac khong phai tai khoan nguoi dung");
 			return mapping.findForward("trangChu");
 		}

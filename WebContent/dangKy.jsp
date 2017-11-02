@@ -21,7 +21,7 @@
 </head>
 <body>
 	<!-- 	HEADER -->
-	<jsp:include page="indexHeader.jsp"></jsp:include>
+	<jsp:include page="unloggedHeader.jsp"></jsp:include>
 	<!-- 	END HEADER -->
 	
 	
