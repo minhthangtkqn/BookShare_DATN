@@ -19,12 +19,6 @@
 <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
 
-<script>
-	$(document).ready(function() {
-		$(".owl-carousel").owlCarousel();
-	});
-</script>
-
 </head>
 
 <body>
@@ -39,6 +33,13 @@
 		<!-- SCRIPT OWL SLIDER -->
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="owlcarousel/owl.carousel.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$(".owl-carousel").owlCarousel();
+			});
+		</script>
+
 		<script>
 			$('.owl-carousel').owlCarousel({
 				rtl : false,

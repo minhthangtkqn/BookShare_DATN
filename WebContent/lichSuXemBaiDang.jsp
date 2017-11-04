@@ -16,6 +16,7 @@
 	<link rel="stylesheet"
 		href="bootstraps/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="wm-zoom/jquery.wm-zoom-1.0.min.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/body.css">
@@ -75,7 +76,17 @@
 									<bean:define id="anh" name="sp" property="linkAnh1"></bean:define>
 									<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
 
-									<td><img src="${anh}" style="width: 80px; height: 100px;"></td>
+									<td>
+										<div class="wm-zoom-container my-zoom">
+											<div class="wm-zoom-box">
+												<img class="wm-zoom-default-img" src="${anh}"
+													data-hight-src="${anh}" 
+													data-loader-src="images/loader.gif"
+													style="width: 100px; height: 130px;">
+											</div>
+										</div>
+									</td>
+
 									<td><bean:write name="sp" property="tenSach" /></td>
 									<td><bean:write name="sp" property="tacGia" /></td>
 									<td><bean:write name="sp" property="nxb" /></td>
@@ -137,8 +148,11 @@
 		<jsp:include page="/footer.jsp"></jsp:include>
 		<!--    END FOOTER  -->
 
-		<!-- SCRIPT TABLE PAGINATION -->
+		<!-- SCRIPT -->
 		<script src="js/jquery-3.2.1.min.js"></script>
+		<!-- SCRIPT -->
+
+		<!-- SCRIPT TABLE PAGINATION -->
 		<script src="js/jquery.dataTables.min.js"></script>
 		<script src="bootstraps/js/dataTables.bootstrap.min.js"></script>
 
@@ -148,6 +162,31 @@
 			});
 		</script>
 		<!-- END SCRIPT TABLE PAGINATION -->
+		
+		<!-- SCRIPT IMAGE ZOOM -->
+		<script src="wm-zoom/jquery.wm-zoom-1.0.min.js"></script>
+
+		<script type="text/javascript">
+			/* $('.my-zoom').WMZoom({
+				config : {
+
+					// stage size
+					stageW : 100,
+					stageH : 140,
+
+					// set to true to enable the inner zoom mode
+					inner : false,
+
+					// [top, right, bottom, left]
+					position : 'right',
+
+					// margin
+					margin : 10
+				}
+			}); */
+		</script>
+		<!-- END SCRIPT IMAGE ZOOM -->
+		
 	</div>
 </body>
 </html>
