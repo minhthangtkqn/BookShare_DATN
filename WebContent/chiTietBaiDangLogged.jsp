@@ -9,88 +9,88 @@
 <html lang="vi">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PRODUCT DETAIL</title>
-	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/w3.css">
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/body.css">
-	<link rel="stylesheet" href="css/footer.css">
-	<link rel="stylesheet" href="css/user.css">
-	<link rel="stylesheet" href="css/product_detail.css">
-	<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-	<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRODUCT DETAIL</title>
+<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/body.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/user.css">
+<link rel="stylesheet" href="css/product_detail.css">
+<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
 </head>
 
 <body>
+	<div id="page">
+		<jsp:include page="/loggedHeader.jsp"></jsp:include>
 
-	<jsp:include page="/loggedHeader.jsp"></jsp:include>
-	
-	<jsp:include page="/chiTietBaiDangBody.jsp"></jsp:include>
-	
-	<jsp:include page="/footer.jsp"></jsp:include>
+		<jsp:include page="/chiTietBaiDangBody.jsp"></jsp:include>
 
-	<!-- SCRIPT -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script>
-		var slideIndex = 1;
-		showDivs(slideIndex);
+		<jsp:include page="/footer.jsp"></jsp:include>
 
-		function plusDivs(n) {
-			showDivs(slideIndex += n);
-		}
+		<!-- SCRIPT -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			var slideIndex = 1;
+			showDivs(slideIndex);
 
-		function currentDiv(n) {
-			showDivs(slideIndex = n);
-		}
-
-		function showDivs(n) {
-			var i;
-			var x = document.getElementsByClassName("mySlides");
-			var dots = document.getElementsByClassName("tiny-img");
-			if (n > x.length) {
-				slideIndex = 1
+			function plusDivs(n) {
+				showDivs(slideIndex += n);
 			}
-			if (n < 1) {
-				slideIndex = x.length
-			}
-			for (i = 0; i < x.length; i++) {
-				x[i].style.display = "none";
-			}
-			for (i = 0; i < dots.length; i++) {
-				dots[i].className = dots[i].className.replace(
-						" w3-opacity-off", "");
-			}
-			x[slideIndex - 1].style.display = "block";
-			dots[slideIndex - 1].className += " w3-opacity-off";
-		}
-	</script>
-	<!-- END SCRIPT -->
 
-	<!-- SCRIPT OWL SLIDER -->
-	<script src="owlcarousel/owl.carousel.min.js"></script>
-	<script>
-		$('.owl-carousel').owlCarousel({
-			rtl : true,
-			loop : true,
-			margin : 10,
-			nav : true,
-			responsive : {
-				0 : {
-					items : 1
-				},
-				600 : {
-					items : 2
-				},
-				1000 : {
-					items : 4
+			function currentDiv(n) {
+				showDivs(slideIndex = n);
+			}
+
+			function showDivs(n) {
+				var i;
+				var x = document.getElementsByClassName("mySlides");
+				var dots = document.getElementsByClassName("tiny-img");
+				if (n > x.length) {
+					slideIndex = 1
 				}
+				if (n < 1) {
+					slideIndex = x.length
+				}
+				for (i = 0; i < x.length; i++) {
+					x[i].style.display = "none";
+				}
+				for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(
+							" w3-opacity-off", "");
+				}
+				x[slideIndex - 1].style.display = "block";
+				dots[slideIndex - 1].className += " w3-opacity-off";
 			}
-		})
-	</script>
-	<!-- END SCRIPT OWL SLIDER -->
+		</script>
+		<!-- END SCRIPT -->
 
+		<!-- SCRIPT OWL SLIDER -->
+		<script src="owlcarousel/owl.carousel.min.js"></script>
+		<script>
+			$('.owl-carousel').owlCarousel({
+				rtl : true,
+				loop : true,
+				margin : 10,
+				nav : true,
+				responsive : {
+					0 : {
+						items : 1
+					},
+					600 : {
+						items : 2
+					},
+					1000 : {
+						items : 4
+					}
+				}
+			})
+		</script>
+		<!-- END SCRIPT OWL SLIDER -->
+	</div>
 </body>
 </html>

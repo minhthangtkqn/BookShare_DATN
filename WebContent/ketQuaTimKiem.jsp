@@ -27,47 +27,47 @@
 <%-- <body onload="createPaginationPanel(${pageNumber}, ${soLuongKetQua})"> --%>
 
 <body>
+	<div id="page">
+		<jsp:include page="/unloggedHeader.jsp"></jsp:include>
 
-	<jsp:include page="/unloggedHeader.jsp"></jsp:include>
+		<jsp:include page="/ketQuaTimKiemBody.jsp"></jsp:include>
 
-	<jsp:include page="/ketQuaTimKiemBody.jsp"></jsp:include>
+		<jsp:include page="/footer.jsp"></jsp:include>
 
-	<jsp:include page="/footer.jsp"></jsp:include>
+		<!-- SCRIPT OWL SLIDER -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="owlcarousel/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
 
-	<!-- SCRIPT OWL SLIDER -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="owlcarousel/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+		<!-- SCRIPT AUTO COMPLETE -->
+		<script>
+			// 		jQuery(function() {
+			// 			$("#tuKhoa").autocomplete("List.jsp");
+			// 		});
+		</script>
+		<!-- END SCRIPT AUTO COMPLETE -->
 
-	<!-- SCRIPT AUTO COMPLETE -->
-	<script>
-// 		jQuery(function() {
-// 			$("#tuKhoa").autocomplete("List.jsp");
-// 		});
-	</script>
-	<!-- END SCRIPT AUTO COMPLETE -->
-
-	<script>
-		$('.owl-carousel').owlCarousel({
-			rtl : false,
-			loop : true,
-			margin : 10,
-			nav : true,
-			responsive : {
-				0 : {
-					items : 1
-				},
-				600 : {
-					items : 2
-				},
-				1000 : {
-					items : 4
+		<script>
+			$('.owl-carousel').owlCarousel({
+				rtl : false,
+				loop : true,
+				margin : 10,
+				nav : true,
+				responsive : {
+					0 : {
+						items : 1
+					},
+					600 : {
+						items : 2
+					},
+					1000 : {
+						items : 4
+					}
 				}
-			}
-		})
-	</script>
-	<!-- END SCRIPT OWL SLIDER -->
-
+			})
+		</script>
+		<!-- END SCRIPT OWL SLIDER -->
+	</div>
 </body>
 
 </html>

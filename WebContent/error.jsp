@@ -10,29 +10,25 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <title>ERROR</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="body.css">
-    <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/body.css">
+	<link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-	<jsp:include page="/indexHeader.jsp"></jsp:include>
-	
-	<html:errors property="error"/>
-	
-	<jsp:include page="/footer.jsp"></jsp:include>
+	<div id="page">
+		<jsp:include page="/unloggedHeader.jsp"></jsp:include>
+		<div id="page-body" class="container">
+			<br> <br> <br>
+			<div class="body-row">
+				<html:errors property="error" />
+			</div>
+			<br> <br> <br>
+		</div>
+		<jsp:include page="/footer.jsp"></jsp:include>
+	</div>
 </body>
 </html>

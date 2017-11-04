@@ -20,59 +20,61 @@
 	<link rel="stylesheet" href="css/user.css">
 </head>
 <body>
+	<div id="page">
+		<!--    HEADER       -->
+		<jsp:include page="/unloggedHeader.jsp"></jsp:include>
+		<!--    END HEADER   -->
 
-	<!--    HEADER       -->
-	<jsp:include page="/unloggedHeader.jsp"></jsp:include>
-	<!--    END HEADER   -->
+		<!-- 	BODY -->
+		<div id="page-body" class="container">
+			<br> <br> <br> <br>
 
-	<!-- 	BODY -->
-	<div id="page-body" class="container">
-		<br> <br> <br> <br>
-
-		<div class="body-row">
-			<html:form action="/dang-nhap" method="post" styleClass="form-horizontal">
-				<div class="form-group">
-					<label for="" class="col-sm-offset-2 col-sm-2 control-label">Username</label>
-					<div class="col-sm-4">
-						<html:text property="taiKhoan" styleClass="form-control"></html:text>
-						<p style="color: red;">
-							<bean:write name="dangNhapForm" property="loiTaiKhoan" />
-						</p>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="" class="col-sm-offset-2 col-sm-2 control-label">Password</label>
-					<div class="col-sm-4">
-						<html:password property="matKhau" styleClass="form-control"></html:password>
-						<p style="color: red;">
-							<bean:write name="dangNhapForm" property="loiMatKhau" />
-						</p>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<div class="col-sm-offset-4 col-sm-5">
-						<div class="checkbox">
-							<label> <input type="checkbox"> Remember me
-							</label>
+			<div class="body-row">
+				<html:form action="/dang-nhap" method="post"
+					styleClass="form-horizontal">
+					<div class="form-group">
+						<label for="" class="col-sm-offset-2 col-sm-2 control-label">Username</label>
+						<div class="col-sm-4">
+							<html:text property="taiKhoan" styleClass="form-control"></html:text>
+							<p style="color: red;">
+								<bean:write name="dangNhapForm" property="loiTaiKhoan" />
+							</p>
 						</div>
 					</div>
-				</div>
-
-				<div class="form-group">
-					<div class="col-sm-offset-4 col-sm-5">
-						<button type="submit" class="btn btn-primary">Sign in</button>
+					<div class="form-group">
+						<label for="" class="col-sm-offset-2 col-sm-2 control-label">Password</label>
+						<div class="col-sm-4">
+							<html:password property="matKhau" styleClass="form-control"></html:password>
+							<p style="color: red;">
+								<bean:write name="dangNhapForm" property="loiMatKhau" />
+							</p>
+						</div>
 					</div>
-				</div>
-			</html:form>
+
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-5">
+							<div class="checkbox">
+								<label> <input type="checkbox"> Remember me
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-5">
+							<button type="submit" class="btn btn-primary">Sign in</button>
+						</div>
+					</div>
+				</html:form>
+			</div>
+
+			<br> <br> <br> <br>
 		</div>
+		<!-- 	END BODY -->
 
-		<br> <br> <br> <br>
+		<!--    FOOTER      -->
+		<jsp:include page="/footer.jsp"></jsp:include>
+		<!--    END FOOTER  -->
 	</div>
-	<!-- 	END BODY -->
-
-	<!--    FOOTER      -->
-	<jsp:include page="/footer.jsp"></jsp:include>
-	<!--    END FOOTER  -->
 </body>
 </html>

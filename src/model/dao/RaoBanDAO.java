@@ -2,7 +2,6 @@ package model.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -59,7 +58,7 @@ public class RaoBanDAO {
 		// 12'linkanh3',
 		// 13'linkanh4',
 		// 14'linkanh5'
-		String sql = "exec p_themraoban ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+		String sql = "exec " + Constant.FUNCTION_DANG_BAI + " ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
 		System.out.println("RaoBanDAO");
 		try {
 
@@ -115,7 +114,7 @@ public class RaoBanDAO {
 		System.out.println("Ma rao ban DAO: " + maRaoBan);
 
 		connect();
-		String sql = "select * from dbo.f_LayThongTinRaoBan(?)";
+		String sql = "SELECT * FROM " + Constant.FUNCTION_LAY_THONG_TIN_BAI_DANG + "(?)";
 		RaoBan raoBan = null;
 		try {
 			PreparedStatement pstm = connection.prepareStatement(sql);
@@ -577,8 +576,8 @@ public class RaoBanDAO {
 		return null;
 	}
 
-	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
-			String sapXepThoiGian) {
+	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa, String maTinh, String maDanhMuc,
+			String sapXepGia, String sapXepThoiGian) {
 		connect();
 
 		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU + "(?) WHERE TrangThaiBan = 1 ";
@@ -1038,6 +1037,44 @@ public class RaoBanDAO {
 				rb.setNxb(rs.getString("nxb"));
 				rb.setTacGia(rs.getString("tacgia"));
 
+				list.add(rb);
+			}
+			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public ArrayList<RaoBan> layLichSuXemBaiDang(String maNguoiDung) {
+		connect();
+
+		String sql = "SELECT * FROM " + Constant.FUNCTION_LICH_SU_XEM_BAI_DANG + "(?)";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setNString(1, maNguoiDung);
+			ResultSet rs = statement.executeQuery();
+
+			ArrayList<RaoBan> list = new ArrayList<>();
+			RaoBan rb;
+			while (rs.next()) {
+				rb = new RaoBan();
+				
+				rb.setMaRaoBan(rs.getString("MaRaoBan"));
+				rb.setTenDanhMuc(rs.getNString("TenDanhMuc"));
+				rb.setTenSach(rs.getString("tensach"));
+				rb.setTacGia(rs.getString("tacgia"));
+				rb.setNxb(rs.getString("nxb"));
+				rb.setNamxb(rs.getString("namxb"));
+				rb.setTrangThaiRaoBan(rs.getInt("TrangThaiBan"));
+				rb.setTenTinhBan((rs.getNString("TenTinh")));
+				rb.setGia(rs.getFloat("gia"));
+				rb.setMoTa(rs.getNString("MoTa"));
+				rb.setLinkAnh1(rs.getString("linkanh1"));
+				rb.setNgayBan(rs.getDate("NgayBan"));
+				rb.setGhiChuRaoBan(rs.getNString("GhiChu"));
+				
 				list.add(rb);
 			}
 			return list;

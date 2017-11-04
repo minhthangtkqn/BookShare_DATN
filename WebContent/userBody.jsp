@@ -61,7 +61,7 @@
 			<span class="glyphicon glyphicon-pencil"></span> 
 			Sửa thông tin
 		</a>
-		<a href="#" class="btn btn-success"> 
+		<a href="lich-su-xem-bai-dang.do" class="btn btn-success"> 
 			<span class="glyphicon glyphicon-list-alt"></span> 
 			Những bài đăng đã xem
 		</a>

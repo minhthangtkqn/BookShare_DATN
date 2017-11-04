@@ -44,6 +44,7 @@ public class Constant {
 	public static final String VIEW_DANH_SACH_HOT = "[v_dsXemNhieu1ThangGanDay]";
 
 	// Post Functions
+	public static final String FUNCTION_DANG_BAI = "[p_themraoban]";
 	public static final String FUNCTION_XOA_BAI_DANG = "[p_xoaRaoBan]";
 	public static final String FUNCTION_SUA_BAI_DANG = "[p_suaRaoBan]";
 	public static final String FUNCTION_BAN_BAI_DANG = "[p_baiDangDaBan]";
@@ -51,7 +52,7 @@ public class Constant {
 	public static final String FUNCTION_MO_KHOA_BAI_DANG = "[p_moKhoaRaoBan]";
 	public static final String FUNCTION_DUYET_BAI_DANG = "[p_duyetRaoBan]";
 	public static final String FUNCTION_KHONG_DUYET_BAI_DANG = "[p_khongDuyetRaoBan]";
-
+	
 	// USER FUNCTION
 	public static final String FUNCTION_KHOA_NGUOI_DUNG = "[p_khoaNguoiDung]";
 	public static final String FUNCTION_MO_KHOA_NGUOI_DUNG = "[p_moKhoaNguoiDung]";
@@ -60,9 +61,11 @@ public class Constant {
 	public static final String FUNCTION_SUA_DANH_MUC = "[p_suaDanhMuc]";
 
 	// Table-valued function
+	public static final String FUNCTION_LAY_THONG_TIN_BAI_DANG = "f_LayThongTinRaoBan";
 	public static final String FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU = "f_TimKiemTenSachKhongDau";
 	public static final String FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU = "f_TimKiemTacGiaKhongDau";
-
+	public static final String FUNCTION_LICH_SU_XEM_BAI_DANG = "f_lichSuXemBaiDang";
+	
 	// POST STATUS
 	public static final int TRANG_THAI_CHO_DUYET = 0;
 	public static final int TRANG_THAI_DANG_BAN = 1;

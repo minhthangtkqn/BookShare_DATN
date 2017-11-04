@@ -288,6 +288,7 @@ public class NguoiDungDAO {
 			nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
 			nguoiDung.setNamSinh(rs.getInt("namSinh"));
 			nguoiDung.setMaTinh(rs.getInt("matinh"));
+			nguoiDung.setGhiChu((StringProcess.notVaild(rs.getString("GhiChu"))?"":rs.getString("GhiChu")));
 
 			nguoiDung.setLoaiNguoiDung((rs.getInt("LoaiNguoiDung") == 1) ? "Bình thường" : "Bị khóa");
 

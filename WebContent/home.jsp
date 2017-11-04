@@ -8,58 +8,60 @@
 <html>
 <head>
 <head lang="en">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Trang chủ</title>
-	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/body.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    
-    <script>
-        $(document).ready(function() {
-            $(".owl-carousel").owlCarousel();
-        });
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang chủ</title>
+<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/body.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+
+<script>
+	$(document).ready(function() {
+		$(".owl-carousel").owlCarousel();
+	});
+</script>
 
 </head>
 <body>
-	<!--   HEADER       -->
-	<jsp:include page="/loggedHeader.jsp"></jsp:include>
-	<!--   END HEADER   -->
-	
-	<jsp:include page="/trangChuBody.jsp"></jsp:include>
-	
-	<!--    FOOTER      -->
-	<jsp:include page="/footer.jsp"></jsp:include>
-	<!--    END FOOTER  -->
-	
-	
-	<!-- SCRIPT OWL SLIDER -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="owlcarousel/owl.carousel.min.js"></script>
-	<script>
-		$('.owl-carousel').owlCarousel({
-			rtl : false,
-			loop : true,
-			margin : 10,
-			nav : true,
-			responsive : {
-				0 : {
-					items : 1
-				},
-				600 : {
-					items : 2
-				},
-				1000 : {
-					items : 4
+	<div id="page">
+		<!--   HEADER       -->
+		<jsp:include page="/loggedHeader.jsp"></jsp:include>
+		<!--   END HEADER   -->
+
+		<jsp:include page="/trangChuBody.jsp"></jsp:include>
+
+		<!--    FOOTER      -->
+		<jsp:include page="/footer.jsp"></jsp:include>
+		<!--    END FOOTER  -->
+
+
+		<!-- SCRIPT OWL SLIDER -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="owlcarousel/owl.carousel.min.js"></script>
+		<script>
+			$('.owl-carousel').owlCarousel({
+				rtl : false,
+				loop : true,
+				margin : 10,
+				nav : true,
+				responsive : {
+					0 : {
+						items : 1
+					},
+					600 : {
+						items : 2
+					},
+					1000 : {
+						items : 4
+					}
 				}
-			}
-		})
-	</script>
-	<!-- END SCRIPT OWL SLIDER -->
+			})
+		</script>
+		<!-- END SCRIPT OWL SLIDER -->
+	</div>
 </body>
 </html>

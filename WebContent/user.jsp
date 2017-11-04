@@ -16,28 +16,30 @@
     <link rel="stylesheet" href="css/user.css">
 </head>
 <body>
-	<jsp:include page="/loggedHeader.jsp"></jsp:include>
-	
-	<jsp:include page="/userBody.jsp"></jsp:include>
-	
-	<jsp:include page="/footer.jsp"></jsp:include>
+	<div id="page">
+		<jsp:include page="/loggedHeader.jsp"></jsp:include>
 
-	<!-- SCRIPT TABLE PAGINATION -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="bootstraps/js/dataTables.bootstrap.min.js"></script>
+		<jsp:include page="/userBody.jsp"></jsp:include>
 
-	<script>
-		$(document).ready(function() {
-			$('#danh-sach-cho-duyet').DataTable();
-		});
-		$(document).ready(function() {
-			$('#danh-sach-dang-ban').DataTable();
-		});
-		$(document).ready(function() {
-			$('#danh-sach-da-ban').DataTable();
-		});
-	</script>
-	<!-- END SCRIPT TABLE PAGINATION -->
+		<jsp:include page="/footer.jsp"></jsp:include>
+
+		<!-- SCRIPT TABLE PAGINATION -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script src="bootstraps/js/dataTables.bootstrap.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$('#danh-sach-cho-duyet').DataTable();
+			});
+			$(document).ready(function() {
+				$('#danh-sach-dang-ban').DataTable();
+			});
+			$(document).ready(function() {
+				$('#danh-sach-da-ban').DataTable();
+			});
+		</script>
+		<!-- END SCRIPT TABLE PAGINATION -->
+	</div>
 </body>
 </html>

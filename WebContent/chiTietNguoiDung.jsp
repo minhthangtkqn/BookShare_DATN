@@ -9,31 +9,31 @@
 
 <head>
 <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>THÔNG TIN NGƯỜI DÙNG</title>
-	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/w3.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/body.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/user.css">
-    <link rel="stylesheet" href="css/user_detail.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THÔNG TIN NGƯỜI DÙNG</title>
+<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/body.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/user.css">
+<link rel="stylesheet" href="css/user_detail.css">
 
 </head>
 <!--/head-->
 
 <body>
+	<div id="page">
+		<jsp:include page="/loggedHeader.jsp"></jsp:include>
 
-	<jsp:include page="/homeHeader.jsp"></jsp:include>
+		<jsp:include page="/chiTietNguoiDungBody.jsp"></jsp:include>
 
-	<jsp:include page="/chiTietNguoiDungBody.jsp"></jsp:include>
+		<jsp:include page="/footer.jsp"></jsp:include>
 
-	<jsp:include page="/footer.jsp"></jsp:include>
-
-	<!-- SCRIPT -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<!-- END SCRIPT -->
-
+		<!-- SCRIPT -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<!-- END SCRIPT -->
+	</div>
 </body>
 </html>

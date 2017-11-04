@@ -9,60 +9,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>INDEX</title>
-	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/body.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    
-    <script>
-        $(document).ready(function() {
-            $(".owl-carousel").owlCarousel();
-        });
-    </script>
-    
-	<script>
-// 		function recommend() {
-// 			$("#tuKhoa").autocomplete("List.jsp");
-// 		}
-	</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>INDEX</title>
+<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/body.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+
+<script>
+	$(document).ready(function() {
+		$(".owl-carousel").owlCarousel();
+	});
+</script>
 
 </head>
 
 <body>
-	<jsp:include page="/unloggedHeader.jsp"></jsp:include>
+	<div id="page">
+		<jsp:include page="/unloggedHeader.jsp"></jsp:include>
 
-	<jsp:include page="/trangChuBody.jsp"></jsp:include>
+		<jsp:include page="/trangChuBody.jsp"></jsp:include>
 
-	<jsp:include page="/footer.jsp"></jsp:include>
+		<jsp:include page="/footer.jsp"></jsp:include>
 
 
-	<!-- SCRIPT OWL SLIDER -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="owlcarousel/owl.carousel.min.js"></script>
-	<script>
-		$('.owl-carousel').owlCarousel({
-			rtl : false,
-			loop : true,
-			margin : 10,
-			nav : true,
-			responsive : {
-				0 : {
-					items : 1
-				},
-				600 : {
-					items : 2
-				},
-				1000 : {
-					items : 4
+		<!-- SCRIPT OWL SLIDER -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="owlcarousel/owl.carousel.min.js"></script>
+		<script>
+			$('.owl-carousel').owlCarousel({
+				rtl : false,
+				loop : true,
+				margin : 10,
+				nav : true,
+				responsive : {
+					0 : {
+						items : 1
+					},
+					600 : {
+						items : 2
+					},
+					1000 : {
+						items : 4
+					}
 				}
-			}
-		})
-	</script>
-	<!-- END SCRIPT OWL SLIDER -->
+			})
+		</script>
+		<!-- END SCRIPT OWL SLIDER -->
+	</div>
 </body>
 </html>

@@ -76,8 +76,8 @@ public class RaoBanBO {
 		return raoBanDAO.layDanhSachTimKiemTenSach(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian);
 	}
 
-	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
-			String sapXepThoiGian) {
+	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa, String maTinh, String maDanhMuc,
+			String sapXepGia, String sapXepThoiGian) {
 		return raoBanDAO.layDanhSachTimKiemTenTacGia(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian);
 	}
 
@@ -143,4 +143,7 @@ public class RaoBanBO {
 		return raoBanDAO.khongDuyetBaiDang(maRaoBan);
 	}
 
+	public ArrayList<RaoBan> layLichSuXemBaiDang(String maNguoiDung) {
+		return raoBanDAO.layLichSuXemBaiDang(maNguoiDung);
+	}
 }

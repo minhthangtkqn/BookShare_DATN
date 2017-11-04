@@ -12,33 +12,34 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>DANH SÁCH NGƯỜI DÙNG</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstraps/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/body.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/user.css">
+	<link rel="stylesheet"
+		href="bootstraps/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/body.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/user.css">
 </head>
 
 <body>
+	<div id="page">
+		<jsp:include page="/loggedHeader.jsp"></jsp:include>
 
-	<jsp:include page="/loggedHeader.jsp"></jsp:include>
+		<jsp:include page="/danhSachNguoiDungBody.jsp"></jsp:include>
 
-	<jsp:include page="/danhSachNguoiDungBody.jsp"></jsp:include>
+		<jsp:include page="/footer.jsp"></jsp:include>
 
-	<jsp:include page="/footer.jsp"></jsp:include>
+		<!-- SCRIPT TABLE PAGINATION -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script src="bootstraps/js/dataTables.bootstrap.min.js"></script>
 
-	<!-- SCRIPT TABLE PAGINATION -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="bootstraps/js/dataTables.bootstrap.min.js"></script>
-
-	<script>
-		$(document).ready(function() {
-			$('#danh-sach-nguoi-dung').DataTable();
-		});
-	</script>
-	<!-- END SCRIPT TABLE PAGINATION -->
-
+		<script>
+			$(document).ready(function() {
+				$('#danh-sach-nguoi-dung').DataTable();
+			});
+		</script>
+		<!-- END SCRIPT TABLE PAGINATION -->
+	</div>
 </body>
 </html>

@@ -19,6 +19,7 @@
 				width="100%">
 				<thead>
 					<tr>
+						<th>Ảnh</th>
 						<th>Tên</th>
 						<th>Tài khoản</th>
 						<th>Địa chỉ</th>
@@ -32,6 +33,7 @@
 
 				<tfoot>
 					<tr>
+						<th>Ảnh</th>
 						<th>Tên</th>
 						<th>Tài khoản</th>
 						<th>Địa chỉ</th>
@@ -44,36 +46,23 @@
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
 				<tbody>
+					<logic:iterate name="danhSachNguoiDungForm" property="dsNguoiDung"
+					id="sp">
 					<tr>
-						<td>Bố già</td>
-						<td>Tiểu thuyết nước ngoài</td>
-						<td>108.000</td>
-						<td>28/10/2016</td>
-						<td>Nhà xuất bản Văn học</td>
-						<td>2015</td>
-						<td>11111</td>
-						<td><a href="#">Link</a></td>
+						<bean:define id="anh" name="sp" property="anh"></bean:define>
+						<bean:define id="maNguoiDung" name="sp" property="maNguoiDung"></bean:define>
+						
+						<td><img src="${anh}" style="width: 80px; height: 100px;"></td>
+						<td><bean:write name="sp" property="hoTen" /></td>
+						<td><bean:write name="sp" property="taiKhoan" /></td>
+						<td><bean:write name="sp" property="tenTinh" /></td>
+						<td><bean:write name="sp" property="dienThoai" /></td>
+						<td><bean:write name="sp" property="email" /></td>
+						<td><bean:write name="sp" property="gioiTinh"></bean:write></td>
+						<td><bean:write name="sp" property="namSinh"></bean:write></td>
+						<td><a href="chi-tiet-nguoi-dung.do?maNguoiDung=${maNguoiDung}">Chi tiết</a></td>
 					</tr>
-					<tr>
-						<td>Bố già</td>
-						<td>Tiểu thuyết trinh thám</td>
-						<td>164.000</td>
-						<td>26/10/2016</td>
-						<td>Nhà xuất bản Trẻ</td>
-						<td>2015</td>
-						<td>11111</td>
-						<td><a href="#">Link</a></td>
-					</tr>
-					<tr>
-						<td>2 vạn dbiển</td>
-						<td>Tiểu thuyết nước ngoài</td>
-						<td>108.000</td>
-						<td>28/10/2016</td>
-						<td>Nhà xuất bản Văn học</td>
-						<td>2016</td>
-						<td>11111</td>
-						<td><a href="#">Link</a></td>
-					</tr>
+				</logic:iterate>
 				</tbody>
 			</table>
 

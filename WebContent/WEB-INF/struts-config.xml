@@ -15,6 +15,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="trangQuanLyForm" type="form.TrangQuanLyForm" />
 		<form-bean name="danhMucForm" type="form.DanhMucForm" />
 		<form-bean name="nguoiDungForm" type="form.NguoiDungForm" />
+		<form-bean name="lichSuXemBaiDangForm" type="form.LichSuXemBaiDangForm"></form-bean>
 
 
 		<form-bean name="testForm" type="form.TestForm" />
@@ -272,11 +273,20 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="suaMatKhauXong" path="/trang-ca-nhan.do" />
 			<forward name="suaThongTinXong" path="/trang-ca-nhan.do" />
 		</action>
+		
+		<!-- LICH SU XEM BAI DANG -->
+		<action input="/dangNhap.jsp" name="lichSuXemBaiDangForm" path="/lich-su-xem-bai-dang"
+			scope="request" type="action.LichSuXemBaiDangAction">
+			<forward name="lichSuXemBaiDang" path="/lichSuXemBaiDang.jsp"></forward>
+			<forward name="taiKhoanKhongHopLe" path="/trang-chu.do" />
+			<forward name="khongCoMaNguoiDung" path="/trang-ca-nhan.do" />
+		</action>
 
 		<action input="" name="testForm" path="/test" scope="request"
 			type="action.TestAction">
 			<forward name="testPage" path="/dangNhap.jsp" />
 		</action>
+
 	</action-mappings>
 	<message-resources parameter="action.ApplicationResources" />
 
