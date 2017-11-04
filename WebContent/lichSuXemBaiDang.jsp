@@ -22,11 +22,13 @@
 	<link rel="stylesheet" href="css/body.css">
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/user.css">
+	<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+	<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
 </head>
 <body>
 	<div id="page">
 		<!--    HEADER       -->
-		<jsp:include page="/unloggedHeader.jsp"></jsp:include>
+		<jsp:include page="/loggedHeader.jsp"></jsp:include>
 		<!--    END HEADER   -->
 
 		<!-- 	BODY -->
@@ -109,6 +111,8 @@
 				</div>
 			</div>
 
+			<br><br>
+
 			<div class="body-row">
 		
 				<div class="books">
@@ -186,7 +190,37 @@
 			}); */
 		</script>
 		<!-- END SCRIPT IMAGE ZOOM -->
-		
+
+		<!-- SCRIPT OWL SLIDER -->
+		<script src="owlcarousel/owl.carousel.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$(".owl-carousel").owlCarousel();
+			});
+		</script>
+
+		<script>
+			$('.owl-carousel').owlCarousel({
+				rtl : false,
+				loop : true,
+				margin : 10,
+				nav : true,
+				responsive : {
+					0 : {
+						items : 1
+					},
+					600 : {
+						items : 2
+					},
+					1000 : {
+						items : 4
+					}
+				}
+			})
+		</script>
+		<!-- END SCRIPT OWL SLIDER -->
+
 	</div>
 </body>
 </html>

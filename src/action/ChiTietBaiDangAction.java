@@ -73,7 +73,7 @@ public class ChiTietBaiDangAction extends Action {
 			// admin
 			return mapping.findForward("xemCheDoQuanLy");
 		} else {
-			chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachGoiYMoiNguoiCungXem());
+			chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachHot());
 
 			// luu lich su xem vao` CSDL
 			if (raoBanBO.luuLichSuXemRaoBan(userID, chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {

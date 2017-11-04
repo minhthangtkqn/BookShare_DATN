@@ -10,9 +10,9 @@
 <div id="page-body" class="container">
 	<div class="body-row">
 		<h3>SỬA THÔNG TIN NGƯỜI DÙNG</h3>
-		<bean:write name="nguoiDungForm" property="taiKhoan" />
 		<br>
 		<html:form action="/sua-nguoi-dung" method="post">
+			
 			<div class="row form-group">
 				<label class="col-lg-2">Họ tên</label>
 				<div class="col-lg-3">

@@ -69,7 +69,7 @@
 		</a> <a href="#danh-sach-dang-ban">
 			<div class="user-function row-item">DS ĐANG BÁN</div>
 		</a> <a href="#danh-sach-mua-sau">
-			<div class="user-function row-item">DS MUA SAU</div>
+			<div class="user-function row-item">???????????</div>
 		</a> <a href="#danh-sach-da-ban">
 			<div class="user-function row-item">DS ĐÃ BÁN</div>
 		</a>

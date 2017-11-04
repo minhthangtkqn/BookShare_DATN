@@ -105,87 +105,38 @@
 			<a href="mua-sach.do" class="w3-btn w3-ripple w3-red btn-hoi-mua">Hỏi
 				Mua</a>
 		</div>
-		<br>
-
 	</div>
-
+	
+	<br><br>
+	
 	<div class="body-row">
 		<div class="books">
+			<h3 style="color: red;">
+				<b>HOT TRONG THÁNG VỪA QUA</b>
+			</h3>
+
 			<div class="owl-carousel owl-theme">
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>SACH 1</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
+				<logic:iterate id="book" property="dsGoiYMoiNguoiCungXem" name="chiTietBaiDangForm">
+					<div class="sp">
+						<bean:define id="anh" name="book" property="linkAnh1"></bean:define>
+						<bean:define id="maRaoBan" name="book" property="maRaoBan"></bean:define>
 
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>SACH 2</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
-
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>SACH 3</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
-
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>SACH 4</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
-
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>SACH 5</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
-
-				<div class="sp">
-					<a href="#"><img src="images/No-image.jpg"
-						class="w3-hover-opacity"></a>
-					<h4 class="ten-sach">
-						<b>SACH 6</b>
-					</h4>
-					<p class="tac-gia">Tac gia</p>
-					<h4 class="gia-tien">
-						<b>Gia tien</b>
-					</h4>
-				</div>
+						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"> <img
+							src="${anh}" class="w3-hover-opacity">
+						</a>
+						<h4 class="ten-sach">
+							<b><bean:write name="book" property="tenSach" /></b>
+						</h4>
+						<p class="tac-gia">
+							<bean:write name="book" property="tacGia" />
+						</p>
+						<h4 class="gia-tien">
+							<b><bean:write name="book" property="gia" /></b>
+						</h4>
+					</div>
+				</logic:iterate>
 			</div>
 		</div>
 	</div>
-
 </div>
 <!-- END BODY -->

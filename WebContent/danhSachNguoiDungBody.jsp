@@ -52,7 +52,11 @@
 						<bean:define id="anh" name="sp" property="anh"></bean:define>
 						<bean:define id="maNguoiDung" name="sp" property="maNguoiDung"></bean:define>
 						
-						<td><img src="${anh}" style="width: 80px; height: 100px;"></td>
+						<td>
+							<div style="width: 80px; height: 80px;">
+								<img src="${anh}" style="width: 100%; height: auto;">
+							</div>
+						</td>
 						<td><bean:write name="sp" property="hoTen" /></td>
 						<td><bean:write name="sp" property="taiKhoan" /></td>
 						<td><bean:write name="sp" property="tenTinh" /></td>

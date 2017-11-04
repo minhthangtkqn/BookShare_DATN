@@ -30,8 +30,8 @@ public class BanBaiDangAction extends Action {
 		// Kiem tra user dang nhap
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
-				(String) session.getAttribute("password")) != 0) {
-			System.out.println("chua dang nhap hoac khong phai tai khoan nguoi dung");
+				(String) session.getAttribute("password")) != 1) {
+			System.out.println("chua dang nhap hoac khong phai tai khoan nguoi dung binh thuong");
 			return mapping.findForward("dangNhapLai");
 		}
 

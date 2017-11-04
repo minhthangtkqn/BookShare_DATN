@@ -164,6 +164,7 @@
 						<th>Năm xuất bản</th>
 						<th>Sửa</th>
 						<th>Xóa</th>
+						<th>Đã bán</th>
 					</tr>
 				</thead>
 
@@ -177,6 +178,7 @@
 						<th>Năm xuất bản</th>
 						<th>Sửa</th>
 						<th>Xóa</th>
+						<th>Đã bán</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -195,10 +197,18 @@
 	                        </td>
 	                        <td>
 	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
-								onsubmit="return confirm('Do you want to delete this Post?');">
-								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
-								<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
-									href="javascript:{}"><i class="glyphicon glyphicon-trash"></i></a>
+									onsubmit="return confirm('Do you want to delete this Post?');">
+									<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
+									<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
+										href="javascript:{}"><i class="glyphicon glyphicon-trash"></i></a>
+								</form>
+	                        </td>
+	                        <td>
+		                        <form id="ban_bai_dang_${maRaoBan}" action="ban-bai-dang.do" method="post"
+									onsubmit="return confirm('Do you want to set this notice as SOLD?');">
+									<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
+									<a onclick="if(document.getElementById('ban_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('ban_bai_dang_${maRaoBan}').submit()};"
+										href="javascript:{}"><i class="glyphicon glyphicon-ok"></i></a>
 								</form>
 	                        </td>
 	                    </tr>
