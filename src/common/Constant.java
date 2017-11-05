@@ -28,6 +28,7 @@ public class Constant {
 	public static final String TABLE_BANNER = "[tblBanner]";
 	public static final String TABLE_RAO_BAN = "[tblRaoBan]";
 	public static final String TABLE_DANH_MUC = "[tblDanhMuc]";
+	public static final String TABLE_BINH_LUAN = "[tblBinhLuan]";
 	public static final String TABLE_NGUOI_DUNG = "[tblNguoiDung]";
 	public static final String TABLE_RAO_BAN_DA_XEM = "[tblRaoBanDaXem]";
 	public static final String TABLE_TU_KHOA_TIM_KIEM = "[tblTuKhoaTimKiem]";
@@ -42,6 +43,7 @@ public class Constant {
 	public static final String VIEW_DANH_SACH_NGUOI_DUNG = "[v_danhSachNguoiDung]";
 	public static final String VIEW_DANH_SACH_ADMIN = "[v_danhSachAdmin]";
 	public static final String VIEW_DANH_SACH_HOT = "[v_dsXemNhieu1ThangGanDay]";
+	public static final String VIEW_DANH_SACH_BINH_LUAN = "[v_danhSachBinhLuan]";
 
 	// Post Functions
 	public static final String FUNCTION_DANG_BAI = "[p_themraoban]";

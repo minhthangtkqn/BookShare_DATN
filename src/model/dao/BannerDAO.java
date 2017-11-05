@@ -35,7 +35,7 @@ public class BannerDAO {
 
 	public ArrayList<Banner> layDSBanner() {
 		connect();
-		String sql = "SELECT * FROM tblBanner";
+		String sql = "SELECT * FROM " + Constant.TABLE_BANNER;
 		ArrayList<Banner> listBanner = new ArrayList<Banner>();
 
 		ResultSet rs = null;
@@ -75,7 +75,7 @@ public class BannerDAO {
 		String sql = "UPDATE " + Constant.TABLE_BANNER + " SET TieuDe = ?, Link = ? WHERE MaBanner = ?";
 
 		try {
-			PreparedStatement statement = connection.prepareStatement(sql);
+			statement = connection.prepareStatement(sql);
 
 			statement.setNString(1, tieuDe);
 			statement.setString(2, linkAnh);
@@ -95,7 +95,7 @@ public class BannerDAO {
 		String sql = "DELETE FROM " + Constant.TABLE_BANNER + " WHERE MaBanner = ?";
 
 		try {
-			PreparedStatement statement = connection.prepareStatement(sql);
+			statement = connection.prepareStatement(sql);
 
 			statement.setString(1, maBanner);
 
@@ -114,7 +114,7 @@ public class BannerDAO {
 
 		try {
 			Banner banner = new Banner();
-			PreparedStatement statement = connection.prepareStatement(sql);
+			statement = connection.prepareStatement(sql);
 
 			statement.setString(1, maBanner);
 
