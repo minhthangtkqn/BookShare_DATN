@@ -3,6 +3,8 @@ package form;
 import java.util.ArrayList;
 import java.util.Date;
 
+import model.bean.BinhLuan;
+import model.bean.ListBinhLuan;
 import model.bean.RaoBan;
 
 import org.apache.struts.action.ActionForm;
@@ -14,9 +16,18 @@ public class ChiTietBaiDangForm extends ActionForm {
 	private RaoBan chiTiet;
 	private ArrayList<RaoBan> dsGoiYMoiNguoiCungXem;
 
-	private String submit;
+	private ArrayList<ListBinhLuan> dsBinhLuan;
 
+	private String submit;
 	private String error;
+
+	public ArrayList<ListBinhLuan> getDsBinhLuan() {
+		return dsBinhLuan;
+	}
+
+	public void setDsBinhLuan(ArrayList<ListBinhLuan> dsBinhLuan) {
+		this.dsBinhLuan = dsBinhLuan;
+	}
 
 	public String getMaRaoBan() {
 		return maRaoBan;

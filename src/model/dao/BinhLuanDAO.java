@@ -35,7 +35,7 @@ public class BinhLuanDAO {
 	public ArrayList<BinhLuan> layDsBinhLuan(String maRaoBan) {
 		connect();
 
-		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_BINH_LUAN + " WHERE MaRaoBan = ?";
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_BINH_LUAN + " WHERE MaRaoBan = ? ORDER BY ThoiGian ASC";
 
 		try {
 			statement = connection.prepareStatement(sql);

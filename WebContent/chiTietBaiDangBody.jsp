@@ -110,6 +110,18 @@
 	<br><br>
 	
 	<div class="body-row">
+		<logic:iterate id="dsBinhLuan" name="chiTietBaiDangForm" property="dsBinhLuan">
+			<br>
+			<br>
+			<logic:iterate id="binhLuan" name="dsBinhLuan" property="nhomBinhLuan">
+				<p><bean:write name="binhLuan" property="binhLuan"/></p>
+			</logic:iterate>
+		</logic:iterate>
+	</div>
+	
+	<br><br>
+	
+	<div class="body-row">
 		<div class="books">
 			<h3 style="color: red;">
 				<b>HOT TRONG THÁNG VỪA QUA</b>

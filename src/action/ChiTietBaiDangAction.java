@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.bean.RaoBan;
+import model.bo.BinhLuanBO;
 import model.bo.RaoBanBO;
 
 import org.apache.struts.action.Action;
@@ -34,8 +35,10 @@ public class ChiTietBaiDangAction extends Action {
 			return mapping.findForward("trangChu");
 		}
 
-		// lay du lieu hien thi
 		RaoBanBO raoBanBO = new RaoBanBO();
+		BinhLuanBO binhLuanBO = new BinhLuanBO();
+		
+		// lay du lieu hien thi
 		RaoBan raoBan = raoBanBO.layThongTinBaiDang(chiTietBaiDangForm.getMaRaoBan());
 
 		// Kiem tra bai rao ban co ton tai hay khong
@@ -52,6 +55,7 @@ public class ChiTietBaiDangAction extends Action {
 		}
 
 		chiTietBaiDangForm.setChiTiet(raoBan);
+		chiTietBaiDangForm.setDsBinhLuan(binhLuanBO.layDsBinhLuan(chiTietBaiDangForm.getMaRaoBan()));
 
 		/**
 		 * Kiem tra nguoi dung de phan luong hien thi
