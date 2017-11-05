@@ -53,6 +53,8 @@ public class BinhLuanDAO {
 				bl.setBinhLuan(rs.getNString("BinhLuan"));
 				bl.setThoiGian(rs.getDate("ThoiGian"));
 				bl.setLinkAnh(rs.getString("Anh"));
+				bl.setMaBinhLuan(rs.getString("MaBinhLuan"));
+				bl.setMaBinhLuanDuocTraLoi(rs.getString("MaBinhLuanDuocTraLoi"));
 				
 				listBinhLuan.add(bl);
 			}

@@ -566,7 +566,6 @@ public class RaoBanDAO {
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 
-				System.out.println("DanhMuc: " + rs.getString("MaDanhMuc"));
 				list.add(baiRaoBan);
 			}
 			return list;
@@ -623,7 +622,6 @@ public class RaoBanDAO {
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
 
-				System.out.println("DanhMuc: " + rs.getString("MaDanhMuc"));
 				list.add(baiRaoBan);
 			}
 			return list;

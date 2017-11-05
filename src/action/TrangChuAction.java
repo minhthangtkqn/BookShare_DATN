@@ -47,7 +47,7 @@ public class TrangChuAction extends Action {
 		// Lay danh sach danh muc
 //		trangChuForm.setDsDanhMuc(danhMucBO.layTopDanhMucBanNhieu(8));
 
-		// Lay danh sach moi nhat
+		// Lay danh sach 500 bai dang moi nhat
 		trangChuForm.setDsMoiNhat(baiRaoBanBO.layDanhSachMoiNhat());
 
 		// lay danh sach ngau nhien

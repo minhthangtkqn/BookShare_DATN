@@ -5,6 +5,7 @@ import java.sql.Date;
 import net.sourceforge.jtds.jdbc.DateTime;
 
 public class BinhLuan {
+
 	private String taiKhoan;
 	private String maNguoiBinhLuan;
 	private String linkAnh;
@@ -12,6 +13,25 @@ public class BinhLuan {
 	private String binhLuan;
 	private String maRaoBan;
 	private Date thoiGian;
+
+	private String maBinhLuan;
+	private String maBinhLuanDuocTraLoi;
+
+	public String getMaBinhLuan() {
+		return maBinhLuan;
+	}
+
+	public void setMaBinhLuan(String maBinhLuan) {
+		this.maBinhLuan = maBinhLuan;
+	}
+
+	public String getMaBinhLuanDuocTraLoi() {
+		return maBinhLuanDuocTraLoi;
+	}
+
+	public void setMaBinhLuanDuocTraLoi(String maBinhLuanDuocTraLoi) {
+		this.maBinhLuanDuocTraLoi = maBinhLuanDuocTraLoi;
+	}
 
 	public String getTaiKhoan() {
 		return taiKhoan;
