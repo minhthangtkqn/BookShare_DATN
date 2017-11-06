@@ -109,19 +109,85 @@
 	
 	<br><br>
 	
-	<div class="body-row">
-		<logic:iterate id="dsBinhLuan" name="chiTietBaiDangForm" property="dsBinhLuan">
-			<br>
-			<br>
-			<logic:iterate id="binhLuan" name="dsBinhLuan" property="nhomBinhLuan">
-				<p><bean:write name="binhLuan" property="binhLuan"/></p>
+	<div class="body-row col-lg-12">
+		<div class="col-lg-offset-1 col-lg-11 comment-box">
+			<div class="col-lg-5" style="padding-left: 45px; margin-bottom: -35px;">
+				<h3>HỎI ĐÁP</h3>
+			</div>
+			
+			<logic:iterate id="dsBinhLuan" name="chiTietBaiDangForm" property="dsBinhLuan">
+				<div class="col-lg-12">
+					<%	int i = 1;	%>
+					<br>
+					<logic:iterate id="binhLuan" name="dsBinhLuan" property="nhomBinhLuan">
+						<bean:define id="anh" name="binhLuan" property="linkAnh"></bean:define>
+						<bean:define id="taiKhoan" name="binhLuan" property="taiKhoan"></bean:define>
+						<bean:define id="thoiGian" name="binhLuan" property="thoiGian"></bean:define>
+						<bean:define id="cmt" name="binhLuan" property="binhLuan"></bean:define>
+						<bean:define id="maBinhLuan" name="binhLuan" property="maBinhLuan"></bean:define>
+						
+						
+						<%	if (i == 1) {	%>
+						<div class="col-lg-12">
+							<br>
+							<div class="col-lg-1">
+								<img src="${anh}" width="100%" class="img-circle">
+							</div>
+							
+							<div class="col-lg-11">
+								<div class="col-lg-12" style="height: 30px;">
+									<div class="col-lg-4 no-padding username-cmt">
+										<bean:write name="binhLuan" property="taiKhoan"></bean:write>
+									</div>
+									<div class="col-lg-offset-6 col-lg-2">
+										<bean:write name="binhLuan" property="thoiGian"></bean:write>
+									</div>
+								</div>
+								
+								<div class="col-lg-12">
+									<textarea id="${maBinhLuan}" class="form-control" 
+										disabled>
+<bean:write name="binhLuan" property="binhLuan"></bean:write>
+									</textarea>
+								</div>
+							</div>
+						</div>
+						<%	} else { %>
+						<div class="col-lg-offset-1 col-lg-11">
+							<br>
+							<div class="col-lg-1">
+								<img src="${anh}" width="100%" class="img-circle">
+							</div>
+							
+							<div class="col-lg-11">
+								<div class="col-lg-12" style="height: 30px;">
+									<div class="col-lg-4 no-padding username-cmt">
+										<bean:write name="binhLuan" property="taiKhoan"></bean:write>
+									</div>
+									<div class="col-lg-offset-6 col-lg-2">
+										<bean:write name="binhLuan" property="thoiGian"></bean:write>
+									</div>
+								</div>
+								
+								<div class="col-lg-12">
+									<textarea id="${maBinhLuan}" class="form-control" 
+										disabled>
+<bean:write name="binhLuan" property="binhLuan"></bean:write>
+									</textarea>
+								</div>
+							</div>
+						</div>
+						<%	} %>
+						<% i++; %>
+					</logic:iterate>
+				</div>
 			</logic:iterate>
-		</logic:iterate>
+		</div>
 	</div>
 	
 	<br><br>
 	
-	<div class="body-row">
+	<div class="body-row col-lg-12">
 		<div class="books">
 			<h3 style="color: red;">
 				<b>HOT TRONG THÁNG VỪA QUA</b>
@@ -152,3 +218,14 @@
 	</div>
 </div>
 <!-- END BODY -->
+<script>
+function setHeight(){
+    var textarea = document.getElementsByTagName('textarea');
+    
+    for(i = 0; i<textarea.length; i++){
+    	textarea[i].style.height = textarea[i].scrollHeight+'px';
+    	textarea[i].setAttribute("style", textarea[i].getAttribute("style") + " overflow: hidden;");
+    }
+}
+setHeight();
+</script>

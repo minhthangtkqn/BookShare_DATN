@@ -33,8 +33,8 @@
 				<html:form action="/dang-nhap" method="post"
 					styleClass="form-horizontal">
 					<div class="form-group">
-						<label for="" class="col-sm-offset-2 col-sm-2 control-label">Username</label>
-						<div class="col-sm-4">
+						<label for="" class="col-lg-offset-2 col-lg-2 control-label">Username</label>
+						<div class="col-lg-4">
 							<html:text property="taiKhoan" styleClass="form-control"></html:text>
 							<p style="color: red;">
 								<bean:write name="dangNhapForm" property="loiTaiKhoan" />
@@ -42,8 +42,8 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="" class="col-sm-offset-2 col-sm-2 control-label">Password</label>
-						<div class="col-sm-4">
+						<label for="" class="col-lg-offset-2 col-lg-2 control-label">Password</label>
+						<div class="col-lg-4">
 							<html:password property="matKhau" styleClass="form-control"></html:password>
 							<p style="color: red;">
 								<bean:write name="dangNhapForm" property="loiMatKhau" />
@@ -52,7 +52,7 @@
 					</div>
 
 					<div class="form-group">
-						<div class="col-sm-offset-4 col-sm-5">
+						<div class="col-lg-offset-4 col-lg-5">
 							<div class="checkbox">
 								<label> <input type="checkbox"> Remember me
 								</label>
@@ -61,7 +61,7 @@
 					</div>
 
 					<div class="form-group">
-						<div class="col-sm-offset-4 col-sm-5">
+						<div class="col-lg-offset-4 col-lg-5">
 							<button type="submit" class="btn btn-primary">Sign in</button>
 						</div>
 					</div>

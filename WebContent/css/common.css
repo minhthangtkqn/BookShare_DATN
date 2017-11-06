@@ -27,3 +27,22 @@ body {
 	margin: 0px;
 	margin-bottom: 20px;
 }
+
+.no-float {
+	float: none;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.username-cmt {
+	color: #5350ff;
+	font-weight: bold;
+}
+
+.comment-box{
+	border: 2px solid gray;
+	border-radius: 10px;
+	background-color: #c8ccff
+}
