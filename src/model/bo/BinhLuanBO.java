@@ -47,4 +47,8 @@ public class BinhLuanBO {
 		return listNhomBinhLuan;
 	}
 
+	public boolean dangBinhLuan(BinhLuan binhLuan) {
+		return binhLuanDAO.dangBinhLuan(binhLuan);
+	}
+
 }

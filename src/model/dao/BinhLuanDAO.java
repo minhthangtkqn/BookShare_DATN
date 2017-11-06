@@ -46,7 +46,7 @@ public class BinhLuanDAO {
 			BinhLuan bl;
 			while (rs.next()) {
 				bl = new BinhLuan();
-				
+
 				bl.setTaiKhoan(rs.getString("TaiKhoan"));
 				bl.setMaNguoiBinhLuan(rs.getString("MaNguoiBinhLuan"));
 				bl.setMaRaoBan(rs.getString("MaRaoBan"));
@@ -55,7 +55,7 @@ public class BinhLuanDAO {
 				bl.setLinkAnh(rs.getString("Anh"));
 				bl.setMaBinhLuan(rs.getString("MaBinhLuan"));
 				bl.setMaBinhLuanDuocTraLoi(rs.getString("MaBinhLuanDuocTraLoi"));
-				
+
 				listBinhLuan.add(bl);
 			}
 			return listBinhLuan;
@@ -64,5 +64,19 @@ public class BinhLuanDAO {
 		}
 
 		return null;
+	}
+
+	public boolean dangBinhLuan(BinhLuan binhLuan) {
+		connect();
+
+		String sql = "";
+
+		try {
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }
