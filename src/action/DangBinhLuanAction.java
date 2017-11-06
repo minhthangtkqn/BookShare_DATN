@@ -59,6 +59,7 @@ public class DangBinhLuanAction extends Action {
 		BinhLuanBO binhLuanBO = new BinhLuanBO();
 		binhLuanBO.dangBinhLuan(binhLuan);
 		
+		binhLuanForm.setBinhLuan("");
 		ActionForward forward = new ActionForward("/chi-tiet-bai-dang.do?maRaoBan=" + binhLuanForm.getMaRaoBan());
 
 		System.out.println("Forward ve trang cu~");

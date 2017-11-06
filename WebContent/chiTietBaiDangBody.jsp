@@ -21,6 +21,7 @@
 			<bean:define id="linkAnh3" name="chiTietBaiDang" property="linkAnh3"></bean:define>
 			<bean:define id="linkAnh4" name="chiTietBaiDang" property="linkAnh4"></bean:define>
 			<bean:define id="linkAnh5" name="chiTietBaiDang" property="linkAnh5"></bean:define>
+			<bean:define id="maRaoBanChiTiet" name="chiTietBaiDang" property="maRaoBan"></bean:define>
 
 			<img class="mySlides" src="${linkAnh1}" style="width: 100%"> 
 			<img class="mySlides" src="${linkAnh2}" style="width: 100%"> 
@@ -57,8 +58,10 @@
 				<b>THÔNG TIN SÁCH</b>
 			</h2>
 
-			<h3 style="color: red; text-align: center;">
-				<b><bean:write name="chiTietBaiDang" property="tenSach" /></b>
+			<h3 style="text-align: center;">
+				<a style="color: red;" href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBanChiTiet}">
+					<p style="padding-left: 10px; padding-right: 10px;"><bean:write name="chiTietBaiDang" property="tenSach" /></p>
+				</a>
 			</h3>
 
 			<p>Tác giả: <bean:write name="chiTietBaiDang" property="tacGia" /></p>
@@ -182,6 +185,24 @@
 					</logic:iterate>
 				</div>
 			</logic:iterate>
+			
+			<div class="col-lg-12" style="margin-top: 40px;">
+				<html:form action="/dang-binh-luan" method="post">
+					<div class="form-group">
+						<html:text property="maRaoBan" style="display: none;" value="${maRaoBanChiTiet}"></html:text>
+						<label for="">Câu hỏi của bạn</label>
+						<html:textarea rows="6" property="binhLuan" styleClass="form-control"></html:textarea>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-lg-12 no-padding">
+							<button type="submit" class="w3-button w3-ripple w3-light-green col-lg-2">Đăng câu hỏi</button>
+						</div>
+					</div>
+				</html:form>
+			</div>
+			
+			<div class="col-lg-12" style="height: 50px;"></div>
 		</div>
 	</div>
 	
