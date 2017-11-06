@@ -49,6 +49,7 @@ public class DangBinhLuanAction extends Action {
 			ActionForward forward = new ActionForward("/chi-tiet-bai-dang.do?maRaoBan=" + binhLuanForm.getMaRaoBan());
 			return forward;
 		}
+		
 		BinhLuan binhLuan = new BinhLuan();
 		binhLuan.setMaNguoiBinhLuan((String)session.getAttribute("userID"));
 		binhLuan.setMaRaoBan(binhLuanForm.getMaRaoBan());

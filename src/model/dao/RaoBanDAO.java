@@ -58,7 +58,7 @@ public class RaoBanDAO {
 		// 12'linkanh3',
 		// 13'linkanh4',
 		// 14'linkanh5'
-		String sql = "exec " + Constant.FUNCTION_DANG_BAI + " ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+		String sql = "exec " + Constant.PROC_DANG_BAI + " ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
 		System.out.println("RaoBanDAO");
 		try {
 
@@ -873,7 +873,7 @@ public class RaoBanDAO {
 		// 14'linkanh4',
 		// 15'linkanh5'
 		connect();
-		String sql = "exec " + Constant.FUNCTION_SUA_BAI_DANG + " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
+		String sql = "exec " + Constant.PROC_SUA_BAI_DANG + " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -906,7 +906,7 @@ public class RaoBanDAO {
 	public boolean xoaBaiDang(String maNguoiRaoBan, String maRaoBan) {
 		connect();
 
-		String sql = "EXEC " + Constant.FUNCTION_XOA_BAI_DANG + " ?, ?";
+		String sql = "EXEC " + Constant.PROC_XOA_BAI_DANG + " ?, ?";
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -925,7 +925,7 @@ public class RaoBanDAO {
 	public boolean banBaiDang(String maNguoiRaoBan, String maRaoBan) {
 		connect();
 
-		String sql = "EXEC " + Constant.FUNCTION_BAN_BAI_DANG + " ?, ?";
+		String sql = "EXEC " + Constant.PROC_BAN_BAI_DANG + " ?, ?";
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -944,7 +944,7 @@ public class RaoBanDAO {
 	public boolean khoaBaiDang(String maRaoBan, String maNguoiRaoBan) {
 		connect();
 
-		String sql = "EXEC " + Constant.FUNCTION_KHOA_BAI_DANG + " ?, ?";
+		String sql = "EXEC " + Constant.PROC_KHOA_BAI_DANG + " ?, ?";
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -963,7 +963,7 @@ public class RaoBanDAO {
 	public boolean moKhoaBaiDang(String maRaoBan, String maNguoiRaoBan) {
 		connect();
 
-		String sql = "EXEC " + Constant.FUNCTION_MO_KHOA_BAI_DANG + " ?, ?";
+		String sql = "EXEC " + Constant.PROC_MO_KHOA_BAI_DANG + " ?, ?";
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -982,7 +982,7 @@ public class RaoBanDAO {
 	public boolean duyetBaiDang(String maRaoBan) {
 		connect();
 
-		String sql = "EXEC " + Constant.FUNCTION_DUYET_BAI_DANG + " ?";
+		String sql = "EXEC " + Constant.PROC_DUYET_BAI_DANG + " ?";
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -1000,7 +1000,7 @@ public class RaoBanDAO {
 	public boolean khongDuyetBaiDang(String maRaoBan) {
 		connect();
 
-		String sql = "EXEC " + Constant.FUNCTION_KHONG_DUYET_BAI_DANG + " ?";
+		String sql = "EXEC " + Constant.PROC_KHONG_DUYET_BAI_DANG + " ?";
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);

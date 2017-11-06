@@ -35,7 +35,8 @@ public class BinhLuanDAO {
 	public ArrayList<BinhLuan> layDsBinhLuan(String maRaoBan) {
 		connect();
 
-		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_BINH_LUAN + " WHERE MaRaoBan = ? ORDER BY ThoiGian ASC";
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_BINH_LUAN
+				+ " WHERE MaRaoBan = ? ORDER BY ThoiGian DESC";
 
 		try {
 			statement = connection.prepareStatement(sql);
@@ -69,9 +70,16 @@ public class BinhLuanDAO {
 	public boolean dangBinhLuan(BinhLuan binhLuan) {
 		connect();
 
-		String sql = "";
+		String sql = "EXEC " + Constant.PROC_THEM_BINH_LUAN + " ?, ?, ?, ?";
 
 		try {
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, binhLuan.getMaNguoiBinhLuan());
+			statement.setString(2, binhLuan.getMaRaoBan());
+			statement.setNString(3, binhLuan.getBinhLuan());
+			statement.setString(4, binhLuan.getMaBinhLuanDuocTraLoi());
+			
+			statement.executeUpdate();
 			
 			return true;
 		} catch (Exception e) {

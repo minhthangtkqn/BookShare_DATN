@@ -26,16 +26,17 @@ public class BinhLuanBO {
 		if (listCauHoi.size() == 0) {
 			return new ArrayList<ListBinhLuan>();
 		}
+
 		// loc ra cac cau tra loi tuong ung voi cau hoi
 		ArrayList<ListBinhLuan> listNhomBinhLuan = new ArrayList<ListBinhLuan>();
 		for (int i = 0; i < listCauHoi.size(); i++) {
 			listNhomBinhLuan.add(new ListBinhLuan());
 			listNhomBinhLuan.get(i).setNhomBinhLuan(new ArrayList<BinhLuan>());
-			
+
 			listNhomBinhLuan.get(i).getNhomBinhLuan().add(listCauHoi.get(i));
 			System.out.println("Cau hoi: " + listCauHoi.get(i).getBinhLuan());
 
-			for (int j = 0; j < listTatCaBinhLuan.size(); j++) {
+			for (int j = listTatCaBinhLuan.size() - 1; j >= 0; j--) {
 				if (listCauHoi.get(i).getMaBinhLuan().equals(listTatCaBinhLuan.get(j).getMaBinhLuanDuocTraLoi())) {
 					listNhomBinhLuan.get(i).getNhomBinhLuan().add(listTatCaBinhLuan.get(j));
 					System.out.println("Cau tra loi: " + listTatCaBinhLuan.get(j).getBinhLuan());
