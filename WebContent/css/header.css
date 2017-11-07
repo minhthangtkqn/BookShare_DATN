@@ -16,9 +16,9 @@
 #credentials {
 	width: 320px;
 	display: inline-block;
-	vertical-align: top;
-	margin-top: 15px;
-	float: right;
+/* 	vertical-align: top; */
+/* 	margin-top: 15px; */
+/* 	float: right; */
 }
 
 #credentials ul {

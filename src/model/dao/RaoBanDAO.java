@@ -58,13 +58,13 @@ public class RaoBanDAO {
 		// 12'linkanh3',
 		// 13'linkanh4',
 		// 14'linkanh5'
-		String sql = "exec " + Constant.PROC_DANG_BAI + " ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+		String sql = "EXEC " + Constant.PROC_DANG_BAI + " ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
 		System.out.println("RaoBanDAO");
 		try {
 
-			// PreparedStatement pstm = connection.prepareStatement(sql);
+			PreparedStatement cstm = connection.prepareStatement(sql);
 
-			CallableStatement cstm = connection.prepareCall("{call p_themraoban (?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
+//			CallableStatement cstm = connection.prepareCall("{call p_themraoban (?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
 			cstm.setNString(1, raoBan.getTenSach());
 			cstm.setString(2, raoBan.getMaDanhMuc());
 			cstm.setNString(3, raoBan.getTacGia());
@@ -80,7 +80,7 @@ public class RaoBanDAO {
 			cstm.setString(13, raoBan.getLinkAnh4());
 			cstm.setString(14, raoBan.getLinkAnh5());
 
-			cstm.executeQuery();
+			cstm.executeUpdate();
 			/*
 			 * pstm.setNString(1,raoBan.getTenSach());
 			 * pstm.setString(2,raoBan.getMaDanhMuc());

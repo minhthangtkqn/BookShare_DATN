@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div id="page">
-		<jsp:include page="/loggedHeader.jsp"></jsp:include>
+		<jsp:include page="/adminHeader.jsp"></jsp:include>
 
 		<jsp:include page="/adminBody.jsp"></jsp:include>
 

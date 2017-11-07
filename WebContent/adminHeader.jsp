@@ -14,20 +14,7 @@
 				style="height: 100%; width: 100%" /></a>
 		</div>
 
-		<div class="col-lg-offset-3 col-lg-2" style="height: 30px; margin-top: 15px; margin-bottom: 15px; margin-right: -80px;">
-			<a href="dang-ban.do" class="btn btn-primary-outline" style="color: white;"> <span
-				class="glyphicon glyphicon-pencil"></span> Sell book
-			</a>
-		</div>
-
-		<div class="col-lg-2" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
-			<a href="ket-qua-tim-kiem.do" class="btn btn-primary-outline" style="color: white;">
-				<span class="glyphicon glyphicon-search"></span> 
-				Find books
-			</a>
-		</div>
-
-		<div class="col-lg-3" style="height: 40px; margin-top: 10px; margin-bottom: 10px;">
+		<div class="col-lg-offset-7 col-lg-3" style="height: 40px; margin-top: 10px; margin-bottom: 10px;">
 			<ul class="list-inline list-unstyled">
 				<li><div style="height: 40px;">
 						<a href="trang-ca-nhan.do" style="color: white;"><img class="img-circle"

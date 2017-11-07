@@ -107,7 +107,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<!-- DANG BAN -->
 		<action input="/dangBan.jsp" name="dangBanForm" path="/dang-ban"
 			scope="request" type="action.DangBanAction">
-			<forward name="thanhcong" path="/trang-chu.do" />
+			<forward name="trangCaNhan" path="/trang-ca-nhan.do" />
 			<forward name="dangban" path="/dangBan.jsp" />
 			<forward name="thatbai" path="/dangBan.jsp" />
 			<forward name="dangnhaplai" path="/dangNhap.jsp" />

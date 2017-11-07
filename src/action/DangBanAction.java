@@ -205,7 +205,7 @@ public class DangBanAction extends Action {
 
 			if (raoBanBO.dangBai(raoBan)) {
 				System.out.println("Dang bai thanh cong !!! - DangBanAction");
-				return mapping.findForward("thanhcong");
+				return mapping.findForward("trangCaNhan");
 			}
 			return mapping.findForward("thatbai");
 		}

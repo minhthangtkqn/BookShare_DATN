@@ -9,23 +9,23 @@
 <!-- HEADER -->
 <div id="header">
 	<div class="container">
-		<div class="col-lg-2">
-			<a style="color: white;" href="trang-chu.do"><img src="images/logobook.png" alt=""
+		<div class="logo">
+			<a href="trang-chu.do"><img src="images/logobook.png" alt=""
 				style="height: 100%; width: 100%;" /></a>
 		</div>
 
-		<div class="col-lg-offset-5 col-lg-2" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
-			<a style="color: white;" href="ket-qua-tim-kiem.do" class="btn btn-primary-outline">
+		<div class="find-books">
+			<a href="ket-qua-tim-kiem.do" class="btn btn-primary-outline">
 				<span class="glyphicon glyphicon-search"></span>
 				Find books
 			</a>
 		</div>
 
-		<div class="col-lg-3" style="height: 20px; margin-top: 20px; margin-bottom: 20px;">
-			<ul class="list-inline list-unstyled">
-				<li><a style="color: white;" href="dangKy.jsp"><i class="fa fa-user"></i> Đăng ký</a></li>
+		<div id="credentials">
+			<ul class="">
+				<li><a href="dangKy.jsp"><i class="fa fa-user"></i> Đăng ký</a></li>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<li><a style="color: white;" href="dangNhap.jsp"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+				<li><a href="dangNhap.jsp"><i class="fa fa-lock"></i> Đăng nhập</a></li>
 			</ul>
 		</div>
 	</div>
