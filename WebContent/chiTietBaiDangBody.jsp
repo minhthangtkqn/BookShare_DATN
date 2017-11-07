@@ -131,6 +131,7 @@
 						
 						
 						<%	if (i == 1) {	%>
+						<bean:define id="maBinhLuanDuocTraLoi" name="binhLuan" property="maBinhLuan"></bean:define>
 						<div class="col-lg-12">
 							<br>
 							<div class="col-lg-1">
@@ -183,6 +184,33 @@
 						<%	} %>
 						<% i++; %>
 					</logic:iterate>
+
+					<!-- tra loi cau hoi -->
+					<div class="col-lg-offset-1 col-lg-11">
+						<div class="col-lg-offset-1 col-lg-11">
+							<div class="col-lg-12">
+					
+								<html:form action="/dang-binh-luan" method="post">
+									<div class="form-group">
+										<html:text property="maRaoBan" style="display: none;"
+											value="${maRaoBanChiTiet}"></html:text>
+										<html:text property="maBinhLuanDuocTraloi" style="display: none;"
+											value="${maBinhLuanDuocTraLoi}"></html:text>
+										<label for="">Thêm một câu trả lời</label>
+										<html:textarea rows="3" property="binhLuan"
+											styleClass="form-control"></html:textarea>
+									</div>
+		
+									<div class="form-group">
+										<div class="col-lg-12 no-padding">
+											<button type="submit"
+												class="w3-button w3-ripple w3-light-green col-lg-2">Trả lời</button>
+										</div>
+									</div>
+								</html:form>
+							</div>
+						</div>
+					</div>
 				</div>
 			</logic:iterate>
 			
