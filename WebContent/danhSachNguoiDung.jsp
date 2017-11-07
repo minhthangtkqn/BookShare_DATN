@@ -12,8 +12,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>DANH SÁCH NGƯỜI DÙNG</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
-	<link rel="stylesheet"
-		href="bootstraps/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="bootstraps/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/body.css">
@@ -23,7 +23,7 @@
 
 <body>
 	<div id="page">
-		<jsp:include page="/loggedHeader.jsp"></jsp:include>
+		<jsp:include page="/adminHeader.jsp"></jsp:include>
 
 		<jsp:include page="/danhSachNguoiDungBody.jsp"></jsp:include>
 

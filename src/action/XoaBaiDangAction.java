@@ -55,9 +55,12 @@ public class XoaBaiDangAction extends Action {
 		} else {
 
 			// 2.2.2. Có maRaoBan --> gọi hàm xử lý
+			System.out.println("Xoa bai dang ---");
+			System.out.println("Ma nguoi dung: " + (String) session.getAttribute("userID"));
+			System.out.println("Ma rao ban: " + dangBanForm.getMaRaoBan());
+			
 			raoBanBO.xoaBaiDang((String) session.getAttribute("userID"), dangBanForm.getMaRaoBan());
 			return mapping.findForward("thanhCong");
-
 		}
 
 	}

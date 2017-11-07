@@ -56,7 +56,7 @@ public class DangNhapAction extends Action {
 			// neu da dang nhap dua ve trang chu
 			System.out.println("DA DANG NHAP");
 			System.out.println("TYPE: " + type);
-			return mapping.findForward("trangchu");
+			return mapping.findForward("trangChu");
 		}
 		if (type == 2) {
 			return mapping.findForward("trangbichan");
@@ -104,7 +104,7 @@ public class DangNhapAction extends Action {
 			System.out.println("USERNAME: " + taiKhoan);
 			System.out.println("LINK ANH: " + anh);
 
-			return mapping.findForward("trangchu");
+			return mapping.findForward("trangChu");
 
 		case 2:// Day la nguoi dung bi chan
 

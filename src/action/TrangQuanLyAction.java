@@ -66,7 +66,7 @@ public class TrangQuanLyAction extends Action {
 		// lay ds da mua
 		// trangQuanLyForm.setDsDaMua(raoBanBO.layD)
 
-		return mapping.findForward("trangCaNhan");
+		return mapping.findForward("giaoDienTrangQuanLy");
 	}
 
 }

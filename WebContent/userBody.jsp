@@ -262,6 +262,7 @@
 	                        <td><bean:write name="sp" property="nxb" /></td>
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
+	                        	<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
 	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
 								onsubmit="return confirm('Do you want to delete this Post?');">
 								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">

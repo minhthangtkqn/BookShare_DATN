@@ -8,16 +8,16 @@
 <html>
 
 <head lang="vi">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ĐĂNG KÝ</title>
-<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/body.css">
-<link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" href="css/user.css">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ĐĂNG KÝ</title>
+	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/body.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/user.css">
 </head>
 <body>
 	<div id="page">
@@ -27,7 +27,7 @@
 
 
 		<!--    BODY        -->
-		<div class="container">
+		<div id="page-body" class="container">
 			<h3>Đăng ký thành viên</h3>
 			<br>
 			<html:form action="/dang-ky" method="post">

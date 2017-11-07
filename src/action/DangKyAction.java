@@ -17,19 +17,23 @@ public class DangKyAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
+		request.setCharacterEncoding("UTF-8");
+		System.out.println("--- DANG KY ACTION ---");
 		HttpSession session = request.getSession();
 
-		if (session.getAttribute("userID") != null)
-			return mapping.findForward("trangchu"); // neu da dang nhap dua ve
-													// trang home.jsp
-
+		// kiem tra dang nhap
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		if(type == 1 || type == 2 || type == 3){
+			return mapping.findForward("trangChu");
+		}
+		
 		DangKyForm dangKiForm = (DangKyForm) form;
 
 		String taiKhoan = dangKiForm.getTaiKhoan();
 		String matKhau = dangKiForm.getMatKhau();
 		String nhapLaiMatKhau = dangKiForm.getNhapLaiMatKhau();
-
-		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 
 		if (taiKhoan.length() == 0) {
 			System.out.println("Tài khoản không được để trống >_<!");

@@ -34,10 +34,10 @@ table a:LINK, a:VISITED {
 }
 
 .books h3 {
-	width: 30%;
+	width: 50%;
 	height: 40px;
 	display: block;
-	margin: -35px 0 0 35%;
+	margin: -35px 0 0 25%;
 	line-height: 40px;
 	color: #189eff;
 	text-align: center;

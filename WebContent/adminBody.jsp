@@ -59,8 +59,11 @@
 	
 	<div class="body-row">
 		<a href="danh-sach-nguoi-dung.do" class="btn btn-success"> 
-			<span class="glyphicon glyphicon-th-list"></span> Danh sách người dùng
-			</a>
+			<i class="glyphicon glyphicon-th-list"></i> Danh sách người dùng
+		</a>
+		<a href="danh-muc.do" class="btn btn-success"> 
+			<i class="glyphicon glyphicon-align-left"></i> Danh sách danh mục
+		</a>
 	</div>
 
 	<div class="body-row user-functions">

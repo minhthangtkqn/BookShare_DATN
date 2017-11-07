@@ -70,7 +70,7 @@ public class TrangNguoiDungAction extends Action {
 		// lay ds da mua
 		// trangNguoiDungForm.setDsDaMua(raoBanBO.layD)
 
-		return mapping.findForward("trangCaNhan");
+		return mapping.findForward("giaoDienTrangCaNhan");
 	}
 
 }
