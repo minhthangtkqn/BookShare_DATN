@@ -59,24 +59,24 @@
 	<div class="body-row">
 		<a href="sua-nguoi-dung.do" class="btn btn-success"> 
 			<span class="glyphicon glyphicon-pencil"></span> 
-			Sửa thông tin
+			EDIT PROFILE
 		</a>
 		<a href="lich-su-xem-bai-dang.do" class="btn btn-success"> 
 			<span class="glyphicon glyphicon-list-alt"></span> 
-			Những bài đăng đã xem
+			BROWSING HISTORY
 		</a>
 	</div>
 	
 
 	<div class="body-row user-functions">
 		<a href="#danh-sach-cho-duyet">
-			<div class="user-function row-item">DS CHỜ DUYỆT</div>
+			<div class="user-function row-item">PENDING</div>
 		</a> <a href="#danh-sach-dang-ban">
-			<div class="user-function row-item">DS ĐANG BÁN</div>
+			<div class="user-function row-item">SELLING</div>
 		</a> <a href="#danh-sach-mua-sau">
-			<div class="user-function row-item">DS MUA SAU</div>
+			<div class="user-function row-item">WATCH LATER</div>
 		</a> <a href="#danh-sach-da-ban">
-			<div class="user-function row-item">DS ĐÃ BÁN</div>
+			<div class="user-function row-item">SOLD</div>
 		</a>
 	</div>
 
@@ -84,34 +84,34 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>ĐANG CHỜ DUYỆT</b>
+				<b>PENDING</b>
 			</h3>
 			<table id="danh-sach-cho-duyet"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Sửa</th>
-						<th>Xóa</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Edit</th>
+						<th>Delete</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Sửa</th>
-						<th>Xóa</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Edit</th>
+						<th>Delete</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -149,36 +149,36 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>ĐANG BÁN</b>
+				<b>SELLING</b>
 			</h3>
 			<table id="danh-sach-dang-ban"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Sửa</th>
-						<th>Xóa</th>
-						<th>Đã bán</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Edit</th>
+						<th>Delete</th>
+						<th>Set as sold</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Sửa</th>
-						<th>Xóa</th>
-						<th>Đã bán</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Edit</th>
+						<th>Delete</th>
+						<th>Set as sold</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -223,32 +223,32 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>ĐÃ BÁN</b>
+				<b>SOLD</b>
 			</h3>
 			<table id="danh-sach-da-ban"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Xóa</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Delete</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Xóa</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Delete</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->

@@ -215,7 +215,7 @@ public class SuaBaiDangAction extends Action {
 			System.out.println("Khong co ma rao ban --> Tra ve trang chu");
 			return mapping.findForward("trangChu");
 		}
-		RaoBan raoBan = raoBanBO.layThongTinBaiDang(dangBanForm.getMaRaoBan());
+		RaoBan raoBan = raoBanBO.layThongTinSuaBaiDang(dangBanForm.getMaRaoBan());
 
 		// Trước tiên kiểm tra trạng thái rao bán CHỜ DUYỆT (0) và ĐANG BÁN (1)
 		// mới có thể sửa

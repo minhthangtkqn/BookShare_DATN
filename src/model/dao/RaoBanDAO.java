@@ -112,11 +112,16 @@ public class RaoBanDAO {
 			raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 			raoBan.setMoTa(rs.getString("mota"));
 
-			raoBan.setLinkAnh1(StringProcess.notVaild(rs.getString("linkanh1")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh1"));
-			raoBan.setLinkAnh2(StringProcess.notVaild(rs.getString("linkanh2")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh2"));
-			raoBan.setLinkAnh3(StringProcess.notVaild(rs.getString("linkanh3")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh3"));
-			raoBan.setLinkAnh4(StringProcess.notVaild(rs.getString("linkanh4")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh4"));
-			raoBan.setLinkAnh5(StringProcess.notVaild(rs.getString("linkanh5")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh5"));
+			raoBan.setLinkAnh1(StringProcess.notVaild(rs.getString("linkanh1")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh1"));
+			raoBan.setLinkAnh2(StringProcess.notVaild(rs.getString("linkanh2")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh2"));
+			raoBan.setLinkAnh3(StringProcess.notVaild(rs.getString("linkanh3")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh3"));
+			raoBan.setLinkAnh4(StringProcess.notVaild(rs.getString("linkanh4")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh4"));
+			raoBan.setLinkAnh5(StringProcess.notVaild(rs.getString("linkanh5")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh5"));
 
 			raoBan.setNgayBan(rs.getDate("ngayban"));
 			raoBan.setHoTenNguoiBan(rs.getString("hoten"));
@@ -479,7 +484,7 @@ public class RaoBanDAO {
 			sql += " AND MaTinh = ? ";
 		}
 
-		sql += "ORDER BY NgayBan " + sapXepThoiGian + " , Gia " + sapXepGia;
+		sql += "ORDER BY Gia " + sapXepGia + " , NgayBan " + sapXepThoiGian;
 
 		System.out.println("SQL command: " + sql);
 
@@ -535,7 +540,7 @@ public class RaoBanDAO {
 			sql += " AND MaTinh = ? ";
 		}
 
-		sql += "ORDER BY NgayBan " + sapXepThoiGian + " , Gia " + sapXepGia;
+		sql += "ORDER BY Gia " + sapXepGia + " , NgayBan " + sapXepThoiGian;
 
 		System.out.println("SQL command: " + sql);
 
@@ -944,8 +949,6 @@ public class RaoBanDAO {
 				rb.setTacGia(rs.getString("tacgia"));
 
 				list.add(rb);
-				
-				System.out.println("Giá tiền: " + rb.getGia());
 			}
 			return list;
 		} catch (Exception e) {
@@ -987,6 +990,59 @@ public class RaoBanDAO {
 			}
 			return list;
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public RaoBan layThongTinSuaBaiDang(String maRaoBan) {
+		System.out.println("Ma rao ban DAO: " + maRaoBan);
+
+		connect();
+		String sql = "SELECT * FROM " + Constant.FUNCTION_LAY_THONG_TIN_BAI_DANG + "(?)";
+		try {
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			pstm.setString(1, maRaoBan);
+			ResultSet rs = pstm.executeQuery();
+			if (!rs.isBeforeFirst()) {
+				return null;
+			}
+			RaoBan raoBan = new RaoBan();
+			rs.next();
+
+			raoBan.setMaRaoBan(rs.getString("maraoban"));
+			raoBan.setMaNguoiRaoBan(rs.getString("manguoiraoban"));
+			raoBan.setMaTinhBan(rs.getInt("matinhban"));
+			raoBan.setGia(rs.getString("Gia"));
+			raoBan.setMoTa(rs.getString("mota"));
+
+			raoBan.setLinkAnh1(StringProcess.notVaild(rs.getString("linkanh1")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh1"));
+			raoBan.setLinkAnh2(StringProcess.notVaild(rs.getString("linkanh2")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh2"));
+			raoBan.setLinkAnh3(StringProcess.notVaild(rs.getString("linkanh3")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh3"));
+			raoBan.setLinkAnh4(StringProcess.notVaild(rs.getString("linkanh4")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh4"));
+			raoBan.setLinkAnh5(StringProcess.notVaild(rs.getString("linkanh5")) ? Constant.NO_IMAGE_DEFAULT
+					: rs.getString("linkanh5"));
+
+			raoBan.setTenSach(rs.getString("tensach"));
+			raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
+			raoBan.setNamxb(rs.getString("namxb"));
+			raoBan.setNxb(rs.getString("nxb"));
+			raoBan.setTacGia(rs.getString("tacgia"));
+			raoBan.setTrangThaiRaoBan(rs.getInt("TrangThaiBan"));
+
+
+			System.out.println("THONG TIN SACH:");
+			System.out.println("ten sach: " + raoBan.getTenSach());
+			System.out.println(" --- ten nguoi dang: " + raoBan.getHoTenNguoiBan());
+			System.out.println(" --- ma rao ban: " + raoBan.getMaRaoBan());
+			System.out.println(" --- Gia ban: " + raoBan.getGia());
+
+			return raoBan;
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;

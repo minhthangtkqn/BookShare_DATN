@@ -14,21 +14,8 @@
 				style="height: 100%; width: 100%" /></a>
 		</div>
 
-		<div class="col-lg-offset-3 col-lg-2" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
-			<a href="dang-ban.do" class="btn btn-primary-outline" style="color: white; float: right;"> <span
-				class="glyphicon glyphicon-pencil"></span> Sell book
-			</a>
-		</div>
-
-		<div class="col-lg-2" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
-			<a href="ket-qua-tim-kiem.do" class="btn btn-primary-outline" style="color: white;">
-				<span class="glyphicon glyphicon-search"></span> 
-				Find books
-			</a>
-		</div>
-
-		<div class="col-lg-3" style="height: 40px; margin-top: 10px; margin-bottom: 10px;">
-			<ul class="list-inline list-unstyled" style="float: right;">
+		<div class="float-right" style="height: 40px; margin-top: 10px; margin-bottom: 10px;">
+			<ul class="list-inline list-unstyled">
 				<li><div style="height: 40px;">
 						<a href="trang-ca-nhan.do" style="color: white;"><img class="img-circle"
 							style="height: 40px; width: 40px;" alt="" src="${Avatar}">
@@ -40,6 +27,27 @@
 					</div></li>
 			</ul>
 		</div>
+
+		<div class="float-right" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
+			<a href="dang-ban.do" class="btn btn-primary-outline font-size-12 border-hover" style="color: white;">
+				<span class="glyphicon glyphicon-pencil"></span> Sell book
+			</a>
+		</div>
+
+		<div class="float-right" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
+			<a href="ket-qua-tim-kiem.do" class="btn btn-primary-outline font-size-12 border-hover" style="color: white;">
+				<span class="glyphicon glyphicon-search"></span> 
+				Find books
+			</a>
+		</div>
+		
+		<div class="float-right" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
+			<a href="lich-su-xem-bai-dang.do" class="btn btn-primary-outline font-size-12 border-hover" style="color: white;">
+				<span class="glyphicon glyphicon-time"></span> 
+				Browsing History
+			</a>
+		</div>
+
 	</div>
 </div>
 <!-- END HEADER -->

@@ -138,4 +138,8 @@ public class RaoBanBO {
 	public ArrayList<RaoBan> layLichSuXemBaiDang(String maNguoiDung) {
 		return raoBanDAO.layLichSuXemBaiDang(maNguoiDung);
 	}
+
+	public RaoBan layThongTinSuaBaiDang(String maRaoBan) {
+		return raoBanDAO.layThongTinSuaBaiDang(maRaoBan);
+	}
 }

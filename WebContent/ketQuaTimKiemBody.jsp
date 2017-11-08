@@ -14,24 +14,24 @@
 			<html:form action="/ket-qua-tim-kiem.do" method="post"
 				styleClass="search-form">
 				<input id="tuKhoa" name="tuKhoa" oninput="recommend()" class="search-input search-item"
-					type="text" placeholder="Bạn muốn tìm sản phẩm gì?">
+					type="text" placeholder="Type the book title or the author name ...">
 				<button class="search-button search-item btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 
 				<html:select property="maDanhMuc" >
-					<option value="all">Tất cả danh mục</option>
+					<option value="all">All categories</option>
 					<html:optionsCollection name="ketQuaTimKiemForm"
 						property="dsDanhMuc" label="tenDanhMuc" value="maDanhMuc" />
 				</html:select>
 
 				<html:select property="maTinh" >
-					<option value="all">Tất cả tỉnh thành</option>
+					<option value="all">All regions</option>
 					<html:optionsCollection name="ketQuaTimKiemForm" property="dsTinh"
 						label="tenTinh" value="maTinh" />
 				</html:select>
 
 				<select name="sapXepGia">
-					<option value="0">Gia cao truoc</option>
-					<option value="1">Gia thap truoc</option>
+					<option value="1">Price: Low to high</option>
+					<option value="0">Price: High to low</option>
 				</select>
 
 				<select name="sapXepThoiGian">
@@ -44,13 +44,13 @@
 
 		<div id="goi-y">
 			<p>
-				Hãy sử dụng các tiêu chí lựa chọn 
-				để nhanh chóng tìm ra cuốn sách mong muốn
+				Search criteria will help you quickly find the book that you want.
 			</p>
 			<p>
-				Lưu ý: 
-				<span style="color: red; font-weight: bold;">Bạn sẽ được gợi ý những 
-				cuốn sách đã được đăng khi gõ từ khóa</span>
+				Note: 
+				<span style="color: red; font-weight: bold;">
+					We will suggest you some book titles from posts.
+				</span>
 			<p>
 		</div>
 	</div>

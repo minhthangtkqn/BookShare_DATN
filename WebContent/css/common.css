@@ -50,3 +50,24 @@ body {
 .white-color{
 	color: white;
 }
+
+.font-size-12{
+	font-size: 12px;
+}
+.border-hover:hover{
+	border: 1px solid;
+}
+.float-right{
+	float: right;
+}
+.note{
+	border: 1px solid;
+    padding: 5px;
+}
+.note p{
+	font-family: "Times New Roman", cursive;
+    font-size: 19px;
+    text-align: justify;
+    font-style: italic;
+    font-weight: bold;
+}

@@ -45,11 +45,15 @@ public class KetQuaTimKiemAction extends Action {
 		// xu ly cac tham so
 		String tuKhoa = (StringProcess.notVaild(ketQuaTimKiemForm.getTuKhoa()) ? "" : ketQuaTimKiemForm.getTuKhoa());
 		String sapXepThoiGian = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepThoiGian())
-				? Constant.DEFAULT_SAP_XEP_THOI_GIAN : (ketQuaTimKiemForm.getSapXepThoiGian() == "0" ? "DESC" : "ASC");
+				? Constant.DEFAULT_SAP_XEP_THOI_GIAN
+				: ("0".equals(ketQuaTimKiemForm.getSapXepThoiGian()) ? "DESC" : "ASC");
+
 		String sapXepGia = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepGia()) ? Constant.DEFAULT_SAP_XEP_GIA
-				: (ketQuaTimKiemForm.getSapXepGia() == "0" ? "DESC" : "ASC");
+				: ("0".equals(ketQuaTimKiemForm.getSapXepGia()) ? "DESC" : "ASC");
+
 		String maDanhMuc = (StringProcess.notVaild(ketQuaTimKiemForm.getMaDanhMuc()) ? "all"
 				: ketQuaTimKiemForm.getMaDanhMuc());
+		
 		String maTinh = (StringProcess.notVaild(ketQuaTimKiemForm.getMaTinh()) ? "all" : ketQuaTimKiemForm.getMaTinh());
 
 		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");

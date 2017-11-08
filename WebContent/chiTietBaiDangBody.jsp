@@ -8,9 +8,15 @@
 
 <!-- BODY -->
 <div id="page-body" class="container">
-	<br>
-	<br>
-	<br>
+	<div class="body-row note">
+		<p>
+			You should see the rating of the seller before deciding to buy.
+			<br>
+			If you know any problem with the sell account or the details of post,
+			please report it. We appreciate that 
+		</p>
+	</div>
+
 	<bean:define id="chiTietBaiDang" name="chiTietBaiDangForm"
 		property="chiTiet"></bean:define>
 
