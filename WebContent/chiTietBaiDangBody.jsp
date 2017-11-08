@@ -55,7 +55,7 @@
 
 		<div class="product-info">
 			<h2 class="info-title">
-				<b>THÔNG TIN SÁCH</b>
+				<b>DETAILS</b>
 			</h2>
 
 			<h3 style="text-align: center;">
@@ -64,21 +64,21 @@
 				</a>
 			</h3>
 
-			<p>Tác giả: <bean:write name="chiTietBaiDang" property="tacGia" /></p>
-			<p>Danh mục: <bean:write name="chiTietBaiDang" property="tenDanhMuc" /></p>
-			<p>Nhà xuất bản: <bean:write name="chiTietBaiDang" property="nxb" /></p>
-			<p>Năm xuất bản: <bean:write name="chiTietBaiDang" property="namxb" /></p>
-			<p>Ngày đăng bán: <bean:write name="chiTietBaiDang" property="ngayBan" /></p>
-			<p>Tỉnh thành:	<bean:write name="chiTietBaiDang" property="tenTinhBan" /></p>
+			<p>Author: <bean:write name="chiTietBaiDang" property="tacGia" /></p>
+			<p>Category: <bean:write name="chiTietBaiDang" property="tenDanhMuc" /></p>
+			<p>Publisher: <bean:write name="chiTietBaiDang" property="nxb" /></p>
+			<p>Publish year: <bean:write name="chiTietBaiDang" property="namxb" /></p>
+			<p>Posted date: <bean:write name="chiTietBaiDang" property="ngayBan" /></p>
+			<p>Region:	<bean:write name="chiTietBaiDang" property="tenTinhBan" /></p>
 
 			<p style="color: red; font-size: 20px">
-				<b>Giá: <bean:write name="chiTietBaiDang" property="gia" /></b>
+				<b>Price: <bean:write name="chiTietBaiDang" property="gia" /></b>
 			</p>
 		</div>
 
 		<div class="thongtin_nguoiban">
 			<h2 class="info-title">
-				<b>THÔNG TIN NGƯỜI BÁN</b>
+				<b>SELLER INFORMATION</b>
 			</h2>
 			<div class="anh_nguoiban">
 				<bean:define id="anhNguoiBan" name="chiTietBaiDang"
@@ -87,26 +87,26 @@
 			</div>
 			<div class="text_info">
 				<p>
-					Tài khoản:
+					Account:
 					<bean:write name="chiTietBaiDang" property="taiKhoanNguoiBan" />
 				</p>
 
 				<p>
-					Tên người bán:
+					Name:
 					<bean:write name="chiTietBaiDang" property="hoTenNguoiBan" />
 				</p>
 
 				<p>
-					Giới tính:
+					Gender:
 					<bean:write name="chiTietBaiDang" property="gioiTinh" />
 				</p>
 				<p>
-					Năm sinh:
+					Birth year:
 					<bean:write name="chiTietBaiDang" property="namSinhNguoiBan" />
 				</p>
 			</div>
-			<a href="mua-sach.do" class="w3-btn w3-ripple w3-red btn-hoi-mua">Hỏi
-				Mua</a>
+<!-- 			<a href="mua-sach.do" class="w3-btn w3-ripple w3-red btn-hoi-mua">Hỏi -->
+<!-- 				Mua</a> -->
 		</div>
 	</div>
 	
@@ -115,7 +115,7 @@
 	<div class="body-row col-lg-12">
 		<div class="col-lg-offset-1 col-lg-11 comment-box">
 			<div class="col-lg-5" style="padding-left: 45px; margin-bottom: -35px;">
-				<h3>HỎI ĐÁP</h3>
+				<h3>QUESTIONS</h3>
 			</div>
 			
 			<logic:iterate id="dsBinhLuan" name="chiTietBaiDangForm" property="dsBinhLuan">
@@ -218,13 +218,13 @@
 				<html:form action="/dang-binh-luan" method="post">
 					<div class="form-group">
 						<html:text property="maRaoBan" style="display: none;" value="${maRaoBanChiTiet}"></html:text>
-						<label for="">Câu hỏi của bạn</label>
+						<label for="">Your question</label>
 						<html:textarea rows="6" property="binhLuan" styleClass="form-control"></html:textarea>
 					</div>
 					
 					<div class="form-group">
 						<div class="col-lg-12 no-padding">
-							<button type="submit" class="w3-button w3-ripple w3-light-green col-lg-2">Đăng câu hỏi</button>
+							<button type="submit" class="w3-button w3-ripple w3-light-green col-lg-2">Post your question</button>
 						</div>
 					</div>
 				</html:form>
@@ -239,29 +239,29 @@
 	<div class="body-row col-lg-12">
 		<div class="books">
 			<h3 style="color: red;">
-				<b>HOT TRONG THÁNG VỪA QUA</b>
+				<b>FEATURED POSTS FROM LAST MONTH SO FAR</b>
 			</h3>
 
 			<div class="owl-carousel owl-theme">
+
 				<logic:iterate id="book" property="dsGoiYMoiNguoiCungXem" name="chiTietBaiDangForm">
 					<div class="sp">
 						<bean:define id="anh" name="book" property="linkAnh1"></bean:define>
 						<bean:define id="maRaoBan" name="book" property="maRaoBan"></bean:define>
-
-						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"> <img
-							src="${anh}" class="w3-hover-opacity">
+						
+						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}">
+							<img src="${anh}" class="w3-hover-opacity">
 						</a>
 						<h4 class="ten-sach">
-							<b><bean:write name="book" property="tenSach" /></b>
+							<b><bean:write name="book" property="tenSach"/></b>
 						</h4>
-						<p class="tac-gia">
-							<bean:write name="book" property="tacGia" />
-						</p>
+						<p class="tac-gia"><bean:write name="book" property="tacGia"/></p>
 						<h4 class="gia-tien">
-							<b><bean:write name="book" property="gia" /></b>
+							<b><bean:write name="book" property="gia"/></b>
 						</h4>
 					</div>
 				</logic:iterate>
+
 			</div>
 		</div>
 	</div>

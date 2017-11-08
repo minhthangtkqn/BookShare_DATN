@@ -11,7 +11,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TIM KIEM</title>
+	<title>SEARCH</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="css/common.css">
@@ -38,14 +38,6 @@
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="owlcarousel/owl.carousel.min.js"></script>
 		<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
-
-		<!-- SCRIPT AUTO COMPLETE -->
-		<script>
-			// 		jQuery(function() {
-			// 			$("#tuKhoa").autocomplete("List.jsp");
-			// 		});
-		</script>
-		<!-- END SCRIPT AUTO COMPLETE -->
 
 		<script>
 			$('.owl-carousel').owlCarousel({

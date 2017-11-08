@@ -26,7 +26,7 @@ public class DangBanForm extends ActionForm {
 	private String tacGia;
 	private String nxb;
 	private String namxb;
-	private Float gia;
+	private String gia;
 	private String moTa;
 
 	private FormFile anh1;
@@ -41,7 +41,7 @@ public class DangBanForm extends ActionForm {
 	private String tacGiaError;
 	private String nxbError;
 	private String namxbError;
-	private Float giaError;
+	private String giaError;
 	private String moTaError;
 	private String linkAnh1Error;
 	private String linkAnh2Error;
@@ -173,11 +173,11 @@ public class DangBanForm extends ActionForm {
 		this.namxb = namxb;
 	}
 
-	public Float getGia() {
+	public String getGia() {
 		return gia;
 	}
 
-	public void setGia(Float gia) {
+	public void setGia(String gia) {
 		this.gia = gia;
 	}
 
@@ -269,11 +269,11 @@ public class DangBanForm extends ActionForm {
 		this.namxbError = namxbError;
 	}
 
-	public Float getGiaError() {
+	public String getGiaError() {
 		return giaError;
 	}
 
-	public void setGiaError(Float giaError) {
+	public void setGiaError(String giaError) {
 		this.giaError = giaError;
 	}
 

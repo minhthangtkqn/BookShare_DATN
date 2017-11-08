@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import model.bean.RaoBan;
 import model.bo.BinhLuanBO;
+import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
 
 import org.apache.struts.action.Action;
@@ -37,7 +38,8 @@ public class ChiTietBaiDangAction extends Action {
 
 		RaoBanBO raoBanBO = new RaoBanBO();
 		BinhLuanBO binhLuanBO = new BinhLuanBO();
-		
+		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+
 		// lay du lieu hien thi
 		RaoBan raoBan = raoBanBO.layThongTinBaiDang(chiTietBaiDangForm.getMaRaoBan());
 
@@ -64,31 +66,28 @@ public class ChiTietBaiDangAction extends Action {
 		int userType;
 
 		// kiem tra da dang nhap hay chua
-		if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
-			userID = "";
-			userType = -1;
-		} else {
-			userType = (Integer) session.getAttribute("type");
-			userID = (String) session.getAttribute("userID");
-		}
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
 
 		// PHÂN LUỒNG
-		if (userType == 0) {
+		if (type == 0) {
 			// admin
 			return mapping.findForward("xemCheDoQuanLy");
 		} else {
 			chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachHot());
 
 			// luu lich su xem vao` CSDL
-			if (raoBanBO.luuLichSuXemRaoBan(userID, chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {
+			if (raoBanBO.luuLichSuXemRaoBan(StringProcess.getVaildString((String) session.getAttribute("userID")),
+					chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {
 				System.out.println("Da~ luu vao CSDL:");
-				System.out.println("Ma Nguoi Dung: " + userID + "  ---  Ma Rao Ban: "
-						+ chiTietBaiDangForm.getChiTiet().getMaRaoBan());
+				System.out.println(
+						"Ma Nguoi Dung: " + StringProcess.getVaildString((String) session.getAttribute("userID"))
+								+ "  ---  Ma Rao Ban: " + chiTietBaiDangForm.getChiTiet().getMaRaoBan());
 			} else {
 				System.out.println("Luu vao` CSDL that bai");
 			}
 
-			switch (userType) {
+			switch (type) {
 			case 1:
 				// nguoi dung binh thuong
 				return mapping.findForward("xemCheDoNguoiDung");

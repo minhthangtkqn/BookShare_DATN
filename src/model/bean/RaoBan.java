@@ -20,7 +20,7 @@ public class RaoBan {
 	private Date ngayBan;
 	private Date ngayDuocBan;
 	private int trangThaiRaoBan;
-	private float gia;
+	private String gia;
 
 	// NguoiDung
 	private String taiKhoanNguoiBan;
@@ -160,11 +160,11 @@ public class RaoBan {
 		this.trangThaiRaoBan = trangThaiRaoBan;
 	}
 
-	public float getGia() {
+	public String getGia() {
 		return gia;
 	}
 
-	public void setGia(float gia) {
+	public void setGia(String gia) {
 		this.gia = gia;
 	}
 

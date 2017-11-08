@@ -14,8 +14,8 @@
 				style="height: 100%; width: 100%" /></a>
 		</div>
 
-		<div class="col-lg-offset-3 col-lg-2" style="height: 30px; margin-top: 15px; margin-bottom: 15px; margin-right: -80px;">
-			<a href="dang-ban.do" class="btn btn-primary-outline" style="color: white;"> <span
+		<div class="col-lg-offset-3 col-lg-2" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
+			<a href="dang-ban.do" class="btn btn-primary-outline" style="color: white; float: right;"> <span
 				class="glyphicon glyphicon-pencil"></span> Sell book
 			</a>
 		</div>
@@ -28,7 +28,7 @@
 		</div>
 
 		<div class="col-lg-3" style="height: 40px; margin-top: 10px; margin-bottom: 10px;">
-			<ul class="list-inline list-unstyled">
+			<ul class="list-inline list-unstyled" style="float: right;">
 				<li><div style="height: 40px;">
 						<a href="trang-ca-nhan.do" style="color: white;"><img class="img-circle"
 							style="height: 40px; width: 40px;" alt="" src="${Avatar}">
@@ -36,7 +36,7 @@
 					</div></li> &nbsp;&nbsp;&nbsp;&nbsp;
 				<li><div style="height: 40px; padding-top: 7px;">
 						<a href="dang-xuat.do" style="color: white;"><i class="glyphicon glyphicon-off"></i>
-							Đăng xuất</a>
+							Log out</a>
 					</div></li>
 			</ul>
 		</div>

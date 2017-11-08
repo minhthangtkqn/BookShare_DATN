@@ -29,17 +29,11 @@ import common.StringProcess;
 import form.DangBanForm;
 
 /**
- * SinhVienAction.java
  * 
- * Version 1.0
+ * DangBanAction
  * 
- * Date: Jan 21, 2015
- * 
- * Copyright
- * 
- * Modification Logs: DATE AUTHOR DESCRIPTION
- * ----------------------------------------------------------------------- Jan
- * 21, 2015 DaiLV2 Create
+ * @author hoangminhthang
+ *
  */
 
 public class DangBanAction extends Action {

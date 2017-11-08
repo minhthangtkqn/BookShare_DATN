@@ -50,14 +50,8 @@ public class TrangChuAction extends Action {
 		// Lay danh sach 500 bai dang moi nhat
 		trangChuForm.setDsMoiNhat(baiRaoBanBO.layDanhSachMoiNhat());
 
-		// lay danh sach ngau nhien
-//		trangChuForm.setDsNgauNhien(baiRaoBanBO.layDanhSachNgauNhien());
-
 		// lay ds hot
 		trangChuForm.setDsHot(baiRaoBanBO.layDanhSachHot());
-
-		// lay ds GOI Y moi nguoi cung xem
-		trangChuForm.setDsGoiYMoiNguoiCungXem(baiRaoBanBO.layDanhSachGoiYMoiNguoiCungXem());
 
 		// Kiem tra dang nhap
 		if (type != 1 && type != 2) {
@@ -65,8 +59,7 @@ public class TrangChuAction extends Action {
 			return mapping.findForward("index");
 		}
 
-		// NEU DA DANG NHAP --> Bat Dau xu li
-		trangChuForm.setDsGoiY(baiRaoBanBO.layDanhSachGoiY((String) session.getAttribute("userID")));
+		// NEU DA DANG NHAP --> forward to home
 		System.out.println("forward to home");
 		return mapping.findForward("home");
 	}

@@ -64,7 +64,6 @@ public class RaoBanDAO {
 
 			PreparedStatement cstm = connection.prepareStatement(sql);
 
-//			CallableStatement cstm = connection.prepareCall("{call p_themraoban (?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
 			cstm.setNString(1, raoBan.getTenSach());
 			cstm.setString(2, raoBan.getMaDanhMuc());
 			cstm.setNString(3, raoBan.getTacGia());
@@ -72,7 +71,7 @@ public class RaoBanDAO {
 			cstm.setString(5, raoBan.getNamxb());
 			cstm.setString(6, raoBan.getMaNguoiRaoBan());
 			cstm.setInt(7, raoBan.getMaTinhBan());
-			cstm.setFloat(8, raoBan.getGia());
+			cstm.setInt(8, Integer.parseInt(raoBan.getGia()));
 			cstm.setNString(9, raoBan.getMoTa());
 			cstm.setString(10, raoBan.getLinkAnh1());
 			cstm.setString(11, raoBan.getLinkAnh2());
@@ -81,29 +80,10 @@ public class RaoBanDAO {
 			cstm.setString(14, raoBan.getLinkAnh5());
 
 			cstm.executeUpdate();
-			/*
-			 * pstm.setNString(1,raoBan.getTenSach());
-			 * pstm.setString(2,raoBan.getMaDanhMuc());
-			 * pstm.setNString(3,raoBan.getTacGia());
-			 * pstm.setNString(4,raoBan.getNxb()); pstm.setInt(5,
-			 * raoBan.getNamxb()); pstm.setString(6, raoBan.getMaNguoiRaoBan());
-			 * pstm.setInt(7, raoBan.getMaTinhBan());
-			 * pstm.setFloat(8,raoBan.getGia());
-			 * pstm.setNString(9,raoBan.getMoTa()); pstm.setString(10,
-			 * raoBan.getLinkAnh1()); pstm.setString(11, raoBan.getLinkAnh2());
-			 * pstm.setString(12, raoBan.getLinkAnh3()); pstm.setString(13,
-			 * raoBan.getLinkAnh4()); pstm.setString(14, raoBan.getLinkAnh5());
-			 * 
-			 * pstm.executeUpdate(sql);
-			 */
-
 			System.out.println("Dang bai thanh cong - RaoBanDAO");
-
 			return true;
-
 		} catch (SQLException e) {
 			e.printStackTrace();
-
 			System.out.println("Fail CMNR!!!");
 		}
 		return false;
@@ -115,7 +95,6 @@ public class RaoBanDAO {
 
 		connect();
 		String sql = "SELECT * FROM " + Constant.FUNCTION_LAY_THONG_TIN_BAI_DANG + "(?)";
-		RaoBan raoBan = null;
 		try {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			pstm.setString(1, maRaoBan);
@@ -123,21 +102,21 @@ public class RaoBanDAO {
 			if (!rs.isBeforeFirst()) {
 				return null;
 			}
-			raoBan = new RaoBan();
+			RaoBan raoBan = new RaoBan();
 			rs.next();
 
 			raoBan.setMaRaoBan(rs.getString("maraoban"));
 			raoBan.setMaNguoiRaoBan(rs.getString("manguoiraoban"));
 			raoBan.setMaTinhBan(rs.getInt("matinhban"));
 			raoBan.setTenTinhBan(rs.getString("tentinhban"));
-			raoBan.setGia(rs.getFloat("gia"));
+			raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 			raoBan.setMoTa(rs.getString("mota"));
 
-			raoBan.setLinkAnh1(StringProcess.notVaild(rs.getString("linkanh1")) ? "" : rs.getString("linkanh1"));
-			raoBan.setLinkAnh2(StringProcess.notVaild(rs.getString("linkanh2")) ? "" : rs.getString("linkanh2"));
-			raoBan.setLinkAnh3(StringProcess.notVaild(rs.getString("linkanh3")) ? "" : rs.getString("linkanh3"));
-			raoBan.setLinkAnh4(StringProcess.notVaild(rs.getString("linkanh4")) ? "" : rs.getString("linkanh4"));
-			raoBan.setLinkAnh5(StringProcess.notVaild(rs.getString("linkanh5")) ? "" : rs.getString("linkanh5"));
+			raoBan.setLinkAnh1(StringProcess.notVaild(rs.getString("linkanh1")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh1"));
+			raoBan.setLinkAnh2(StringProcess.notVaild(rs.getString("linkanh2")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh2"));
+			raoBan.setLinkAnh3(StringProcess.notVaild(rs.getString("linkanh3")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh3"));
+			raoBan.setLinkAnh4(StringProcess.notVaild(rs.getString("linkanh4")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh4"));
+			raoBan.setLinkAnh5(StringProcess.notVaild(rs.getString("linkanh5")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("linkanh5"));
 
 			raoBan.setNgayBan(rs.getDate("ngayban"));
 			raoBan.setHoTenNguoiBan(rs.getString("hoten"));
@@ -154,12 +133,12 @@ public class RaoBanDAO {
 			raoBan.setTrangThaiRaoBan(rs.getInt("TrangThaiBan"));
 
 			if ("0".equals(rs.getString("gioitinh"))) {
-				raoBan.setGioiTinh("Nữ");
+				raoBan.setGioiTinh("Female");
 			} else {
 				if ("1".equals(rs.getString("gioitinh"))) {
-					raoBan.setGioiTinh("Nam");
+					raoBan.setGioiTinh("Male");
 				} else {
-					raoBan.setGioiTinh("Chưa xác định");
+					raoBan.setGioiTinh("Unidentified");
 				}
 			}
 
@@ -172,13 +151,11 @@ public class RaoBanDAO {
 			System.out.println(" --- danh muc: " + raoBan.getTenDanhMuc());
 			System.out.println(" --- nha xuat ban: " + raoBan.getNxb());
 
-			raoBan.toString();
-
+			return raoBan;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return raoBan;
+		return null;
 	}
 
 	public ArrayList<RaoBan> layDanhSachChoDuyet() {
@@ -193,7 +170,7 @@ public class RaoBanDAO {
 				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
-				raoBan.setGia(rs.getFloat("gia"));
+				raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
 				raoBan.setLinkAnh2(rs.getString("linkanh2"));
@@ -234,7 +211,7 @@ public class RaoBanDAO {
 				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
-				raoBan.setGia(rs.getFloat("gia"));
+				raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
 				raoBan.setLinkAnh2(rs.getString("linkanh2"));
@@ -277,7 +254,7 @@ public class RaoBanDAO {
 				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
-				raoBan.setGia(rs.getFloat("gia"));
+				raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
 				raoBan.setLinkAnh2(rs.getString("linkanh2"));
@@ -315,7 +292,7 @@ public class RaoBanDAO {
 				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
-				raoBan.setGia(rs.getFloat("gia"));
+				raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
 				raoBan.setLinkAnh2(rs.getString("linkanh2"));
@@ -350,7 +327,7 @@ public class RaoBanDAO {
 				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
-				raoBan.setGia(rs.getFloat("gia"));
+				raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
 				raoBan.setLinkAnh2(rs.getString("linkanh2"));
@@ -390,7 +367,7 @@ public class RaoBanDAO {
 				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setTenTinhBan(rs.getString("tentinh"));
-				raoBan.setGia(rs.getFloat("gia"));
+				raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				raoBan.setMoTa(rs.getString("mota"));
 				raoBan.setLinkAnh1(rs.getString("linkanh1"));
 				raoBan.setLinkAnh2(rs.getString("linkanh2"));
@@ -436,12 +413,11 @@ public class RaoBanDAO {
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
 
-				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				System.out.print("Ten sach: " + rs.getString("TenSach"));
 				System.out.println("  --  Link anh: " + rs.getString("LinkAnh1"));
@@ -455,40 +431,10 @@ public class RaoBanDAO {
 		return null;
 	}
 
-	public ArrayList<RaoBan> layDanhSachNgauNhien() {
-		connect();
-
-		String sql = "select * from v_dsNgauNhien";
-		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
-
-		try {
-			Statement stm = connection.createStatement();
-			ResultSet rs = null;
-			rs = stm.executeQuery(sql);
-			RaoBan baiRaoBan;
-			while (rs.next()) {
-				baiRaoBan = new RaoBan();
-
-				baiRaoBan.setGia(rs.getFloat("Gia"));
-				baiRaoBan.setTacGia(rs.getString("TacGia"));
-				baiRaoBan.setTenSach(rs.getString("TenSach"));
-				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
-				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
-
-				list.add(baiRaoBan);
-			}
-			return list;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	public ArrayList<RaoBan> layDanhSachDanhMucBanNhieuNhat() {
 		connect();
 
-		String sql = "select * from v_dsDanhMucBanNhieuNhat";
+		String sql = "SELECT * FROM v_dsDanhMucBanNhieuNhat";
 
 		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
 
@@ -500,7 +446,7 @@ public class RaoBanDAO {
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
 
-				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
@@ -560,7 +506,7 @@ public class RaoBanDAO {
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
 
-				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
@@ -616,42 +562,11 @@ public class RaoBanDAO {
 			while (rs.next()) {
 				baiRaoBan = new RaoBan();
 
-				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-
-				list.add(baiRaoBan);
-			}
-			return list;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public ArrayList<RaoBan> layDanhSachGoiY(String userID) {
-
-		connect();
-
-		String sql = "select * from v_dsGoiY";
-		ArrayList<RaoBan> list = new ArrayList<RaoBan>();
-
-		try {
-			Statement stm = connection.createStatement();
-			ResultSet rs = null;
-			rs = stm.executeQuery(sql);
-			RaoBan baiRaoBan;
-			while (rs.next()) {
-				baiRaoBan = new RaoBan();
-
-				baiRaoBan.setGia(rs.getFloat("Gia"));
-				baiRaoBan.setTacGia(rs.getString("TacGia"));
-				baiRaoBan.setTenSach(rs.getString("TenSach"));
-				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
-				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-				baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				list.add(baiRaoBan);
 			}
@@ -668,7 +583,6 @@ public class RaoBanDAO {
 		String sql = "INSERT INTO " + Constant.TABLE_TU_KHOA_TIM_KIEM + " VALUES(?, ?, GETDATE())";
 
 		try {
-
 			PreparedStatement statement = connection.prepareStatement(sql);
 
 			statement.setString(1, maNguoiDung);
@@ -689,7 +603,6 @@ public class RaoBanDAO {
 		String sql = "INSERT INTO " + Constant.TABLE_RAO_BAN_DA_XEM + " VALUES(?, ?, GETDATE())";
 
 		try {
-
 			PreparedStatement statement = connection.prepareStatement(sql);
 
 			statement.setString(1, maNguoiDung);
@@ -697,7 +610,6 @@ public class RaoBanDAO {
 
 			statement.executeUpdate();
 			return true;
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -726,12 +638,11 @@ public class RaoBanDAO {
 
 				baiRaoBan = new RaoBan();
 
-				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-				// baiRaoBan.setTenTinhBan(rs.getString("TenTinh"));
 
 				list.add(baiRaoBan);
 
@@ -766,14 +677,11 @@ public class RaoBanDAO {
 
 				baiRaoBan = new RaoBan();
 
-				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
 				baiRaoBan.setLinkAnh1(rs.getString("LinkAnh1"));
-
-				System.out.print("Ten sach: " + rs.getString("TenSach"));
-				System.out.println(" --- Ma Rao Ban: " + rs.getString("MaRaoBan"));
 
 				list.add(baiRaoBan);
 			}
@@ -805,7 +713,7 @@ public class RaoBanDAO {
 
 				baiRaoBan = new RaoBan();
 
-				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND" + " VND");
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
@@ -841,7 +749,7 @@ public class RaoBanDAO {
 
 				baiRaoBan = new RaoBan();
 
-				baiRaoBan.setGia(rs.getFloat("Gia"));
+				baiRaoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				baiRaoBan.setTacGia(rs.getString("TacGia"));
 				baiRaoBan.setTenSach(rs.getString("TenSach"));
 				baiRaoBan.setMaRaoBan(rs.getString("MaRaoBan"));
@@ -887,7 +795,7 @@ public class RaoBanDAO {
 			statement.setNString(6, raoBan.getNxb());
 			statement.setString(7, raoBan.getNamxb());
 			statement.setInt(8, raoBan.getMaTinhBan());
-			statement.setFloat(9, raoBan.getGia());
+			statement.setInt(9, Integer.parseInt(raoBan.getGia()));
 			statement.setNString(10, raoBan.getMoTa());
 			statement.setString(11, raoBan.getLinkAnh1());
 			statement.setString(12, raoBan.getLinkAnh2());
@@ -1028,7 +936,7 @@ public class RaoBanDAO {
 
 				rb = new RaoBan();
 				rb.setMaRaoBan(rs.getString("MaRaoBan"));
-				rb.setGia(rs.getFloat("gia"));
+				rb.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				rb.setLinkAnh1(rs.getString("linkanh1"));
 				rb.setTenSach(rs.getString("tensach"));
 				rb.setNamxb(rs.getString("namxb"));
@@ -1036,6 +944,8 @@ public class RaoBanDAO {
 				rb.setTacGia(rs.getString("tacgia"));
 
 				list.add(rb);
+				
+				System.out.println("Giá tiền: " + rb.getGia());
 			}
 			return list;
 		} catch (Exception e) {
@@ -1058,7 +968,7 @@ public class RaoBanDAO {
 			RaoBan rb;
 			while (rs.next()) {
 				rb = new RaoBan();
-				
+
 				rb.setMaRaoBan(rs.getString("MaRaoBan"));
 				rb.setTenDanhMuc(rs.getNString("TenDanhMuc"));
 				rb.setTenSach(rs.getString("tensach"));
@@ -1067,12 +977,12 @@ public class RaoBanDAO {
 				rb.setNamxb(rs.getString("namxb"));
 				rb.setTrangThaiRaoBan(rs.getInt("TrangThaiBan"));
 				rb.setTenTinhBan((rs.getNString("TenTinh")));
-				rb.setGia(rs.getFloat("gia"));
+				rb.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
 				rb.setMoTa(rs.getNString("MoTa"));
 				rb.setLinkAnh1(rs.getString("linkanh1"));
 				rb.setNgayBan(rs.getDate("NgayBan"));
 				rb.setGhiChuRaoBan(rs.getNString("GhiChu"));
-				
+
 				list.add(rb);
 			}
 			return list;

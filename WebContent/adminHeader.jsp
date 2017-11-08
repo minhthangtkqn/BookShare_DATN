@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="col-lg-offset-7 col-lg-3" style="height: 40px; margin-top: 10px; margin-bottom: 10px;">
-			<ul class="list-inline list-unstyled">
+			<ul class="list-inline list-unstyled" style="float: right;">
 				<li><div style="height: 40px;">
 						<a href="trang-ca-nhan.do" style="color: white;"><img class="img-circle"
 							style="height: 40px; width: 40px;" alt="" src="${Avatar}">
@@ -23,7 +23,7 @@
 					</div></li> &nbsp;&nbsp;&nbsp;&nbsp;
 				<li><div style="height: 40px; padding-top: 7px;">
 						<a href="dang-xuat.do" style="color: white;"><i class="glyphicon glyphicon-off"></i>
-							Đăng xuất</a>
+							Log out</a>
 					</div></li>
 			</ul>
 		</div>

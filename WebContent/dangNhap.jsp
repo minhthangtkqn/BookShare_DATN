@@ -11,7 +11,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ĐĂNG NHẬP</title>
+	<title>BOOKSHARE</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="css/common.css">
@@ -52,18 +52,18 @@
 						</div>
 					</div>
 
-					<div class="form-group">
-						<div class="col-lg-offset-4 col-lg-5">
-							<div class="checkbox">
-								<label> <input type="checkbox"> Remember me
-								</label>
-							</div>
-						</div>
-					</div>
+<!-- 					<div class="form-group"> -->
+<!-- 						<div class="col-lg-offset-4 col-lg-5"> -->
+<!-- 							<div class="checkbox"> -->
+<!-- 								<label> <input type="checkbox"> Remember me -->
+<!-- 								</label> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 
 					<div class="form-group">
 						<div class="col-lg-offset-4 col-lg-5">
-							<button type="submit" class="btn btn-primary">Sign in</button>
+							<button type="submit" class="btn btn-primary">Log in</button>
 						</div>
 					</div>
 				</html:form>

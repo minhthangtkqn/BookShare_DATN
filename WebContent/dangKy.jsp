@@ -10,7 +10,7 @@
 <head lang="vi">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>ĐĂNG KÝ</title>
+	<title>REGISTER</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="css/common.css">
@@ -28,11 +28,11 @@
 
 		<!--    BODY        -->
 		<div id="page-body" class="container">
-			<h3>Đăng ký thành viên</h3>
+			<h3>CREATE AN ACCOUNT</h3>
 			<br>
 			<html:form action="/dang-ky" method="post">
 				<div class="row form-group">
-					<label class="col-lg-2">Tên đăng nhập</label>
+					<label class="col-lg-2">Username</label>
 					<div class="col-lg-3">
 						<html:text property="taiKhoan" styleClass="form-control"></html:text>
 						<p style="color: red;">
@@ -42,7 +42,7 @@
 				</div>
 
 				<div class="row form-group">
-					<label class="col-lg-2">Mật khẩu</label>
+					<label class="col-lg-2">Password</label>
 					<div class="col-lg-3">
 						<html:password property="matKhau" styleClass="form-control"></html:password>
 						<p style="color: red;">
@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="row form-group">
-					<label class="col-lg-2">Nhập lại mật khẩu</label>
+					<label class="col-lg-2">Confirm Password</label>
 					<div class="col-lg-3">
 						<html:password property="nhapLaiMatKhau" styleClass="form-control"></html:password>
 						<p style="color: red;">
@@ -71,8 +71,8 @@
 
 				<div class="row form-group">
 					<div class="col-lg-3 col-lg-offset-2">
-						<html:submit styleClass="btn btn-primary">Đăng ký</html:submit>
-						<button class="btn btn-primary" type="reset">Hủy</button>
+						<html:submit styleClass="btn btn-primary">Create</html:submit>
+						<button class="btn btn-primary" type="reset">Cancel</button>
 					</div>
 				</div>
 			</html:form>

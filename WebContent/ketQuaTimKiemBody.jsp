@@ -35,8 +35,8 @@
 				</select>
 
 				<select name="sapXepThoiGian">
-					<option value="0">Bai moi' truoc</option>
-					<option value="1">Bai cu~ truoc</option>
+					<option value="0">Latest posts first</option>
+					<option value="1">Oldest posts first</option>
 				</select>
 			</html:form>
 
@@ -58,7 +58,7 @@
 	<div class="body-row" style="margin-top: 50px;">
 		<div class="books" >
 			<h3>
-				<b>KẾT QUẢ TÌM KIẾM</b>
+				<b>SEARCH RESULTS</b>
 			</h3>
 			
 			<div class="box">
@@ -84,7 +84,7 @@
 
 		<div class="books">
 			<h3 style="color: red;">
-				<b>HOT TRONG THÁNG VỪA QUA</b>
+				<b>FEATURED POSTS FROM LAST MONTH SO FAR</b>
 			</h3>
 
 			<div class="owl-carousel owl-theme">

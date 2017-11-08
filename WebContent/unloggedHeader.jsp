@@ -22,10 +22,10 @@
 		</div>
 
 		<div class="col-lg-3" style="height: 20px; margin-top: 20px; margin-bottom: 20px;">
-			<ul class="list-inline list-unstyled">
-				<li><a style="color: white;" href="dangKy.jsp"><i class="fa fa-user"></i> Đăng ký</a></li>
+			<ul class="list-inline list-unstyled" style="float: right;">
+				<li><a style="color: white;" href="dangKy.jsp"><i class="fa fa-user"></i> Register</a></li>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<li><a style="color: white;" href="dangNhap.jsp"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+				<li><a style="color: white;" href="dangNhap.jsp"><i class="fa fa-lock"></i> Log in</a></li>
 			</ul>
 		</div>
 	</div>
