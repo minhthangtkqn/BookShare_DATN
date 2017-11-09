@@ -59,22 +59,22 @@
 	
 	<div class="body-row">
 		<a href="danh-sach-nguoi-dung.do" class="btn btn-success"> 
-			<i class="glyphicon glyphicon-th-list"></i> Danh sách người dùng
+			<i class="glyphicon glyphicon-th-list"></i> Managing users
 		</a>
 		<a href="danh-muc.do" class="btn btn-success"> 
-			<i class="glyphicon glyphicon-align-left"></i> Danh sách danh mục
+			<i class="glyphicon glyphicon-align-left"></i> Managing categories
 		</a>
 	</div>
 
 	<div class="body-row user-functions">
 		<a href="#danh-sach-cho-duyet">
-			<div class="user-function row-item">DS CHỜ DUYỆT</div>
+			<div class="user-function row-item">PENDING</div>
 		</a> <a href="#danh-sach-dang-ban">
-			<div class="user-function row-item">DS ĐANG BÁN</div>
+			<div class="user-function row-item">SELLING</div>
 		</a> <a href="#danh-sach-mua-sau">
 			<div class="user-function row-item">???????????</div>
 		</a> <a href="#danh-sach-da-ban">
-			<div class="user-function row-item">DS ĐÃ BÁN</div>
+			<div class="user-function row-item">DS SOLD</div>
 		</a>
 	</div>
 	
@@ -82,32 +82,32 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>ĐANG CHỜ DUYỆT</b>
+				<b>PENDING</b>
 			</h3>
 			<table id="danh-sach-cho-duyet"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Duyệt</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Details</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Duyệt</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Details</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -137,32 +137,32 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>ĐANG BÁN</b>
+				<b>SELLING</b>
 			</h3>
 			<table id="danh-sach-dang-ban"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Bỏ duyệt</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Details</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
-						<th>Bỏ duyệt</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Details</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -191,30 +191,30 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>ĐÃ BÁN</b>
+				<b>SOLD</b>
 			</h3>
 			<table id="danh-sach-da-ban"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Tên sách</th>
-						<th>Danh mục</th>
-						<th>Giá bán</th>
-						<th>Ngày bán</th>
-						<th>Nhà xuất bản</th>
-						<th>Năm xuất bản</th>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->

@@ -10,7 +10,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>ĐĂNG BÁN SÁCH</title>
+	<title>SELL BOOK</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="css/common.css">
@@ -30,19 +30,19 @@
 		<div id="page-body" class="container">
 
 			<div class="body-row">
-				<h3>Đăng tin bán sách</h3>
+				<h3>BOOK DETAILS</h3>
 				<br>
 				<html:form action="/dang-ban.do" method="post"
 					enctype="multipart/form-data">
 					<div class="row form-group">
-						<label class="col-lg-2">Tên sách</label>
+						<label class="col-lg-2">Book title</label>
 						<div class="col-lg-3">
 							<html:text property="tenSach" styleClass="form-control" value=""></html:text>
 							<html:errors property="tenSachError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Danh mục sách</label>
+						<label class="col-lg-2">Category</label>
 						<div class="col-lg-3">
 							<html:select property="maDanhMuc" styleClass="form-control">
 								<html:optionsCollection name="dangBanForm" property="dsDanhMuc"
@@ -52,35 +52,35 @@
 					</div>
 
 					<div class="row form-group">
-						<label class="col-lg-2">Tác giả</label>
+						<label class="col-lg-2">Author</label>
 						<div class="col-lg-3">
 							<html:text property="tacGia" styleClass="form-control" value=""></html:text>
 							<html:errors property="tacGiaError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Năm xuất bản</label>
+						<label class="col-lg-2">Publish year</label>
 						<div class="col-lg-3">
 							<html:text property="namxb" styleClass="form-control" value=""></html:text>
 							<html:errors property="namxbError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Nhà xuất bản</label>
+						<label class="col-lg-2">Publisher</label>
 						<div class="col-lg-3">
 							<html:text property="nxb" styleClass="form-control" value=""></html:text>
 							<html:errors property="nxbError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Giá</label>
+						<label class="col-lg-2">Price</label>
 						<div class="col-lg-3">
 							<html:text property="gia" styleClass="form-control" value=""></html:text>
 							<html:errors property="giaError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Địa chỉ</label>
+						<label class="col-lg-2">Region</label>
 						<div class="col-lg-3">
 							<html:select property="maTinh" styleClass="form-control">
 								<html:optionsCollection name="dangBanForm" property="dsTinh"
@@ -89,42 +89,42 @@
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Mô tả</label>
+						<label class="col-lg-2">Description</label>
 						<div class="col-lg-3">
 							<html:text property="moTa" styleClass="form-control" value=""></html:text>
 							<html:errors property="moTaError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Ảnh 1</label>
+						<label class="col-lg-2">Image 1</label>
 						<div class="col-lg-3">
 							<html:file property="anh1" />
 							<html:errors property="linkAnh1Error" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Ảnh 2</label>
+						<label class="col-lg-2">Image 2</label>
 						<div class="col-lg-3">
 							<html:file property="anh2" />
 							<html:errors property="linkAnh2Error" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Ảnh 3</label>
+						<label class="col-lg-2">Image 3</label>
 						<div class="col-lg-3">
 							<html:file property="anh3" />
 							<html:errors property="linkAnh3Error" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Ảnh 4</label>
+						<label class="col-lg-2">Image 4</label>
 						<div class="col-lg-3">
 							<html:file property="anh4" />
 							<html:errors property="linkAnh4Error" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-2">Ảnh 5</label>
+						<label class="col-lg-2">Image 5</label>
 						<div class="col-lg-3">
 							<html:file property="anh5" />
 							<html:errors property="linkAnh5Error" />
@@ -133,8 +133,8 @@
 					<div class="row form-group">
 						<div class="col-lg-3 col-lg-offset-2">
 							<html:submit styleClass="btn btn-primary" property="submit"
-								value="submit">Đăng Bài</html:submit>
-							<button class="btn btn-primary" type="reset">Hủy</button>
+								value="submit">Submit</html:submit>
+<!-- 							<button class="btn btn-primary" type="reset">Cancel</button> -->
 						</div>
 					</div>
 				</html:form>

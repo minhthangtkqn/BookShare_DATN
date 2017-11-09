@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>DANH SÁCH DANH MỤC</title>
+	<title>MANAGING CATEGORIES</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet" href="bootstraps/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">

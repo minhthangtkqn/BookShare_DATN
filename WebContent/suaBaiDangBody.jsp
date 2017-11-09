@@ -9,7 +9,7 @@
 <!-- BODY -->
 <div id="page-body" class="container">
 	<div class="body-row">
-		<h2 style="text-align: center;">SỬA TIN BÁN SÁCH</h2>
+		<h2 style="text-align: center;">EDIT DETAILS</h2>
 	</div>
 	
 	<br>
@@ -19,14 +19,14 @@
 			enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-xs-6 form-group">
-					<label class="col-lg-4">Tên sách</label>
+					<label class="col-lg-4">Book title</label>
 					<div class="col-lg-7">
 						<html:text property="tenSach" styleClass="form-control"></html:text>
 						<html:errors property="tenSachError" />
 					</div>
 				</div>
 				<div class="col-xs-6 form-group">
-					<label class="col-lg-4">Danh mục sách</label>
+					<label class="col-lg-4">Category</label>
 					<div class="col-lg-7">
 						<html:select property="maDanhMuc" styleClass="form-control">
 							<html:optionsCollection name="dangBanForm" property="dsDanhMuc"
@@ -38,14 +38,14 @@
 
 			<div class="row">
 				<div class="col-xs-6 form-group">
-					<label class="col-lg-4">Tác giả</label>
+					<label class="col-lg-4">Author</label>
 					<div class="col-lg-7">
 						<html:text property="tacGia" styleClass="form-control"></html:text>
 						<html:errors property="tacGiaError" />
 					</div>
 				</div>
 				<div class="col-xs-6 form-group">
-					<label class="col-lg-4">Năm xuất bản</label>
+					<label class="col-lg-4">Publish year</label>
 					<div class="col-lg-7">
 						<html:text property="namxb" styleClass="form-control"></html:text>
 						<html:errors property="namxbError" />
@@ -55,14 +55,14 @@
 
 			<div class="row">
 				<div class="col-xs-6 form-group">
-					<label class="col-lg-4">Nhà xuất bản</label>
+					<label class="col-lg-4">Publisher</label>
 					<div class="col-lg-7">
 						<html:text property="nxb" styleClass="form-control"></html:text>
 						<html:errors property="nxbError" />
 					</div>
 				</div>
 				<div class="col-xs-6 form-group">
-					<label class="col-lg-4">Giá</label>
+					<label class="col-lg-4">Price</label>
 					<div class="col-lg-7">
 						<html:text property="gia" styleClass="form-control"></html:text>
 						<html:errors property="giaError" />
@@ -72,7 +72,7 @@
 
 			<div class="row">
 				<div class="col-xs-6 form-group">
-					<label class="col-lg-4">Tỉnh</label>
+					<label class="col-lg-4">Region</label>
 					<div class="col-lg-7">
 						<html:select property="maTinh" styleClass="form-control">
 							<html:optionsCollection name="dangBanForm" property="dsTinh"
@@ -81,7 +81,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 form-group">
-					<label class="col-lg-4">Mô tả</label>
+					<label class="col-lg-4">Description</label>
 					<div class="col-lg-7">
 						<html:text property="moTa" styleClass="form-control"></html:text>
 						<html:errors property="moTaError" />
@@ -102,7 +102,7 @@
 
 			<div class="row">
 				<div class="col-xs-3 form-group">
-					<label class="col-lg-offset-4 col-lg-6">Ảnh 1</label>
+					<label class="col-lg-offset-4 col-lg-6">Image 1</label>
 					<div class="col-lg-12 old-img">
 						<img src="${linkAnh1}" style="width: 100%; height: 100%;">
 						<input name="linkAnh1" value="${linkAnh1}" style="display: none;">
@@ -114,7 +114,7 @@
 				</div>
 				
 				<div class="col-xs-offset-1 col-xs-3 form-group">
-					<label class="col-lg-offset-4 col-lg-6">Ảnh 2</label>
+					<label class="col-lg-offset-4 col-lg-6">Image 2</label>
 					<div class="col-lg-12 old-img">
 						<img src="${linkAnh2}" style="width: 100%; height: 100%;">
 						<input name="linkAnh2" value="${linkAnh2}" style="display: none;">
@@ -126,7 +126,7 @@
 				</div>
 				
 				<div class="col-xs-offset-1 col-xs-3 form-group">
-					<label class="col-lg-offset-4 col-lg-6">Ảnh 3</label>
+					<label class="col-lg-offset-4 col-lg-6">Image 3</label>
 					<div class="col-lg-12 old-img">
 						<img src="${linkAnh3}" style="width: 100%; height: 100%;">
 						<input name="linkAnh3" value="${linkAnh3}" style="display: none;">
@@ -142,7 +142,7 @@
 			
 			<div class="row">
 				<div class="col-xs-offset-2 col-xs-3 form-group">
-					<label class="col-lg-offset-4 col-lg-6">Ảnh 4</label>
+					<label class="col-lg-offset-4 col-lg-6">Image 4</label>
 					<div class="col-lg-12 old-img">
 						<img src="${linkAnh4}" style="width: 100%; height: 100%;"> <input
 							name="linkAnh4" value="${linkAnh4}" style="display: none;">
@@ -154,7 +154,7 @@
 				</div>
 				
 				<div class="col-xs-offset-2 col-xs-3 form-group">
-					<label class="col-lg-offset-4 col-lg-6">Ảnh 5</label>
+					<label class="col-lg-offset-4 col-lg-6">Image 5</label>
 					<div class="col-lg-12 old-img">
 						<img src="${linkAnh5}" style="width: 100%; height: 100%;"> <input
 							name="linkAnh5" value="${linkAnh5}" style="display: none;">
@@ -174,8 +174,8 @@
 			<div class="row">
 				<div class="col-lg-offset-5 col-lg-4 form-group">
 					<html:submit styleClass="btn btn-primary" property="submit"
-						value="submit">Sửa bài đăng</html:submit>
-					<button class="btn btn-primary" type="reset">Reset</button>
+						value="submit">Save</html:submit>
+					<button class="btn btn-primary" type="reset">Reset form</button>
 				</div>
 			</div>
 		</html:form>

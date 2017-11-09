@@ -11,7 +11,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CÁC BÀI ĐĂNG ĐÃ XEM</title>
+	<title>BROWSING HISTORY</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet"
 		href="bootstraps/css/dataTables.bootstrap.min.css">
@@ -36,38 +36,38 @@
 			<div class="body-row">
 				<div class="books">
 					<h3>
-						<b>CÁC BÀI ĐĂNG ĐÃ XEM</b>
+						<b>BROWSING HISTORY</b>
 					</h3>
 					<table id="cac-bai-dang-da-xem"
 						class="table table-striped table-bordered" cellspacing="0"
 						width="100%">
 						<thead>
 							<tr>
-								<th>Ảnh</th>
-								<th>Tên sách</th>
-								<th>Tác giả</th>
-								<th>Nhà xuất bản</th>
-								<th>Năm xuất bản</th>
-								<th>Danh mục</th>
-								<th>Nơi lấy sách</th>
-								<th>Giá</th>
-								<th>Ngày bán</th>
-								<th>Xem chi tiết</th>
+								<th>Image</th>
+								<th>Book title</th>
+								<th>Author</th>
+								<th>Publisher</th>
+								<th>Publish year</th>
+								<th>Category</th>
+								<th>Region</th>
+								<th>Price</th>
+								<th>Posted date</th>
+								<th>Details</th>
 							</tr>
 						</thead>
 
 						<tfoot>
 							<tr>
-								<th>Ảnh</th>
-								<th>Tên sách</th>
-								<th>Tác giả</th>
-								<th>Nhà xuất bản</th>
-								<th>Năm xuất bản</th>
-								<th>Danh mục</th>
-								<th>Nơi lấy sách</th>
-								<th>Giá</th>
-								<th>Ngày bán</th>
-								<th>Xem chi tiết</th>
+								<th>Image</th>
+								<th>Book title</th>
+								<th>Author</th>
+								<th>Publisher</th>
+								<th>Publish year</th>
+								<th>Category</th>
+								<th>Region</th>
+								<th>Price</th>
+								<th>Posted date</th>
+								<th>Details</th>
 							</tr>
 						</tfoot>
 						<!-- ++++++++++++++++++  -->
@@ -117,7 +117,7 @@
 		
 				<div class="books">
 					<h3 style="color: red;">
-						<b>HOT TRONG THÁNG VỪA QUA</b>
+						<b>FEATURED POSTS FROM LAST MONTH SO FAR</b>
 					</h3>
 
 					<div class="owl-carousel owl-theme">

@@ -12,36 +12,36 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>DANH SÁCH NGƯỜI DÙNG</b>
+				<b>USERS LIST</b>
 			</h3>
 			<table id="danh-sach-nguoi-dung"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Ảnh</th>
-						<th>Tên</th>
-						<th>Tài khoản</th>
-						<th>Địa chỉ</th>
-						<th>Điện thoại</th>
+						<th>Image</th>
+						<th>Full name</th>
+						<th>Account</th>
+						<th>Region</th>
+						<th>Phone number</th>
 						<th>Email</th>
-						<th>Giới tính</th>
-						<th>Năm sinh</th>
-						<th>Xem chi tiết</th>
+						<th>Gender</th>
+						<th>Birth year</th>
+						<th>Details</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Ảnh</th>
-						<th>Tên</th>
-						<th>Tài khoản</th>
-						<th>Địa chỉ</th>
-						<th>Điện thoại</th>
+						<th>Image</th>
+						<th>Full name</th>
+						<th>Account</th>
+						<th>Region</th>
+						<th>Phone number</th>
 						<th>Email</th>
-						<th>Giới tính</th>
-						<th>Năm sinh</th>
-						<th>Xem chi tiết</th>
+						<th>Gender</th>
+						<th>Birth year</th>
+						<th>Details</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -64,7 +64,11 @@
 						<td><bean:write name="sp" property="email" /></td>
 						<td><bean:write name="sp" property="gioiTinh"></bean:write></td>
 						<td><bean:write name="sp" property="namSinh"></bean:write></td>
-						<td><a href="chi-tiet-nguoi-dung.do?maNguoiDung=${maNguoiDung}">Chi tiết</a></td>
+						<td>
+							<a href="chi-tiet-nguoi-dung.do?maNguoiDung=${maNguoiDung}">
+								<i class="glyphicon glyphicon-forward"></i><i class="glyphicon glyphicon-forward"></i>
+							</a>
+						</td>
 					</tr>
 				</logic:iterate>
 				</tbody>
