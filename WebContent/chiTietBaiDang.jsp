@@ -13,6 +13,7 @@
 	<title>PRODUCT DETAIL</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="kartik-star-rating/css/star-rating.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/body.css">
@@ -97,6 +98,24 @@
 			})
 		</script>
 		<!-- END SCRIPT OWL SLIDER -->
+
+
+		<!-- STAR RATING SCRIPT -->
+		<script src="kartik-star-rating/js/star-rating.js"></script>
+		<script>
+			$("#rating-seller").rating({
+				showCaption : false,
+				showClear : false,
+				stars : 5,
+				size : 'lg',
+				displayOnly : false,
+				min : 0,
+				max : 5,
+				step : 1
+			});
+		</script>
+		<!-- END STAR RATING SCRIPT -->
+		
 	</div>
 </body>
 </html>

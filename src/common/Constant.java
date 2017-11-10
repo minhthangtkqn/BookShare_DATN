@@ -60,7 +60,9 @@ public class Constant {
 	
 	public static final String PROC_THEM_BINH_LUAN = "[p_themBinhLuan]";
 	
-	// USER FUNCTION
+	public static final String  PROC_THEM_DANH_GIA = "[p_themDanhGia]";
+	
+	// ADMIN FUNCTION
 	public static final String FUNCTION_KHOA_NGUOI_DUNG = "[p_khoaNguoiDung]";
 	public static final String FUNCTION_MO_KHOA_NGUOI_DUNG = "[p_moKhoaNguoiDung]";
 

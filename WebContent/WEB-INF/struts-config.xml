@@ -18,21 +18,29 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="nguoiDungForm" type="form.NguoiDungForm" />
 		<form-bean name="lichSuXemBaiDangForm" type="form.LichSuXemBaiDangForm"></form-bean>
 		<form-bean name="binhLuanForm" type="form.BinhLuanForm"></form-bean>
+		<form-bean name="danhGiaNguoiBanForm" type="form.DanhGiaNguoiBanForm"></form-bean>
 
 		<form-bean name="testForm" type="form.TestForm" />
 		<form-bean name="testUploadFileForm" type="form.TestUploadFileForm" />
 	</form-beans>
-	
+
 	<global-forwards>
 		<forward name="trangChu" path="/trang-chu.do"></forward>
 		<forward name="trangCaNhan" path="/trang-ca-nhan.do"></forward>
 		<forward name="dangXuat" path="/dang-xuat.do"></forward>
 	</global-forwards>
-	
+
 	<action-mappings>
 
+		<!-- DANH GIA NGUOI BAN -->
+		<action path="/danh-gia-nguoi-ban" name="danhGiaNguoiBanForm"
+			input="/dangNhap.jsp" scope="request" type="action.DanhGiaNguoiBanAction">
+			<forward name="giaoDienDanhGia" path="/danhGiaNguoiBan.jsp"></forward>
+		</action>
+		<!-- END DANH GIA NGUOI BAN -->
+
 		<!-- DANG BINH LUAN -->
-		<action path="/dang-binh-luan" name="binhLuanForm" input="dangNhap.jsp"
+		<action path="/dang-binh-luan" name="binhLuanForm" input="/dangNhap.jsp"
 			scope="request" type="action.DangBinhLuanAction">
 		</action>
 

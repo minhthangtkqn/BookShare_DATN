@@ -8,6 +8,9 @@
 
 <!-- BODY -->
 <div id="page-body" class="container">
+	<bean:define id="chiTietBaiDang" name="chiTietBaiDangForm" property="chiTiet"></bean:define>
+	<bean:define id="maNguoiRaoBan" name="chiTietBaiDang" property="maNguoiRaoBan"></bean:define>
+
 	<div class="body-row note">
 		<p>
 			You should see the rating of the seller before deciding to buy.
@@ -17,8 +20,19 @@
 		</p>
 	</div>
 
-	<bean:define id="chiTietBaiDang" name="chiTietBaiDangForm"
-		property="chiTiet"></bean:define>
+	<!-- RATING -->
+	<div class="body-row">
+		<form action="danh-gia-nguoi-ban.do" method="post">
+			<input name="maNguoiBan" value="${maNguoiRaoBan}" style="display: none;">
+		
+			<input id="rating-seller" name="diemDanhGia" value="2">
+			<input name="binhLuan" type="text">
+			<input type="submit" value="submit" class="w3-btn w3-red">
+		</form>
+	</div>
+	<!-- END RATING maNguoiRaoBan -->
+
+	
 
 	<div class="body-row">
 		<div class="w3-content product-img-slides">

@@ -22,7 +22,6 @@ public class DanhMucAction extends Action {
 			HttpServletResponse response) throws Exception {
 
 		request.setCharacterEncoding("UTF-8");
-
 		System.out.println("DanhMucAction");
 
 		HttpSession session = request.getSession();
