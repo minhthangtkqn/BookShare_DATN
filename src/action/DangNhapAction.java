@@ -127,15 +127,15 @@ public class DangNhapAction extends Action {
 
 		case 3:
 
-			dangNhapForm.setLoiMatKhau("TÊN TÀI KHOẢN HOẶC MẬT KHẨU KHÔNG CHÍNH XÁC");
+			dangNhapForm.setLoiMatKhau("LOGIN FAILED. WRONG USER NAME OR PASSWORD");
 			return mapping.findForward("saimatkhau");
 
 		case 4:
-			dangNhapForm.setLoiMatKhau("TÊN TÀI KHOẢN HOẶC MẬT KHẨU KHÔNG CHÍNH XÁC");
+			dangNhapForm.setLoiMatKhau("LOGIN FAILED. WRONG USER NAME OR PASSWORD");
 			return mapping.findForward("saitaikhoan");
 		default:
 			// co loi khi dang nhap
-			dangNhapForm.setLoiMatKhau("CÓ LỖI XẢY RA TRONG QUÁ TRÌNH ĐĂNG NHẬP");
+			dangNhapForm.setLoiMatKhau("AN ERROR HAS OCCURRED DURING LOGIN PROCESS. PLEASE TRY AGAIN LATER.");
 			return mapping.findForward("error");
 		}
 

@@ -7,6 +7,44 @@ public class DanhGiaNguoiBanForm extends ActionForm {
 	private String binhLuan;
 	private String maNguoiBan;
 
+	private String diemDanhGiaError;
+	private String binhLuanError;
+
+	private String submit;
+	private String error;
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
+
+	public String getSubmit() {
+		return submit;
+	}
+
+	public void setSubmit(String submit) {
+		this.submit = submit;
+	}
+
+	public String getDiemDanhGiaError() {
+		return diemDanhGiaError;
+	}
+
+	public void setDiemDanhGiaError(String diemDanhGiaError) {
+		this.diemDanhGiaError = diemDanhGiaError;
+	}
+
+	public String getBinhLuanError() {
+		return binhLuanError;
+	}
+
+	public void setBinhLuanError(String binhLuanError) {
+		this.binhLuanError = binhLuanError;
+	}
+
 	public String getDiemDanhGia() {
 		return diemDanhGia;
 	}

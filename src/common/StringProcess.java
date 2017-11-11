@@ -33,9 +33,9 @@ public class StringProcess {
 	 */
 	public static String gioiTinh(String val) {
 		if ("0".equals(val)) {
-			return "Nữ";
+			return "Female";
 		}
-		return "Nam";
+		return "Male";
 	}
 
 	/**
@@ -85,5 +85,17 @@ public class StringProcess {
 	 */
 	public static String getSuffix(FormFile file) {
 		return "." + file.getFileName().split("\\.")[file.getFileName().split("\\.").length - 1];
+	}
+	
+	/**
+	 * 
+	 */
+	public static boolean notVaildRatingPoint(String s) {
+		if (notVaild(s))
+			return true;
+		String regex = "[1-5]";
+		if (s.matches(regex))
+			return false;
+		return true;
 	}
 }

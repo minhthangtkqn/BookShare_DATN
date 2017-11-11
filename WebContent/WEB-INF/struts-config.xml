@@ -36,6 +36,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<action path="/danh-gia-nguoi-ban" name="danhGiaNguoiBanForm"
 			input="/dangNhap.jsp" scope="request" type="action.DanhGiaNguoiBanAction">
 			<forward name="giaoDienDanhGia" path="/danhGiaNguoiBan.jsp"></forward>
+			<forward name="thatBai" path="/danhGiaNguoiBan.jsp"></forward>
 		</action>
 		<!-- END DANH GIA NGUOI BAN -->
 

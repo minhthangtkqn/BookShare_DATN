@@ -25,13 +25,12 @@
 		<form action="danh-gia-nguoi-ban.do" method="post">
 			<input name="maNguoiBan" value="${maNguoiRaoBan}" style="display: none;">
 		
-			<input id="rating-seller" name="diemDanhGia" value="2">
+			<input id="rating-seller" name="diemDanhGia">
 			<input name="binhLuan" type="text">
 			<input type="submit" value="submit" class="w3-btn w3-red">
 		</form>
 	</div>
-	<!-- END RATING maNguoiRaoBan -->
-
+	<!-- END RATING -->
 	
 
 	<div class="body-row">
