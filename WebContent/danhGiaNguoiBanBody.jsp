@@ -23,7 +23,6 @@
 		</div>
 		<!-- END RATING maNguoiRaoBan -->
 		
-		
 	</div>
 </div>
 <!-- END BODY -->

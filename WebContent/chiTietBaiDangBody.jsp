@@ -20,19 +20,6 @@
 		</p>
 	</div>
 
-	<!-- RATING -->
-	<div class="body-row">
-		<form action="danh-gia-nguoi-ban.do" method="post">
-			<input name="maNguoiBan" value="${maNguoiRaoBan}" style="display: none;">
-		
-			<input id="rating-seller" name="diemDanhGia">
-			<input name="binhLuan" type="text">
-			<input type="submit" value="submit" class="w3-btn w3-red">
-		</form>
-	</div>
-	<!-- END RATING -->
-	
-
 	<div class="body-row">
 		<div class="w3-content product-img-slides">
 			<bean:define id="linkAnh1" name="chiTietBaiDang" property="linkAnh1"></bean:define>
@@ -124,8 +111,9 @@
 					<bean:write name="chiTietBaiDang" property="namSinhNguoiBan" />
 				</p>
 			</div>
-<!-- 			<a href="mua-sach.do" class="w3-btn w3-ripple w3-red btn-hoi-mua">Hỏi -->
-<!-- 				Mua</a> -->
+			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
+				Rate this seller
+			</a>
 		</div>
 	</div>
 	

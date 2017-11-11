@@ -19,7 +19,7 @@
 	<div id="page">
 		<jsp:include page="/loggedHeader.jsp"></jsp:include>
 
-		<jsp:include page="/dangDanhGiaNguoiBanBody.jsp"></jsp:include>
+		<jsp:include page="/danhGiaNguoiBanBody.jsp"></jsp:include>
 
 		<jsp:include page="/footer.jsp"></jsp:include>
 
