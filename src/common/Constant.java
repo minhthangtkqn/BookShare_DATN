@@ -28,6 +28,7 @@ public class Constant {
 	public static final String TABLE_BANNER = "[tblBanner]";
 	public static final String TABLE_RAO_BAN = "[tblRaoBan]";
 	public static final String TABLE_DANH_MUC = "[tblDanhMuc]";
+	public static final String TABLE_DANH_GIA = "[tblDanhGia]";
 	public static final String TABLE_BINH_LUAN = "[tblBinhLuan]";
 	public static final String TABLE_NGUOI_DUNG = "[tblNguoiDung]";
 	public static final String TABLE_RAO_BAN_DA_XEM = "[tblRaoBanDaXem]";
@@ -44,24 +45,25 @@ public class Constant {
 	public static final String VIEW_DANH_SACH_ADMIN = "[v_danhSachAdmin]";
 	public static final String VIEW_DANH_SACH_HOT = "[v_dsXemNhieu1ThangGanDay]";
 	public static final String VIEW_DANH_SACH_BINH_LUAN = "[v_danhSachBinhLuan]";
-
+	public static final String VIEW_DANH_SACH_DANH_GIA = "[v_danhSachDanhGia]";
+	
 	// Post Functions
 	public static final String PROC_DANG_BAI = "[p_themraoban]";
 	public static final String PROC_XOA_BAI_DANG = "[p_xoaRaoBan]";
 	public static final String PROC_SUA_BAI_DANG = "[p_suaRaoBan]";
-	
+
 	public static final String PROC_BAN_BAI_DANG = "[p_baiDangDaBan]";
-	
+
 	public static final String PROC_DUYET_BAI_DANG = "[p_duyetRaoBan]";
 	public static final String PROC_KHONG_DUYET_BAI_DANG = "[p_khongDuyetRaoBan]";
-	
+
 	public static final String PROC_KHOA_BAI_DANG = "[p_khoaRaoBan]";
 	public static final String PROC_MO_KHOA_BAI_DANG = "[p_moKhoaRaoBan]";
-	
+
 	public static final String PROC_THEM_BINH_LUAN = "[p_themBinhLuan]";
-	
-	public static final String  PROC_THEM_DANH_GIA = "[p_themDanhGia]";
-	
+
+	public static final String PROC_THEM_DANH_GIA = "[p_themDanhGia]";
+
 	// ADMIN FUNCTION
 	public static final String FUNCTION_KHOA_NGUOI_DUNG = "[p_khoaNguoiDung]";
 	public static final String FUNCTION_MO_KHOA_NGUOI_DUNG = "[p_moKhoaNguoiDung]";
@@ -74,7 +76,7 @@ public class Constant {
 	public static final String FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU = "f_TimKiemTenSachKhongDau";
 	public static final String FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU = "f_TimKiemTacGiaKhongDau";
 	public static final String FUNCTION_LICH_SU_XEM_BAI_DANG = "f_lichSuXemBaiDang";
-	
+
 	// POST STATUS
 	public static final int TRANG_THAI_CHO_DUYET = 0;
 	public static final int TRANG_THAI_DANG_BAN = 1;

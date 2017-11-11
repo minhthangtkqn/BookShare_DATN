@@ -1,17 +1,42 @@
 package form;
 
+import java.util.ArrayList;
+
 import org.apache.struts.action.ActionForm;
 
+import model.bean.DanhGia;
+import model.bean.NguoiDung;
+
 public class DanhGiaNguoiBanForm extends ActionForm {
+
 	private String diemDanhGia;
 	private String binhLuan;
 	private String maNguoiBan;
+	private NguoiDung nguoiBan;
 
 	private String diemDanhGiaError;
 	private String binhLuanError;
 
+	private ArrayList<DanhGia> listDanhGia;
+
 	private String submit;
 	private String error;
+
+	public ArrayList<DanhGia> getListDanhGia() {
+		return listDanhGia;
+	}
+
+	public void setListDanhGia(ArrayList<DanhGia> listDanhGia) {
+		this.listDanhGia = listDanhGia;
+	}
+
+	public NguoiDung getNguoiBan() {
+		return nguoiBan;
+	}
+
+	public void setNguoiBan(NguoiDung nguoiBan) {
+		this.nguoiBan = nguoiBan;
+	}
 
 	public String getError() {
 		return error;

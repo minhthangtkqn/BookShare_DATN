@@ -114,6 +114,9 @@
 			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
 				Rate this seller
 			</a>
+			<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
+				See all rating
+			</a>
 		</div>
 	</div>
 	
@@ -203,7 +206,7 @@
 											value="${maRaoBanChiTiet}"></html:text>
 										<html:text property="maBinhLuanDuocTraloi" style="display: none;"
 											value="${maBinhLuanDuocTraLoi}"></html:text>
-										<label for="">Thêm một câu trả lời</label>
+										<label for="">Add an answer</label>
 										<html:textarea rows="3" property="binhLuan"
 											styleClass="form-control"></html:textarea>
 									</div>
@@ -211,7 +214,7 @@
 									<div class="form-group">
 										<div class="col-lg-12 no-padding">
 											<button type="submit"
-												class="w3-button w3-ripple w3-light-green col-lg-2">Trả lời</button>
+												class="w3-button w3-ripple w3-light-green col-lg-2">Answer this question</button>
 										</div>
 									</div>
 								</html:form>
@@ -274,14 +277,7 @@
 	</div>
 </div>
 <!-- END BODY -->
+<script src="js/script.js"></script>
 <script>
-function setHeight(){
-    var textarea = document.getElementsByTagName('textarea');
-    
-    for(i = 0; i<textarea.length; i++){
-    	textarea[i].style.height = textarea[i].scrollHeight+'px';
-    	textarea[i].setAttribute("style", textarea[i].getAttribute("style") + " overflow: hidden;");
-    }
-}
 setHeight();
 </script>

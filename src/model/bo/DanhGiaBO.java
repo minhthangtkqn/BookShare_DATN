@@ -1,5 +1,7 @@
 package model.bo;
 
+import java.util.ArrayList;
+
 import model.bean.DanhGia;
 import model.dao.DanhGiaDAO;
 
@@ -8,5 +10,9 @@ public class DanhGiaBO {
 	
 	public boolean dangDanhGiaNguoiBan(DanhGia danhGia){
 		return danhGiaDAO.dangDanhGiaNguoiBan(danhGia);
+	}
+
+	public ArrayList<DanhGia> layDanhSachDanhGia(String maNguoiBan) {
+		return danhGiaDAO.layDanhSachDanhGia(maNguoiBan);
 	}
 }

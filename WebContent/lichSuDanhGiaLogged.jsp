@@ -20,7 +20,7 @@
 	<div id="page">
 		<jsp:include page="/loggedHeader.jsp"></jsp:include>
 
-		<jsp:include page="/danhGiaNguoiBanBody.jsp"></jsp:include>
+		<jsp:include page="/lichSuDanhGiaBody.jsp"></jsp:include>
 
 		<jsp:include page="/footer.jsp"></jsp:include>
 
@@ -31,12 +31,12 @@
 		<!-- STAR RATING SCRIPT -->
 		<script src="kartik-star-rating/js/star-rating.js"></script>
 		<script>
-			$("#rating-seller").rating({
+			$(".rating-seller").rating({
 				showCaption : true,
 				showClear : false,
 				stars : 5,
-				size : 'lg',
-				displayOnly : false,
+				size : 'xs',
+				displayOnly : true,
 				min : 0,
 				max : 5,
 				step : 1

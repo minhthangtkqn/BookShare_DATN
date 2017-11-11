@@ -71,3 +71,6 @@ body {
     font-style: italic;
     font-weight: bold;
 }
+.black-border{
+	border: 1px solid black;
+}

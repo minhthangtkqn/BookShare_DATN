@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 	<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/autoComplete.css">
 </head>
 
 <%-- <bean:define id="pageNumber" name="ketQuaTimKiemForm" property="page"></bean:define> --%>

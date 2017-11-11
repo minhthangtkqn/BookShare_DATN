@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div id="page">
-		<jsp:include page="/loggedHeader.jsp"></jsp:include>
+		<jsp:include page="/adminHeader.jsp"></jsp:include>
 		<div id="page-body" class="container">
 			<br> <br> <br>
 			<div class="body-row">
