@@ -31,8 +31,10 @@ public class DanhGiaNguoiBanAction extends Action {
 		HttpSession session = request.getSession();
 		DanhGiaNguoiBanForm danhGiaNguoiBanForm = (DanhGiaNguoiBanForm) form;
 
-		// Kiem tra dang nhap - only normal account
+		DanhGiaBO danhGiaBO = new DanhGiaBO();
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		
+		// Kiem tra dang nhap - only normal account
 		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
 				(String) session.getAttribute("password"));
 		if (type == 0) {
@@ -75,7 +77,12 @@ public class DanhGiaNguoiBanAction extends Action {
 		danhGiaNguoiBanForm.setNguoiBan(nguoiDung);
 
 		// kiem tra chi danh gia 1 lan
-		,,,,,,,,,,,,,,,,,,,,,,
+		if(danhGiaBO.isRated((String)session.getAttribute("userID"), danhGiaNguoiBanForm.getMaNguoiBan())){
+			ActionErrors errors = new ActionErrors();
+			errors.add("error", new ActionMessage("error.danhGia.already"));
+			saveErrors(request, errors);
+			return mapping.findForward("errorLoggedPage");
+		}
 		
 		// kiem tra submit
 		if (StringProcess.notVaild(danhGiaNguoiBanForm.getSubmit())) {
@@ -109,7 +116,6 @@ public class DanhGiaNguoiBanAction extends Action {
 
 		// tham so OK --> goi ham dang danh gia
 		System.out.println("Tham so OK --> Goi ham dang danh gia");
-		DanhGiaBO danhGiaBO = new DanhGiaBO();
 		DanhGia danhGia = new DanhGia();
 
 		danhGia.setMaNguoiDanhGia((String) session.getAttribute("userID"));

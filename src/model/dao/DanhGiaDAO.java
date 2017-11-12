@@ -79,7 +79,7 @@ public class DanhGiaDAO {
 				danhGia.setDiemDanhGia(rs.getString("DiemDanhGia"));
 				danhGia.setBinhLuan(rs.getNString("BinhLuan"));
 				danhGia.setThoiGian(rs.getDate("ThoiGian"));
-				
+
 				danhGia.setMaNguoiDanhGia(rs.getString("MaNguoiDanhGia"));
 				danhGia.setTaiKhoanNguoiDanhGia(rs.getString("TaiKhoan"));
 				danhGia.setAnhNguoiDanhGia(rs.getString("Anh"));
@@ -92,5 +92,26 @@ public class DanhGiaDAO {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public boolean isRated(String maNguoiDanhGia, String maNguoiBan) {
+		connect();
+
+		String sql = "SELECT * FROM " + Constant.TABLE_DANH_GIA + " WHERE MaNguoiDanhGia = ? AND MaNguoiBan = ?";
+
+		try {
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, maNguoiDanhGia);
+			statement.setString(2, maNguoiBan);
+
+			ResultSet rs = statement.executeQuery();
+			if (rs.isBeforeFirst()) {
+				return true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

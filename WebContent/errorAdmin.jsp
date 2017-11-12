@@ -24,7 +24,9 @@
 		<div id="page-body" class="container">
 			<br> <br> <br>
 			<div class="body-row">
-				<html:errors property="error" />
+				<p class="error-notification">
+					<html:errors property="error" />
+				</p>
 			</div>
 			<br> <br> <br>
 		</div>

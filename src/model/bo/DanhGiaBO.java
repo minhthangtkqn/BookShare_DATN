@@ -15,4 +15,8 @@ public class DanhGiaBO {
 	public ArrayList<DanhGia> layDanhSachDanhGia(String maNguoiBan) {
 		return danhGiaDAO.layDanhSachDanhGia(maNguoiBan);
 	}
+
+	public boolean isRated(String maNguoiDanhGia, String maNguoiBan) {
+		return danhGiaDAO.isRated(maNguoiDanhGia, maNguoiBan);
+	}
 }
