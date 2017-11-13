@@ -10,7 +10,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>DUYỆT BÀI ĐĂNG</title>
+	<title>DETAILS</title>
 	
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">

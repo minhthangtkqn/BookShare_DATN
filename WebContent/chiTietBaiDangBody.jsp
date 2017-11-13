@@ -115,7 +115,7 @@
 				Rate this seller
 			</a>
 			<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
-				See all rating
+				See all reviews
 			</a>
 		</div>
 	</div>
