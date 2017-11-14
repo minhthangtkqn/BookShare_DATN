@@ -11,7 +11,7 @@
 		<br> <br>
 		
 		<div class="col-lg-offset-4 col-lg-4">
-			<h3><b>SỬA TÊN DANH MỤC</b></h3>
+			<h3><b>EDIT CATEGORY NAME</b></h3>
 			<html:form action="/sua-danh-muc.do" method="post">
 				<div class="row form-group">
 <!-- 					<label class="col-lg-12">Tên danh mục</label> -->
@@ -27,7 +27,7 @@
 					<div class="col-lg-12">
 						<bean:define id="maDanhMuc" name="danhMucForm" property="maDanhMuc"></bean:define>
 						<input type="text" name="maDanhMuc" value="${maDanhMuc}" style="display: none;">
-						<input type="submit" name="submit" value="SỬA" class="btn btn-primary"></input>
+						<input type="submit" name="submit" value="Submit" class="btn btn-primary"></input>
 					</div>
 				</div>
 			</html:form>

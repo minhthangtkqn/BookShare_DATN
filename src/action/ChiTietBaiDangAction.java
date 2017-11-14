@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import model.bean.RaoBan;
 import model.bo.BinhLuanBO;
+import model.bo.DanhGiaBO;
 import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
 
@@ -38,6 +39,7 @@ public class ChiTietBaiDangAction extends Action {
 
 		RaoBanBO raoBanBO = new RaoBanBO();
 		BinhLuanBO binhLuanBO = new BinhLuanBO();
+		DanhGiaBO danhGiaBO = new DanhGiaBO();
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 
 		// lay du lieu hien thi
@@ -55,8 +57,8 @@ public class ChiTietBaiDangAction extends Action {
 			}
 			return mapping.findForward("baiDangKhongTonTaiLogged");
 		}
-
 		chiTietBaiDangForm.setChiTiet(raoBan);
+		chiTietBaiDangForm.setUyTinNguoiBan(danhGiaBO.getAverageRatingPoint(raoBan.getMaNguoiRaoBan()));
 		chiTietBaiDangForm.setDsBinhLuan(binhLuanBO.layDsBinhLuan(chiTietBaiDangForm.getMaRaoBan()));
 
 		/**

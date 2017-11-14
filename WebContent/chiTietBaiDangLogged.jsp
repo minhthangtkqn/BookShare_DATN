@@ -91,6 +91,27 @@
 			})
 		</script>
 		<!-- END SCRIPT OWL SLIDER -->
+
+		<script src="js/script.js"></script>
+		<script>
+			setHeight();
+		</script>
+
+		<!-- STAR RATING SCRIPT -->
+		<script src="kartik-star-rating/js/star-rating.js"></script>
+		<script>
+			$(".rating-seller").rating({
+				showCaption : true,
+				showClear : false,
+				stars : 5,
+				size : 'md',
+				displayOnly : true,
+				min : 0,
+				max : 5,
+				step : 1
+			});
+		</script>
+		<!-- END STAR RATING SCRIPT -->
 	</div>
 </body>
 </html>

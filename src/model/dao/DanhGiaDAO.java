@@ -114,4 +114,24 @@ public class DanhGiaDAO {
 		}
 		return false;
 	}
+
+	public float getAverageRatingPoint(String maNguoiBan) {
+		connect();
+
+		String sql = "SELECT MaNguoiBan, AVG(DiemDanhGia) as DiemTrungBinh from " + Constant.TABLE_DANH_GIA
+				+ " where MaNguoiBan = ? group by MaNguoiBan";
+
+		try {
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, maNguoiBan);
+
+			ResultSet rs = statement.executeQuery();
+			rs.next();
+			return rs.getFloat("DiemTrungBinh");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }

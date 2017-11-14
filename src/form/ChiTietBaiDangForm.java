@@ -16,10 +16,20 @@ public class ChiTietBaiDangForm extends ActionForm {
 	private RaoBan chiTiet;
 	private ArrayList<RaoBan> dsGoiYMoiNguoiCungXem;
 
+	private float uyTinNguoiBan;
+
 	private ArrayList<ListBinhLuan> dsBinhLuan;
 
 	private String submit;
 	private String error;
+
+	public float getUyTinNguoiBan() {
+		return uyTinNguoiBan;
+	}
+
+	public void setUyTinNguoiBan(float uyTinNguoiBan) {
+		this.uyTinNguoiBan = uyTinNguoiBan;
+	}
 
 	public ArrayList<ListBinhLuan> getDsBinhLuan() {
 		return dsBinhLuan;

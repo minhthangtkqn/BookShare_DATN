@@ -9,6 +9,8 @@
 <!-- BODY -->
 <div id="page-body" class="container">
 	<bean:define id="chiTietBaiDang" name="chiTietBaiDangForm" property="chiTiet"></bean:define>
+	<bean:define id="uyTinNguoiBan" name="chiTietBaiDangForm" property="uyTinNguoiBan"></bean:define>
+	
 	<bean:define id="maNguoiRaoBan" name="chiTietBaiDang" property="maNguoiRaoBan"></bean:define>
 
 	<div class="body-row note">
@@ -111,11 +113,14 @@
 					<bean:write name="chiTietBaiDang" property="namSinhNguoiBan" />
 				</p>
 			</div>
-			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
-				Rate this seller
-			</a>
+			<br>
+				Seller reputation
+			<input class="rating-seller" value="${uyTinNguoiBan}"> 
 			<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
 				See all reviews
+			</a>
+			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
+				Rate this seller
 			</a>
 		</div>
 	</div>
@@ -277,7 +282,3 @@
 	</div>
 </div>
 <!-- END BODY -->
-<script src="js/script.js"></script>
-<script>
-setHeight();
-</script>

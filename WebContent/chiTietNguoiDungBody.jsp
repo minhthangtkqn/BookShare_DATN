@@ -26,7 +26,7 @@
 	<div class="body-row">
 
 		<p class="info-title w3-red">
-			<b>THÔNG TIN CHI TIẾT</b>
+			<b>DETAILS</b>
 		</p>
 		<div class="img_user">
 			<img style="height: 100%; width: 100%;" src="${anh}">
@@ -119,8 +119,8 @@
 					<input type="text" name="maNguoiDung" value="${maNguoiDung}"
 						style="display: none;">
 					<div class="col-sm-12">
-						<input class="form-control" type="text" name="ghiChu"> <input
-							type="submit" name="submit" value="MỞ KHÓA"
+						<input class="form-control" type="text" name="ghiChu"  placeholder="Note ...">
+						<input type="submit" name="submit" value="UNLOCK"
 							class="w3-btn w3-ripple w3-red form-control">
 					</div>
 				</form>
@@ -133,9 +133,9 @@
 					<input type="text" name="maNguoiDung" value="${maNguoiDung}"
 						style="display: none;">
 					<div class="col-sm-12">
-						<input class="form-control" type="text" name="ghiChu"> <input
-							class="w3-btn w3-ripple w3-red form-control" type="submit"
-							name="submit" value="KHÓA">
+						<input class="form-control" type="text" name="ghiChu" placeholder="Note ...">
+						<input class="w3-btn w3-ripple w3-red form-control" type="submit"
+							name="submit" value="LOCK">
 					</div>
 				</form>
 			</div>

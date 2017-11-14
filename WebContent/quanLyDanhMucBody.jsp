@@ -45,7 +45,7 @@
 							<td>
 								<form id="xoa_danh_muc_${maDanhMuc}" action="xoa-danh-muc.do"
 									method="post"
-									onsubmit="return confirm('Bạn thực sự muốn xóa danh mục này ?');">
+									onsubmit="return confirm('Do you really want to delete this cateegory ?');">
 									<input name="maDanhMuc" value="${maDanhMuc}"
 										style="display: none;"> 
 									<input name="action" value="submit" style="display: none;">

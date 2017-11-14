@@ -19,4 +19,7 @@ public class DanhGiaBO {
 	public boolean isRated(String maNguoiDanhGia, String maNguoiBan) {
 		return danhGiaDAO.isRated(maNguoiDanhGia, maNguoiBan);
 	}
+	public float getAverageRatingPoint(String maNguoiBan){
+		return danhGiaDAO.getAverageRatingPoint(maNguoiBan);
+	}
 }
