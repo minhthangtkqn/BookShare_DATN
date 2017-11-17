@@ -54,14 +54,17 @@ public class TrangQuanLyAction extends Action {
 		System.out.println("lay ds cho duyet");
 		// lay ds cho duyet
 		trangQuanLyForm.setDsChoDuyet(raoBanBO.layDanhSachChoDuyet());
+		trangQuanLyForm.setSoLuongChoDuyet(trangQuanLyForm.getDsChoDuyet().size());
 
 		System.out.println("lay ds dang ban");
 		// lay ds dang ban
 		trangQuanLyForm.setDsDangBan(raoBanBO.layDanhSachDangBan());
+		trangQuanLyForm.setSoLuongDangBan(trangQuanLyForm.getDsDangBan().size());
 
 		System.out.println("lay ds da ban");
 		// lay ds da ban
 		trangQuanLyForm.setDsDaBan(raoBanBO.layDanhSachDaBan());
+		trangQuanLyForm.setSoLuongDaBan(trangQuanLyForm.getDsDaBan().size());
 
 		// lay ds da mua
 		// trangQuanLyForm.setDsDaMua(raoBanBO.layD)

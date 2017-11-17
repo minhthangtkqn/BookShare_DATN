@@ -15,7 +15,7 @@
 	width: 276px;
 	height: 100px;
 	margin: 0 10px;
-	border: solid 1px;
+/* 	border: solid 1px; */
 	vertical-align: top;
 }
 
@@ -35,4 +35,17 @@
 
 .user-functions a {
 	color: black;
+}
+
+.pending-feature{
+	background-color: #56b6de;
+	color: white;
+}
+.selling-feature{
+	background-color: #3fca2f;
+	color: white;
+}
+.sold-feature{
+	background-color: gray;
+	color: white;
 }

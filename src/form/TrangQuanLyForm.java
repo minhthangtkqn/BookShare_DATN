@@ -10,26 +10,39 @@ public class TrangQuanLyForm extends ActionForm {
 
 	private NguoiDung admin;
 
-	private ArrayList<NguoiDung> dsNguoiDung;
-	private ArrayList<NguoiDung> dsNguoiDungBiKhoa;
+	// private ArrayList<NguoiDung> dsNguoiDung;
+	// private ArrayList<NguoiDung> dsNguoiDungBiKhoa;
+
 	private ArrayList<RaoBan> dsChoDuyet;
 	private ArrayList<RaoBan> dsDangBan;
 	private ArrayList<RaoBan> dsDaBan;
 
-	public ArrayList<NguoiDung> getDsNguoiDung() {
-		return dsNguoiDung;
+	private int soLuongChoDuyet;
+	private int soLuongDangBan;
+	private int soLuongDaBan;
+
+	public int getSoLuongChoDuyet() {
+		return soLuongChoDuyet;
 	}
 
-	public void setDsNguoiDung(ArrayList<NguoiDung> dsNguoiDung) {
-		this.dsNguoiDung = dsNguoiDung;
+	public void setSoLuongChoDuyet(int soLuongChoDuyet) {
+		this.soLuongChoDuyet = soLuongChoDuyet;
 	}
 
-	public ArrayList<NguoiDung> getDsNguoiDungBiKhoa() {
-		return dsNguoiDungBiKhoa;
+	public int getSoLuongDangBan() {
+		return soLuongDangBan;
 	}
 
-	public void setDsNguoiDungBiKhoa(ArrayList<NguoiDung> dsNguoiDungBiKhoa) {
-		this.dsNguoiDungBiKhoa = dsNguoiDungBiKhoa;
+	public void setSoLuongDangBan(int soLuongDangBan) {
+		this.soLuongDangBan = soLuongDangBan;
+	}
+
+	public int getSoLuongDaBan() {
+		return soLuongDaBan;
+	}
+
+	public void setSoLuongDaBan(int soLuongDaBan) {
+		this.soLuongDaBan = soLuongDaBan;
 	}
 
 	public ArrayList<RaoBan> getDsChoDuyet() {

@@ -15,8 +15,37 @@ public class TrangNguoiDungForm extends ActionForm {
 	private ArrayList<RaoBan> dsChoDuyet;
 	private ArrayList<RaoBan> dsDangBan;
 	private ArrayList<RaoBan> dsDaBan;
+
+	private int soLuongChoDuyet;
+	private int soLuongDangBan;
+	private int soLuongDaBan;
+
 	private ArrayList<RaoBan> dsDaMua;
 	private ArrayList<RaoBan> dsGoiY;
+
+	public int getSoLuongChoDuyet() {
+		return soLuongChoDuyet;
+	}
+
+	public void setSoLuongChoDuyet(int soLuongChoDuyet) {
+		this.soLuongChoDuyet = soLuongChoDuyet;
+	}
+
+	public int getSoLuongDangBan() {
+		return soLuongDangBan;
+	}
+
+	public void setSoLuongDangBan(int soLuongDangBan) {
+		this.soLuongDangBan = soLuongDangBan;
+	}
+
+	public int getSoLuongDaBan() {
+		return soLuongDaBan;
+	}
+
+	public void setSoLuongDaBan(int soLuongDaBan) {
+		this.soLuongDaBan = soLuongDaBan;
+	}
 
 	public NguoiDung getNguoiDung() {
 		return nguoiDung;

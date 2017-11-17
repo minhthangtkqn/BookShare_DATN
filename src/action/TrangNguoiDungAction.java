@@ -58,15 +58,18 @@ public class TrangNguoiDungAction extends Action {
 		System.out.println("lay ds cho duyet");
 		// lay ds cho duyet
 		trangNguoiDungForm.setDsChoDuyet(raoBanBO.layDanhSachChoDuyet((String) session.getAttribute("userID")));
-
+		trangNguoiDungForm.setSoLuongChoDuyet(trangNguoiDungForm.getDsChoDuyet().size());
+		
 		System.out.println("lay ds dang ban");
 		// lay ds dang ban
 		trangNguoiDungForm.setDsDangBan(raoBanBO.layDanhSachDangBan((String) session.getAttribute("userID")));
-
+		trangNguoiDungForm.setSoLuongDangBan(trangNguoiDungForm.getDsDangBan().size());
+		
 		System.out.println("lay ds da ban");
 		// lay ds da ban
 		trangNguoiDungForm.setDsDaBan(raoBanBO.layDanhSachDaBan((String) session.getAttribute("userID")));
-
+		trangNguoiDungForm.setSoLuongDaBan(trangNguoiDungForm.getDsDaBan().size());
+		
 		// lay ds da mua
 		// trangNguoiDungForm.setDsDaMua(raoBanBO.layD)
 

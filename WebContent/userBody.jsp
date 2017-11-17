@@ -70,14 +70,61 @@
 
 	<div class="body-row user-functions">
 		<a href="#danh-sach-cho-duyet">
-			<div class="user-function row-item">PENDING</div>
-		</a> <a href="#danh-sach-dang-ban">
-			<div class="user-function row-item">SELLING</div>
-		</a> <a href="#danh-sach-mua-sau">
-			<div class="user-function row-item">WATCH LATER</div>
-		</a> <a href="#danh-sach-da-ban">
-			<div class="user-function row-item">SOLD</div>
+			<div class="user-function row-item pending-feature">
+				<div class="col-lg-4" style="height: 100%;">
+					<img alt="pending icon" src="images/home/pending-icon.png" style="width: 100%; margin-top: 13px;">
+				</div>
+				<div class="col-lg-8" style="height: 100%;">
+					<div style="margin-top: 13px; font-size: 20px;">
+						<p>PENDING</p>
+					</div>
+					
+					<div style="font-size: 20px;">
+						<p><bean:write property="soLuongChoDuyet" name="trangNguoiDungForm"/></p>
+					</div>
+				</div>
+			</div>
+		</a> 
+		
+		<a href="#danh-sach-dang-ban">
+			<div class="user-function row-item selling-feature">
+				<div class="col-lg-4" style="height: 100%;">
+					<img alt="pending icon" src="images/home/selling-icon.png" style="width: 100%; margin-top: 13px;">
+				</div>
+				<div class="col-lg-8" style="height: 100%;">
+					<div style="margin-top: 13px; font-size: 20px;">
+						<p>SELLING</p>
+					</div>
+					
+					<div style="font-size: 20px;">
+						<p><bean:write property="soLuongDangBan" name="trangNguoiDungForm"/></p>
+					</div>
+				</div>
+			</div>
+		</a> 
+		
+		<a href="#danh-sach-da-ban">
+			<div class="user-function row-item sold-feature">
+				<div class="col-lg-4" style="height: 100%;">
+					<img alt="pending icon" src="images/home/sold-icon.png" style="width: 100%; margin-top: 13px;">
+				</div>
+				<div class="col-lg-8" style="height: 100%;">
+					<div style="margin-top: 13px; font-size: 20px;">
+						<p>SOLD</p>
+					</div>
+					
+					<div style="font-size: 20px;">
+						<p><bean:write property="soLuongDaBan" name="trangNguoiDungForm"/></p>
+					</div>
+				</div>
+			</div>
 		</a>
+		
+		<a href="#danh-sach-mua-sau">
+			<div class="user-function row-item">
+<!-- 				WATCH LATER -->
+			</div>
+		</a> 
 	</div>
 
 	<br><br>

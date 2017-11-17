@@ -116,10 +116,10 @@
 			<br>
 				Seller reputation
 			<input class="rating-seller" value="${uyTinNguoiBan}"> 
-			<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
+			<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-light-green btn-hoi-mua features_button">
 				See all reviews
 			</a>
-			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
+			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">
 				Rate this seller
 			</a>
 		</div>
