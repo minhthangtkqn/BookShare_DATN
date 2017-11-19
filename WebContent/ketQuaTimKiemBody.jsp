@@ -8,13 +8,14 @@
 
 <!--    BODY        -->
 <div id="page-body" class="container">
+<bean:define id="tuKhoa" name="ketQuaTimKiemForm" property="tuKhoa"></bean:define>
 
 	<div class="body-row">
 		<div class="search">
 			<html:form action="/ket-qua-tim-kiem.do" method="post"
 				styleClass="search-form">
-				<input id="tuKhoa" name="tuKhoa" oninput="recommend()" class="search-input search-item"
-					type="text" placeholder="Type the book title or the author name ...">
+				<input autocomplete="off" id="tuKhoa" name="tuKhoa" oninput="recommend()" class="search-input search-item"
+					type="text" value="${tuKhoa}" placeholder="Type the book title or the author name ...">
 				<button class="search-button search-item btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 
 				<html:select property="maDanhMuc" >

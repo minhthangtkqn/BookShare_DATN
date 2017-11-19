@@ -43,7 +43,7 @@ public class KetQuaTimKiemAction extends Action {
 		ketQuaTimKiemForm.setDsHot(raoBanBO.layDanhSachHot());
 
 		// xu ly cac tham so
-		String tuKhoa = (StringProcess.notVaild(ketQuaTimKiemForm.getTuKhoa()) ? "" : ketQuaTimKiemForm.getTuKhoa());
+		String tuKhoa = StringProcess.getVaildString(ketQuaTimKiemForm.getTuKhoa());
 		String sapXepThoiGian = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepThoiGian())
 				? Constant.DEFAULT_SAP_XEP_THOI_GIAN
 				: ("0".equals(ketQuaTimKiemForm.getSapXepThoiGian()) ? "DESC" : "ASC");
@@ -57,7 +57,8 @@ public class KetQuaTimKiemAction extends Action {
 		String maTinh = (StringProcess.notVaild(ketQuaTimKiemForm.getMaTinh()) ? "all" : ketQuaTimKiemForm.getMaTinh());
 
 		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");
-
+		ketQuaTimKiemForm.setTuKhoa(tuKhoa);
+		
 		// Lưu từ khóa tìm kiếm vào CSDL
 		// nếu từ khóa rỗng thì không lưu vào CSDL những vẫn tìm kiếm
 		if (!StringProcess.notVaild(tuKhoa)) {
@@ -71,6 +72,8 @@ public class KetQuaTimKiemAction extends Action {
 		for (String item : arrayTuKhoa) {
 			System.out.println("-|" + item + "|-");
 		}
+		
+		String[] arrayTuKhoaKhongDau = StringProcess.removeDiacritics(tuKhoa).split("\\s+");
 		// END xử lý từ khóa
 
 		// -----------------
@@ -83,6 +86,13 @@ public class KetQuaTimKiemAction extends Action {
 			ketQuaTimKiemForm.getListRaoBan()
 					.addAll(raoBanBO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 		}
+		
+		ketQuaTimKiemForm.getListRaoBan()
+				.addAll(raoBanBO.layDanhSachTimKiemTenSach(StringProcess.removeDiacritics(tuKhoa), maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		for (String item : arrayTuKhoaKhongDau) {
+			ketQuaTimKiemForm.getListRaoBan()
+					.addAll(raoBanBO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		}
 		// END Tim kiem SACH dua theo cac tu khoa
 
 		// -----------------
@@ -92,6 +102,14 @@ public class KetQuaTimKiemAction extends Action {
 				.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 
 		for (String item : arrayTuKhoa) {
+			ketQuaTimKiemForm.getListRaoBan()
+					.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		}
+		
+		ketQuaTimKiemForm.getListRaoBan()
+				.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(StringProcess.removeDiacritics(tuKhoa), maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+
+		for (String item : arrayTuKhoaKhongDau) {
 			ketQuaTimKiemForm.getListRaoBan()
 					.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 		}

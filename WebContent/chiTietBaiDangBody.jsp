@@ -91,7 +91,7 @@
 			<div class="anh_nguoiban">
 				<bean:define id="anhNguoiBan" name="chiTietBaiDang"
 					property="anhNguoiBan"></bean:define>
-				<img style="height: 200px; width: 200px;" src="${anhNguoiBan}">
+				<img style="height: 100%; width: 100%;" src="${anhNguoiBan}">
 			</div>
 			<div class="text_info">
 				<p>
@@ -108,9 +108,20 @@
 					Gender:
 					<bean:write name="chiTietBaiDang" property="gioiTinh" />
 				</p>
+				
+<!-- 				<p> -->
+<!-- 					Birth year: -->
+<%-- 					<bean:write name="chiTietBaiDang" property="namSinhNguoiBan" /> --%>
+<!-- 				</p> -->
+
 				<p>
-					Birth year:
-					<bean:write name="chiTietBaiDang" property="namSinhNguoiBan" />
+					Email:
+					<bean:write name="chiTietBaiDang" property="emailNguoiBan" />
+				</p>
+				
+				<p>
+					Phone number:
+					<bean:write name="chiTietBaiDang" property="dienThoaiNguoiBan" />
 				</p>
 			</div>
 			<br>
@@ -128,7 +139,7 @@
 	<br><br>
 	
 	<div class="body-row col-lg-12">
-		<div class="col-lg-offset-1 col-lg-11 comment-box">
+		<div class="col-lg-12 comment-box">
 			<div class="col-lg-5" style="padding-left: 45px; margin-bottom: -35px;">
 				<h3>QUESTIONS</h3>
 			</div>

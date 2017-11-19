@@ -146,6 +146,9 @@ public class RaoBanDAO {
 					raoBan.setGioiTinh("Unidentified");
 				}
 			}
+			
+			raoBan.setEmailNguoiBan(StringProcess.getVaildString(rs.getString("Email")));
+			raoBan.setDienThoaiNguoiBan(StringProcess.getVaildString(rs.getString("DienThoai")));
 
 			System.out.println("THONG TIN SACH:");
 			System.out.println("ten sach: " + raoBan.getTenSach());
