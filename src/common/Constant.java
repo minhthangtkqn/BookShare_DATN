@@ -61,8 +61,10 @@ public class Constant {
 	public static final String PROC_MO_KHOA_BAI_DANG = "[p_moKhoaRaoBan]";
 
 	public static final String PROC_THEM_BINH_LUAN = "[p_themBinhLuan]";
-
 	public static final String PROC_THEM_DANH_GIA = "[p_themDanhGia]";
+	
+	public static final String PROC_THEM_XEM_SAU = "[p_themXemSau]";
+	public static final String PROC_XOA_XEM_SAU = "[p_xoaXemSau]";
 
 	// ADMIN FUNCTION
 	public static final String FUNCTION_KHOA_NGUOI_DUNG = "[p_khoaNguoiDung]";
@@ -76,6 +78,7 @@ public class Constant {
 	public static final String FUNCTION_TIM_KIEM_TEN_SACH_KHONG_DAU = "f_TimKiemTenSachKhongDau";
 	public static final String FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU = "f_TimKiemTacGiaKhongDau";
 	public static final String FUNCTION_LICH_SU_XEM_BAI_DANG = "f_lichSuXemBaiDang";
+	public static final String FUNCTION_DANH_SACH_XEM_SAU = "f_DanhSachXemSau";
 
 	// POST STATUS
 	public static final int TRANG_THAI_CHO_DUYET = 0;
