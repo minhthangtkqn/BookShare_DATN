@@ -15,13 +15,31 @@ public class TrangNguoiDungForm extends ActionForm {
 	private ArrayList<RaoBan> dsChoDuyet;
 	private ArrayList<RaoBan> dsDangBan;
 	private ArrayList<RaoBan> dsDaBan;
+	private ArrayList<RaoBan> dsXemSau;
 
 	private int soLuongChoDuyet;
 	private int soLuongDangBan;
 	private int soLuongDaBan;
+	private int soLuongXemSau;
 
 	private ArrayList<RaoBan> dsDaMua;
 	private ArrayList<RaoBan> dsGoiY;
+
+	public ArrayList<RaoBan> getDsXemSau() {
+		return dsXemSau;
+	}
+
+	public void setDsXemSau(ArrayList<RaoBan> dsXemSau) {
+		this.dsXemSau = dsXemSau;
+	}
+
+	public int getSoLuongXemSau() {
+		return soLuongXemSau;
+	}
+
+	public void setSoLuongXemSau(int soLuongXemSau) {
+		this.soLuongXemSau = soLuongXemSau;
+	}
 
 	public int getSoLuongChoDuyet() {
 		return soLuongChoDuyet;

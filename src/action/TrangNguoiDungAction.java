@@ -70,9 +70,11 @@ public class TrangNguoiDungAction extends Action {
 		trangNguoiDungForm.setDsDaBan(raoBanBO.layDanhSachDaBan((String) session.getAttribute("userID")));
 		trangNguoiDungForm.setSoLuongDaBan(trangNguoiDungForm.getDsDaBan().size());
 		
-		// lay ds da mua
-		// trangNguoiDungForm.setDsDaMua(raoBanBO.layD)
-
+		System.out.println("Lay ds xem sau");
+		//lay ds xem sau
+		trangNguoiDungForm.setDsXemSau(raoBanBO.layDanhSachXemSau((String) session.getAttribute("userID")));
+		trangNguoiDungForm.setSoLuongXemSau(trangNguoiDungForm.getDsXemSau().size());
+		
 		return mapping.findForward("giaoDienTrangCaNhan");
 	}
 

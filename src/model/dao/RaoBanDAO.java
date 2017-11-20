@@ -146,7 +146,7 @@ public class RaoBanDAO {
 					raoBan.setGioiTinh("Unidentified");
 				}
 			}
-			
+
 			raoBan.setEmailNguoiBan(StringProcess.getVaildString(rs.getString("Email")));
 			raoBan.setDienThoaiNguoiBan(StringProcess.getVaildString(rs.getString("DienThoai")));
 
@@ -1037,7 +1037,6 @@ public class RaoBanDAO {
 			raoBan.setTacGia(rs.getString("tacgia"));
 			raoBan.setTrangThaiRaoBan(rs.getInt("TrangThaiBan"));
 
-
 			System.out.println("THONG TIN SACH:");
 			System.out.println("ten sach: " + raoBan.getTenSach());
 			System.out.println(" --- ten nguoi dang: " + raoBan.getHoTenNguoiBan());
@@ -1046,6 +1045,60 @@ public class RaoBanDAO {
 
 			return raoBan;
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public boolean danhDauXemSau(String maNguoiDung, String maRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.PROC_THEM_XEM_SAU + " ?, ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, maNguoiDung);
+			statement.setString(2, maRaoBan);
+
+			int effectedRows = statement.executeUpdate();
+			if (effectedRows > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public ArrayList<RaoBan> layDanhSachXemSau(String maNguoiDung) {
+		connect();
+
+		String sql = "SELECT * FROM " + Constant.FUNCTION_DANH_SACH_XEM_SAU + "(?)";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, maNguoiDung);
+			ResultSet rs = statement.executeQuery();
+
+			ArrayList<RaoBan> list = new ArrayList<>();
+			RaoBan raoBan;
+
+			while (rs.next()) {
+				raoBan = new RaoBan();
+				raoBan.setMaRaoBan(rs.getString("maraoban"));
+				raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
+				 raoBan.setLinkAnh1(rs.getString("linkanh1"));
+				raoBan.setNgayBan(rs.getDate("ngayban"));
+				raoBan.setTenSach(rs.getString("tensach"));
+				raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
+				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
+				raoBan.setNamxb(rs.getString("namxb"));
+				raoBan.setNxb(rs.getString("nxb"));
+				raoBan.setTacGia(rs.getString("tacgia"));
+				list.add(raoBan);
+			}
+			return list;
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;

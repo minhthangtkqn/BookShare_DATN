@@ -120,9 +120,20 @@
 			</div>
 		</a>
 		
-		<a href="#danh-sach-mua-sau">
-			<div class="user-function row-item">
-<!-- 				WATCH LATER -->
+		<a href="#danh-sach-xem-sau">
+			<div class="user-function row-item watch-later-feature">
+				<div class="col-lg-4" style="height: 100%;">
+					<img alt="pending icon" src="images/home/watch-later-icon.png" style="width: 100%; margin-top: 13px;">
+				</div>
+				<div class="col-lg-8" style="height: 100%;">
+					<div style="margin-top: 13px; font-size: 18px;">
+						<p>WATCH LATER</p>
+					</div>
+					
+					<div style="font-size: 20px;">
+						<p><bean:write property="soLuongXemSau" name="trangNguoiDungForm"/></p>
+					</div>
+				</div>
 			</div>
 		</a> 
 	</div>
@@ -324,6 +335,65 @@
 		</div>
 	</div>
 	
+	
+	<!-- +++++++++++++++++++++++ -->
+	<br><br>
+	<div class="body-row">
+		<div class="books">
+			<h3>
+				<b>WATCH LATER</b>
+			</h3>
+			<table id="danh-sach-xem-sau"
+				class="table table-striped table-bordered" cellspacing="0"
+				width="100%">
+				<thead>
+					<tr>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+
+				<tfoot>
+					<tr>
+						<th>Book title</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Posted date</th>
+						<th>Publisher</th>
+						<th>Publish year</th>
+						<th>Delete</th>
+					</tr>
+				</tfoot>
+				<!-- ++++++++++++++++++  -->
+				<tbody>
+					<logic:iterate id="sp" property="dsXemSau" name="trangNguoiDungForm">
+						<tr>
+	                        <td><bean:write name="sp" property="tenSach" /></td>
+	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
+	                        <td><bean:write name="sp" property="gia" /></td>
+	                        <td><bean:write name="sp" property="ngayBan" /></td>
+	                        <td><bean:write name="sp" property="nxb" /></td>
+	                        <td><bean:write name="sp" property="namxb" /></td>
+	                        <td>
+	                        	<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
+	                        	<form id="xoa_xem_sau_${maRaoBan}" action="xoa-xem-sau.do" method="post"
+								onsubmit="return confirm('Do you want to delete this Post from WATCH LATER list?');">
+								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
+								<a onclick="if(document.getElementById('xoa_xem_sau_${maRaoBan}').onsubmit()){document.getElementById('xoa_xem_sau_${maRaoBan}').submit()};"
+									href="javascript:{}"><i class="glyphicon glyphicon-trash"></i></a>
+								</form>
+	                        </td>
+	                    </tr>
+					</logic:iterate>
+				</tbody>
+			</table>
+		</div>
+	</div>
 	
 </div>
 <!-- END BODY -->

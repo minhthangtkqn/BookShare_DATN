@@ -142,4 +142,12 @@ public class RaoBanBO {
 	public RaoBan layThongTinSuaBaiDang(String maRaoBan) {
 		return raoBanDAO.layThongTinSuaBaiDang(maRaoBan);
 	}
+
+	public boolean danhDauXemSau(String maNguoiDung, String maRaoBan) {
+		return raoBanDAO.danhDauXemSau(maNguoiDung, maRaoBan);
+	}
+
+	public ArrayList<RaoBan> layDanhSachXemSau(String maNguoiDung) {
+		return raoBanDAO.layDanhSachXemSau(maNguoiDung);
+	}
 }
