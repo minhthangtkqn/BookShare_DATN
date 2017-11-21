@@ -130,13 +130,18 @@ public class SuaBaiDangAction extends Action {
 			String databaseLink = "";
 
 			if (StringProcess.notVaild(anh1.getFileName())) {
+				System.out.println("Anh 1: " + dangBanForm.getLinkAnh1());
 				raoBan.setLinkAnh1(dangBanForm.getLinkAnh1());
 			} else {
 				storageLink = prefixStorageLink + "(1)" + StringProcess.getSuffix(anh1);
 				databaseLink = prefixDatabaseLink + "(1)" + StringProcess.getSuffix(anh1);
+				
+				System.out.println("storageLink = " + storageLink);
+				System.out.println("databaseLink = " + databaseLink);
+				
 				outputStream = new FileOutputStream(new File(storageLink));
 				outputStream.write(anh1.getFileData());
-				raoBan.setLinkAnh2(databaseLink);
+				raoBan.setLinkAnh1(databaseLink);
 			}
 
 			if (StringProcess.notVaild(anh2.getFileName())) {
@@ -182,10 +187,10 @@ public class SuaBaiDangAction extends Action {
 			}
 
 			if (StringProcess.notVaild(anh5.getFileName())) {
-				if (dangBanForm.getLinkAnh4().equals(Constant.NO_IMAGE_DEFAULT)) {
-					raoBan.setLinkAnh4("");
+				if (dangBanForm.getLinkAnh5().equals(Constant.NO_IMAGE_DEFAULT)) {
+					raoBan.setLinkAnh5("");
 				} else {
-					raoBan.setLinkAnh4(dangBanForm.getLinkAnh4());
+					raoBan.setLinkAnh5(dangBanForm.getLinkAnh5());
 				}
 			} else {
 				storageLink = prefixStorageLink + "(5)" + StringProcess.getSuffix(anh5);

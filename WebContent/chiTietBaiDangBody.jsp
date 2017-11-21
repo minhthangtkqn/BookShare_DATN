@@ -232,7 +232,7 @@
 									<div class="form-group">
 										<div class="col-lg-12 no-padding">
 											<button type="submit"
-												class="w3-button w3-ripple w3-light-green col-lg-2">Answer this question</button>
+												class="w3-button w3-ripple w3-light-green col-lg-3">Answer this question</button>
 										</div>
 									</div>
 								</html:form>
