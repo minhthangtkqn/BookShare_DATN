@@ -37,9 +37,18 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 
 	<action-mappings>
 
+		<!-- BO DANH DAU BAI DANG XEM SAU -->
+		<action path="/xoa-xem-sau" name="xemSauForm"
+			input="/dangNhap.jsp" scope="request" type="action.BoDanhDauXemSauAction">
+			<forward name="dangnhaplai" path="/dangNhap.jsp" />
+			<forward name="error" path="/errorLogged.jsp"></forward>
+			<forward name="dangNhapDO" path="/dang-nhap.do"></forward>
+		</action>
+		<!-- END BO DANH DAU BAI DANG XEM SAU -->
+
 		<!-- DANH DAU BAI DANG XEM SAU -->
 		<action path="/them-xem-sau" name="xemSauForm"
-			input="/dangNhap.jsp" scope="request" type="action.XemSauAction">
+			input="/dangNhap.jsp" scope="request" type="action.DanhDauXemSauAction">
 			<forward name="dangnhaplai" path="/dangNhap.jsp" />
 			<forward name="error" path="/errorLogged.jsp"></forward>
 			<forward name="dangNhapDO" path="/dang-nhap.do"></forward>

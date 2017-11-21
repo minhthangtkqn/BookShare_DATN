@@ -150,4 +150,8 @@ public class RaoBanBO {
 	public ArrayList<RaoBan> layDanhSachXemSau(String maNguoiDung) {
 		return raoBanDAO.layDanhSachXemSau(maNguoiDung);
 	}
+
+	public boolean boDanhDauXemSau(String maNguoiDung, String maRaoBan) {
+		return raoBanDAO.boDanhDauXemSau(maNguoiDung, maRaoBan);
+	}
 }

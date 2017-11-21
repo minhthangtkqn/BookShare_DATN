@@ -373,14 +373,15 @@
 				<tbody>
 					<logic:iterate id="sp" property="dsXemSau" name="trangNguoiDungForm">
 						<tr>
-	                        <td><bean:write name="sp" property="tenSach" /></td>
+                        	<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
+	                        
+	                        <td><a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><bean:write name="sp" property="tenSach" /></a></td>
 	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
 	                        <td><bean:write name="sp" property="gia" /></td>
 	                        <td><bean:write name="sp" property="ngayBan" /></td>
 	                        <td><bean:write name="sp" property="nxb" /></td>
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
-	                        	<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
 	                        	<form id="xoa_xem_sau_${maRaoBan}" action="xoa-xem-sau.do" method="post"
 								onsubmit="return confirm('Do you want to delete this Post from WATCH LATER list?');">
 								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">

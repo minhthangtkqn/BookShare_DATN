@@ -1104,4 +1104,24 @@ public class RaoBanDAO {
 		return null;
 	}
 
+	public boolean boDanhDauXemSau(String maNguoiDung, String maRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.PROC_XOA_XEM_SAU + " ?, ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, maNguoiDung);
+			statement.setString(2, maRaoBan);
+
+			int effectedRows = statement.executeUpdate();
+			if (effectedRows > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

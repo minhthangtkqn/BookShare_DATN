@@ -12,18 +12,17 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 import common.StringProcess;
-import form.DangBanForm;
 import form.XemSauForm;
 import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
 
-public class DanhDauXemSauAction extends Action {
+public class BoDanhDauXemSauAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		System.out.println("DanhDauXemSauAction");
+		System.out.println("Bo Danh Dau Xem Sau Action");
 
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
@@ -35,7 +34,7 @@ public class DanhDauXemSauAction extends Action {
 				(String) session.getAttribute("password"));
 
 		if (type == 0) {
-			System.out.println("ADMIN KHÔNG THỂ ĐÁNH DẤU XEM SAU");
+			System.out.println("ADMIN KHÔNG THỂ BỎ ĐÁNH DẤU XEM SAU");
 			return mapping.findForward("trangChu");
 		}
 
@@ -55,18 +54,16 @@ public class DanhDauXemSauAction extends Action {
 		}
 
 		RaoBanBO raoBanBO = new RaoBanBO();
-		
-		if (raoBanBO.danhDauXemSau((String) session.getAttribute("userID"), xemSauForm.getMaRaoBan())) {
-			System.out.println("Post is saved to watch later list.");
+		if(raoBanBO.boDanhDauXemSau((String)session.getAttribute("userID") , xemSauForm.getMaRaoBan())){
+			System.out.println("Removed from watch later list successfully !");
+			return mapping.findForward("trangCaNhan");
 		}else{
 			ActionErrors errors = new ActionErrors();
-			errors.add("error", new ActionMessage("error.watchLater.add"));
+			errors.add("error", new ActionMessage("error.watchLater.remove"));
 			saveErrors(request, errors);
 			return mapping.findForward("errorLoggedPage");
 		}
 		
-		ActionForward forward = new ActionForward("/chi-tiet-bai-dang.do?maRaoBan=" + xemSauForm.getMaRaoBan());
-		return forward;
 	}
 
 }

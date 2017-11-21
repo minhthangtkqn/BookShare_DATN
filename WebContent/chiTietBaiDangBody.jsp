@@ -82,6 +82,8 @@
 			<p style="color: red; font-size: 20px">
 				<b>Price: <bean:write name="chiTietBaiDang" property="gia" /></b>
 			</p>
+			
+			<a href="them-xem-sau.do?maRaoBan=${maRaoBanChiTiet}" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">Add to watch later</a>
 		</div>
 
 		<div class="thongtin_nguoiban">
