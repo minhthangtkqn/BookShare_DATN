@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionForm;
 public class ChiTietBaiDangForm extends ActionForm {
 
 	private String maRaoBan;
+	private boolean xemSau;
 
 	private RaoBan chiTiet;
 	private ArrayList<RaoBan> dsGoiYMoiNguoiCungXem;
@@ -22,6 +23,14 @@ public class ChiTietBaiDangForm extends ActionForm {
 
 	private String submit;
 	private String error;
+
+	public boolean isXemSau() {
+		return xemSau;
+	}
+
+	public void setXemSau(boolean xemSau) {
+		this.xemSau = xemSau;
+	}
 
 	public float getUyTinNguoiBan() {
 		return uyTinNguoiBan;

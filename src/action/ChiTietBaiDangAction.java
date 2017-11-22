@@ -92,9 +92,13 @@ public class ChiTietBaiDangAction extends Action {
 			switch (type) {
 			case 1:
 				// nguoi dung binh thuong
+				chiTietBaiDangForm.setXemSau(
+						raoBanBO.isXemSau((String) session.getAttribute("userID"), chiTietBaiDangForm.getMaRaoBan()));
 				return mapping.findForward("xemCheDoNguoiDung");
 			case 2:
 				// Nguoi dung bi chan
+				chiTietBaiDangForm.setXemSau(
+						raoBanBO.isXemSau((String) session.getAttribute("userID"), chiTietBaiDangForm.getMaRaoBan()));
 				return mapping.findForward("nguoiDungBiChan");
 			default:
 				// chua dang nhap

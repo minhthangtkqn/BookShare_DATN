@@ -154,4 +154,8 @@ public class RaoBanBO {
 	public boolean boDanhDauXemSau(String maNguoiDung, String maRaoBan) {
 		return raoBanDAO.boDanhDauXemSau(maNguoiDung, maRaoBan);
 	}
+
+	public boolean isXemSau(String maNguoiDung, String maRaoBan) {
+		return raoBanDAO.isXemSau(maNguoiDung, maRaoBan);
+	}
 }

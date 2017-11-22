@@ -10,6 +10,16 @@ public class XemSauForm extends ActionForm {
 	private String submit;
 	private String error;
 
+	private String preLink;
+
+	public String getPreLink() {
+		return preLink;
+	}
+
+	public void setPreLink(String preLink) {
+		this.preLink = preLink;
+	}
+
 	public String getMaNguoiDung() {
 		return maNguoiDung;
 	}

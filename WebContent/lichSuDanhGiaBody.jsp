@@ -1,3 +1,4 @@
+<%@page import="common.StringProcess"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -72,9 +73,13 @@
 					<bean:write name="nguoiBan" property="dienThoai" />
 				</p>
 			</div>
+			
+			<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
 			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
 				Rate this seller
 			</a>
+			<% } %>
+			
 		</div>
 	</div>
 

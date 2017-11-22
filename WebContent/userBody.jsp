@@ -385,6 +385,7 @@
 	                        	<form id="xoa_xem_sau_${maRaoBan}" action="xoa-xem-sau.do" method="post"
 								onsubmit="return confirm('Do you want to delete this Post from WATCH LATER list?');">
 								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
+								<input name="preLink" value="trangCaNhan" style="display: none;">
 								<a onclick="if(document.getElementById('xoa_xem_sau_${maRaoBan}').onsubmit()){document.getElementById('xoa_xem_sau_${maRaoBan}').submit()};"
 									href="javascript:{}"><i class="glyphicon glyphicon-trash"></i></a>
 								</form>

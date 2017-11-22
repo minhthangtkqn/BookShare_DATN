@@ -1,3 +1,5 @@
+<%@page import="javax.websocket.Session"%>
+<%@page import="common.StringProcess"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -5,6 +7,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
+
 
 <!-- BODY -->
 <div id="page-body" class="container">
@@ -83,7 +86,18 @@
 				<b>Price: <bean:write name="chiTietBaiDang" property="gia" /></b>
 			</p>
 			
-			<a href="them-xem-sau.do?maRaoBan=${maRaoBanChiTiet}" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">Add to watch later</a>
+			
+			<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
+				
+				<logic:equal value="true" name="chiTietBaiDangForm" property="xemSau">
+					<a href="xoa-xem-sau.do?maRaoBan=${maRaoBanChiTiet}&preLink=chiTiet" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">Remove from watch later</a>
+				</logic:equal>
+				
+				<logic:equal value="false" name="chiTietBaiDangForm" property="xemSau">
+					<a href="them-xem-sau.do?maRaoBan=${maRaoBanChiTiet}" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">Add to watch later</a>
+				</logic:equal>
+				
+			<% } %>
 		</div>
 
 		<div class="thongtin_nguoiban">
@@ -132,9 +146,12 @@
 			<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-light-green btn-hoi-mua features_button">
 				See all reviews
 			</a>
+			
+			<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
 			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">
 				Rate this seller
 			</a>
+			<% } %>
 		</div>
 	</div>
 	
@@ -213,6 +230,7 @@
 						<% i++; %>
 					</logic:iterate>
 
+					<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
 					<!-- tra loi cau hoi -->
 					<div class="col-lg-offset-1 col-lg-11">
 						<div class="col-lg-offset-1 col-lg-11">
@@ -239,24 +257,30 @@
 							</div>
 						</div>
 					</div>
+					<% } %>
+					
 				</div>
 			</logic:iterate>
 			
-			<div class="col-lg-12" style="margin-top: 40px;">
-				<html:form action="/dang-binh-luan" method="post">
-					<div class="form-group">
-						<html:text property="maRaoBan" style="display: none;" value="${maRaoBanChiTiet}"></html:text>
-						<label for="">Your question</label>
-						<html:textarea rows="6" property="binhLuan" styleClass="form-control"></html:textarea>
-					</div>
-					
-					<div class="form-group">
-						<div class="col-lg-12 no-padding">
-							<button type="submit" class="w3-button w3-ripple w3-light-green col-lg-2">Post your question</button>
+			<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
+<%-- 			<logic:present property="taiKhoan" name="dangNhapForm"> --%>
+				<div class="col-lg-12" style="margin-top: 40px;">
+					<html:form action="/dang-binh-luan" method="post">
+						<div class="form-group">
+							<html:text property="maRaoBan" style="display: none;" value="${maRaoBanChiTiet}"></html:text>
+							<label for="">Your question</label>
+							<html:textarea rows="6" property="binhLuan" styleClass="form-control"></html:textarea>
 						</div>
-					</div>
-				</html:form>
-			</div>
+						
+						<div class="form-group">
+							<div class="col-lg-12 no-padding">
+								<button type="submit" class="w3-button w3-ripple w3-light-green col-lg-2">Post your question</button>
+							</div>
+						</div>
+					</html:form>
+				</div>
+<%-- 			</logic:present> --%>
+				<% } %>
 			
 			<div class="col-lg-12" style="height: 50px;"></div>
 		</div>

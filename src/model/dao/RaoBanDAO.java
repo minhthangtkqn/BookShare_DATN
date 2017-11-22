@@ -1087,7 +1087,7 @@ public class RaoBanDAO {
 				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));
 				raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
-				 raoBan.setLinkAnh1(rs.getString("linkanh1"));
+				raoBan.setLinkAnh1(rs.getString("linkanh1"));
 				raoBan.setNgayBan(rs.getDate("ngayban"));
 				raoBan.setTenSach(rs.getString("tensach"));
 				raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
@@ -1116,6 +1116,26 @@ public class RaoBanDAO {
 
 			int effectedRows = statement.executeUpdate();
 			if (effectedRows > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean isXemSau(String maNguoiDung, String maRaoBan) {
+		connect();
+		String sql = "SELECT * FROM " + Constant.TABLE_XEM_SAU + " WHERE MaNguoiDung = ? AND MaRaoBan = ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, maNguoiDung);
+			statement.setString(2, maRaoBan);
+
+			ResultSet rs = statement.executeQuery();
+
+			if (rs.isBeforeFirst()) {
 				return true;
 			}
 		} catch (Exception e) {

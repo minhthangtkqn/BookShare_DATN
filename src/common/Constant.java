@@ -27,6 +27,7 @@ public class Constant {
 	public static final String TABLE_TINH = "[tblTinh]";
 	public static final String TABLE_BANNER = "[tblBanner]";
 	public static final String TABLE_RAO_BAN = "[tblRaoBan]";
+	public static final String TABLE_XEM_SAU = "[tblXemSau]";
 	public static final String TABLE_DANH_MUC = "[tblDanhMuc]";
 	public static final String TABLE_DANH_GIA = "[tblDanhGia]";
 	public static final String TABLE_BINH_LUAN = "[tblBinhLuan]";

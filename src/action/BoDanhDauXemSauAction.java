@@ -54,16 +54,21 @@ public class BoDanhDauXemSauAction extends Action {
 		}
 
 		RaoBanBO raoBanBO = new RaoBanBO();
-		if(raoBanBO.boDanhDauXemSau((String)session.getAttribute("userID") , xemSauForm.getMaRaoBan())){
+		if (raoBanBO.boDanhDauXemSau((String) session.getAttribute("userID"), xemSauForm.getMaRaoBan())) {
 			System.out.println("Removed from watch later list successfully !");
+
+			if ("chiTiet".equals(StringProcess.getVaildString(xemSauForm.getPreLink()))) {
+				ActionForward forward = new ActionForward("/chi-tiet-bai-dang.do?maRaoBan=" + xemSauForm.getMaRaoBan());
+				return forward;
+			}
 			return mapping.findForward("trangCaNhan");
-		}else{
+		} else {
 			ActionErrors errors = new ActionErrors();
 			errors.add("error", new ActionMessage("error.watchLater.remove"));
 			saveErrors(request, errors);
 			return mapping.findForward("errorLoggedPage");
 		}
-		
+
 	}
 
 }
