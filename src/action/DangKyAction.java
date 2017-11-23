@@ -37,34 +37,34 @@ public class DangKyAction extends Action {
 
 		if (taiKhoan.length() == 0) {
 			System.out.println("Tài khoản không được để trống >_<!");
-			dangKiForm.setLoiTaiKhoan("Tài khoản không được để trống >_<!");
+			dangKiForm.setLoiTaiKhoan("Username cannot be empty !");
 			return mapping.findForward("loi");
 
 		}
 		if ((matKhau.length() == 0)) {
 			System.out.println("Mật khẩu không phải là nơi để bỏ trống!");
-			dangKiForm.setLoiMatKhau("Mật khẩu không phải là nơi để bỏ trống!");
+			dangKiForm.setLoiMatKhau("Password cannot be empty !");
 			return mapping.findForward("loi");
 
 		}
 		if (nguoiDungBO.kiemTraTaiKhoanTonTai(taiKhoan)) {
 			System.out.println("Tài khoản này đã tồn tại!");
-			dangKiForm.setLoiTaiKhoan("Tài khoản này đã tồn tại!");
+			dangKiForm.setLoiTaiKhoan("This username is existed !");
 			return mapping.findForward("loi");
 		}
 		if (!(matKhau.equals(nhapLaiMatKhau))) {
 			System.out.println("Nhập lại mật khẩu không khớp!");
-			dangKiForm.setLoiNhapLaiMatKhau("Nhập lại mật khẩu không khớp!");
+			dangKiForm.setLoiNhapLaiMatKhau("Confirmation password is not match !");
 			return mapping.findForward("loi");
 		}
 		
 		if(nguoiDungBO.dangKi(taiKhoan, matKhau)){
 			System.out.println("Đăng kí tài khoản thành công!");
-			session.setAttribute("thongBao", "Đăng kí tài khoản thành công! Mời bạn đăng nhập.");
+			session.setAttribute("thongBao", "Registering successfully, now you can use that account !");
 			return mapping.findForward("thanhcong");
 		}else{
 			System.out.println("Đã xảy ra lỗi khi đăng ký");
-			dangKiForm.setLoiDangKy("Đã xảy ra lỗi khi đăng ký");
+			dangKiForm.setLoiDangKy("There are some problems in register process");
 			return mapping.findForward("loi");
 		}
 	}

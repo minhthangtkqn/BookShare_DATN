@@ -100,7 +100,7 @@
 									
 									<td>
 										<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}">
-											<i class="glyphicon glyphicon-folder-open"></i>
+											<i class="glyphicon glyphicon-folder-open font-size-20"></i>
 										</a>
 									</td>
 								</tr>

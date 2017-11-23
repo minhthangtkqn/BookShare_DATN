@@ -160,7 +160,7 @@
 	<div class="body-row col-lg-12">
 		<div class="col-lg-12 comment-box">
 			<div class="col-lg-5" style="padding-left: 45px; margin-bottom: -35px;">
-				<h3>QUESTIONS</h3>
+				<h3 style="font-weight: bold;">QUESTIONS</h3>
 			</div>
 			
 			<logic:iterate id="dsBinhLuan" name="chiTietBaiDangForm" property="dsBinhLuan">
@@ -263,7 +263,6 @@
 			</logic:iterate>
 			
 			<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
-<%-- 			<logic:present property="taiKhoan" name="dangNhapForm"> --%>
 				<div class="col-lg-12" style="margin-top: 40px;">
 					<html:form action="/dang-binh-luan" method="post">
 						<div class="form-group">
@@ -274,13 +273,12 @@
 						
 						<div class="form-group">
 							<div class="col-lg-12 no-padding">
-								<button type="submit" class="w3-button w3-ripple w3-light-green col-lg-2">Post your question</button>
+								<button type="submit" style="font-weight: bold;" class="w3-button w3-ripple w3-light-green col-lg-2">Post your question</button>
 							</div>
 						</div>
 					</html:form>
 				</div>
-<%-- 			</logic:present> --%>
-				<% } %>
+			<% } %>
 			
 			<div class="col-lg-12" style="height: 50px;"></div>
 		</div>

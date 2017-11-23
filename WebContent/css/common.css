@@ -54,6 +54,9 @@ body {
 .font-size-12 {
 	font-size: 12px;
 }
+.font-size-20{
+	font-size: 20px;
+}
 
 .border-hover:hover {
 	border: 1px solid;

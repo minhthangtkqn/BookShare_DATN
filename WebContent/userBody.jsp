@@ -184,14 +184,14 @@
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
                         		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-	                        	<a href="sua-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-pencil"></i></a>
+	                        	<a href="sua-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-pencil font-size-20"></i></a>
 	                        </td>
 	                        <td>
 	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
 								onsubmit="return confirm('Do you want to delete this Post?');">
 								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 								<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
-									href="javascript:{}"><i class="glyphicon glyphicon-trash"></i></a>
+									href="javascript:{}"><i class="glyphicon glyphicon-trash font-size-20"></i></a>
 								</form>
 	                        </td>
 	                    </tr>
@@ -251,14 +251,14 @@
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
                         		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-	                        	<a href="sua-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-pencil"></i></a>
+	                        	<a href="sua-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-pencil font-size-20"></i></a>
 	                        </td>
 	                        <td>
 	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
 									onsubmit="return confirm('Do you want to delete this Post?');">
 									<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 									<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
-										href="javascript:{}"><i class="glyphicon glyphicon-trash"></i></a>
+										href="javascript:{}"><i class="glyphicon glyphicon-trash font-size-20"></i></a>
 								</form>
 	                        </td>
 	                        <td>
@@ -266,7 +266,7 @@
 									onsubmit="return confirm('Do you want to set this notice as SOLD?');">
 									<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 									<a onclick="if(document.getElementById('ban_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('ban_bai_dang_${maRaoBan}').submit()};"
-										href="javascript:{}"><i class="glyphicon glyphicon-ok"></i></a>
+										href="javascript:{}"><i class="glyphicon glyphicon-ok font-size-20"></i></a>
 								</form>
 	                        </td>
 	                    </tr>
@@ -325,7 +325,7 @@
 								onsubmit="return confirm('Do you want to delete this Post?');">
 								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 								<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
-									href="javascript:{}"><i class="glyphicon glyphicon-trash"></i></a>
+									href="javascript:{}"><i class="glyphicon glyphicon-trash font-size-20"></i></a>
 								</form>
 	                        </td>
 	                    </tr>
@@ -387,7 +387,7 @@
 								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 								<input name="preLink" value="trangCaNhan" style="display: none;">
 								<a onclick="if(document.getElementById('xoa_xem_sau_${maRaoBan}').onsubmit()){document.getElementById('xoa_xem_sau_${maRaoBan}').submit()};"
-									href="javascript:{}"><i class="glyphicon glyphicon-trash"></i></a>
+									href="javascript:{}"><i class="glyphicon glyphicon-trash font-size-20"></i></a>
 								</form>
 	                        </td>
 	                    </tr>

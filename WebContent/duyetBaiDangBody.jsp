@@ -81,7 +81,7 @@
 			<div class="anh_nguoiban">
 				<bean:define id="anhNguoiBan" name="chiTietBaiDang"
 					property="anhNguoiBan"></bean:define>
-				<img style="height: 200px; width: 200px;" src="${anhNguoiBan}">
+				<img style="height: 100%; width: 100%;" src="${anhNguoiBan}">
 			</div>
 			<div class="text_info">
 				<p>

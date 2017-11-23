@@ -169,7 +169,7 @@
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
                         		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-								<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-pencil"></i></a>
+								<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-check font-size-20"></i></a>
 	                        </td>
 	                    </tr>
 					</logic:iterate>
@@ -224,7 +224,7 @@
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
                         		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
-								<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-pencil"></i></a>
+								<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-check font-size-20"></i></a>
 	                        </td>
 	                    </tr>
 					</logic:iterate>

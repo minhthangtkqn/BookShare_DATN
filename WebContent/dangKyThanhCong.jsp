@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DANG KY THANH CONG</title>
+<title>REGISTER</title>
 </head>
 <body>
-	CHUC MUNG BAN DA DANG KY THANH CONG
+	Congratulation, register successfully !
 </body>
 </html>
