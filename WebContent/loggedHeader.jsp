@@ -9,31 +9,33 @@
 <!-- HEADER -->
 <div id="header">
 	<div class="container">
-		<div class="col-lg-2">
-			<a href="trang-chu.do"><img src="images/logobook.png" alt=""
-				style="height: 100%; width: 100%" /></a>
+		<div class="height-100-percent" style="width: 11%; float: left;">
+			<a href="trang-chu.do">
+				<img src="images/logobook.png" alt=""
+				class="logo" />
+			</a>
 		</div>
 		
-		<div class="col-lg-5" style="margin-top: 12px;">
-			<html:form action="/ket-qua-tim-kiem.do" method="post">
-				<input style="height: 35px;" autocomplete="off" id="tuKhoa" name="tuKhoa" oninput="recommend()" 
-				class="search-input search-item col-lg-9" type="text" 
-				placeholder="Type the book title or the author name ...">
+		<div class="col-lg-5 height-100-percent">
+			<html:form action="/ket-qua-tim-kiem.do" method="post" styleClass="height-100-percent">
+				<input autocomplete="off" id="tuKhoa" name="tuKhoa" oninput="recommend()" 
+				class="search-input search-item col-lg-9 height-100-percent" type="text" 
+				placeholder="Book title or author name ...">
 
-				<button style="color: white;" type="submit"
-					class="w3-btn w3-blue font-size-12 border-hover"> 
+				<button style="color: white; text-transform: uppercase;" type="submit"
+					class="col-lg-3 w3-btn w3-blue font-size-12 border-hover height-100-percent"> 
 						<span class="glyphicon glyphicon-search"></span> Find books
 				</button>
 			</html:form>
 		</div>
 
-		<div class="float-right" style="height: 40px; margin-top: 10px; margin-bottom: 10px;">
+		<div class="float-right" style="height: 100%; margin-top: 3px;">
 			<ul class="list-inline list-unstyled">
 				<li><div style="height: 40px;">
 						<a href="trang-ca-nhan.do" style="color: white;"><img class="img-circle"
 							style="height: 40px; width: 40px;" alt="" src="${Avatar}">
 							${userName} </a>
-					</div></li> &nbsp;&nbsp;&nbsp;&nbsp;
+					</div></li> &nbsp;&nbsp;
 				<li><div style="height: 40px; padding-top: 7px;">
 						<a href="dang-xuat.do" style="color: white;"><i class="glyphicon glyphicon-off"></i>
 							Log out</a>
@@ -41,16 +43,21 @@
 			</ul>
 		</div>
 
-		<div class="float-right" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
-			<a href="dang-ban.do" class="btn btn-primary-outline font-size-12 border-hover" style="color: white;">
-				<span class="glyphicon glyphicon-pencil"></span> Sell book
+		<div class="float-right height-100-percent">
+			<a href="dang-ban.do" 
+				style="color: white;"
+				class="btn btn-primary-outline font-size-12 border-hover height-100-percent">
+				<span class="glyphicon glyphicon-pencil feature-icon"></span>
+				<div class="feature-title">Sell book</div>
 			</a>
 		</div>
 
-		<div class="float-right" style="height: 30px; margin-top: 15px; margin-bottom: 15px;">
-			<a href="lich-su-xem-bai-dang.do" class="btn btn-primary-outline font-size-12 border-hover" style="color: white;">
-				<span class="glyphicon glyphicon-time"></span> 
-				Browsing History
+		<div class="float-right height-100-percent">
+			<a href="lich-su-xem-bai-dang.do" 
+				class="btn btn-primary-outline font-size-12 border-hover height-100-percent" 
+				style="color: white;">
+				<span class="glyphicon glyphicon-time feature-icon"></span> 
+				<div class="feature-title">Browsing History</div>
 			</a>
 		</div>
 

@@ -6,7 +6,7 @@ body {
 .container {
 	display: block;
 	width: 1220px;
-	height: auto;
+	height: 100%;
 	margin: auto;
 }
 
@@ -88,4 +88,7 @@ body {
 	font-size: 25px;
 	font-weight: bold;
 	color: red;
+}
+.height-100-percent{
+	height: 100%;
 }

@@ -9,12 +9,13 @@
 <!-- HEADER -->
 <div id="header">
 	<div class="container">
-		<div class="col-lg-2">
-			<a style="color: white;" href="trang-chu.do"><img src="images/logobook.png" alt=""
-				style="height: 100%; width: 100%;" /></a>
+		<div class="height-100-percent" style="width: 11%; float: left;">
+			<a style="color: white;" href="trang-chu.do">
+				<img src="images/logobook.png" alt="" class="logo"/>
+			</a>
 		</div>
 
-		<div class="float-right" style="height: 20px; margin-top: 20px; margin-bottom: 20px;">
+		<div class="float-right height-100-percent" style="padding-top: 12px;">
 			<ul class="list-inline list-unstyled">
 				<li><a style="color: white;" href="dangKy.jsp"><i class="fa fa-user"></i> Register</a></li>
 				&nbsp;&nbsp;&nbsp;&nbsp;
@@ -22,14 +23,14 @@
 			</ul>
 		</div>
 		
-		<div class="col-lg-5" style="margin-top: 12px;">
-			<html:form action="/ket-qua-tim-kiem.do" method="post">
-				<input style="height: 35px;" autocomplete="off" id="tuKhoa" name="tuKhoa" oninput="recommend()" 
-				class="search-input search-item col-lg-9" type="text" 
-				placeholder="Type the book title or the author name ...">
+		<div class="col-lg-5 height-100-percent" >
+			<html:form action="/ket-qua-tim-kiem.do" method="post" styleClass="height-100-percent">
+				<input autocomplete="off" id="tuKhoa" name="tuKhoa" oninput="recommend()" 
+				class="search-input search-item col-lg-9 height-100-percent" type="text" 
+				placeholder="Book title or author name ...">
 
-				<button style="color: white;" type="submit"
-					class="w3-btn w3-blue font-size-12 border-hover"> 
+				<button style="color: white; text-transform: uppercase;" type="submit"
+					class="col-lg-3 w3-btn w3-blue font-size-12 border-hover height-100-percent"> 
 						<span class="glyphicon glyphicon-search"></span> Find books
 				</button>
 			</html:form>
