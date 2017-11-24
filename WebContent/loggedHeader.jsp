@@ -16,15 +16,15 @@
 			</a>
 		</div>
 		
-		<div class="col-lg-5 height-100-percent">
+		<div class="col-lg-5 height-100-percent" >
 			<html:form action="/ket-qua-tim-kiem.do" method="post" styleClass="height-100-percent">
 				<input autocomplete="off" id="tuKhoa" name="tuKhoa" oninput="recommend()" 
 				class="search-input search-item col-lg-9 height-100-percent" type="text" 
 				placeholder="Book title or author name ...">
 
-				<button style="color: white; text-transform: uppercase;" type="submit"
-					class="col-lg-3 w3-btn w3-blue font-size-12 border-hover height-100-percent"> 
-						<span class="glyphicon glyphicon-search"></span> Find books
+				<button type="submit"
+					class="search-btn-header col-lg-3 w3-btn w3-blue border-hover height-100-percent"> 
+						Find books
 				</button>
 			</html:form>
 		</div>

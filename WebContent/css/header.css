@@ -64,3 +64,21 @@
 	vertical-align: top;
 	font-weight: lighter;
 }
+
+#tuKhoa {
+	background: url(../images/home/icon-repeat.png) 10px 10px no-repeat;
+	padding-left: 39px;
+	padding-top: 4px;
+	font-size: 14px;
+	background-color: white;
+	margin-bottom: 5px;
+}
+
+.search-btn-header {
+	color: white;
+	text-transform: uppercase;
+	font-size: 17px;
+	letter-spacing: -1px;
+	padding-left: 8px;
+	text-transform: uppercase;
+}

@@ -63,21 +63,31 @@
 			</h3>
 			
 			<div class="box">
-				<logic:iterate id="book" property="listRaoBan" name="ketQuaTimKiemForm">
-					<div class="sp">
-						<bean:define id="anh" name="book" property="linkAnh1"></bean:define>
-						<bean:define id="maRaoBan" name="book" property="maRaoBan"></bean:define>
-						<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><img src="${anh}"
-							class="w3-hover-opacity"></a>
-						<h4 class="ten-sach">
-							<b><bean:write name="book" property="tenSach" /></b>
-						</h4>
-						<p class="tac-gia"><bean:write name="book" property="tacGia" /></p>
-						<h4 class="gia-tien">
-							<b><bean:write name="book" property="gia" /></b>
-						</h4>
-					</div>
-				</logic:iterate>
+			
+				<logic:notEmpty name="ketQuaTimKiemForm" property="listRaoBan">
+					<logic:iterate id="book" property="listRaoBan" name="ketQuaTimKiemForm">
+						<div class="sp">
+							<bean:define id="anh" name="book" property="linkAnh1"></bean:define>
+							<bean:define id="maRaoBan" name="book" property="maRaoBan"></bean:define>
+							<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><img src="${anh}"
+								class="w3-hover-opacity"></a>
+							<h4 class="ten-sach">
+								<b><bean:write name="book" property="tenSach" /></b>
+							</h4>
+							<p class="tac-gia"><bean:write name="book" property="tacGia" /></p>
+							<h4 class="gia-tien">
+								<b><bean:write name="book" property="gia" /></b>
+							</h4>
+						</div>
+					</logic:iterate>
+				</logic:notEmpty>
+				
+				<logic:empty name="ketQuaTimKiemForm" property="listRaoBan">
+					<p style="color: red; text-transform: uppercase; font-weight: bold; font-style: italic;">
+						<br>
+						Sorry! There are no results that match your search.
+					</p>
+				</logic:empty>
 			</div>
 		</div>
 

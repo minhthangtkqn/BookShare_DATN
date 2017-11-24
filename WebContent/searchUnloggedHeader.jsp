@@ -9,12 +9,13 @@
 <!-- HEADER -->
 <div id="header">
 	<div class="container">
-		<div class="col-lg-2">
-			<a style="color: white;" href="trang-chu.do"><img src="images/logobook.png" alt=""
-				style="height: 100%; width: 100%;" /></a>
+		<div class="height-100-percent" style="width: 11%; float: left;">
+			<a style="color: white;" href="trang-chu.do">
+				<img src="images/logobook.png" alt="" class="logo"/>
+			</a>
 		</div>
 
-		<div class="float-right" style="height: 20px; margin-top: 20px; margin-bottom: 20px;">
+		<div class="float-right height-100-percent" style="padding-top: 12px;">
 			<ul class="list-inline list-unstyled">
 				<li><a style="color: white;" href="dangKy.jsp"><i class="fa fa-user"></i> Register</a></li>
 				&nbsp;&nbsp;&nbsp;&nbsp;
