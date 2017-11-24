@@ -114,8 +114,3 @@
 </div>
 <!--    END BODY    -->
 
-<script>
-	function recommend(){
-		$("#tuKhoa").autocomplete("List.jsp");
-	}
-</script>

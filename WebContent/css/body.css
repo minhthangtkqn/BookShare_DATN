@@ -81,41 +81,6 @@ table a:LINK, a:VISITED {
 	border: solid 1px black;
 }
 
-.search {
-	display: inline-block;
-	width: 840px;
-	height: auto;
-	vertical-align: top;
-}
-
-.search-form {
-	height: 40px;
-}
-
-.search-item {
-	height: 100%;
-	vertical-align: top;
-}
-
-.search-input {
-	width: 790px;
-	font-size: 17px;
-	padding-left: 10px;
-	border: 2px solid #a9a9a9;
-}
-
-.search-button {
-	width: 40px;
-}
-
-.search select {
-	display: inline-block;
-	width: 415px;
-	font-size: 16px;
-	height: 40px;
-	border-width: 2px;
-}
-
 #goi-y {
 	display: inline-block;
 	width: 350px;

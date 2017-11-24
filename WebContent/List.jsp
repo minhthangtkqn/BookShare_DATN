@@ -45,7 +45,7 @@
            if(StringProcess.removeDiacritics(str[j]).toLowerCase().contains(StringProcess.removeDiacritics(query).toLowerCase()))
            {
               out.print(str[j]+"\n");
-              if(cnt >= 10)// 5=How many results have to show while we are typing(auto suggestions)
+              if(cnt >= 8)// 8=How many results have to show while we are typing(auto suggestions)
               break;
               cnt++;
             }

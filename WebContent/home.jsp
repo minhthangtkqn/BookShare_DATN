@@ -7,19 +7,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<head lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HOME | BOOKSHARE</title>
-<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/body.css">
-<link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>HOME | BOOKSHARE</title>
+	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/body.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+	<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/autoComplete.css">
 </head>
 <body>
 	<div id="page">
@@ -37,6 +35,7 @@
 		<!-- SCRIPT OWL SLIDER -->
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="owlcarousel/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
 
 		<script>
 			$(document).ready(function() {
@@ -64,6 +63,12 @@
 			})
 		</script>
 		<!-- END SCRIPT OWL SLIDER -->
+		
+		<script>
+			function recommend() {
+				$("#tuKhoa").autocomplete("List.jsp");
+			}
+		</script>
 	</div>
 </body>
 </html>

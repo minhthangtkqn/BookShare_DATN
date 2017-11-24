@@ -22,19 +22,6 @@
 			</ul>
 		</div>
 		
-		<div class="col-lg-5" style="margin-top: 12px;">
-			<html:form action="/ket-qua-tim-kiem.do" method="post">
-				<input style="height: 35px;" autocomplete="off" id="tuKhoa" name="tuKhoa" oninput="recommend()" 
-				class="search-input search-item col-lg-9" type="text" 
-				placeholder="Type the book title or the author name ...">
-
-				<button style="color: white;" type="submit"
-					class="w3-btn w3-blue font-size-12 border-hover"> 
-						<span class="glyphicon glyphicon-search"></span> Find books
-				</button>
-			</html:form>
-		</div>
-
 	</div>
 </div>
 <!-- END HEADER -->

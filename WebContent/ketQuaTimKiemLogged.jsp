@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/body.css">
 	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/timKiem.css">
 	<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 	<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/autoComplete.css">
@@ -29,7 +30,7 @@
 
 <body>
 	<div id="page">
-		<jsp:include page="/loggedHeader.jsp"></jsp:include>
+		<jsp:include page="/searchLoggedHeader.jsp"></jsp:include>
 
 		<jsp:include page="/ketQuaTimKiemBody.jsp"></jsp:include>
 
@@ -60,6 +61,12 @@
 			})
 		</script>
 		<!-- END SCRIPT OWL SLIDER -->
+
+		<script>
+			function recommend() {
+				$("#tuKhoa").autocomplete("List.jsp");
+			}
+		</script>
 	</div>
 </body>
 

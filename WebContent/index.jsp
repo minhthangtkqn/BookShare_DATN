@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 	<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/autoComplete.css">
 </head>
 
 <body>
@@ -33,7 +34,8 @@
 		<!-- SCRIPT OWL SLIDER -->
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="owlcarousel/owl.carousel.min.js"></script>
-
+		<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+	
 		<script>
 			$(document).ready(function() {
 				$(".owl-carousel").owlCarousel();
@@ -60,6 +62,12 @@
 			})
 		</script>
 		<!-- END SCRIPT OWL SLIDER -->
+
+		<script>
+			function recommend() {
+				$("#tuKhoa").autocomplete("List.jsp");
+			}
+		</script>
 	</div>
 </body>
 </html>
