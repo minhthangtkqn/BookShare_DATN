@@ -54,7 +54,8 @@ body {
 .font-size-12 {
 	font-size: 12px;
 }
-.font-size-20{
+
+.font-size-20 {
 	font-size: 20px;
 }
 
@@ -89,6 +90,14 @@ body {
 	font-weight: bold;
 	color: red;
 }
-.height-100-percent{
+
+.height-100-percent {
 	height: 100%;
+}
+
+.empty-message {
+	color: red;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-style: italic;
 }

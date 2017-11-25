@@ -83,7 +83,7 @@
 				</logic:notEmpty>
 				
 				<logic:empty name="ketQuaTimKiemForm" property="listRaoBan">
-					<p style="color: red; text-transform: uppercase; font-weight: bold; font-style: italic;">
+					<p class="empty-message">
 						<br>
 						Sorry! There are no results that match your search.
 					</p>
