@@ -66,8 +66,9 @@ public class TrangQuanLyAction extends Action {
 		trangQuanLyForm.setDsDaBan(raoBanBO.layDanhSachDaBan());
 		trangQuanLyForm.setSoLuongDaBan(trangQuanLyForm.getDsDaBan().size());
 
-		// lay ds da mua
-		// trangQuanLyForm.setDsDaMua(raoBanBO.layD)
+		// lay ds bi khoa
+		trangQuanLyForm.setDsKhoa(raoBanBO.layDanhSachBaiDangBiKhoa());
+		trangQuanLyForm.setSoLuongKhoa(trangQuanLyForm.getDsKhoa().size());
 
 		return mapping.findForward("giaoDienTrangQuanLy");
 	}

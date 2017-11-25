@@ -46,10 +46,14 @@
 	color: white;
 }
 .sold-feature{
-	background-color: gray;
+	background-color: #fdbc2f;
 	color: white;
 }
 .watch-later-feature{
-	background-color: gray;
+	background-color: #fd645f;
+	color: white;
+}
+.locked-feature{
+	background-color: #fd645f;
 	color: white;
 }

@@ -45,6 +45,10 @@ public class RaoBanBO {
 		return raoBanDAO.layDanhSachDaBan(maNguoiDung);
 	}
 
+	public ArrayList<RaoBan> layDanhSachBaiDangBiKhoa() {
+		return raoBanDAO.layDanhSachBaiDangBiKhoa();
+	}
+
 	public boolean dangBai(RaoBan raoBan) {
 		return raoBanDAO.dangBai(raoBan);
 	}
@@ -158,4 +162,5 @@ public class RaoBanBO {
 	public boolean isXemSau(String maNguoiDung, String maRaoBan) {
 		return raoBanDAO.isXemSau(maNguoiDung, maRaoBan);
 	}
+
 }

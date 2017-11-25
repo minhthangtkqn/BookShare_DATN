@@ -1144,4 +1144,48 @@ public class RaoBanDAO {
 		return false;
 	}
 
+	public ArrayList<RaoBan> layDanhSachBaiDangBiKhoa() {
+		connect();
+
+		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_BAI_DANG_BI_KHOA;
+
+		try {
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();
+			
+			RaoBan raoBan = null;
+			ArrayList<RaoBan> list = new ArrayList<RaoBan>();
+			
+			while (rs.next()) {
+				raoBan = new RaoBan();
+				raoBan.setMaRaoBan(rs.getString("maraoban"));
+				raoBan.setTenTinhBan(rs.getString("tentinh"));
+				raoBan.setGia(String.format("%,8d", rs.getInt("Gia")) + " VND");
+				raoBan.setMoTa(rs.getString("mota"));
+				raoBan.setLinkAnh1(rs.getString("linkanh1"));
+				raoBan.setLinkAnh2(rs.getString("linkanh2"));
+				raoBan.setLinkAnh3(rs.getString("linkanh3"));
+				raoBan.setLinkAnh4(rs.getString("linkanh4"));
+				raoBan.setLinkAnh5(rs.getString("linkanh5"));
+				raoBan.setNgayBan(rs.getDate("ngayban"));
+				raoBan.setTaiKhoanNguoiBan(rs.getString("taikhoan"));
+				raoBan.setAnhNguoiBan(rs.getString("anh"));
+				raoBan.setTenSach(rs.getString("tensach"));
+				raoBan.setMaDanhMuc(rs.getString("madanhmuc"));
+				raoBan.setTenDanhMuc(rs.getString("tendanhmuc"));
+				raoBan.setNamxb(rs.getString("namxb"));
+				raoBan.setNxb(rs.getString("nxb"));
+				raoBan.setTacGia(rs.getString("tacgia"));
+
+				System.out.print("Ten sach: " + rs.getString("TenSach"));
+				System.out.println("  --  Link anh: " + rs.getString("LinkAnh1"));
+				list.add(raoBan);
+			}
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

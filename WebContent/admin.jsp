@@ -38,6 +38,9 @@
 			$(document).ready(function() {
 				$('#danh-sach-da-ban').DataTable();
 			});
+			$(document).ready(function() {
+				$('#danh-sach-bi-khoa').DataTable();
+			});
 		</script>
 		<!-- END SCRIPT TABLE PAGINATION -->
 	</div>

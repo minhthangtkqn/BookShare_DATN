@@ -10,16 +10,31 @@ public class TrangQuanLyForm extends ActionForm {
 
 	private NguoiDung admin;
 
-	// private ArrayList<NguoiDung> dsNguoiDung;
-	// private ArrayList<NguoiDung> dsNguoiDungBiKhoa;
-
 	private ArrayList<RaoBan> dsChoDuyet;
 	private ArrayList<RaoBan> dsDangBan;
 	private ArrayList<RaoBan> dsDaBan;
+	private ArrayList<RaoBan> dsKhoa;
 
 	private int soLuongChoDuyet;
 	private int soLuongDangBan;
 	private int soLuongDaBan;
+	private int soLuongKhoa;
+
+	public ArrayList<RaoBan> getDsKhoa() {
+		return dsKhoa;
+	}
+
+	public void setDsKhoa(ArrayList<RaoBan> dsKhoa) {
+		this.dsKhoa = dsKhoa;
+	}
+
+	public int getSoLuongKhoa() {
+		return soLuongKhoa;
+	}
+
+	public void setSoLuongKhoa(int soLuongKhoa) {
+		this.soLuongKhoa = soLuongKhoa;
+	}
 
 	public int getSoLuongChoDuyet() {
 		return soLuongChoDuyet;
