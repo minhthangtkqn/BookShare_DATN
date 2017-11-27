@@ -1,10 +1,8 @@
 package model.bo;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
+import common.StringProcess;
 import model.bean.RaoBan;
 import model.dao.RaoBanDAO;
 
@@ -71,15 +69,69 @@ public class RaoBanBO {
 		return raoBanDAO.layDanhSachDanhMucBanNhieuNhat();
 	}
 
-	public ArrayList<RaoBan> layDanhSachTimKiemTenSach(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
-			String sapXepThoiGian) {
-		return raoBanDAO.layDanhSachTimKiemTenSach(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian);
+	public ArrayList<RaoBan> layDanhSachTimKiem(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
+			String sapXepThoiGian, int page) {
+
+		String[] arrayTuKhoa = tuKhoa.split("\\s+");
+		String[] arrayTuKhoaKhongDau = StringProcess.removeDiacritics(tuKhoa).split("\\s+");
+
+		ArrayList<RaoBan> list = new ArrayList<>();
+
+		// tim kiem theo ten sach
+		list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		for (String item : arrayTuKhoa) {
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		}
+		list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(StringProcess.removeDiacritics(tuKhoa), maTinh, maDanhMuc,
+				sapXepGia, sapXepThoiGian));
+		for (String item : arrayTuKhoaKhongDau) {
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		}
+
+		// tim kiem theo ten tac gia
+		list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		for (String item : arrayTuKhoa) {
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		}
+		list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(StringProcess.removeDiacritics(tuKhoa), maTinh, maDanhMuc,
+				sapXepGia, sapXepThoiGian));
+		for (String item : arrayTuKhoaKhongDau) {
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
+		}
+
+		// Lọc lại các kết quả tìm kiếm trùng nhau
+		for (int i = 0; i < list.size(); i++) {
+			for (int j = i + 1; j < list.size(); j++) {
+
+				if (list.get(i).getMaRaoBan().equals(list.get(j).getMaRaoBan())) {
+					list.remove(j);
+					j--;
+				}
+			}
+		}
+		// END Lọc lại các kết quả tìm kiếm trùng nhau
+
+		System.out.println("RaoBanBO -- Tong so luong ket qua thu duoc: " + list.size());
+
+		// code loc so luong ket qua theo trang HERE
+		// remove elements after segment
+		while (page * 16 - 1 < list.size() - 1) {
+			list.remove(list.size() - 1);
+		}
+		// remove elements before segment
+		for (int i = 1; i <= (page - 1) * 16; i++) {
+			list.remove(0);
+		}
+
+		return list;
 	}
 
-	public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa, String maTinh, String maDanhMuc,
-			String sapXepGia, String sapXepThoiGian) {
-		return raoBanDAO.layDanhSachTimKiemTenTacGia(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian);
-	}
+	// public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa,
+	// String maTinh, String maDanhMuc,
+	// String sapXepGia, String sapXepThoiGian) {
+	// return raoBanDAO.layDanhSachTimKiemTenTacGia(tuKhoa, maTinh, maDanhMuc,
+	// sapXepGia, sapXepThoiGian);
+	// }
 
 	public ArrayList<RaoBan> layDanhSachGoiYMoiNguoiCungXem() {
 		return raoBanDAO.layDanhSachGoiYMoiNguoiCungXem();

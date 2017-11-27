@@ -19,6 +19,7 @@ public class KetQuaTimKiemForm extends ActionForm {
 	private ArrayList<RaoBan> dsHot;
 
 	private String page;
+	private int soLuongKetQua;
 
 	private ArrayList<RaoBan> listRaoBan;
 
@@ -30,7 +31,6 @@ public class KetQuaTimKiemForm extends ActionForm {
 	// 1: bai` cu~ truoc (ASC)
 	private String sapXepThoiGian;
 
-	private int soLuongKetQua;
 
 	/* ++++++++++++++++++++++++++++++ */
 	/* ++++++++++++++++++++++++++++++ */

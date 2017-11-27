@@ -47,89 +47,33 @@ public class KetQuaTimKiemAction extends Action {
 		String sapXepThoiGian = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepThoiGian())
 				? Constant.DEFAULT_SAP_XEP_THOI_GIAN
 				: ("0".equals(ketQuaTimKiemForm.getSapXepThoiGian()) ? "DESC" : "ASC");
-
 		String sapXepGia = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepGia()) ? Constant.DEFAULT_SAP_XEP_GIA
 				: ("0".equals(ketQuaTimKiemForm.getSapXepGia()) ? "DESC" : "ASC");
-
 		String maDanhMuc = (StringProcess.notVaild(ketQuaTimKiemForm.getMaDanhMuc()) ? "all"
 				: ketQuaTimKiemForm.getMaDanhMuc());
-		
 		String maTinh = (StringProcess.notVaild(ketQuaTimKiemForm.getMaTinh()) ? "all" : ketQuaTimKiemForm.getMaTinh());
+
+		int page;
+		try {
+			page = Integer.parseInt(ketQuaTimKiemForm.getPage());
+		} catch (Exception e) {
+			page = 1;
+			ketQuaTimKiemForm.setPage("" + page);
+		}
 
 		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");
 		ketQuaTimKiemForm.setTuKhoa(tuKhoa);
-		
+
 		// Lưu từ khóa tìm kiếm vào CSDL
 		// nếu từ khóa rỗng thì không lưu vào CSDL những vẫn tìm kiếm
 		if (!StringProcess.notVaild(tuKhoa)) {
-			raoBanBO.luuTuKhoaTimKiem(
-					(session.getAttribute("userID") == null) ? "" : (String) (session.getAttribute("userID")), tuKhoa);
+			raoBanBO.luuTuKhoaTimKiem(StringProcess.getVaildString((String) session.getAttribute("userID")), tuKhoa);
 		}
-
-		// Xử lý từ khóa tìm kiếm
-		String[] arrayTuKhoa = tuKhoa.split("\\s+");
-		System.out.println("Các từ khóa con:");
-		for (String item : arrayTuKhoa) {
-			System.out.println("-|" + item + "|-");
-		}
-		
-		String[] arrayTuKhoaKhongDau = StringProcess.removeDiacritics(tuKhoa).split("\\s+");
-		// END xử lý từ khóa
 
 		// -----------------
-
-		ketQuaTimKiemForm.setListRaoBan(new ArrayList<RaoBan>());
-		// Tim kiem ten SACH dua theo cac tu khoa
-		ketQuaTimKiemForm.getListRaoBan()
-				.addAll(raoBanBO.layDanhSachTimKiemTenSach(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-		for (String item : arrayTuKhoa) {
-			ketQuaTimKiemForm.getListRaoBan()
-					.addAll(raoBanBO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-		}
-		
-		ketQuaTimKiemForm.getListRaoBan()
-				.addAll(raoBanBO.layDanhSachTimKiemTenSach(StringProcess.removeDiacritics(tuKhoa), maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-		for (String item : arrayTuKhoaKhongDau) {
-			ketQuaTimKiemForm.getListRaoBan()
-					.addAll(raoBanBO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-		}
-		// END Tim kiem SACH dua theo cac tu khoa
-
-		// -----------------
-
-		// Tim kiem ten TAC GIA dua theo cac tu khoa
-		ketQuaTimKiemForm.getListRaoBan()
-				.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-
-		for (String item : arrayTuKhoa) {
-			ketQuaTimKiemForm.getListRaoBan()
-					.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-		}
-		
-		ketQuaTimKiemForm.getListRaoBan()
-				.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(StringProcess.removeDiacritics(tuKhoa), maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-
-		for (String item : arrayTuKhoaKhongDau) {
-			ketQuaTimKiemForm.getListRaoBan()
-					.addAll(raoBanBO.layDanhSachTimKiemTenTacGia(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-		}
-		// END Tim kiem TAC GIA dua theo cac tu khoa
-
-		// -----------------
-
-		// Lọc lại các kết quả tìm kiếm trùng nhau
-		for (int i = 0; i < ketQuaTimKiemForm.getListRaoBan().size(); i++) {
-			for (int j = i + 1; j < ketQuaTimKiemForm.getListRaoBan().size(); j++) {
-
-				if (ketQuaTimKiemForm.getListRaoBan().get(i).getMaRaoBan()
-						.equals(ketQuaTimKiemForm.getListRaoBan().get(j).getMaRaoBan())) {
-					ketQuaTimKiemForm.getListRaoBan().remove(j);
-					j--;
-				}
-
-			}
-		}
-		// END Lọc lại các kết quả tìm kiếm trùng nhau
+		// goi ham tim kiem
+		ketQuaTimKiemForm
+				.setListRaoBan(raoBanBO.layDanhSachTimKiem(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian, page));
 
 		// -----------------
 
