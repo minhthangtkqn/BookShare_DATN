@@ -63,7 +63,7 @@
 	<div class="body-row" style="margin-top: 50px;">
 		<div class="books" >
 			<h3>
-				<b>SEARCH RESULTS (<%=request.getAttribute("soLuongKetQua")%> results)</b>
+				<b>SEARCH RESULTS <logic:notEmpty name="ketQuaTimKiemForm" property="listRaoBan"> (<%=request.getAttribute("soLuongKetQua")%> results) </logic:notEmpty></b>
 			</h3>
 			
 			<div class="box">
@@ -71,12 +71,18 @@
 				
 					<div id="pagination-div" align="center">
 						<ul id="pagination-ul" class="pagination">
+							<% if((Integer) request.getAttribute("page") > 1 ){ %>
+							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=(Integer) request.getAttribute("page") - 1%>"><i style="font-size: 21px;" class="glyphicon glyphicon-chevron-left"></i></a></li>
+							<% } %>
+						
 							<%
-								for (int i = (Integer) request.getAttribute("page") - 1; i > 0
-											&& i >= (Integer) request.getAttribute("page") - 2; i--) {
+								for (int i = (Integer) request.getAttribute("page") - 2;
+											i < (Integer) request.getAttribute("page"); i++) {
+									if(i > 0){
 							%>
 							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=i%>"><%=i%></a></li>
-							<% } %>
+							<% 		}
+								} %>
 
 
 							<li class="active"><a><%=request.getAttribute("page")%></a></li>
@@ -88,6 +94,10 @@
 							%>
 							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=j%>"><%=j%></a></li>
 							<%	} %>
+							
+							<% if((Integer) request.getAttribute("page") < (Integer) request.getAttribute("maxPage") ){ %>
+							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=(Integer) request.getAttribute("page") + 1%>"><i style="font-size: 21px;" class="glyphicon glyphicon-chevron-right"></i></a></li>
+							<% } %>
 
 						</ul>
 					</div>

@@ -88,7 +88,7 @@ public class KetQuaTimKiemAction extends Action {
 		ketQuaTimKiemForm.setListRaoBan((ArrayList<RaoBan>) ketQua.get(1));
 
 		request.setAttribute("soLuongKetQua", (Integer) ketQua.get(0));
-		request.setAttribute("maxPage", (Integer) ketQua.get(0) / Constant.NUMBER_PRODUCT_ON_PAGE + 1);
+		request.setAttribute("maxPage", ((Integer) ketQua.get(0) % Constant.NUMBER_PRODUCT_ON_PAGE) != 0 ? ((Integer) ketQua.get(0) / Constant.NUMBER_PRODUCT_ON_PAGE) + 1 : ((Integer) ketQua.get(0) / Constant.NUMBER_PRODUCT_ON_PAGE));
 		// -----------------
 
 		if (StringProcess.notVaild((String) session.getAttribute("userName")))

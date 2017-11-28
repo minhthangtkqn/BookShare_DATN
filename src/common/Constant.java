@@ -8,7 +8,7 @@ public class Constant {
 	public static final String DATABASE_PASSWORD = "12345678";
 
 	// number of products on one search page
-	public static final int NUMBER_PRODUCT_ON_PAGE = 16;
+	public static final int NUMBER_PRODUCT_ON_PAGE = 8;
 	
 	// Default values
 	public static final String NO_IMAGE_DEFAULT = "images/No-image.jpg";

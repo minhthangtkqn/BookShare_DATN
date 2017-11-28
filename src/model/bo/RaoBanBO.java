@@ -2,6 +2,7 @@ package model.bo;
 
 import java.util.ArrayList;
 
+import common.Constant;
 import common.StringProcess;
 import model.bean.RaoBan;
 import model.dao.RaoBanDAO;
@@ -114,19 +115,22 @@ public class RaoBanBO {
 		System.out.println("RaoBanBO -- Tong so luong ket qua thu duoc: " + list.size());
 		ArrayList<Object> returnList = new ArrayList<>();
 		returnList.add(list.size());
-		
+
 		// code loc so luong ket qua theo trang HERE
 		// remove elements after segment
-		while (page * 16 - 1 < list.size() - 1) {
+		while (page * Constant.NUMBER_PRODUCT_ON_PAGE - 1 < list.size() - 1) {
 			list.remove(list.size() - 1);
 		}
 		// remove elements before segment
-		for (int i = 1; i <= (page - 1) * 16; i++) {
-			list.remove(0);
+		try {
+			for (int i = 1; i <= (page - 1) * Constant.NUMBER_PRODUCT_ON_PAGE; i++) {
+				list.remove(0);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-
-		returnList.add(list);
 		
+		returnList.add(list);
 		return returnList;
 	}
 
