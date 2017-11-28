@@ -44,14 +44,26 @@ public class KetQuaTimKiemAction extends Action {
 
 		// xu ly cac tham so
 		String tuKhoa = StringProcess.getVaildString(ketQuaTimKiemForm.getTuKhoa());
+		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");
+		ketQuaTimKiemForm.setTuKhoa(tuKhoa);
+
 		String sapXepThoiGian = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepThoiGian())
 				? Constant.DEFAULT_SAP_XEP_THOI_GIAN
-				: ("0".equals(ketQuaTimKiemForm.getSapXepThoiGian()) ? "DESC" : "ASC");
+				: (Constant.DEFAULT_SAP_XEP_THOI_GIAN.equals(ketQuaTimKiemForm.getSapXepThoiGian())
+						? Constant.DEFAULT_SAP_XEP_THOI_GIAN : "ASC");
+		ketQuaTimKiemForm.setSapXepThoiGian(sapXepThoiGian);
+
 		String sapXepGia = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepGia()) ? Constant.DEFAULT_SAP_XEP_GIA
-				: ("0".equals(ketQuaTimKiemForm.getSapXepGia()) ? "DESC" : "ASC");
+				: (Constant.DEFAULT_SAP_XEP_GIA.equals(ketQuaTimKiemForm.getSapXepGia()) ? Constant.DEFAULT_SAP_XEP_GIA
+						: "DESC");
+		ketQuaTimKiemForm.setSapXepGia(sapXepGia);
+
 		String maDanhMuc = (StringProcess.notVaild(ketQuaTimKiemForm.getMaDanhMuc()) ? "all"
 				: ketQuaTimKiemForm.getMaDanhMuc());
+		ketQuaTimKiemForm.setMaDanhMuc(maDanhMuc);
+
 		String maTinh = (StringProcess.notVaild(ketQuaTimKiemForm.getMaTinh()) ? "all" : ketQuaTimKiemForm.getMaTinh());
+		ketQuaTimKiemForm.setMaTinh(maTinh);
 
 		int page;
 		try {
@@ -60,9 +72,7 @@ public class KetQuaTimKiemAction extends Action {
 			page = 1;
 			ketQuaTimKiemForm.setPage("" + page);
 		}
-
-		System.out.println("Tu khoa tim kiem: -|" + tuKhoa + "|-");
-		ketQuaTimKiemForm.setTuKhoa(tuKhoa);
+		request.setAttribute("page", page);
 
 		// Lưu từ khóa tìm kiếm vào CSDL
 		// nếu từ khóa rỗng thì không lưu vào CSDL những vẫn tìm kiếm
@@ -72,9 +82,13 @@ public class KetQuaTimKiemAction extends Action {
 
 		// -----------------
 		// goi ham tim kiem
-		ketQuaTimKiemForm
-				.setListRaoBan(raoBanBO.layDanhSachTimKiem(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian, page));
+		ArrayList<Object> ketQua = raoBanBO.layDanhSachTimKiem(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian,
+				page);
 
+		ketQuaTimKiemForm.setListRaoBan((ArrayList<RaoBan>) ketQua.get(1));
+
+		request.setAttribute("soLuongKetQua", (Integer) ketQua.get(0));
+		request.setAttribute("maxPage", (Integer) ketQua.get(0) / Constant.NUMBER_PRODUCT_ON_PAGE + 1);
 		// -----------------
 
 		if (StringProcess.notVaild((String) session.getAttribute("userName")))

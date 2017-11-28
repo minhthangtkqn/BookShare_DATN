@@ -9,6 +9,10 @@
 <!--    BODY        -->
 <div id="page-body" class="container">
 <bean:define id="tuKhoa" name="ketQuaTimKiemForm" property="tuKhoa"></bean:define>
+<bean:define id="sapXepGia" name="ketQuaTimKiemForm" property="sapXepGia"></bean:define>
+<bean:define id="sapXepThoiGian" name="ketQuaTimKiemForm" property="sapXepThoiGian"></bean:define>
+<bean:define id="maTinh" name="ketQuaTimKiemForm" property="maTinh"></bean:define>
+<bean:define id="maDanhMuc" name="ketQuaTimKiemForm" property="maDanhMuc"></bean:define>
 
 	<div class="body-row">
 		<div class="search">
@@ -31,13 +35,13 @@
 				</html:select>
 
 				<select name="sapXepGia">
-					<option value="1">Price: Low to high</option>
-					<option value="0">Price: High to low</option>
+					<option value="ASC">Price: Low to high</option>
+					<option value="DESC">Price: High to low</option>
 				</select>
 
 				<select name="sapXepThoiGian">
-					<option value="0">Latest posts first</option>
-					<option value="1">Oldest posts first</option>
+					<option value="DESC">Latest posts first</option>
+					<option value="ASC">Oldest posts first</option>
 				</select>
 			</html:form>
 
@@ -59,12 +63,35 @@
 	<div class="body-row" style="margin-top: 50px;">
 		<div class="books" >
 			<h3>
-				<b>SEARCH RESULTS</b>
+				<b>SEARCH RESULTS (<%=request.getAttribute("soLuongKetQua")%> results)</b>
 			</h3>
 			
 			<div class="box">
-			
 				<logic:notEmpty name="ketQuaTimKiemForm" property="listRaoBan">
+				
+					<div id="pagination-div" align="center">
+						<ul id="pagination-ul" class="pagination">
+							<%
+								for (int i = (Integer) request.getAttribute("page") - 1; i > 0
+											&& i >= (Integer) request.getAttribute("page") - 2; i--) {
+							%>
+							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=i%>"><%=i%></a></li>
+							<% } %>
+
+
+							<li class="active"><a><%=request.getAttribute("page")%></a></li>
+
+
+							<%
+								for (int j = (Integer) request.getAttribute("page") + 1; j <= (Integer) request.getAttribute("maxPage")
+											&& j <= (Integer) request.getAttribute("page") + 2; j++) {
+							%>
+							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=j%>"><%=j%></a></li>
+							<%	} %>
+
+						</ul>
+					</div>
+					
 					<logic:iterate id="book" property="listRaoBan" name="ketQuaTimKiemForm">
 						<div class="sp">
 							<bean:define id="anh" name="book" property="linkAnh1"></bean:define>
@@ -80,6 +107,30 @@
 							</h4>
 						</div>
 					</logic:iterate>
+
+					<div id="pagination-div" align="center">
+						<ul id="pagination-ul" class="pagination">
+							<%
+								for (int i = (Integer) request.getAttribute("page") - 1; i > 0
+											&& i >= (Integer) request.getAttribute("page") - 2; i--) {
+							%>
+							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=i%>"><%=i%></a></li>
+							<% } %>
+
+
+							<li class="active"><a><%=request.getAttribute("page")%></a></li>
+
+
+							<%
+								for (int j = (Integer) request.getAttribute("page") + 1; j <= (Integer) request.getAttribute("maxPage")
+											&& j <= (Integer) request.getAttribute("page") + 2; j++) {
+							%>
+							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=j%>"><%=j%></a></li>
+							<%	} %>
+
+						</ul>
+					</div>
+
 				</logic:notEmpty>
 				
 				<logic:empty name="ketQuaTimKiemForm" property="listRaoBan">

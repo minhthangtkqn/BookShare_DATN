@@ -69,7 +69,7 @@ public class RaoBanBO {
 		return raoBanDAO.layDanhSachDanhMucBanNhieuNhat();
 	}
 
-	public ArrayList<RaoBan> layDanhSachTimKiem(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
+	public ArrayList<Object> layDanhSachTimKiem(String tuKhoa, String maTinh, String maDanhMuc, String sapXepGia,
 			String sapXepThoiGian, int page) {
 
 		String[] arrayTuKhoa = tuKhoa.split("\\s+");
@@ -112,7 +112,9 @@ public class RaoBanBO {
 		// END Lọc lại các kết quả tìm kiếm trùng nhau
 
 		System.out.println("RaoBanBO -- Tong so luong ket qua thu duoc: " + list.size());
-
+		ArrayList<Object> returnList = new ArrayList<>();
+		returnList.add(list.size());
+		
 		// code loc so luong ket qua theo trang HERE
 		// remove elements after segment
 		while (page * 16 - 1 < list.size() - 1) {
@@ -123,7 +125,9 @@ public class RaoBanBO {
 			list.remove(0);
 		}
 
-		return list;
+		returnList.add(list);
+		
+		return returnList;
 	}
 
 	// public ArrayList<RaoBan> layDanhSachTimKiemTenTacGia(String tuKhoa,

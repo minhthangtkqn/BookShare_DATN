@@ -23,12 +23,12 @@ public class KetQuaTimKiemForm extends ActionForm {
 
 	private ArrayList<RaoBan> listRaoBan;
 
-	// 0: cao -> thap (DESC)
-	// 1: thap -> cao (ASC)
+	// cao -> thap (DESC)
+	// thap -> cao (ASC)
 	private String sapXepGia;
 
-	// 0: bai` moi' truoc (DESC)
-	// 1: bai` cu~ truoc (ASC)
+	// bai` moi' truoc (DESC)
+	// bai` cu~ truoc (ASC)
 	private String sapXepThoiGian;
 
 
