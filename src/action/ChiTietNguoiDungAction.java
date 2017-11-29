@@ -9,6 +9,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import common.Constant;
 import common.StringProcess;
 import form.NguoiDungForm;
 import model.bean.NguoiDung;
@@ -48,7 +49,7 @@ public class ChiTietNguoiDungAction extends Action {
 		
 		nguoiDungForm.setNguoiDung(nguoiDung);
 		
-		if(nguoiDung.getLoaiNguoiDung().equals("Bình thường")){
+		if(nguoiDung.getLoaiNguoiDung().equals(Constant.NORMAL_ACCOUNT)){
 			nguoiDungForm.setThaoTacKhaDung(0);
 		}else{
 			nguoiDungForm.setThaoTacKhaDung(1);

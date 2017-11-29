@@ -126,7 +126,6 @@ public class DangNhapAction extends Action {
 			return mapping.findForward("trangbichan");
 
 		case 3:
-
 			dangNhapForm.setLoiMatKhau("LOGIN FAILED. WRONG USER NAME OR PASSWORD");
 			return mapping.findForward("saimatkhau");
 

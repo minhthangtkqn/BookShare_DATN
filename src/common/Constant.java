@@ -26,6 +26,10 @@ public class Constant {
 	public static final String LINK_IMAGE_STORAGE = "E:/WorkSpace/WorkSpaceJavaEclipse/BookShare_DATN/WebContent/images/raoban/";
 	public static final String LINK_IMAGE_DATABASE = "images/raoban/";
 
+	// type of user account
+	public static final String NORMAL_ACCOUNT = "Normal";
+	public static final String LOCKED_ACCOUNT = "Locked";
+	
 	// TABLE NAME
 	public static final String TABLE_TINH = "[tblTinh]";
 	public static final String TABLE_BANNER = "[tblBanner]";

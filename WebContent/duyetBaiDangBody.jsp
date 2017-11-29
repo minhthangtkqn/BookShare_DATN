@@ -76,6 +76,28 @@
 			<p style="color: red; font-size: 20px">
 				<b>Price: <bean:write name="chiTietBaiDang" property="gia" /></b>
 			</p>
+			
+			<html:form action="duyet-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
+				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
+				<input type="submit" name="submit" value="APPROVE" class="w3-btn w3-ripple w3-red col-lg-12"></input>
+			</html:form>
+			
+			<html:form action="khong-duyet-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
+				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
+				<input type="submit" name="submit" value="DISAPPROVE" class="w3-btn w3-ripple w3-red col-lg-12"></input>
+			</html:form>
+			
+			<html:form action="khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
+				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
+				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
+				<input type="submit" name="submit" value="LOCK" class="w3-btn w3-ripple w3-green col-lg-12"></input>
+			</html:form>
+			
+			<html:form action="mo-khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
+				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
+				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
+				<input type="submit" name="submit" value="UNLOCK" class="w3-btn w3-ripple w3-green col-lg-12"></input>
+			</html:form>
 		</div>
 
 		<div class="thongtin_nguoiban">
@@ -108,28 +130,10 @@
 				</p>
 			</div>
 			
+			<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-light-green btn-hoi-mua features_button">
+				See all reviews
+			</a>
 			
-			<html:form action="duyet-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
-				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="APPROVE" class="w3-btn w3-ripple w3-red col-lg-12"></input>
-			</html:form>
-			
-			<html:form action="khong-duyet-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
-				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="DISAPPROVE" class="w3-btn w3-ripple w3-red col-lg-12"></input>
-			</html:form>
-			
-			<html:form action="khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
-				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="LOCK" class="w3-btn w3-ripple w3-green col-lg-12"></input>
-			</html:form>
-			
-			<html:form action="mo-khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
-				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="UNLOCK" class="w3-btn w3-ripple w3-green col-lg-12"></input>
-			</html:form>
 		</div>
 		<br>
 

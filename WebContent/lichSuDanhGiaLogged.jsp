@@ -18,7 +18,11 @@
 </head>
 <body>
 	<div id="page">
+		<% if((Integer)session.getAttribute("type") == 0){ %>
+		<jsp:include page="/adminHeader.jsp"></jsp:include>
+		<% }else{ %>
 		<jsp:include page="/loggedHeader.jsp"></jsp:include>
+		<% } %>
 
 		<jsp:include page="/lichSuDanhGiaBody.jsp"></jsp:include>
 
@@ -43,6 +47,12 @@
 			});
 		</script>
 		<!-- END STAR RATING SCRIPT -->
+		
+		<script src="js/script.js"></script>
+		<script>
+		setHeight();
+		</script>
+		
 	</div>
 </body>
 </html>

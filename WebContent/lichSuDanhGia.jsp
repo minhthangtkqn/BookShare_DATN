@@ -43,6 +43,12 @@
 			});
 		</script>
 		<!-- END STAR RATING SCRIPT -->
+		
+		<script src="js/script.js"></script>
+		<script>
+		setHeight();
+		</script>
 	</div>
+	
 </body>
 </html>

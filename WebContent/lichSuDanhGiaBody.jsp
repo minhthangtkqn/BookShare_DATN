@@ -14,29 +14,36 @@
 
 	<div class="body-row">
 		<div class="col-lg-8">
-			<logic:iterate id="danhGia" name="danhGiaNguoiBanForm" property="listDanhGia">
-				
-				<bean:define id="diemDanhGia" name="danhGia" property="diemDanhGia"></bean:define>
-				<bean:define id="maDanhGia" name="danhGia" property="maDanhGia"></bean:define>
-				
-				<div class="col-lg-12" style="margin-bottom: 50px;">
-				
-					<div class="col-lg-12">
-						<input class="rating-seller" value="${diemDanhGia}">
-					</div>
+		
+			<logic:notEmpty name="danhGiaNguoiBanForm" property="listDanhGia">
+				<logic:iterate id="danhGia" name="danhGiaNguoiBanForm" property="listDanhGia">
 					
-					<div class="col-lg-12">
-						<bean:write name="danhGia" property="taiKhoanNguoiDanhGia"></bean:write>
-					</div>
+					<bean:define id="diemDanhGia" name="danhGia" property="diemDanhGia"></bean:define>
+					<bean:define id="maDanhGia" name="danhGia" property="maDanhGia"></bean:define>
 					
-					<div class="col-lg-12">
-						<textarea id="${maDanhGia}" class="form-control" disabled>
-<bean:write name="danhGia" property="binhLuan"></bean:write>
-						</textarea>
-					</div>
+					<div class="col-lg-12" style="margin-bottom: 50px;">
 					
-				</div>
-			</logic:iterate>
+						<div class="col-lg-12">
+							<input class="rating-seller" value="${diemDanhGia}">
+						</div>
+						
+						<div class="col-lg-12">
+							<bean:write name="danhGia" property="taiKhoanNguoiDanhGia"></bean:write>
+						</div>
+						
+						<div class="col-lg-12">
+							<textarea id="${maDanhGia}" class="form-control" disabled>
+	<bean:write name="danhGia" property="binhLuan"></bean:write>
+							</textarea>
+						</div>
+						
+					</div>
+				</logic:iterate>
+			</logic:notEmpty>
+			
+			<logic:empty name="danhGiaNguoiBanForm" property="listDanhGia">
+				No one has rated this seller.
+			</logic:empty>
 		</div>
 		
 		<div class="col-lg-4">
@@ -75,17 +82,16 @@
 			</div>
 			
 			<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
+				<% if((Integer)session.getAttribute("type") == 1){ %>
 			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
 				Rate this seller
 			</a>
-			<% } %>
+			
+			<% 		} 
+				}%>
 			
 		</div>
 	</div>
 
 </div>
 <!-- END BODY -->
-<script src="js/script.js"></script>
-<script>
-setHeight();
-</script>

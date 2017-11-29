@@ -10,6 +10,7 @@
 <div id="page-body" class="container">
 	<br><br>
 	<bean:define id="nd" name="nguoiDungForm" property="nguoiDung"></bean:define>
+	<bean:define id="maNguoiDung" name="nguoiDungForm" property="maNguoiDung"></bean:define>
 	
 	<bean:define id="anh" name="nd" property="anh"></bean:define>
 	<bean:define id="taiKhoan" name="nd" property="taiKhoan"></bean:define>
@@ -21,7 +22,6 @@
 	<bean:define id="tenTinh" name="nd" property="tenTinh"></bean:define>
 	<bean:define id="ghiChu" name="nd" property="ghiChu"></bean:define>
 	<bean:define id="loaiNguoiDung" name="nd" property="loaiNguoiDung"></bean:define>
-	
 
 	<div class="body-row">
 
@@ -34,41 +34,41 @@
 
 		<div class="form-horizontal info_user_left">
 			<div class="form-group">
-				<label for="account" class="col-sm-4 control-label">Account</label>
-				<div class="col-sm-8">
+				<label for="account" class="col-lg-4 control-label">Account</label>
+				<div class="col-lg-8">
 					<input type="text" class="form-control" id="account"
 						value="${taiKhoan}" disabled>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="name" class="col-sm-4 control-label">Name</label>
-				<div class="col-sm-8">
+				<label for="name" class="col-lg-4 control-label">Name</label>
+				<div class="col-lg-8">
 					<input type="text" class="form-control" id="name"
 						value="${hoTen}" disabled>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="gender" class="col-sm-4 control-label">Gender</label>
-				<div class="col-sm-8">
+				<label for="gender" class="col-lg-4 control-label">Gender</label>
+				<div class="col-lg-8">
 					<input type="text" class="form-control" id="gender" value="${gioiTinh }"
 						disabled>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="birthday" class="col-sm-4 control-label">Birthday</label>
-				<div class="col-sm-8">
+				<label for="birthday" class="col-lg-4 control-label">Birthday</label>
+				<div class="col-lg-8">
 					<input type="text" class="form-control" id="birthday" value="${namSinh }"
 						disabled>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="phone" class="col-sm-4 control-label">Phone
+				<label for="phone" class="col-lg-4 control-label">Phone
 					number</label>
-				<div class="col-sm-8">
+				<div class="col-lg-8">
 					<input type="text" class="form-control" id="${dienThoai }"
 						value="0123456789" disabled>
 				</div>
@@ -79,67 +79,75 @@
 
 		<div class="form-horizontal info_user_right">
 			<div class="form-group">
-				<label for="email" class="col-sm-4 control-label">Email</label>
-				<div class="col-sm-8">
+				<label for="email" class="col-lg-4 control-label">Email</label>
+				<div class="col-lg-8">
 					<input type="text" class="form-control" id="${email }"
 						value="abcxyz@123.com" disabled>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="region" class="col-sm-4 control-label">Region</label>
-				<div class="col-sm-8">
+				<label for="region" class="col-lg-4 control-label">Region</label>
+				<div class="col-lg-8">
 					<input type="text" class="form-control" id="region" value="${tenTinh }"
 						disabled>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="note" class="col-sm-4 control-label">Note</label>
-				<div class="col-sm-8">
+				<label for="note" class="col-lg-4 control-label">Note</label>
+				<div class="col-lg-8">
 					<input type="text" class="form-control" id="note" value="${ghiChu }" disabled>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="status" class="col-sm-4 control-label">Status</label>
-				<div class="col-sm-8">
+				<label for="status" class="col-lg-4 control-label">Status</label>
+				<div class="col-lg-8">
 					<input type="text" class="form-control" id="status" value="${loaiNguoiDung }"
 						disabled>
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<div class="col-lg-offset-4 col-lg-8">
+					<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiDung}" class="w3-btn w3-ripple w3-light-green btn-hoi-mua features_button">
+						See all reviews
+					</a>
+				</div>
+			</div>
 		</div>
 		
-		<bean:define id="maNguoiDung" name="nguoiDungForm"
-			property="maNguoiDung"></bean:define>
-			
-		<div class="col-sm-6">
-			<div class="form-group">
-				<form action="mo-khoa-nguoi-dung.do" method="post">
-					<input type="text" name="maNguoiDung" value="${maNguoiDung}"
-						style="display: none;">
-					<div class="col-sm-12">
-						<input class="form-control" type="text" name="ghiChu"  placeholder="Note ...">
-						<input type="submit" name="submit" value="UNLOCK"
-							class="w3-btn w3-ripple w3-red form-control">
-					</div>
-				</form>
+		<div style="float: left; width: 100%;">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<form action="mo-khoa-nguoi-dung.do" method="post">
+						<input type="text" name="maNguoiDung" value="${maNguoiDung}"
+							style="display: none;">
+						<div class="col-lg-12">
+							<input class="form-control" type="text" name="ghiChu"  placeholder="Note ...">
+							<input type="submit" name="submit" value="UNLOCK"
+								class="w3-btn w3-ripple w3-red form-control">
+						</div>
+					</form>
+				</div>
+			</div>
+	
+			<div class="col-lg-6">
+				<div class="form-group">
+					<form action="khoa-nguoi-dung.do" method="post">
+						<input type="text" name="maNguoiDung" value="${maNguoiDung}"
+							style="display: none;">
+						<div class="col-lg-12">
+							<input class="form-control" type="text" name="ghiChu" placeholder="Note ...">
+							<input class="w3-btn w3-ripple w3-red form-control" type="submit"
+								name="submit" value="LOCK">
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
-
-		<div class="col-sm-6">
-			<div class="form-group">
-				<form action="khoa-nguoi-dung.do" method="post">
-					<input type="text" name="maNguoiDung" value="${maNguoiDung}"
-						style="display: none;">
-					<div class="col-sm-12">
-						<input class="form-control" type="text" name="ghiChu" placeholder="Note ...">
-						<input class="w3-btn w3-ripple w3-red form-control" type="submit"
-							name="submit" value="LOCK">
-					</div>
-				</form>
-			</div>
-		</div>
+		
 	</div>
 
 	<br><br><br>
