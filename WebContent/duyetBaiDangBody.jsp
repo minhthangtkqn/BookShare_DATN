@@ -15,6 +15,10 @@
 	<bean:define id="chiTietBaiDang" name="chiTietBaiDangForm"
 		property="chiTiet"></bean:define>
 
+		<bean:define id="maRaoBan" name="chiTietBaiDang" property="maRaoBan"></bean:define>
+		<bean:define id="anhNguoiBan" name="chiTietBaiDang"	property="anhNguoiBan"></bean:define>
+		<bean:define id="maNguoiRaoBan" name="chiTietBaiDang" property="maNguoiRaoBan"></bean:define>
+
 	<div class="body-row">
 		<div class="w3-content product-img-slides">
 			<bean:define id="linkAnh1" name="chiTietBaiDang" property="linkAnh1"></bean:define>
@@ -79,9 +83,9 @@
 				<b>SELLER INFORMATION</b>
 			</h2>
 			<div class="anh_nguoiban">
-				<bean:define id="anhNguoiBan" name="chiTietBaiDang"
-					property="anhNguoiBan"></bean:define>
-				<img style="height: 100%; width: 100%;" src="${anhNguoiBan}">
+				<a href="chi-tiet-nguoi-dung.do?maNguoiDung=${maNguoiRaoBan}">
+					<img style="height: 100%; width: 100%;" src="${anhNguoiBan}">
+				</a>
 			</div>
 			<div class="text_info">
 				<p>
@@ -104,8 +108,6 @@
 				</p>
 			</div>
 			
-			<bean:define id="maRaoBan" name="chiTietBaiDang" property="maRaoBan"></bean:define>
-			<bean:define id="maNguoiRaoBan" name="chiTietBaiDang" property="maNguoiRaoBan"></bean:define>
 			
 			<html:form action="duyet-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">

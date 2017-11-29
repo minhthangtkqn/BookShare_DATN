@@ -171,15 +171,16 @@
 				<!-- ++++++++++++++++++  -->
 				<tbody>
 					<logic:iterate id="sp" property="dsChoDuyet" name="trangQuanLyForm">
+                       	<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
+						
 						<tr>
-	                        <td><bean:write name="sp" property="tenSach" /></td>
+	                        <td><a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><bean:write name="sp" property="tenSach" /></a></td>
 	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
 	                        <td><bean:write name="sp" property="gia" /></td>
 	                        <td><bean:write name="sp" property="ngayBan" /></td>
 	                        <td><bean:write name="sp" property="nxb" /></td>
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
-                        		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
 								<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-check font-size-20"></i></a>
 	                        </td>
 	                    </tr>
@@ -226,15 +227,16 @@
 				<!-- ++++++++++++++++++  -->
 				<tbody>
 					<logic:iterate id="sp" property="dsDangBan" name="trangQuanLyForm">
+                        <bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
+
 						<tr>
-	                        <td><bean:write name="sp" property="tenSach" /></td>
+	                        <td><a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><bean:write name="sp" property="tenSach" /></a></td>
 	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
 	                        <td><bean:write name="sp" property="gia" /></td>
 	                        <td><bean:write name="sp" property="ngayBan" /></td>
 	                        <td><bean:write name="sp" property="nxb" /></td>
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
-                        		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
 								<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-check font-size-20"></i></a>
 	                        </td>
 	                    </tr>
@@ -328,15 +330,16 @@
 				<!-- ++++++++++++++++++  -->
 				<tbody>
 					<logic:iterate id="sp" property="dsKhoa" name="trangQuanLyForm">
+                        <bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
+						
 						<tr>
-	                        <td><bean:write name="sp" property="tenSach" /></td>
+	                        <td><a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><bean:write name="sp" property="tenSach" /></a></td>
 	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
 	                        <td><bean:write name="sp" property="gia" /></td>
 	                        <td><bean:write name="sp" property="ngayBan" /></td>
 	                        <td><bean:write name="sp" property="nxb" /></td>
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
-                        		<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
 								<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-check font-size-20"></i></a>
 	                        </td>
 	                    </tr>

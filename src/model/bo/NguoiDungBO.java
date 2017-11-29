@@ -51,6 +51,7 @@ public class NguoiDungBO {
 	}
 
 	public NguoiDung layNguoiDung(String maNguoiDung) {
+		System.out.println("Lay ND - Ma ND: " + maNguoiDung);
 		return nguoiDungDAO.layNguoiDung(maNguoiDung);
 	}
 
