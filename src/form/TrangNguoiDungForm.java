@@ -7,6 +7,7 @@ import org.apache.struts.action.ActionForm;
 import model.bean.NguoiDung;
 import model.bean.RaoBan;
 import model.bean.Tinh;
+import model.bean.YeuCau;
 
 public class TrangNguoiDungForm extends ActionForm {
 
@@ -17,6 +18,8 @@ public class TrangNguoiDungForm extends ActionForm {
 	private ArrayList<RaoBan> dsDaBan;
 	private ArrayList<RaoBan> dsXemSau;
 
+	private ArrayList<YeuCau> dsYeuCau;
+
 	private int soLuongChoDuyet;
 	private int soLuongDangBan;
 	private int soLuongDaBan;
@@ -24,6 +27,14 @@ public class TrangNguoiDungForm extends ActionForm {
 
 	private ArrayList<RaoBan> dsDaMua;
 	private ArrayList<RaoBan> dsGoiY;
+
+	public ArrayList<YeuCau> getDsYeuCau() {
+		return dsYeuCau;
+	}
+
+	public void setDsYeuCau(ArrayList<YeuCau> dsYeuCau) {
+		this.dsYeuCau = dsYeuCau;
+	}
 
 	public ArrayList<RaoBan> getDsXemSau() {
 		return dsXemSau;

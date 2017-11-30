@@ -13,6 +13,7 @@ import common.StringProcess;
 import form.TrangNguoiDungForm;
 import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
+import model.bo.YeuCauBO;
 
 public class TrangNguoiDungAction extends Action {
 
@@ -39,6 +40,7 @@ public class TrangNguoiDungAction extends Action {
 		TrangNguoiDungForm trangNguoiDungForm = (TrangNguoiDungForm) form;
 
 		RaoBanBO raoBanBO = new RaoBanBO();
+		YeuCauBO yeuCauBO = new YeuCauBO();
 
 		System.out.println("Bat dau lay du lieu nguoi dung");
 		// lay thong tin nguoi dung
@@ -52,6 +54,9 @@ public class TrangNguoiDungAction extends Action {
 			trangNguoiDungForm.getNguoiDung().setAnh("images/No-image.jpg");
 		}
 
+		// lay danh sach yeu cau
+		trangNguoiDungForm.setDsYeuCau(yeuCauBO.layDanhSachYeuCau((String) session.getAttribute("userID")));
+		
 		// lay ds goi y
 		trangNguoiDungForm.setDsGoiY(raoBanBO.layDanhSachGoiYMoiNguoiCungXem());
 

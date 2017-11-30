@@ -21,6 +21,12 @@
 				<input autocomplete="off" id="tuKhoa" name="tuKhoa" oninput="recommend()" class="search-input search-item"
 					type="text" value="${tuKhoa}" placeholder="Type the book title or the author name ...">
 				<button class="search-button search-item btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+				
+				<select>
+					<option value="0">Selling posts</option>
+					<option value="0">Requests</option>
+				</select>
+
 
 				<html:select property="maDanhMuc" >
 					<option value="all">All categories</option>
@@ -53,9 +59,7 @@
 			</p>
 			<p>
 				Note: 
-				<span style="color: red; font-weight: bold;">
-					We will suggest you some book titles from posts.
-				</span>
+					If you cannot find what you want, click <a style="color: red; font-weight: bold;" href="them-yeu-cau.do">HERE</a> to request a book
 			<p>
 		</div>
 	</div>

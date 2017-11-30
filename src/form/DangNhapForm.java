@@ -10,7 +10,17 @@ public class DangNhapForm extends ActionForm {
 	private boolean nhoDangNhap;
 	private String thongBao = "";
 
+	private String prevTask;
+
 	private String error;
+
+	public String getPrevTask() {
+		return prevTask;
+	}
+
+	public void setPrevTask(String prevTask) {
+		this.prevTask = prevTask;
+	}
 
 	public String getError() {
 		return error;

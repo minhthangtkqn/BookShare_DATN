@@ -39,6 +39,7 @@ public class Constant {
 	public static final String TABLE_DANH_MUC = "[tblDanhMuc]";
 	public static final String TABLE_DANH_GIA = "[tblDanhGia]";
 	public static final String TABLE_BINH_LUAN = "[tblBinhLuan]";
+	public static final String TABLE_YEU_CAU_SACH = "[tblYeuCau]";
 	public static final String TABLE_NGUOI_DUNG = "[tblNguoiDung]";
 	public static final String TABLE_RAO_BAN_DA_XEM = "[tblRaoBanDaXem]";
 	public static final String TABLE_TU_KHOA_TIM_KIEM = "[tblTuKhoaTimKiem]";
@@ -76,6 +77,11 @@ public class Constant {
 	
 	public static final String PROC_THEM_XEM_SAU = "[p_themXemSau]";
 	public static final String PROC_XOA_XEM_SAU = "[p_xoaXemSau]";
+	
+	public static final String PROC_XOA_YEU_CAU = "[p_xoaYeuCau]";
+	public static final String PROC_THEM_YEU_CAU = "[p_themYeuCau]";
+	public static final String PROC_DUYET_YEU_CAU = "[p_duyetYeuCau]";
+	
 
 	// ADMIN FUNCTION
 	public static final String FUNCTION_KHOA_NGUOI_DUNG = "[p_khoaNguoiDung]";

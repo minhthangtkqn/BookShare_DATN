@@ -20,6 +20,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="binhLuanForm" type="form.BinhLuanForm"></form-bean>
 		<form-bean name="danhGiaNguoiBanForm" type="form.DanhGiaNguoiBanForm"></form-bean>
 		<form-bean name="xemSauForm" type="form.XemSauForm"></form-bean>
+		<form-bean name="yeuCauForm" type="form.YeuCauForm"></form-bean>
 
 		<form-bean name="testForm" type="form.TestForm" />
 		<form-bean name="testUploadFileForm" type="form.TestUploadFileForm" />
@@ -37,18 +38,31 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 
 	<action-mappings>
 
+		<!-- XOA YEU CAU SACH -->
+		<action path="/xoa-yeu-cau" input="/dangNhap.jsp" name="yeuCauForm"
+			type="action.XoaYeuCauAction" scope="request">
+		</action>
+		<!-- END XOA YEU CAU SACH -->
+
+
+		<!-- THEM YEU CAU SACH -->
+		<action path="/them-yeu-cau" input="/dangNhap.jsp" name="yeuCauForm"
+			type="action.ThemYeuCauAction" scope="request">
+			<forward name="giaoDienYeuCau" path="/yeuCau.jsp"></forward>
+		</action>
+		<!-- END THEM YEU CAU SACH -->
+
+
 		<!-- BO DANH DAU BAI DANG XEM SAU -->
-		<action path="/xoa-xem-sau" name="xemSauForm"
-			input="/dangNhap.jsp" scope="request" type="action.BoDanhDauXemSauAction">
-			<forward name="dangnhaplai" path="/dangNhap.jsp" />
-			<forward name="error" path="/errorLogged.jsp"></forward>
+		<action path="/xoa-xem-sau" name="xemSauForm" input="/dangNhap.jsp"
+			scope="request" type="action.BoDanhDauXemSauAction">
 			<forward name="dangNhapDO" path="/dang-nhap.do"></forward>
 		</action>
 		<!-- END BO DANH DAU BAI DANG XEM SAU -->
 
 		<!-- DANH DAU BAI DANG XEM SAU -->
-		<action path="/them-xem-sau" name="xemSauForm"
-			input="/dangNhap.jsp" scope="request" type="action.DanhDauXemSauAction">
+		<action path="/them-xem-sau" name="xemSauForm" input="/dangNhap.jsp"
+			scope="request" type="action.DanhDauXemSauAction">
 			<forward name="dangnhaplai" path="/dangNhap.jsp" />
 			<forward name="error" path="/errorLogged.jsp"></forward>
 			<forward name="dangNhapDO" path="/dang-nhap.do"></forward>
@@ -62,7 +76,6 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="lichSuDanhGiaLogged" path="/lichSuDanhGiaLogged.jsp"></forward>
 		</action>
 		<!-- END XEM LICH SU DANH GIA -->
-
 
 		<!-- DANH GIA NGUOI BAN -->
 		<action path="/danh-gia-nguoi-ban" name="danhGiaNguoiBanForm"

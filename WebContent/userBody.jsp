@@ -61,15 +61,60 @@
 			<span class="glyphicon glyphicon-pencil"></span> 
 			EDIT PROFILE
 		</a>
-		<a href="lich-su-xem-bai-dang.do" class="btn btn-success"> 
+		<a href="#user-functions" class="btn btn-success"> 
 			<span class="glyphicon glyphicon-list-alt"></span> 
-			BROWSING HISTORY
+			YOUR POSTS
 		</a>
 	</div>
-	
 
+	<div id="box-yeu-cau" class="body-row">
+		<div class="books">
+			<h3>
+				<b>YOUR REQUESTS</b>
+			</h3>
+			<table id="danh-sach-yeu-cau"
+				class="table table-striped table-bordered" cellspacing="0"
+				width="100%">
+				<thead>
+					<tr>
+						<th>Request title</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+
+				<tfoot>
+					<tr>
+						<th>Request title</th>
+						<th>Delete</th>
+					</tr>
+				</tfoot>
+				<!-- ++++++++++++++++++  -->
+				<tbody>
+					<logic:iterate id="sp" property="dsYeuCau" name="trangNguoiDungForm">
+						<bean:define id="maYeuCau" name="sp" property="maYeuCau"></bean:define>
+						<tr>
+	                        <td><bean:write name="sp" property="tenSach" /></td>
+	                        <td>
+	                        	<form id="xoa_yeu_cau_${maYeuCau}" action="xoa-yeu-cau.do" method="post"
+								onsubmit="return confirm('Do you want to delete this request?');">
+									<input name="maYeuCau" value="${maYeuCau}" style="display: none;">
+								
+									<a onclick="if(document.getElementById('xoa_yeu_cau_${maYeuCau}').onsubmit()){document.getElementById('xoa_yeu_cau_${maYeuCau}').submit()};"
+										href="javascript:{}"><i class="glyphicon glyphicon-trash font-size-20"></i></a>
+								</form>
+	                        </td>
+	                    </tr>
+					</logic:iterate>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+	<div id="user-functions"></div>
+	<br>
+	<br>
 	<div class="body-row user-functions">
-		<a href="#danh-sach-cho-duyet">
+		<a href="#box-cho-duyet">
 			<div class="user-function row-item pending-feature">
 				<div class="col-lg-4" style="height: 100%;">
 					<img alt="pending icon" src="images/home/pending-icon.png" style="width: 100%; margin-top: 13px;">
@@ -86,7 +131,7 @@
 			</div>
 		</a> 
 		
-		<a href="#danh-sach-dang-ban">
+		<a href="#box-dang-ban">
 			<div class="user-function row-item selling-feature">
 				<div class="col-lg-4" style="height: 100%;">
 					<img alt="pending icon" src="images/home/selling-icon.png" style="width: 100%; margin-top: 13px;">
@@ -103,7 +148,7 @@
 			</div>
 		</a> 
 		
-		<a href="#danh-sach-da-ban">
+		<a href="#box-da-ban">
 			<div class="user-function row-item sold-feature">
 				<div class="col-lg-4" style="height: 100%;">
 					<img alt="pending icon" src="images/home/sold-icon.png" style="width: 100%; margin-top: 13px;">
@@ -120,7 +165,7 @@
 			</div>
 		</a>
 		
-		<a href="#danh-sach-xem-sau">
+		<a href="#box-xem-sau">
 			<div class="user-function row-item watch-later-feature">
 				<div class="col-lg-4" style="height: 100%;">
 					<img alt="pending icon" src="images/home/watch-later-icon.png" style="width: 100%; margin-top: 13px;">
@@ -139,7 +184,7 @@
 	</div>
 
 	<br><br>
-	<div class="body-row">
+	<div id="box-cho-duyet" class="body-row">
 		<div class="books">
 			<h3>
 				<b>PENDING</b>
@@ -204,7 +249,7 @@
 	
 	<!-- +++++++++++++++++++++++ -->
 	<br><br>
-	<div class="body-row">
+	<div id="box-dang-ban" class="body-row">
 		<div class="books">
 			<h3>
 				<b>SELLING</b>
@@ -278,7 +323,7 @@
 	
 	<!-- +++++++++++++++++++++++ -->
 	<br><br>
-	<div class="body-row">
+	<div id="box-da-ban" class="body-row">
 		<div class="books">
 			<h3>
 				<b>SOLD</b>
@@ -338,7 +383,7 @@
 	
 	<!-- +++++++++++++++++++++++ -->
 	<br><br>
-	<div class="body-row">
+	<div id="box-xem-sau" class="body-row">
 		<div class="books">
 			<h3>
 				<b>WATCH LATER</b>

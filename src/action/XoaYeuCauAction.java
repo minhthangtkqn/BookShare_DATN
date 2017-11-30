@@ -12,62 +12,58 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 import common.StringProcess;
-import form.XemSauForm;
+import form.YeuCauForm;
 import model.bo.NguoiDungBO;
-import model.bo.RaoBanBO;
+import model.bo.YeuCauBO;
 
-public class BoDanhDauXemSauAction extends Action {
+public class XoaYeuCauAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		System.out.println("Bo Danh Dau Xem Sau Action");
-
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		XemSauForm xemSauForm = (XemSauForm) form;
+		System.out.println("--- XOA YEU CAU ACTION ---");
+		YeuCauForm yeuCauForm = (YeuCauForm) form;
 
-		// Kiem tra user dang nhap
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
 				(String) session.getAttribute("password"));
 
 		if (type == 0) {
-			System.out.println("ADMIN KHÔNG THỂ BỎ ĐÁNH DẤU XEM SAU");
-			return mapping.findForward("trangChu");
+			System.out.println("Admin");
+			return mapping.findForward("trangCaNhan");
 		}
-
 		if (type == 2) {
-			System.out.println("TÀI KHOẢN NÀY HIỆN ĐANG BỊ KHÓA");
+			System.out.println("blocked account");
 			ActionErrors errors = new ActionErrors();
 			errors.add("error", new ActionMessage("error.blockedAccount.error"));
 			saveErrors(request, errors);
 			return mapping.findForward("errorLoggedPage");
 		}
 		if (type != 1) {
-			System.out.println("CHƯA ĐĂNG NHẬP THÀNH CÔNG");
 			return mapping.findForward("dangNhap");
 		}
 
-		// check maRaoBan
-		if (StringProcess.notVaild(xemSauForm.getMaRaoBan())) {
-			System.out.println("postID is not exists.");
-			return mapping.findForward("trangChu");
+		// kiem tra ma yeu cau
+		if (StringProcess.notVaild(yeuCauForm.getMaYeuCau())) {
+			System.out.println("KHONG CO MA YEU CAU");
+			ActionErrors errors = new ActionErrors();
+			errors.add("error", new ActionMessage("error.maYeuCau.trong"));
+			saveErrors(request, errors);
+			return mapping.findForward("errorLoggedPage");
 		}
 
-		RaoBanBO raoBanBO = new RaoBanBO();
-		if (raoBanBO.boDanhDauXemSau((String) session.getAttribute("userID"), xemSauForm.getMaRaoBan())) {
-			System.out.println("Removed from watch later list successfully !");
-
-			if ("chiTiet".equals(StringProcess.getVaildString(xemSauForm.getPreLink()))) {
-				ActionForward forward = new ActionForward("/chi-tiet-bai-dang.do?maRaoBan=" + xemSauForm.getMaRaoBan());
-				return forward;
-			}
+		System.out.println("Ma yeu cau: " + yeuCauForm.getMaYeuCau());
+		YeuCauBO yeuCauBO = new YeuCauBO();
+		if (yeuCauBO.xoaYeuCau(yeuCauForm.getMaYeuCau())) {
+			System.out.println("xoa yeu cau thanh cong");
 			return mapping.findForward("trangCaNhan");
 		} else {
+			// khong xoa yeu cau duoc
 			ActionErrors errors = new ActionErrors();
-			errors.add("error", new ActionMessage("error.watchLater.remove"));
+			errors.add("error", new ActionMessage("error.xoaYeuCau.process"));
 			saveErrors(request, errors);
 			return mapping.findForward("errorLoggedPage");
 		}

@@ -24,10 +24,6 @@
 	<link rel="stylesheet" href="css/autoComplete.css">
 </head>
 
-<%-- <bean:define id="pageNumber" name="ketQuaTimKiemForm" property="page"></bean:define> --%>
-<%-- <bean:define id="soLuongKetQua" name="ketQuaTimKiemForm" property="soLuongKetQua"></bean:define> --%>
-<%-- <body onload="createPaginationPanel(${pageNumber}, ${soLuongKetQua})"> --%>
-
 <body>
 	<div id="page">
 		<jsp:include page="/searchLoggedHeader.jsp"></jsp:include>

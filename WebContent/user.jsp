@@ -30,6 +30,9 @@
 
 		<script>
 			$(document).ready(function() {
+				$('#danh-sach-yeu-cau').DataTable();
+			});
+			$(document).ready(function() {
 				$('#danh-sach-cho-duyet').DataTable();
 			});
 			$(document).ready(function() {
