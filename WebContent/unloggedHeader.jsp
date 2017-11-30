@@ -10,16 +10,16 @@
 <div id="header">
 	<div class="container">
 		<div class="height-100-percent" style="width: 11%; float: left;">
-			<a style="color: white;" href="trang-chu.do">
+			<a style="color: black;" href="trang-chu.do">
 				<img src="images/logobook.png" alt="" class="logo"/>
 			</a>
 		</div>
 
 		<div class="float-right height-100-percent" style="padding-top: 12px;">
 			<ul class="list-inline list-unstyled">
-				<li><a style="color: white;" href="dangKy.jsp"><i class="fa fa-user"></i> Register</a></li>
+				<li><a style="color: black;" href="dangKy.jsp"><i class="fa fa-user"></i> Register</a></li>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<li><a style="color: white;" href="dangNhap.jsp"><i class="fa fa-lock"></i> Log in</a></li>
+				<li><a style="color: black;" href="dangNhap.jsp"><i class="fa fa-lock"></i> Log in</a></li>
 			</ul>
 		</div>
 		
