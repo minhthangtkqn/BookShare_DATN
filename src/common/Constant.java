@@ -27,6 +27,10 @@ public class Constant {
 	public static final String LINK_IMAGE_STORAGE = "E:/WorkSpace/WorkSpaceJavaEclipse/BookShare_DATN/WebContent/images/raoban/";
 	public static final String LINK_IMAGE_DATABASE = "images/raoban/";
 
+	// type of search
+	public static final String SELLING_SEARCH = "sell";
+	public static final String REQUEST_SEARCH = "request";
+	
 	// type of user account
 	public static final String NORMAL_ACCOUNT = "Normal";
 	public static final String LOCKED_ACCOUNT = "Locked";
@@ -96,7 +100,8 @@ public class Constant {
 	public static final String FUNCTION_TIM_KIEM_TAC_GIA_KHONG_DAU = "f_TimKiemTacGiaKhongDau";
 	public static final String FUNCTION_LICH_SU_XEM_BAI_DANG = "f_lichSuXemBaiDang";
 	public static final String FUNCTION_DANH_SACH_XEM_SAU = "f_DanhSachXemSau";
-
+	public static final String FUNCTION_TIM_KIEM_YEU_CAU = "f_TimKiemYeuCau";
+	
 	// POST STATUS
 	public static final int TRANG_THAI_CHO_DUYET = 0;
 	public static final int TRANG_THAI_DANG_BAN = 1;

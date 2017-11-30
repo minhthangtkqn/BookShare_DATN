@@ -7,8 +7,11 @@ import org.apache.struts.action.ActionForm;
 import model.bean.DanhMuc;
 import model.bean.RaoBan;
 import model.bean.Tinh;
+import model.bean.YeuCau;
 
 public class KetQuaTimKiemForm extends ActionForm {
+
+	private String loaiTimKiem;
 
 	private String tuKhoa;
 	private String maTinh;
@@ -21,6 +24,7 @@ public class KetQuaTimKiemForm extends ActionForm {
 	private String page;
 	private int soLuongKetQua;
 
+	private ArrayList<YeuCau> dsYeuCau;
 	private ArrayList<RaoBan> listRaoBan;
 
 	// cao -> thap (DESC)
@@ -31,13 +35,28 @@ public class KetQuaTimKiemForm extends ActionForm {
 	// bai` cu~ truoc (ASC)
 	private String sapXepThoiGian;
 
-
 	/* ++++++++++++++++++++++++++++++ */
 	/* ++++++++++++++++++++++++++++++ */
 	/* ++++++++++++++++++++++++++++++ */
 
 	public ArrayList<Tinh> getDsTinh() {
 		return dsTinh;
+	}
+
+	public ArrayList<YeuCau> getDsYeuCau() {
+		return dsYeuCau;
+	}
+
+	public void setDsYeuCau(ArrayList<YeuCau> dsYeuCau) {
+		this.dsYeuCau = dsYeuCau;
+	}
+
+	public String getLoaiTimKiem() {
+		return loaiTimKiem;
+	}
+
+	public void setLoaiTimKiem(String loaiTimKiem) {
+		this.loaiTimKiem = loaiTimKiem;
 	}
 
 	public ArrayList<RaoBan> getDsHot() {

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import common.Constant;
 import model.bean.Tinh;
@@ -90,17 +91,48 @@ public class YeuCauDAO {
 
 			while (rs.next()) {
 				yeuCau = new YeuCau();
-				
+
 				yeuCau.setMaYeuCau(rs.getString("MaYeuCau"));
 				yeuCau.setMaNguoiYeuCau(rs.getString("MaNguoiYeuCau"));
 				yeuCau.setTenSach(rs.getNString("TenSach"));
-				
+
 				list.add(yeuCau);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+		return list;
+	}
+
+	public ArrayList<YeuCau> layDanhSachTimKiemYeuCau(String tuKhoa) {
+		connect();
+		String sql = "SELECT * FROM " + Constant.FUNCTION_TIM_KIEM_YEU_CAU + "(?)";
+
+		ArrayList<YeuCau> list = new ArrayList<>();
+
+		try {
+			statement = connection.prepareStatement(sql);
+			statement.setNString(1, tuKhoa);
+
+			ResultSet rs = statement.executeQuery();
+			YeuCau yeuCau;
+			while (rs.next()) {
+				yeuCau = new YeuCau();
+
+				yeuCau.setMaYeuCau(rs.getString("MaYeuCau"));
+				yeuCau.setTenSach(rs.getNString("TenSach"));
+				yeuCau.setMaNguoiYeuCau(rs.getString("MaNguoiYeuCau"));
+				yeuCau.setDienThoai(rs.getString("DienThoai"));
+				yeuCau.setEmail(rs.getString("Email"));
+				yeuCau.setTenNguoiYeuCau(rs.getNString("HoTen"));
+
+				list.add(yeuCau);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 }

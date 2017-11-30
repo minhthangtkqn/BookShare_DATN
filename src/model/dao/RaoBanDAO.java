@@ -505,8 +505,7 @@ public class RaoBanDAO {
 				pstm.setString(2, maDanhMuc);
 			}
 
-			ResultSet rs = null;
-			rs = pstm.executeQuery();
+			ResultSet rs = pstm.executeQuery();
 
 			RaoBan baiRaoBan;
 

@@ -22,9 +22,10 @@
 					type="text" value="${tuKhoa}" placeholder="Type the book title or the author name ...">
 				<button class="search-button search-item btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 				
-				<select>
-					<option value="0">Selling posts</option>
-					<option value="0">Requests</option>
+				<select id="loaiTimKiem" name="loaiTimKiem" 
+						style="width: 195px;" >
+					<option value="sell">Selling posts</option>
+					<option value="request">Requests</option>
 				</select>
 
 
@@ -148,10 +149,48 @@
 				</logic:notEmpty>
 				
 				<logic:empty name="ketQuaTimKiemForm" property="listRaoBan">
-					<p class="empty-message">
-						<br>
-						Sorry! There are no results that match your search.
-					</p>
+					<logic:notEmpty name="ketQuaTimKiemForm" property="dsYeuCau">
+						
+						<table id="danh-sach-yeu-cau"
+							class="table table-striped table-bordered" 
+								cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Book title</th>
+									<th>Name of user</th>
+									<th>Email</th>
+									<th>Phone number</th>
+								</tr>
+							</thead>
+			
+							<tfoot>
+								<tr>
+									<th>Book title</th>
+									<th>Name of user</th>
+									<th>Email</th>
+									<th>Phone number</th>
+								</tr>
+							</tfoot>
+							<!-- ++++++++++++++++++  -->
+							<tbody>
+								<logic:iterate id="sp" property="dsYeuCau" name="ketQuaTimKiemForm">
+									<tr>
+				                        <td><bean:write name="sp" property="tenSach" /></td>
+				                        <td><bean:write name="sp" property="tenNguoiYeuCau" /></td>
+				                        <td><bean:write name="sp" property="email" /></td>
+				                        <td><bean:write name="sp" property="dienThoai" /></td>
+				                    </tr>
+								</logic:iterate>
+							</tbody>
+						</table>
+					</logic:notEmpty>
+					
+					<logic:empty name="ketQuaTimKiemForm" property="dsYeuCau">
+						<p class="empty-message">
+							<br>
+							Sorry! There are no results that match your search.
+						</p>
+					</logic:empty>
 				</logic:empty>
 			</div>
 		</div>

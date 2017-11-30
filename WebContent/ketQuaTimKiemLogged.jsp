@@ -13,6 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SEARCH</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstraps/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/header.css">
@@ -36,6 +37,16 @@
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="owlcarousel/owl.carousel.min.js"></script>
 		<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script src="bootstraps/js/dataTables.bootstrap.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$('#danh-sach-yeu-cau').DataTable();
+			});
+		</script>
 
 		<script>
 			$('.owl-carousel').owlCarousel({
