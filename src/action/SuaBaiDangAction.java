@@ -36,16 +36,29 @@ public class SuaBaiDangAction extends Action {
 		HttpSession session = request.getSession();
 
 		System.out.println("Sua Bai Dang Action");
+		DangBanForm dangBanForm = (DangBanForm) form;
+		
 		// Kiem tra user dang nhap
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
-		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
-				(String) session.getAttribute("password")) != 1) {
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+		if(type == 2){
+			ActionErrors errors = new ActionErrors();
+			errors.add("error", new ActionMessage("error.blockedAccount.error"));
+			saveErrors(request, errors);
+			return mapping.findForward("khongTheSuaLogged");
+		}
+		if(type == 0){
+			return mapping.findForward("trangCaNhan");
+		}
+				
+		if (type != 1) {
 			System.out.println("chua dang nhap hoac khong phai tai khoan nguoi dung binh thuong");
 			return mapping.findForward("dangNhapLai");
 		}
 
 		// Neu da dang nhap
-		DangBanForm dangBanForm = (DangBanForm) form;
+		
 		TinhBO tinhBo = new TinhBO();
 		DanhMucBO danhMucBO = new DanhMucBO();
 		RaoBanBO raoBanBO = new RaoBanBO();

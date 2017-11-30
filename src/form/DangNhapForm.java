@@ -10,6 +10,16 @@ public class DangNhapForm extends ActionForm {
 	private boolean nhoDangNhap;
 	private String thongBao = "";
 
+	private String error;
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
+
 	public String getThongBao() {
 		return thongBao;
 	}

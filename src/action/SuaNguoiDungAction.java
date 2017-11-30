@@ -5,9 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 import form.NguoiDungForm;
 import form.TrangNguoiDungForm;
@@ -32,7 +34,14 @@ public class SuaNguoiDungAction extends Action {
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
 				(String) session.getAttribute("password"));
-		if (type != 1 && type != 2) {
+		
+		if(type == 2){
+			ActionErrors errors = new ActionErrors();
+			errors.add("error", new ActionMessage("error.blockedAccount.error"));
+			saveErrors(request, errors);
+			return mapping.findForward("errorLoggedPage");
+		}
+		if (type != 1) {
 			System.out.println("chua dang nhap hoac khong phai tai khoan nguoi dung");
 			return mapping.findForward("trangChu");
 		}

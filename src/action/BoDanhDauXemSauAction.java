@@ -40,7 +40,10 @@ public class BoDanhDauXemSauAction extends Action {
 
 		if (type == 2) {
 			System.out.println("TÀI KHOẢN NÀY HIỆN ĐANG BỊ KHÓA");
-			return mapping.findForward("dangNhapDO");
+			ActionErrors errors = new ActionErrors();
+			errors.add("error", new ActionMessage("error.blockedAccount.error"));
+			saveErrors(request, errors);
+			return mapping.findForward("errorLoggedPage");
 		}
 		if (type != 1) {
 			System.out.println("CHƯA ĐĂNG NHẬP THÀNH CÔNG");

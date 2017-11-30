@@ -42,9 +42,8 @@ public class DanhGiaNguoiBanAction extends Action {
 			return mapping.findForward("trangChu");
 		}
 		if (type == 2) {
-			System.out.println("Block account khong the danh gia");
 			ActionErrors errors = new ActionErrors();
-			errors.add("error", new ActionMessage("error.dangBan.Locked"));
+			errors.add("error", new ActionMessage("error.blockedAccount.error"));
 			saveErrors(request, errors);
 			return mapping.findForward("errorLoggedPage");
 		}

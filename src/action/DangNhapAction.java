@@ -59,7 +59,10 @@ public class DangNhapAction extends Action {
 			return mapping.findForward("trangChu");
 		}
 		if (type == 2) {
-			return mapping.findForward("trangbichan");
+			ActionErrors errors = new ActionErrors();
+			errors.add("error", new ActionMessage("error.blockedAccount.error"));
+			saveErrors(request, errors);
+			return mapping.findForward("errorLoggedPage");
 		}
 
 		String maNguoiDung;
@@ -123,7 +126,10 @@ public class DangNhapAction extends Action {
 
 			session.setAttribute("reason", liDoChan);
 
-			return mapping.findForward("trangbichan");
+			ActionErrors errors = new ActionErrors();
+			errors.add("error", new ActionMessage("error.blockedAccount.error"));
+			saveErrors(request, errors);
+			return mapping.findForward("errorLoggedPage");
 
 		case 3:
 			dangNhapForm.setLoiMatKhau("LOGIN FAILED. WRONG USER NAME OR PASSWORD");
