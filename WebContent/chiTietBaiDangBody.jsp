@@ -166,7 +166,7 @@
 			<% if(StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
 			<br><br>
 			<p style="float: left;">
-				Sign in to ask the seller
+				<a href="dangNhap.jsp">Sign in</a> to ask the seller
 			</p>
 			<% } %>
 			
@@ -306,7 +306,7 @@
 	<div class="body-row col-lg-12">
 		<div class="books">
 			<h3 style="color: red;">
-				<b>FEATURED POSTS FROM LAST MONTH SO FAR</b>
+				<b>RELATED POSTS</b>
 			</h3>
 
 			<div class="owl-carousel owl-theme">

@@ -129,7 +129,7 @@ public class RaoBanBO {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		
+
 		returnList.add(list);
 		return returnList;
 	}
@@ -221,6 +221,68 @@ public class RaoBanBO {
 
 	public boolean isXemSau(String maNguoiDung, String maRaoBan) {
 		return raoBanDAO.isXemSau(maNguoiDung, maRaoBan);
+	}
+
+	public ArrayList<RaoBan> layDanhSachLienQuan(String maRaoBan) {
+		RaoBan raoBan = raoBanDAO.layThongTinBaiDang(maRaoBan);
+
+		String tuKhoa = raoBan.getTenSach();
+		String[] arrayTuKhoa = tuKhoa.split("\\s+");
+		String[] arrayTuKhoaKhongDau = StringProcess.removeDiacritics(tuKhoa).split("\\s+");
+
+		ArrayList<RaoBan> list = new ArrayList<>();
+		list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(tuKhoa, "all", "all",
+				Constant.DEFAULT_SAP_XEP_GIA, Constant.DEFAULT_SAP_XEP_THOI_GIAN));
+
+		list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(StringProcess.removeDiacritics(tuKhoa), "all",
+				"all", Constant.DEFAULT_SAP_XEP_GIA, Constant.DEFAULT_SAP_XEP_THOI_GIAN));
+
+		// code cat duoi
+		for (int i = arrayTuKhoa.length; i >= 2; i--) {
+			String item = arrayTuKhoa[0];
+			for (int j = 1; j <= i - 1; j++) {
+				item += " " + arrayTuKhoa[j];
+			}
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all",
+					Constant.DEFAULT_SAP_XEP_GIA, Constant.DEFAULT_SAP_XEP_THOI_GIAN));
+		}
+		for (int i = arrayTuKhoaKhongDau.length; i >= 2; i--) {
+			String item = arrayTuKhoaKhongDau[0];
+			for (int j = 1; j <= i - 1; j++) {
+				item += " " + arrayTuKhoaKhongDau[j];
+			}
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all",
+					Constant.DEFAULT_SAP_XEP_GIA, Constant.DEFAULT_SAP_XEP_THOI_GIAN));
+		}
+
+		for (String item : arrayTuKhoa) {
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all",
+					Constant.DEFAULT_SAP_XEP_GIA, Constant.DEFAULT_SAP_XEP_THOI_GIAN));
+		}
+
+		for (String item : arrayTuKhoaKhongDau) {
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all",
+					Constant.DEFAULT_SAP_XEP_GIA, Constant.DEFAULT_SAP_XEP_THOI_GIAN));
+		}
+
+		// Lọc lại các kết quả tìm kiếm trùng nhau
+		for (int i = 0; i < list.size(); i++) {
+			for (int j = i + 1; j < list.size(); j++) {
+
+				if (list.get(i).getMaRaoBan().equals(list.get(j).getMaRaoBan())) {
+					list.remove(j);
+					j--;
+				}
+			}
+		}
+		// END Lọc lại các kết quả tìm kiếm trùng nhau
+
+		// lay cac ket qua dau tien
+		while (list.size() > Constant.NUMBER_RELATED_PRODUCTS) {
+			list.remove(list.size() - 1);
+		}
+
+		return list;
 	}
 
 }

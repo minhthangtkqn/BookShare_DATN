@@ -9,6 +9,7 @@ public class Constant {
 
 	// number of products on one search page
 	public static final int NUMBER_PRODUCT_ON_PAGE = 8;
+	public static final int NUMBER_RELATED_PRODUCTS = 10;
 	
 	// Default values
 	public static final String NO_IMAGE_DEFAULT = "images/No-image.jpg";
