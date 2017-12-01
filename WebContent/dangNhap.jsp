@@ -76,6 +76,8 @@
 		<!--    FOOTER      -->
 		<jsp:include page="/footer.jsp"></jsp:include>
 		<!--    END FOOTER  -->
+		
+		<script type="text/javascript" src="js/script.js"></script>
 	</div>
 </body>
 </html>

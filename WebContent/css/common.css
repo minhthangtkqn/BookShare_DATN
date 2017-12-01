@@ -101,3 +101,18 @@ body {
 	font-weight: bold;
 	font-style: italic;
 }
+
+.scrollToTop {
+	width: 40px;
+    height: 40px;
+    background: #ffd024;
+    color: white;
+    position: fixed;
+    font-weight: bold;
+    display: none;
+    right: 20px;
+    bottom: 20px;
+    font-size: 25px;
+    padding-top: 7px;
+    padding-left: 7px;
+}

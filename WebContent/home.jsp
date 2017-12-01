@@ -69,6 +69,9 @@
 				$("#tuKhoa").autocomplete("List.jsp");
 			}
 		</script>
+		
+		
+		<script type="text/javascript" src="js/script.js"></script>
 	</div>
 </body>
 </html>

@@ -26,6 +26,7 @@
 
 		<!-- SCRIPT -->
 		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
 		<!-- END SCRIPT -->
 
 		<!-- STAR RATING SCRIPT -->

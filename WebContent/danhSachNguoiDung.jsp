@@ -40,6 +40,8 @@
 			});
 		</script>
 		<!-- END SCRIPT TABLE PAGINATION -->
+		
+		<script type="text/javascript" src="js/script.js"></script>
 	</div>
 </body>
 </html>

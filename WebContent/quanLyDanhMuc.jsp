@@ -31,6 +31,7 @@
 		
 		<!-- SCRIPT TABLE PAGINATION -->
 		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
 		<script src="js/jquery.dataTables.min.js"></script>
 		<script src="bootstraps/js/dataTables.bootstrap.min.js"></script>
 
