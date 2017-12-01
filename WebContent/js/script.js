@@ -44,8 +44,6 @@ function disableSelects() {
 	}
 }
 
-
-
 $(document).ready(function() {
 	var pageBody = document.getElementById("page-body");
 	var scrollTop = document.createElement("a");
