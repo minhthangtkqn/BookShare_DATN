@@ -97,6 +97,7 @@
 					<a href="them-xem-sau.do?maRaoBan=${maRaoBanChiTiet}" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">Add to watch later</a>
 				</logic:equal>
 				
+				<a class="default-link" href="trang-ca-nhan.do#box-xem-sau">See your watch later list >>></a>
 			<% } %>
 		</div>
 
