@@ -33,7 +33,7 @@
 		<script src="kartik-star-rating/js/star-rating.js"></script>
 		<script>
 			$("#rating-seller").rating({
-				showCaption : true,
+				showCaption : false,
 				showClear : false,
 				stars : 5,
 				size : 'lg',

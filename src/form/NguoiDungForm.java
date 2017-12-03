@@ -26,7 +26,7 @@ public class NguoiDungForm extends ActionForm {
 	private String dienThoai;
 	private String email;
 	private int maTinh;
-	private int gioiTinh;
+	private String gioiTinh;
 	private int namSinh;
 	private String anh;
 	private String matKhau;
@@ -95,11 +95,11 @@ public class NguoiDungForm extends ActionForm {
 		this.maTinh = maTinh;
 	}
 
-	public int getGioiTinh() {
+	public String getGioiTinh() {
 		return gioiTinh;
 	}
 
-	public void setGioiTinh(int gioiTinh) {
+	public void setGioiTinh(String gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
 

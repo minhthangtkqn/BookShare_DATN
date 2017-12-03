@@ -25,7 +25,7 @@
 					</div></li> &nbsp;&nbsp;
 				<li><div style="height: 40px; padding-top: 7px;">
 						<a href="dang-xuat.do" style="color: black;"><i class="glyphicon glyphicon-off"></i>
-							Log out</a>
+							Đăng xuất</a>
 					</div></li>
 			</ul>
 		</div>

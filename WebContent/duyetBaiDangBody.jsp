@@ -59,50 +59,50 @@
 
 		<div class="product-info">
 			<h2 class="info-title">
-				<b>DETAILS</b>
+				<b>THÔNG TIN SÁCH</b>
 			</h2>
 
 			<h3 style="color: red; text-align: center;">
 				<b><bean:write name="chiTietBaiDang" property="tenSach" /></b>
 			</h3>
 
-			<p>Author: <bean:write name="chiTietBaiDang" property="tacGia" /></p>
-			<p>Category: <bean:write name="chiTietBaiDang" property="tenDanhMuc" /></p>
-			<p>Publisher: <bean:write name="chiTietBaiDang" property="nxb" /></p>
-			<p>Publish year: <bean:write name="chiTietBaiDang" property="namxb" /></p>
-			<p>Posted date: <bean:write name="chiTietBaiDang" property="ngayBan" /></p>
-			<p>Region:	<bean:write name="chiTietBaiDang" property="tenTinhBan" /></p>
+			<p>Tác giả: <bean:write name="chiTietBaiDang" property="tacGia" /></p>
+			<p>Danh mục: <bean:write name="chiTietBaiDang" property="tenDanhMuc" /></p>
+			<p>Nhà xuất bản: <bean:write name="chiTietBaiDang" property="nxb" /></p>
+			<p>Năm xuất bản: <bean:write name="chiTietBaiDang" property="namxb" /></p>
+			<p>Ngày đăng: <bean:write name="chiTietBaiDang" property="ngayBan" /></p>
+			<p>Khu vực:	<bean:write name="chiTietBaiDang" property="tenTinhBan" /></p>
 
 			<p style="color: red; font-size: 20px">
-				<b>Price: <bean:write name="chiTietBaiDang" property="gia" /></b>
+				<b>Giá: <bean:write name="chiTietBaiDang" property="gia" /></b>
 			</p>
 			
 			<html:form action="duyet-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="APPROVE" class="w3-btn w3-ripple w3-red col-lg-12"></input>
+				<input type="submit" name="submit" value="DUYỆT" class="w3-btn w3-ripple w3-red col-lg-12"></input>
 			</html:form>
 			
 			<html:form action="khong-duyet-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="DISAPPROVE" class="w3-btn w3-ripple w3-red col-lg-12"></input>
+				<input type="submit" name="submit" value="BỎ DUYỆT" class="w3-btn w3-ripple w3-red col-lg-12"></input>
 			</html:form>
 			
 			<html:form action="khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
 				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="LOCK" class="w3-btn w3-ripple w3-green col-lg-12"></input>
+				<input type="submit" name="submit" value="KHÓA" class="w3-btn w3-ripple w3-green col-lg-12"></input>
 			</html:form>
 			
 			<html:form action="mo-khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
 				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="UNLOCK" class="w3-btn w3-ripple w3-green col-lg-12"></input>
+				<input type="submit" name="submit" value="BỎ KHÓA" class="w3-btn w3-ripple w3-green col-lg-12"></input>
 			</html:form>
 		</div>
 
 		<div class="thongtin_nguoiban">
 			<h2 class="info-title">
-				<b>SELLER INFORMATION</b>
+				<b>THÔNG TIN NGƯỜI BÁN</b>
 			</h2>
 			<div class="anh_nguoiban">
 				<a href="chi-tiet-nguoi-dung.do?maNguoiDung=${maNguoiRaoBan}">
@@ -111,27 +111,27 @@
 			</div>
 			<div class="text_info">
 				<p>
-					Account:
+					Tài khoản:
 					<bean:write name="chiTietBaiDang" property="taiKhoanNguoiBan" />
 				</p>
 
 				<p>
-					Name:
+					Tên:
 					<bean:write name="chiTietBaiDang" property="hoTenNguoiBan" />
 				</p>
 
 				<p>
-					Gender:
+					Giới tính:
 					<bean:write name="chiTietBaiDang" property="gioiTinh" />
 				</p>
 				<p>
-					Birth year:
+					Năm sinh:
 					<bean:write name="chiTietBaiDang" property="namSinhNguoiBan" />
 				</p>
 			</div>
 			
 			<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-light-green btn-hoi-mua features_button">
-				See all reviews
+				Xem đánh giá về người bán
 			</a>
 			
 		</div>

@@ -13,7 +13,7 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>LATEST POSTS</b>
+				<b>NHỮNG BÀI ĐĂNG MỚI NHẤT</b>
 			</h3>
 			
 			<div class="box">
@@ -44,7 +44,7 @@
 		
 		<div class="books">
 			<h3 style="color: red;">
-				<b>FEATURED POSTS FROM LAST MONTH SO FAR</b>
+				<b>NHỮNG BÀI ĐĂNG NỔI BẬT TRONG THÁNG</b>
 			</h3>
 
 			<div class="owl-carousel owl-theme">

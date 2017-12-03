@@ -18,10 +18,11 @@
 
 	<div class="body-row note">
 		<p>
-			You should see the rating of the seller before deciding to buy.
+			Bạn nên xem qua các đánh giá về người bán của mọi người trước khi quyết định mua từ người này.
 			<br>
-			If you know any problem with the sell account or the details of post,
-			please report it. We appreciate that 
+			Nếu bạn thấy có bất kỳ vấn đề gì về người bán, 
+			hãy để lại bình luận khi đánh giá người bán. 
+			Điều này sẽ rất có ích cho những người dùng khác.
 		</p>
 	</div>
 
@@ -66,7 +67,7 @@
 
 		<div class="product-info">
 			<h2 class="info-title">
-				<b>DETAILS</b>
+				<b>THÔNG TIN SÁCH</b>
 			</h2>
 
 			<h3 style="text-align: center;">
@@ -75,35 +76,35 @@
 				</a>
 			</h3>
 
-			<p>Author: <bean:write name="chiTietBaiDang" property="tacGia" /></p>
-			<p>Category: <bean:write name="chiTietBaiDang" property="tenDanhMuc" /></p>
-			<p>Publisher: <bean:write name="chiTietBaiDang" property="nxb" /></p>
-			<p>Publish year: <bean:write name="chiTietBaiDang" property="namxb" /></p>
-			<p>Posted date: <bean:write name="chiTietBaiDang" property="ngayBan" /></p>
-			<p>Region:	<bean:write name="chiTietBaiDang" property="tenTinhBan" /></p>
+			<p>Tác giả: <bean:write name="chiTietBaiDang" property="tacGia" /></p>
+			<p>Danh mục: <bean:write name="chiTietBaiDang" property="tenDanhMuc" /></p>
+			<p>Nhà xuất bản: <bean:write name="chiTietBaiDang" property="nxb" /></p>
+			<p>Năm xuất bản: <bean:write name="chiTietBaiDang" property="namxb" /></p>
+			<p>Ngày đăng: <bean:write name="chiTietBaiDang" property="ngayBan" /></p>
+			<p>Khu vực:	<bean:write name="chiTietBaiDang" property="tenTinhBan" /></p>
 
 			<p style="color: red; font-size: 20px">
-				<b>Price: <bean:write name="chiTietBaiDang" property="gia" /></b>
+				<b>Giá: <bean:write name="chiTietBaiDang" property="gia" /></b>
 			</p>
 			
 			
 			<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
 				
 				<logic:equal value="true" name="chiTietBaiDangForm" property="xemSau">
-					<a href="xoa-xem-sau.do?maRaoBan=${maRaoBanChiTiet}&preLink=chiTiet" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">Remove from watch later</a>
+					<a href="xoa-xem-sau.do?maRaoBan=${maRaoBanChiTiet}&preLink=chiTiet" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">Xóa khỏi danh sách xem sau</a>
 				</logic:equal>
 				
 				<logic:equal value="false" name="chiTietBaiDangForm" property="xemSau">
-					<a href="them-xem-sau.do?maRaoBan=${maRaoBanChiTiet}" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">Add to watch later</a>
+					<a href="them-xem-sau.do?maRaoBan=${maRaoBanChiTiet}" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">Thêm vào xem sau</a>
 				</logic:equal>
 				
-				<a class="default-link" href="trang-ca-nhan.do#box-xem-sau">See your watch later list >>></a>
+				<a class="default-link" href="trang-ca-nhan.do#box-xem-sau">Xem danh sách xem sau của bạn >>></a>
 			<% } %>
 		</div>
 
 		<div class="thongtin_nguoiban">
 			<h2 class="info-title">
-				<b>SELLER INFORMATION</b>
+				<b>THÔNG TIN NGƯỜI BÁN</b>
 			</h2>
 			<div class="anh_nguoiban">
 				<bean:define id="anhNguoiBan" name="chiTietBaiDang"
@@ -111,25 +112,25 @@
 				<img style="height: 100%; width: 100%;" src="${anhNguoiBan}">
 			</div>
 			<div class="text_info">
-				<p>
-					Account:
-					<bean:write name="chiTietBaiDang" property="taiKhoanNguoiBan" />
-				</p>
+<!-- 				<p> -->
+<!-- 					Tài khoản: -->
+<%-- 					<bean:write name="chiTietBaiDang" property="taiKhoanNguoiBan" /> --%>
+<!-- 				</p> -->
 
 				<p>
-					Name:
+					Tên:
 					<bean:write name="chiTietBaiDang" property="hoTenNguoiBan" />
 				</p>
 
 				<p>
-					Gender:
+					Giới tính:
 					<bean:write name="chiTietBaiDang" property="gioiTinh" />
 				</p>
 				
-<!-- 				<p> -->
-<!-- 					Birth year: -->
-<%-- 					<bean:write name="chiTietBaiDang" property="namSinhNguoiBan" /> --%>
-<!-- 				</p> -->
+				<p>
+					Năm sinh:
+					<bean:write name="chiTietBaiDang" property="namSinhNguoiBan" />
+				</p>
 
 				<p>
 					Email:
@@ -137,20 +138,20 @@
 				</p>
 				
 				<p>
-					Phone number:
+					Số điện thoại:
 					<bean:write name="chiTietBaiDang" property="dienThoaiNguoiBan" />
 				</p>
 			</div>
 			<br>
-				Seller reputation
+				Uy tín người bán
 			<input class="rating-seller" value="${uyTinNguoiBan}"> 
 			<a href="lich-su-danh-gia.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-light-green btn-hoi-mua features_button">
-				See all reviews
+				Xem đánh giá về người bán
 			</a>
 			
 			<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
 			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiRaoBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua features_button">
-				Rate this seller
+				Đánh giá người bán này
 			</a>
 			<% } %>
 		</div>
@@ -161,13 +162,13 @@
 	<div class="body-row col-lg-12">
 		<div class="col-lg-12 comment-box">
 			<div class="col-lg-5" style="padding-left: 45px; margin-bottom: -35px;">
-				<h3 style="font-weight: bold;">QUESTIONS</h3>
+				<h3 style="font-weight: bold;">HỎI VÀ TRẢ LỜI</h3>
 			</div>
 			
 			<% if(StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
 			<br><br>
 			<p style="float: left;">
-				<a href="dangNhap.jsp">Sign in</a> to ask the seller
+				<a href="dangNhap.jsp">Đăng nhập</a> để hỏi người bán
 			</p>
 			<% } %>
 			
@@ -251,7 +252,7 @@
 												value="${maRaoBanChiTiet}"></html:text>
 											<html:text property="maBinhLuanDuocTraloi" style="display: none;"
 												value="${maBinhLuanDuocTraLoi}"></html:text>
-											<label for="">Add an answer</label>
+											<label for="">Thêm một câu trả lời</label>
 											<html:textarea rows="3" property="binhLuan"
 												styleClass="form-control"></html:textarea>
 										</div>
@@ -259,7 +260,7 @@
 										<div class="form-group">
 											<div class="col-lg-12 no-padding">
 												<button type="submit"
-													class="w3-button w3-ripple w3-light-green col-lg-3">Answer this question</button>
+													class="w3-button w3-ripple w3-light-green col-lg-3">Trả lời câu hỏi này</button>
 											</div>
 										</div>
 									</html:form>
@@ -275,7 +276,9 @@
 			<logic:empty name="chiTietBaiDangForm" property="dsBinhLuan">
 				<br><br>
 				<p style="float: left;" class="empty-message">
-					Be the first asking a question !
+					Chưa ai hỏi điều gì về cuốn sách này
+					<br>
+					Hãy là người đầu tiên đặt câu hỏi cho người bán
 				</p> 
 			</logic:empty>
 			
@@ -285,13 +288,13 @@
 					<html:form action="/dang-binh-luan" method="post">
 						<div class="form-group">
 							<html:text property="maRaoBan" style="display: none;" value="${maRaoBanChiTiet}"></html:text>
-							<label for="">Your question</label>
+							<label for="">Câu hỏi của bạn</label>
 							<html:textarea rows="6" property="binhLuan" styleClass="form-control"></html:textarea>
 						</div>
 						
 						<div class="form-group">
 							<div class="col-lg-12 no-padding">
-								<button type="submit" style="font-weight: bold;" class="w3-button w3-ripple w3-light-green col-lg-2">Post your question</button>
+								<button type="submit" style="font-weight: bold;" class="w3-button w3-ripple w3-light-green col-lg-3">Đăng câu hỏi của bạn</button>
 							</div>
 						</div>
 					</html:form>
@@ -307,7 +310,7 @@
 	<div class="body-row col-lg-12">
 		<div class="books">
 			<h3 style="color: red;">
-				<b>RELATED POSTS</b>
+				<b>CÁC BÀI ĐĂNG CÓ THỂ LIÊN QUAN</b>
 			</h3>
 
 			<div class="owl-carousel owl-theme">

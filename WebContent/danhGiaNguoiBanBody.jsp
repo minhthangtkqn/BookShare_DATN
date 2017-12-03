@@ -19,8 +19,8 @@
 			<div class="form-group col-lg-7">
 				<div class="black-border note">
 					<p>
-						Please choose rating point and leave some words 
-						in the comment box before clicking the submit button.
+						Vui lòng chọn điểm đánh giá và để lại bình 
+						luận trước khi gửi đánh giá
 					</p>
 				</div>
 
@@ -46,25 +46,25 @@
 			<div class="col-lg-offset-1 col-lg-4">
 				
 				<h2 class="info-title">
-					<b>SELLER INFORMATION</b>
+					<b>THÔNG TIN NGƯỜI BÁN</b>
 				</h2>
 				<div class="anh_nguoiban">
 					<bean:define id="anh" name="nguoiBan" property="anh"></bean:define>
 					<img style="height: 200px; width: 200px;" src="${anh}">
 				</div>
 				<div class="text_info">
-					<p>
-						Account:
-						<bean:write name="nguoiBan" property="taiKhoan" />
-					</p>
+<!-- 					<p> -->
+<!-- 						Tài khoản: -->
+<%-- 						<bean:write name="nguoiBan" property="taiKhoan" /> --%>
+<!-- 					</p> -->
 					
 					<p>
-						Name:
+						Tên:
 						<bean:write name="nguoiBan" property="hoTen" />
 					</p>
 					
 					<p>
-						Birth year:
+						Năm sinh:
 						<bean:write name="nguoiBan" property="namSinh" />
 					</p>
 					
@@ -74,7 +74,7 @@
 					</p>
 					
 					<p>
-						Phone number:
+						Số điện thoại:
 						<bean:write name="nguoiBan" property="dienThoai" />
 					</p>
 					

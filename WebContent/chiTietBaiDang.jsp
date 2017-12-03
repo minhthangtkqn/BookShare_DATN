@@ -10,7 +10,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>PRODUCT DETAIL</title>
+	<title>CHI TIẾT BÀI ĐĂNG</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="kartik-star-rating/css/star-rating.css">
@@ -83,7 +83,7 @@
 				rtl : true,
 				loop : true,
 				margin : 10,
-				nav : true,
+				nav : false,
 				responsive : {
 					0 : {
 						items : 1

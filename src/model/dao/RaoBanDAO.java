@@ -137,12 +137,12 @@ public class RaoBanDAO {
 			raoBan.setTrangThaiRaoBan(rs.getInt("TrangThaiBan"));
 
 			if ("0".equals(rs.getString("gioitinh"))) {
-				raoBan.setGioiTinh("Female");
+				raoBan.setGioiTinh("Nữ");
 			} else {
 				if ("1".equals(rs.getString("gioitinh"))) {
-					raoBan.setGioiTinh("Male");
+					raoBan.setGioiTinh("Nam");
 				} else {
-					raoBan.setGioiTinh("Unidentified");
+					raoBan.setGioiTinh("Không xác định");
 				}
 			}
 

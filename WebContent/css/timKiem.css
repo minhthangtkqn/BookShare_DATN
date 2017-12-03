@@ -6,7 +6,7 @@
 }
 
 .search-form {
-	height: 40px;
+	height: 50px;
 }
 
 .search-item {
@@ -15,18 +15,18 @@
 }
 
 .search-input {
-	width: 590px;
+	width: 580px;
 	border: 2px solid #a9a9a9;
 }
 
 .search-button {
-	width: 40px;
+	width: 50px;
 }
 
 .search select {
 	display: inline-block;
 	width: 415px;
 	font-size: 16px;
-	height: 40px;
+	height: 50px;
 	border-width: 2px;
 }

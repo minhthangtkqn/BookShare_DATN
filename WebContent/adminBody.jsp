@@ -19,29 +19,29 @@
 	<div class="body-row">
 	
 		<div class="row-item user-info w3-container w3-light-grey">
-			<h3>Personal information</h3>
+			<h3>Thông tin cá nhân</h3>
 			<p>
-				<label>Full Name</label> 
+				<label>Họ tên</label> 
 				<input value="${hoTen}" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 			<p>
-				<label>Region</label> 
+				<label>Khu vực</label> 
 				<input value="${tenTinh }" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 			<p>
-				<label>Gender</label> 
+				<label>Giới tính</label> 
 				<input value="${gioiTinh }" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 			<p>
-				<label>Birth Year</label> 
+				<label>Năm sinh</label> 
 				<input value="${namSinh }" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 		</div>
 
 		<div class="row-item user-info w3-container w3-light-grey">
-			<h3>Contact information</h3>
+			<h3>Thông tin liên lạc</h3>
 			<p>
-				<label>Phone number</label> 
+				<label>Số điên thoại</label> 
 				<input value="${dienThoai }" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 			<p>
@@ -58,10 +58,10 @@
 	
 	<div class="body-row">
 		<a href="danh-sach-nguoi-dung.do" class="btn btn-success"> 
-			<i class="glyphicon glyphicon-th-list"></i> Managing users
+			<i class="glyphicon glyphicon-th-list"></i> Quản lý người dùng
 		</a>
 		<a href="danh-muc.do" class="btn btn-success"> 
-			<i class="glyphicon glyphicon-align-left"></i> Managing categories
+			<i class="glyphicon glyphicon-align-left"></i> Quản lý danh mục sách
 		</a>
 	</div>
 
@@ -73,7 +73,7 @@
 				</div>
 				<div class="col-lg-8" style="height: 100%;">
 					<div style="margin-top: 13px; font-size: 20px;">
-						<p>PENDING</p>
+						<p>CHỜ DUYỆT</p>
 					</div>
 					
 					<div style="font-size: 20px;">
@@ -90,7 +90,7 @@
 				</div>
 				<div class="col-lg-8" style="height: 100%;">
 					<div style="margin-top: 13px; font-size: 20px;">
-						<p>SELLING</p>
+						<p>ĐANG BÁN</p>
 					</div>
 					
 					<div style="font-size: 20px;">
@@ -107,7 +107,7 @@
 				</div>
 				<div class="col-lg-8" style="height: 100%;">
 					<div style="margin-top: 13px; font-size: 20px;">
-						<p>SOLD</p>
+						<p>ĐÃ BÁN</p>
 					</div>
 					
 					<div style="font-size: 20px;">
@@ -117,22 +117,22 @@
 			</div>
 		</a>
 		
-		<a href="#danh-sach-bi-khoa">
-			<div class="user-function row-item locked-feature">
-				<div class="col-lg-4" style="height: 100%;">
-					<img alt="pending icon" src="images/home/lock-icon.png" style="width: 100%; margin-top: 13px;">
-				</div>
-				<div class="col-lg-8" style="height: 100%;">
-					<div style="margin-top: 13px; font-size: 20px;">
-						<p>LOCKED</p>
-					</div>
+<!-- 		<a href="#danh-sach-bi-khoa"> -->
+<!-- 			<div class="user-function row-item locked-feature"> -->
+<!-- 				<div class="col-lg-4" style="height: 100%;"> -->
+<!-- 					<img alt="pending icon" src="images/home/lock-icon.png" style="width: 100%; margin-top: 13px;"> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-lg-8" style="height: 100%;"> -->
+<!-- 					<div style="margin-top: 13px; font-size: 20px;"> -->
+<!-- 						<p>BỊ KHÓA</p> -->
+<!-- 					</div> -->
 					
-					<div style="font-size: 20px;">
-						<p><bean:write property="soLuongKhoa" name="trangQuanLyForm"/></p>
-					</div>
-				</div>
-			</div>
-		</a>
+<!-- 					<div style="font-size: 20px;"> -->
+<%-- 						<p><bean:write property="soLuongKhoa" name="trangQuanLyForm"/></p> --%>
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</a> -->
 		
 	</div>
 	
@@ -140,32 +140,32 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>PENDING</b>
+				<b>CHỜ DUYỆT</b>
 			</h3>
 			<table id="danh-sach-cho-duyet"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Details</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Chi tiết</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Details</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Chi tiết</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -196,32 +196,32 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>SELLING</b>
+				<b>ĐANG BÁN</b>
 			</h3>
 			<table id="danh-sach-dang-ban"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Details</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Chi tiết</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Details</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Chi tiết</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -251,30 +251,30 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>SOLD</b>
+				<b>ĐÃ BÁN</b>
 			</h3>
 			<table id="danh-sach-da-ban"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -295,59 +295,59 @@
 	</div>
 	
 	<!-- ++++++++++++++++++++++++++++++ -->
-	<br><br>
-	<div class="body-row">
-		<div class="books">
-			<h3>
-				<b>LOCKED</b>
-			</h3>
-			<table id="danh-sach-bi-khoa"
-				class="table table-striped table-bordered" cellspacing="0"
-				width="100%">
-				<thead>
-					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Details</th>
-					</tr>
-				</thead>
+<!-- 	<br><br> -->
+<!-- 	<div class="body-row"> -->
+<!-- 		<div class="books"> -->
+<!-- 			<h3> -->
+<!-- 				<b>LOCKED</b> -->
+<!-- 			</h3> -->
+<!-- 			<table id="danh-sach-bi-khoa" -->
+<!-- 				class="table table-striped table-bordered" cellspacing="0" -->
+<!-- 				width="100%"> -->
+<!-- 				<thead> -->
+<!-- 					<tr> -->
+<!-- 						<th>Book title</th> -->
+<!-- 						<th>Category</th> -->
+<!-- 						<th>Price</th> -->
+<!-- 						<th>Posted date</th> -->
+<!-- 						<th>Publisher</th> -->
+<!-- 						<th>Publish year</th> -->
+<!-- 						<th>Details</th> -->
+<!-- 					</tr> -->
+<!-- 				</thead> -->
 
-				<tfoot>
-					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Details</th>
-					</tr>
-				</tfoot>
-				<!-- ++++++++++++++++++  -->
-				<tbody>
-					<logic:iterate id="sp" property="dsKhoa" name="trangQuanLyForm">
-                        <bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
+<!-- 				<tfoot> -->
+<!-- 					<tr> -->
+<!-- 						<th>Book title</th> -->
+<!-- 						<th>Category</th> -->
+<!-- 						<th>Price</th> -->
+<!-- 						<th>Posted date</th> -->
+<!-- 						<th>Publisher</th> -->
+<!-- 						<th>Publish year</th> -->
+<!-- 						<th>Details</th> -->
+<!-- 					</tr> -->
+<!-- 				</tfoot> -->
+<!-- 				++++++++++++++++++  -->
+<!-- 				<tbody> -->
+<%-- 					<logic:iterate id="sp" property="dsKhoa" name="trangQuanLyForm"> --%>
+<%--                         <bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define> --%>
 						
-						<tr>
-	                        <td><a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><bean:write name="sp" property="tenSach" /></a></td>
-	                        <td><bean:write name="sp" property="tenDanhMuc" /></td>
-	                        <td><bean:write name="sp" property="gia" /></td>
-	                        <td><bean:write name="sp" property="ngayBan" /></td>
-	                        <td><bean:write name="sp" property="nxb" /></td>
-	                        <td><bean:write name="sp" property="namxb" /></td>
-	                        <td>
-								<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-check font-size-20"></i></a>
-	                        </td>
-	                    </tr>
-					</logic:iterate>
-				</tbody>
-			</table>
-		</div>
-	</div>
+<!-- 						<tr> -->
+<%-- 	                        <td><a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><bean:write name="sp" property="tenSach" /></a></td> --%>
+<%-- 	                        <td><bean:write name="sp" property="tenDanhMuc" /></td> --%>
+<%-- 	                        <td><bean:write name="sp" property="gia" /></td> --%>
+<%-- 	                        <td><bean:write name="sp" property="ngayBan" /></td> --%>
+<%-- 	                        <td><bean:write name="sp" property="nxb" /></td> --%>
+<%-- 	                        <td><bean:write name="sp" property="namxb" /></td> --%>
+<!-- 	                        <td> -->
+<%-- 								<a href="chi-tiet-bai-dang.do?maRaoBan=${maRaoBan}"><i class="glyphicon glyphicon-check font-size-20"></i></a> --%>
+<!-- 	                        </td> -->
+<!-- 	                    </tr> -->
+<%-- 					</logic:iterate> --%>
+<!-- 				</tbody> -->
+<!-- 			</table> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	
 </div>
 <!-- END BODY -->

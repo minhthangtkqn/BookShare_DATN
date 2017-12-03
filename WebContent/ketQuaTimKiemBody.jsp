@@ -24,31 +24,31 @@
 				
 				<select id="loaiTimKiem" name="loaiTimKiem" 
 						style="width: 195px;" >
-					<option value="sell">Selling posts</option>
-					<option value="request">Requests</option>
+					<option value="sell">Tin bán sách</option>
+					<option value="request">Tin mua sách</option>
 				</select>
 
 
 				<html:select property="maDanhMuc" >
-					<option value="all">All categories</option>
+					<option value="all">Tất cả các danh mục sách</option>
 					<html:optionsCollection name="ketQuaTimKiemForm"
 						property="dsDanhMuc" label="tenDanhMuc" value="maDanhMuc" />
 				</html:select>
 
 				<html:select property="maTinh" >
-					<option value="all">All regions</option>
+					<option value="all">Tất cả các vùng</option>
 					<html:optionsCollection name="ketQuaTimKiemForm" property="dsTinh"
 						label="tenTinh" value="maTinh" />
 				</html:select>
 
 				<select name="sapXepGia">
-					<option value="ASC">Price: Low to high</option>
-					<option value="DESC">Price: High to low</option>
+					<option value="ASC">Giá: Từ thấp đến cao</option>
+					<option value="DESC">Giá: Từ cao đến thấp</option>
 				</select>
 
 				<select name="sapXepThoiGian">
-					<option value="DESC">Latest posts first</option>
-					<option value="ASC">Oldest posts first</option>
+					<option value="DESC">Bài mới trước</option>
+					<option value="ASC">Bài cũ trước</option>
 				</select>
 			</html:form>
 
@@ -56,11 +56,11 @@
 
 		<div id="goi-y">
 			<p>
-				Search criteria will help you quickly find the book that you want.
+				Các tiêu chí tìm kiếm sẽ giúp bạn nhanh chóng tìm được cuốn sách mà bạn muốn.
 			</p>
 			<p>
-				Note: 
-					If you cannot find what you want, click <a style="color: red; font-weight: bold;" href="them-yeu-cau.do">HERE</a> to request a book
+				Chú ý: 
+					Nếu bạn không tìm được sách bạn muốn, click vào <a style="color: red; font-weight: bold;" href="them-yeu-cau.do">ĐÂY</a> để đăng yêu cầu mua sách.
 			<p>
 		</div>
 	</div>
@@ -68,7 +68,7 @@
 	<div class="body-row" style="margin-top: 50px;">
 		<div class="books" >
 			<h3>
-				<b>SEARCH RESULTS <logic:notEmpty name="ketQuaTimKiemForm" property="listRaoBan"> (<%=request.getAttribute("soLuongKetQua")%> results) </logic:notEmpty></b>
+				<b>KẾT QUẢ <logic:notEmpty name="ketQuaTimKiemForm" property="listRaoBan"> (<%=request.getAttribute("soLuongKetQua")%> bài đăng) </logic:notEmpty></b>
 			</h3>
 			
 			<div class="box">
@@ -125,12 +125,18 @@
 
 					<div id="pagination-div" align="center">
 						<ul id="pagination-ul" class="pagination">
+							<% if((Integer) request.getAttribute("page") > 1 ){ %>
+							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=(Integer) request.getAttribute("page") - 1%>"><i style="font-size: 21px;" class="glyphicon glyphicon-chevron-left"></i></a></li>
+							<% } %>
+						
 							<%
-								for (int i = (Integer) request.getAttribute("page") - 1; i > 0
-											&& i >= (Integer) request.getAttribute("page") - 2; i--) {
+								for (int i = (Integer) request.getAttribute("page") - 2;
+											i < (Integer) request.getAttribute("page"); i++) {
+									if(i > 0){
 							%>
 							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=i%>"><%=i%></a></li>
-							<% } %>
+							<% 		}
+								} %>
 
 
 							<li class="active"><a><%=request.getAttribute("page")%></a></li>
@@ -142,6 +148,10 @@
 							%>
 							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=j%>"><%=j%></a></li>
 							<%	} %>
+							
+							<% if((Integer) request.getAttribute("page") < (Integer) request.getAttribute("maxPage") ){ %>
+							<li><a href="ket-qua-tim-kiem.do?tuKhoa=${tuKhoa}&sapXepGia=${sapXepGia}&sapXepThoiGian=${sapXepThoiGian}&maDanhMuc=${maDanhMuc}&maTinh=${maTinh}&page=<%=(Integer) request.getAttribute("page") + 1%>"><i style="font-size: 21px;" class="glyphicon glyphicon-chevron-right"></i></a></li>
+							<% } %>
 
 						</ul>
 					</div>
@@ -156,19 +166,19 @@
 								cellspacing="0" width="100%">
 							<thead>
 								<tr>
-									<th>Book title</th>
-									<th>Name of user</th>
+									<th>Tên sách yêu cầu</th>
+									<th>Tên người yêu cầu</th>
 									<th>Email</th>
-									<th>Phone number</th>
+									<th>Số điện thoại</th>
 								</tr>
 							</thead>
 			
 							<tfoot>
 								<tr>
-									<th>Book title</th>
-									<th>Name of user</th>
+									<th>Tên sách yêu cầu</th>
+									<th>Tên người yêu cầu</th>
 									<th>Email</th>
-									<th>Phone number</th>
+									<th>Số điện thoại</th>
 								</tr>
 							</tfoot>
 							<!-- ++++++++++++++++++  -->
@@ -188,7 +198,7 @@
 					<logic:empty name="ketQuaTimKiemForm" property="dsYeuCau">
 						<p class="empty-message">
 							<br>
-							Sorry! There are no results that match your search.
+							Sản phẩm bạn tìm không có
 						</p>
 					</logic:empty>
 				</logic:empty>
@@ -199,7 +209,7 @@
 
 		<div class="books">
 			<h3 style="color: red;">
-				<b>FEATURED POSTS FROM LAST MONTH SO FAR</b>
+				<b>NHỮNG BÀI ĐĂNG NỔI BẬT TRONG THÁNG</b>
 			</h3>
 
 			<div class="owl-carousel owl-theme">

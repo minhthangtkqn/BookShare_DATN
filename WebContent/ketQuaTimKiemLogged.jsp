@@ -11,7 +11,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SEARCH</title>
+	<title>TÌM KIẾM</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstraps/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
@@ -53,7 +53,7 @@
 				rtl : false,
 				loop : true,
 				margin : 10,
-				nav : true,
+				nav : false,
 				responsive : {
 					0 : {
 						items : 1

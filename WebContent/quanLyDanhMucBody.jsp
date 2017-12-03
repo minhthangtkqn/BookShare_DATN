@@ -10,24 +10,24 @@
 	<div class="body-row">
 	
 		<div class="books" style="width: 65%; display: inline-block;">
-			<h3><b>CATEGORIES LIST</b></h3>
+			<h3><b>CÁC DANH MỤC SÁCH</b></h3>
 			<table id="danh-sach-danh-muc"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Category name</th>
-						<th>Sold number</th>
-						<th>Edit</th>
-						<th>Delete</th>
+						<th>Tên danh mục</th>
+						<th>Số lượng sách đã bán</th>
+						<th>Sửa</th>
+						<th>Xóa</th>
 					</tr>
 				</thead>
 				<tfoot>
 					<tr>
-						<th>Category name</th>
-						<th>Sold number</th>
-						<th>Edit</th>
-						<th>Delete</th>
+						<th>Tên danh mục</th>
+						<th>Số lượng sách đã bán</th>
+						<th>Sửa</th>
+						<th>Xóa</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -60,10 +60,10 @@
 		</div>
 	
 		<div style="display: inline-block; margin-left: 30px;">
-			<h3 style="text-align: center;">ADD NEW CATEGORY</h3>
+			<h3 style="text-align: center;">THÊM DANH MỤC MỚI</h3>
 			<html:form action="/them-danh-muc.do" method="post">
 				<div class="row form-group">
-					<label class="col-lg-6">Category name</label>
+					<label class="col-lg-6">Tên danh mục</label>
 					<div class="col-lg-10">
 						<html:text property="tenDanhMuc" styleClass="form-control"></html:text>
 						<br>

@@ -10,18 +10,18 @@
 <div id="page-body" class="container">
 	<div class="body-row">
 		<div class="col-lg-6">
-			<h3>EDIT PROFILE</h3>
+			<h3>SỬA THÔNG TIN TÀI KHOẢN</h3>
 			<br>
 			<html:form action="/sua-nguoi-dung" method="post">
 				
 				<div class="row form-group">
-					<label class="col-lg-4">Full name</label>
+					<label class="col-lg-4">Họ tên</label>
 					<div class="col-lg-7">
 						<html:text property="hoTen" styleClass="form-control"></html:text>
 					</div>
 				</div>
 				<div class="row form-group">
-					<label class="col-lg-4">Phone number</label>
+					<label class="col-lg-4">Số điện thoại</label>
 					<div class="col-lg-7">
 						<html:text property="dienThoai" styleClass="form-control"></html:text>
 					</div>
@@ -33,16 +33,16 @@
 					</div>
 				</div>
 				<div class="row form-group">
-					<label class="col-lg-4">Gender</label>
+					<label class="col-lg-4">Giới tính</label>
 					<div class="col-lg-7">
 						<html:radio property="gioiTinh" value="1"
-							style="margin-right: 10px;">Male</html:radio>
+							style="margin-right: 10px;">Nam</html:radio>
 						<html:radio property="gioiTinh" value="0"
-							style="margin: 0px 10px 0px 30px;">Female</html:radio>
+							style="margin: 0px 10px 0px 30px;">Nữ</html:radio>
 					</div>
 				</div>
 				<div class="row form-group">
-					<label class="col-lg-4">Region</label>
+					<label class="col-lg-4">Khu vực</label>
 					<div class="col-lg-7">
 						<html:select property="maTinh" styleClass="form-control">
 							<html:optionsCollection name="nguoiDungForm" property="dsTinh"
@@ -54,7 +54,7 @@
 				<div class="row form-group">
 					<div class="col-lg-11">
 						<html:submit styleClass="btn btn-primary form-control" property="submit"
-							value="submit">Save</html:submit>
+							value="submit">Lưu</html:submit>
 	<!-- 					<button class="btn btn-primary" onclick="history.go(-1);">Quay lại</button> -->
 					</div>
 				</div>
@@ -62,10 +62,10 @@
 		</div>
 
 		<div class="col-lg-6">
-			<h3>CHANGE PASSWORD</h3>
+			<h3>SỬA MẬT KHẨU</h3>
 			<html:form action="/sua-nguoi-dung" method="post">
 				<div class="row form-group">
-					<label class="col-lg-4">New password</label>
+					<label class="col-lg-4">Mật khẩu mới</label>
 					<div class="col-lg-7">
 						<html:password property="matKhau" styleClass="form-control"></html:password>
 					</div>
@@ -74,7 +74,7 @@
 				<div class="row form-group">
 					<div class="col-lg-11">
 						<html:submit styleClass="btn btn-primary form-control" property="submit"
-							value="submit">Save</html:submit>
+							value="submit">Lưu</html:submit>
 	<!-- 					<button class="btn btn-primary" onclick="history.go(-1);">Quay lại</button> -->
 					</div>
 				</div>

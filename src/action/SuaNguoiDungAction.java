@@ -54,11 +54,16 @@ public class SuaNguoiDungAction extends Action {
 			NguoiDung nguoiDung = new NguoiDung();
 
 			if ("suaThongTin".equals(nguoiDungForm.getAction())) {
+				if("0".equals(nguoiDungForm.getGioiTinh())){
+					nguoiDung.setGioiTinh(nguoiDungForm.getGioiTinh());
+				}else{
+					nguoiDung.setGioiTinh("1");
+				}
+				
 				nguoiDung.setMaNguoiDung((String) session.getAttribute("userID"));
 				nguoiDung.setHoTen(nguoiDungForm.getHoTen());
 				nguoiDung.setDienThoai(nguoiDungForm.getDienThoai());
 				nguoiDung.setEmail(nguoiDungForm.getEmail());
-				nguoiDung.setGioiTinh(nguoiDungForm.getGioiTinh());
 				nguoiDung.setMaTinh(nguoiDungForm.getMaTinh());
 				nguoiDung.setAnh(nguoiDungForm.getAnh());
 				nguoiDung.setNamSinh(nguoiDungForm.getNamSinh());

@@ -34,7 +34,7 @@
 				<html:form action="/dang-nhap" method="post"
 					styleClass="form-horizontal">
 					<div class="form-group">
-						<label for="" class="col-lg-offset-2 col-lg-2 control-label">Username</label>
+						<label for="" class="col-lg-offset-2 col-lg-2 control-label">Tên tài khoản</label>
 						<div class="col-lg-4">
 							<html:text property="taiKhoan" styleClass="form-control"></html:text>
 							<p style="color: red;">
@@ -43,7 +43,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="" class="col-lg-offset-2 col-lg-2 control-label">Password</label>
+						<label for="" class="col-lg-offset-2 col-lg-2 control-label">Mật khẩu</label>
 						<div class="col-lg-4">
 							<html:password property="matKhau" styleClass="form-control"></html:password>
 							<p style="color: red;">

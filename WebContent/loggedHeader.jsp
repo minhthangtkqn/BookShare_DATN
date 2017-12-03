@@ -24,7 +24,7 @@
 
 				<button type="submit"
 					class="search-btn-header col-lg-3 w3-btn w3-blue border-hover height-100-percent"> 
-						Find books
+						Tìm kiếm
 				</button>
 			</html:form>
 		</div>
@@ -38,7 +38,7 @@
 					</div></li> &nbsp;&nbsp;
 				<li><div style="height: 40px; padding-top: 7px;">
 						<a href="dang-xuat.do" style="color: black;"><i class="glyphicon glyphicon-off"></i>
-							Log out</a>
+							Đăng xuất</a>
 					</div></li>
 			</ul>
 		</div>
@@ -48,7 +48,7 @@
 				style="color: black;"
 				class="btn btn-primary-outline font-size-12 border-hover height-100-percent">
 				<span class="glyphicon glyphicon-pencil feature-icon"></span>
-				<div class="feature-title">Sell book</div>
+				<div class="feature-title">Bán sách</div>
 			</a>
 		</div>
 
@@ -57,7 +57,7 @@
 				class="btn btn-primary-outline font-size-12 border-hover height-100-percent" 
 				style="color: black;">
 				<span class="glyphicon glyphicon-time feature-icon"></span> 
-				<div class="feature-title">Browsing History</div>
+				<div class="feature-title">Sách đã xem</div>
 			</a>
 		</div>
 

@@ -28,11 +28,11 @@
 
 		<!--    BODY        -->
 		<div id="page-body" class="container">
-			<h3>CREATE AN ACCOUNT</h3>
+			<h3>TẠO TÀI KHOẢN MỚI</h3>
 			<br>
 			<html:form action="/dang-ky" method="post">
 				<div class="row form-group">
-					<label class="col-lg-2">Username</label>
+					<label class="col-lg-2">Tên tài khoản</label>
 					<div class="col-lg-3">
 						<html:text property="taiKhoan" styleClass="form-control"></html:text>
 						<p style="color: red;">
@@ -42,7 +42,7 @@
 				</div>
 
 				<div class="row form-group">
-					<label class="col-lg-2">Password</label>
+					<label class="col-lg-2">Mật khẩu</label>
 					<div class="col-lg-3">
 						<html:password property="matKhau" styleClass="form-control"></html:password>
 						<p style="color: red;">
@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="row form-group">
-					<label class="col-lg-2">Confirm Password</label>
+					<label class="col-lg-2">Xác nhận mật khẩu</label>
 					<div class="col-lg-3">
 						<html:password property="nhapLaiMatKhau" styleClass="form-control"></html:password>
 						<p style="color: red;">
@@ -71,8 +71,8 @@
 
 				<div class="row form-group">
 					<div class="col-lg-3 col-lg-offset-2">
-						<html:submit styleClass="btn btn-primary">Create</html:submit>
-						<button class="btn btn-primary" type="reset">Cancel</button>
+						<html:submit styleClass="btn btn-primary">Tạo tài khoản</html:submit>
+<!-- 						<button class="btn btn-primary" type="reset">Cancel</button> -->
 					</div>
 				</div>
 			</html:form>

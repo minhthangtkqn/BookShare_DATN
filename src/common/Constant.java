@@ -32,8 +32,8 @@ public class Constant {
 	public static final String REQUEST_SEARCH = "request";
 	
 	// type of user account
-	public static final String NORMAL_ACCOUNT = "Normal";
-	public static final String LOCKED_ACCOUNT = "Locked";
+	public static final String NORMAL_ACCOUNT = "Bình thường";
+	public static final String LOCKED_ACCOUNT = "Bị khóa";
 	
 	// TABLE NAME
 	public static final String TABLE_TINH = "[tblTinh]";

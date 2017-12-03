@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRODUCT DETAIL</title>
+<title>CHI TIẾT BÀI ĐĂNG</title>
 <link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="kartik-star-rating/css/star-rating.css">
@@ -77,7 +77,7 @@
 				rtl : true,
 				loop : true,
 				margin : 10,
-				nav : true,
+				nav : false,
 				responsive : {
 					0 : {
 						items : 1

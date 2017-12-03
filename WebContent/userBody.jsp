@@ -19,29 +19,29 @@
 	<div class="body-row">
 	
 		<div class="row-item user-info w3-container w3-light-grey">
-			<h3>Personal information</h3>
+			<h3>Thông tin cá nhân</h3>
 			<p>
-				<label>Full Name</label> 
+				<label>Họ tên</label> 
 				<input value="${hoTen}" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 			<p>
-				<label>Region</label> 
+				<label>Khu vực</label> 
 				<input value="${tenTinh }" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 			<p>
-				<label>Gender</label> 
+				<label>Giới tính</label> 
 				<input value="${gioiTinh }" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 			<p>
-				<label>Birth Year</label> 
+				<label>Năm sinh</label> 
 				<input value="${namSinh }" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 		</div>
 
 		<div class="row-item user-info w3-container w3-light-grey">
-			<h3>Contact information</h3>
+			<h3>Thông tin liên lạc</h3>
 			<p>
-				<label>Phone number</label> 
+				<label>Số điện thoại</label> 
 				<input value="${dienThoai }" class="w3-input w3-border w3-round" type="text" disabled>
 			</p>
 			<p>
@@ -59,33 +59,33 @@
 	<div class="body-row">
 		<a href="sua-nguoi-dung.do" class="btn btn-success"> 
 			<span class="glyphicon glyphicon-pencil"></span> 
-			EDIT PROFILE
+			SỬA THÔNG TIN
 		</a>
 		<a href="#user-functions" class="btn btn-success"> 
 			<span class="glyphicon glyphicon-list-alt"></span> 
-			YOUR POSTS
+			BÀI ĐĂNG CỦA BẠN
 		</a>
 	</div>
 
 	<div id="box-yeu-cau" class="body-row">
 		<div class="books">
 			<h3>
-				<b>YOUR REQUESTS</b>
+				<b>SÁCH BẠN ĐÃ YÊU CẦU</b>
 			</h3>
 			<table id="danh-sach-yeu-cau"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Request title</th>
-						<th>Delete</th>
+						<th>Tiêu đề</th>
+						<th>Xóa</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Request title</th>
-						<th>Delete</th>
+						<th>Tiêu đề</th>
+						<th>Xóa</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -121,7 +121,7 @@
 				</div>
 				<div class="col-lg-8" style="height: 100%;">
 					<div style="margin-top: 13px; font-size: 20px;">
-						<p>PENDING</p>
+						<p>CHỜ DUYỆT</p>
 					</div>
 					
 					<div style="font-size: 20px;">
@@ -138,7 +138,7 @@
 				</div>
 				<div class="col-lg-8" style="height: 100%;">
 					<div style="margin-top: 13px; font-size: 20px;">
-						<p>SELLING</p>
+						<p>ĐANG BÁN</p>
 					</div>
 					
 					<div style="font-size: 20px;">
@@ -155,7 +155,7 @@
 				</div>
 				<div class="col-lg-8" style="height: 100%;">
 					<div style="margin-top: 13px; font-size: 20px;">
-						<p>SOLD</p>
+						<p>ĐÃ BÁN</p>
 					</div>
 					
 					<div style="font-size: 20px;">
@@ -172,7 +172,7 @@
 				</div>
 				<div class="col-lg-8" style="height: 100%;">
 					<div style="margin-top: 13px; font-size: 18px;">
-						<p>WATCH LATER</p>
+						<p>XEM SAU</p>
 					</div>
 					
 					<div style="font-size: 20px;">
@@ -187,34 +187,34 @@
 	<div id="box-cho-duyet" class="body-row">
 		<div class="books">
 			<h3>
-				<b>PENDING</b>
+				<b>CHỜ DUYỆT</b>
 			</h3>
 			<table id="danh-sach-cho-duyet"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Edit</th>
-						<th>Delete</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Chỉnh sửa</th>
+						<th>Xóa</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Edit</th>
-						<th>Delete</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Chỉnh sửa</th>
+						<th>Xóa</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -233,7 +233,7 @@
 	                        </td>
 	                        <td>
 	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
-								onsubmit="return confirm('Do you want to delete this Post?');">
+								onsubmit="return confirm('Bạn có thực sự muốn XÓA bài đăng này?');">
 								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 								<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
 									href="javascript:{}"><i class="glyphicon glyphicon-trash font-size-20"></i></a>
@@ -252,36 +252,36 @@
 	<div id="box-dang-ban" class="body-row">
 		<div class="books">
 			<h3>
-				<b>SELLING</b>
+				<b>ĐANG BÁN</b>
 			</h3>
 			<table id="danh-sach-dang-ban"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Edit</th>
-						<th>Delete</th>
-						<th>Set as sold</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Sửa</th>
+						<th>Xóa</th>
+						<th>Đã bán</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Edit</th>
-						<th>Delete</th>
-						<th>Set as sold</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Sửa</th>
+						<th>Xóa</th>
+						<th>Đã bán</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -300,7 +300,7 @@
 	                        </td>
 	                        <td>
 	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
-									onsubmit="return confirm('Do you want to delete this Post?');">
+									onsubmit="return confirm('Bạn có thực sự muốn XÓA bài đăng này?');">
 									<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 									<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
 										href="javascript:{}"><i class="glyphicon glyphicon-trash font-size-20"></i></a>
@@ -308,7 +308,7 @@
 	                        </td>
 	                        <td>
 		                        <form id="ban_bai_dang_${maRaoBan}" action="ban-bai-dang.do" method="post"
-									onsubmit="return confirm('Do you want to set this notice as SOLD?');">
+									onsubmit="return confirm('Bạn có thực sự muốn chuyển bài đăng này sang ĐÃ BÁN?');">
 									<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 									<a onclick="if(document.getElementById('ban_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('ban_bai_dang_${maRaoBan}').submit()};"
 										href="javascript:{}"><i class="glyphicon glyphicon-ok font-size-20"></i></a>
@@ -326,32 +326,32 @@
 	<div id="box-da-ban" class="body-row">
 		<div class="books">
 			<h3>
-				<b>SOLD</b>
+				<b>ĐÃ BÁN</b>
 			</h3>
 			<table id="danh-sach-da-ban"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Delete</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Xóa</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Delete</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày đăng</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Xóa</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -367,7 +367,7 @@
 	                        <td>
 	                        	<bean:define id="maRaoBan" name="sp" property="maRaoBan"></bean:define>
 	                        	<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" method="post"
-								onsubmit="return confirm('Do you want to delete this Post?');">
+								onsubmit="return confirm('Bạn có thực sự muốn XÓA bài đăng này?');">
 								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 								<a onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
 									href="javascript:{}"><i class="glyphicon glyphicon-trash font-size-20"></i></a>
@@ -386,32 +386,32 @@
 	<div id="box-xem-sau" class="body-row">
 		<div class="books">
 			<h3>
-				<b>WATCH LATER</b>
+				<b>XEM SAU</b>
 			</h3>
 			<table id="danh-sach-xem-sau"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Delete</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày bán</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Xóa</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Book title</th>
-						<th>Category</th>
-						<th>Price</th>
-						<th>Posted date</th>
-						<th>Publisher</th>
-						<th>Publish year</th>
-						<th>Delete</th>
+						<th>Tên sách</th>
+						<th>Danh mục</th>
+						<th>Giá</th>
+						<th>Ngày bán</th>
+						<th>Nhà xuất bản</th>
+						<th>Năm xuất bản</th>
+						<th>Xóa</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
@@ -428,7 +428,7 @@
 	                        <td><bean:write name="sp" property="namxb" /></td>
 	                        <td>
 	                        	<form id="xoa_xem_sau_${maRaoBan}" action="xoa-xem-sau.do" method="post"
-								onsubmit="return confirm('Do you want to delete this Post from WATCH LATER list?');">
+								onsubmit="return confirm('Bạn có thực sự muốn XÓA bài đăng này khỏi DANH SÁCH XEM SAU?');">
 								<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
 								<input name="preLink" value="trangCaNhan" style="display: none;">
 								<a onclick="if(document.getElementById('xoa_xem_sau_${maRaoBan}').onsubmit()){document.getElementById('xoa_xem_sau_${maRaoBan}').submit()};"

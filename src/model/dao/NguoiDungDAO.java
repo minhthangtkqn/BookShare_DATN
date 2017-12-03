@@ -52,7 +52,7 @@ public class NguoiDungDAO {
 				nguoiDung.setTenTinh(rs.getString("tentinh"));
 				nguoiDung.setDienThoai(rs.getString("dienthoai"));
 				nguoiDung.setEmail(rs.getString("email"));
-				nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
+				
 				nguoiDung.setNamSinh(rs.getInt("namSinh"));
 				nguoiDung.setMaTinh(rs.getInt("MaTinh"));
 				nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
@@ -60,6 +60,16 @@ public class NguoiDungDAO {
 				nguoiDung.setAnh(
 						StringProcess.notVaild(rs.getString("anh")) ? Constant.NO_IMAGE_DEFAULT : rs.getString("anh"));
 
+				if ("0".equals(rs.getString("gioitinh"))) {
+					nguoiDung.setGioiTinh("Nữ");
+				} else {
+					if ("1".equals(rs.getString("gioitinh"))) {
+						nguoiDung.setGioiTinh("Nam");
+					} else {
+						nguoiDung.setGioiTinh("Không xác định");
+					}
+				}
+				
 				list.add(nguoiDung);
 			}
 		} catch (SQLException e) {
@@ -88,8 +98,18 @@ public class NguoiDungDAO {
 				nguoiDung.setDienThoai(rs.getString("dienthoai"));
 				nguoiDung.setEmail(rs.getString("email"));
 				nguoiDung.setAnh(rs.getString("anh"));
-				nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
 				nguoiDung.setNamSinh(rs.getInt("namSinh"));
+				
+				if ("0".equals(rs.getString("gioitinh"))) {
+					nguoiDung.setGioiTinh("Nữ");
+				} else {
+					if ("1".equals(rs.getString("gioitinh"))) {
+						nguoiDung.setGioiTinh("Nam");
+					} else {
+						nguoiDung.setGioiTinh("Không xác định");
+					}
+				}
+				
 				list.add(nguoiDung);
 			}
 		} catch (SQLException e) {
@@ -285,11 +305,21 @@ public class NguoiDungDAO {
 			nguoiDung.setDienThoai(rs.getString("dienthoai"));
 			nguoiDung.setEmail(rs.getString("email"));
 			nguoiDung.setAnh(rs.getString("anh"));
-			nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
+			
 			nguoiDung.setNamSinh(rs.getInt("namSinh"));
 			nguoiDung.setMaTinh(rs.getInt("matinh"));
 			nguoiDung.setGhiChu((StringProcess.notVaild(rs.getString("GhiChu"))?"":rs.getString("GhiChu")));
 
+			if ("0".equals(rs.getString("gioitinh"))) {
+				nguoiDung.setGioiTinh("Nữ");
+			} else {
+				if ("1".equals(rs.getString("gioitinh"))) {
+					nguoiDung.setGioiTinh("Nam");
+				} else {
+					nguoiDung.setGioiTinh("Không xác định");
+				}
+			}
+			
 			nguoiDung.setLoaiNguoiDung((rs.getInt("LoaiNguoiDung") == 1) ? Constant.NORMAL_ACCOUNT : Constant.LOCKED_ACCOUNT);
 
 			return nguoiDung;
@@ -311,8 +341,6 @@ public class NguoiDungDAO {
 
 			rs = stmt.executeQuery();
 
-			nguoiDung = new NguoiDung();
-
 			rs.next();
 
 			System.out.println("tai khoan: " + rs.getString("taikhoan"));
@@ -324,10 +352,20 @@ public class NguoiDungDAO {
 			nguoiDung.setDienThoai(rs.getString("dienthoai"));
 			nguoiDung.setEmail(rs.getString("email"));
 			nguoiDung.setAnh(rs.getString("anh"));
-			nguoiDung.setGioiTinh(rs.getInt("gioitinh"));
+			
 			nguoiDung.setNamSinh(rs.getInt("namSinh"));
 			nguoiDung.setMaTinh(rs.getInt("MaTinh"));
 			nguoiDung.setLoaiNguoiDung(rs.getString("LoaiNguoiDung"));
+			
+			if ("0".equals(rs.getString("gioitinh"))) {
+				nguoiDung.setGioiTinh("Nữ");
+			} else {
+				if ("1".equals(rs.getString("gioitinh"))) {
+					nguoiDung.setGioiTinh("Nam");
+				} else {
+					nguoiDung.setGioiTinh("Không xác định");
+				}
+			}
 			
 			System.out.println("Ten Tinh Admin: " + rs.getString("TenTinh"));
 
@@ -352,7 +390,9 @@ public class NguoiDungDAO {
 			statement.setInt(2, nguoiDung.getMaTinh());
 			statement.setString(3, nguoiDung.getDienThoai());
 			statement.setString(4, nguoiDung.getEmail());
-			statement.setInt(5, nguoiDung.getGioiTinh());
+			
+			statement.setInt(5, Integer.parseInt(nguoiDung.getGioiTinh()));
+			
 			// statement.setString(6, nguoiDung.getAnh());
 			// statement.setInt(7, nguoiDung.getNamSinh());
 			statement.setString(6, nguoiDung.getMaNguoiDung());

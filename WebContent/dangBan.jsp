@@ -10,7 +10,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>SELL BOOK</title>
+	<title>ĐĂNG TIN BÁN SÁCH</title>
 	<link rel="stylesheet" href="bootstraps/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="css/common.css">
@@ -30,19 +30,21 @@
 		<div id="page-body" class="container">
 
 			<div class="body-row">
-				<h2 class="col-lg-offset-1">BOOK DETAILS</h2>
+				<h2 class="col-lg-offset-1">THÔNG TIN SÁCH</h2>
+				<br>
+				
 				<br>
 				<html:form action="/dang-ban.do" method="post"
 					enctype="multipart/form-data">
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Book title</label>
+						<label class="col-lg-offset-1 col-lg-2">Tên sách</label>
 						<div class="col-lg-5">
 							<html:text property="tenSach" styleClass="form-control" value=""></html:text>
 							<html:errors property="tenSachError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Category</label>
+						<label class="col-lg-offset-1 col-lg-2">Danh mục</label>
 						<div class="col-lg-5">
 							<html:select property="maDanhMuc" styleClass="form-control">
 								<html:optionsCollection name="dangBanForm" property="dsDanhMuc"
@@ -52,35 +54,35 @@
 					</div>
 
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Author</label>
+						<label class="col-lg-offset-1 col-lg-2">Tác giả</label>
 						<div class="col-lg-5">
 							<html:text property="tacGia" styleClass="form-control" value=""></html:text>
 							<html:errors property="tacGiaError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Publish year</label>
+						<label class="col-lg-offset-1 col-lg-2">Năm xuất bản</label>
 						<div class="col-lg-5">
 							<html:text property="namxb" styleClass="form-control" value=""></html:text>
 							<html:errors property="namxbError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Publisher</label>
+						<label class="col-lg-offset-1 col-lg-2">Nhà xuất bản</label>
 						<div class="col-lg-5">
 							<html:text property="nxb" styleClass="form-control" value=""></html:text>
 							<html:errors property="nxbError" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Price</label>
+						<label class="col-lg-offset-1 col-lg-2">Giá</label>
 						<div class="col-lg-5">
 							<html:text property="gia" styleClass="form-control" value=""></html:text>
 							<html:errors property="giaError" />
 						</div> (VND)
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Region</label>
+						<label class="col-lg-offset-1 col-lg-2">Khu vực</label>
 						<div class="col-lg-5">
 							<html:select property="maTinh" styleClass="form-control">
 								<html:optionsCollection name="dangBanForm" property="dsTinh"
@@ -89,42 +91,54 @@
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Description</label>
+						<label class="col-lg-offset-1 col-lg-2">Mô tả</label>
 						<div class="col-lg-5">
 							<html:text property="moTa" styleClass="form-control" value=""></html:text>
 							<html:errors property="moTaError" />
 						</div>
 					</div>
+
+					<br>
+					
+					<div class="row">
+						<div class="col-lg-offset-1 col-lg-7 note">
+							<p>Những bài đăng có ảnh sản phẩm rõ ràng sẽ dễ
+								bán hơn.</p>
+						</div>
+					</div>
+
+					<br>
+
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Image 1</label>
+						<label class="col-lg-offset-1 col-lg-2">Ảnh 1</label>
 						<div class="col-lg-5">
 							<html:file property="anh1" />
 							<html:errors property="linkAnh1Error" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Image 2</label>
+						<label class="col-lg-offset-1 col-lg-2">Ảnh 2</label>
 						<div class="col-lg-5">
 							<html:file property="anh2" />
 							<html:errors property="linkAnh2Error" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Image 3</label>
+						<label class="col-lg-offset-1 col-lg-2">Ảnh 3</label>
 						<div class="col-lg-5">
 							<html:file property="anh3" />
 							<html:errors property="linkAnh3Error" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Image 4</label>
+						<label class="col-lg-offset-1 col-lg-2">Ảnh 4</label>
 						<div class="col-lg-5">
 							<html:file property="anh4" />
 							<html:errors property="linkAnh4Error" />
 						</div>
 					</div>
 					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Image 5</label>
+						<label class="col-lg-offset-1 col-lg-2">Ảnh 5</label>
 						<div class="col-lg-5">
 							<html:file property="anh5" />
 							<html:errors property="linkAnh5Error" />

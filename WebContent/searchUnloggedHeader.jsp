@@ -17,9 +17,9 @@
 
 		<div class="float-right height-100-percent" style="padding-top: 12px;">
 			<ul class="list-inline list-unstyled">
-				<li><a style="color: black;" href="dangKy.jsp"><i class="fa fa-user"></i> Register</a></li>
+				<li><a style="color: black;" href="dangKy.jsp"><i class="fa fa-user"></i> Đăng ký</a></li>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<li><a style="color: black;" href="dangNhap.jsp"><i class="fa fa-lock"></i> Log in</a></li>
+				<li><a style="color: black;" href="dangNhap.jsp"><i class="fa fa-lock"></i> Đăng nhập</a></li>
 			</ul>
 		</div>
 		

@@ -42,31 +42,36 @@
 			</logic:notEmpty>
 			
 			<logic:empty name="danhGiaNguoiBanForm" property="listDanhGia">
-				No one has rated this seller.
+				Chưa có ai đánh giá người bán này
 			</logic:empty>
 		</div>
 		
 		<div class="col-lg-4">
 			<h2 class="info-title">
-				<b>SELLER INFORMATION</b>
+				<b>THÔNG TIN NGƯỜI BÁN</b>
 			</h2>
 			<div class="anh_nguoiban">
 				<bean:define id="anh" name="nguoiBan" property="anh"></bean:define>
 				<img style="height: 200px; width: 200px;" src="${anh}">
 			</div>
 			<div class="text_info">
-				<p>
-					Account:
-					<bean:write name="nguoiBan" property="taiKhoan" />
-				</p>
+<!-- 				<p> -->
+<!-- 					Account: -->
+<%-- 					<bean:write name="nguoiBan" property="taiKhoan" /> --%>
+<!-- 				</p> -->
 
 				<p>
-					Name:
+					Tên:
 					<bean:write name="nguoiBan" property="hoTen" />
 				</p>
 
 				<p>
-					Birth year:
+					Giới tính:
+					<bean:write name="nguoiBan" property="gioiTinh" />
+				</p>
+
+				<p>
+					Năm sinh:
 					<bean:write name="nguoiBan" property="namSinh" />
 				</p>
 
@@ -76,7 +81,7 @@
 				</p>
 
 				<p>
-					Phone number:
+					Số điện thoại:
 					<bean:write name="nguoiBan" property="dienThoai" />
 				</p>
 			</div>
@@ -84,7 +89,7 @@
 			<% if(!StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
 				<% if((Integer)session.getAttribute("type") == 1){ %>
 			<a href="danh-gia-nguoi-ban.do?maNguoiBan=${maNguoiBan}" class="w3-btn w3-ripple w3-red btn-hoi-mua">
-				Rate this seller
+				ĐÁNH GIÁ NGƯỜI BÁN NÀY
 			</a>
 			
 			<% 		} 
