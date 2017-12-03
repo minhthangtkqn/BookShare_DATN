@@ -162,7 +162,7 @@
 	<div class="body-row col-lg-12">
 		<div class="col-lg-12 comment-box">
 			<div class="col-lg-5" style="padding-left: 45px; margin-bottom: -35px;">
-				<h3 style="font-weight: bold;">HỎI VÀ TRẢ LỜI</h3>
+				<h3 style="font-weight: bold;">HỎI ĐÁP</h3>
 			</div>
 			
 			<% if(StringProcess.notVaild((String)session.getAttribute("userID"))){ %>

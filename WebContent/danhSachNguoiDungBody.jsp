@@ -12,36 +12,36 @@
 	<div class="body-row">
 		<div class="books">
 			<h3>
-				<b>USERS LIST</b>
+				<b>DANH SÁCH TÀI KHOẢN NGƯỜI DÙNG</b>
 			</h3>
 			<table id="danh-sach-nguoi-dung"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
 				<thead>
 					<tr>
-						<th>Image</th>
-						<th>Full name</th>
-						<th>Account</th>
-						<th>Region</th>
-						<th>Phone number</th>
+						<th></th>
+						<th>Họ tên</th>
+						<th>Tài khoản</th>
+						<th>Khu vực</th>
+						<th>Số điện thoại</th>
 						<th>Email</th>
-						<th>Gender</th>
-						<th>Birth year</th>
-						<th>Details</th>
+						<th>Giới tính</th>
+						<th>Năm sinh</th>
+						<th>Chi tiết</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Image</th>
-						<th>Full name</th>
-						<th>Account</th>
-						<th>Region</th>
-						<th>Phone number</th>
+						<th></th>
+						<th>Họ tên</th>
+						<th>Tài khoản</th>
+						<th>Khu vực</th>
+						<th>Số điện thoại</th>
 						<th>Email</th>
-						<th>Gender</th>
-						<th>Birth year</th>
-						<th>Details</th>
+						<th>Giới tính</th>
+						<th>Năm sinh</th>
+						<th>Chi tiết</th>
 					</tr>
 				</tfoot>
 				<!-- ++++++++++++++++++  -->
