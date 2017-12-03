@@ -10,7 +10,7 @@
 	<div class="body-row">
 	
 		<div class="books" style="width: 65%; display: inline-block;">
-			<h3><b>CÁC DANH MỤC SÁCH</b></h3>
+			<h3><b><a style="color: #189eff;" href="danh-muc.do">CÁC DANH MỤC SÁCH</a></b></h3>
 			<table id="danh-sach-danh-muc"
 				class="table table-striped table-bordered" cellspacing="0"
 				width="100%">
