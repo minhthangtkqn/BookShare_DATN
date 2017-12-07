@@ -836,6 +836,25 @@ public class RaoBanDAO {
 		return false;
 	}
 
+	public boolean xoaBaiDangAdmin(String maRaoBan) {
+		connect();
+
+		String sql = "EXEC " + Constant.PROC_ADMIN_XOA_BAI_DANG + " ?";
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+
+			statement.setString(1, maRaoBan);
+
+			if (statement.executeUpdate() > 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	public boolean banBaiDang(String maNguoiRaoBan, String maRaoBan) {
 		connect();
 
@@ -1150,10 +1169,10 @@ public class RaoBanDAO {
 		try {
 			PreparedStatement pstm = connection.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
-			
+
 			RaoBan raoBan = null;
 			ArrayList<RaoBan> list = new ArrayList<RaoBan>();
-			
+
 			while (rs.next()) {
 				raoBan = new RaoBan();
 				raoBan.setMaRaoBan(rs.getString("maraoban"));

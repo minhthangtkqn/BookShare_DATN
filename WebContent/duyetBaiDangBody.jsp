@@ -87,17 +87,16 @@
 				<input type="submit" name="submit" value="BỎ DUYỆT" class="w3-btn w3-ripple w3-red col-lg-12"></input>
 			</html:form>
 			
-			<html:form action="khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
+			<html:form action="xoa-bai-dang.do" method="post" styleClass="col-lg-12 features_button">
 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="KHÓA" class="w3-btn w3-ripple w3-green col-lg-12"></input>
+				<input type="submit" name="submit" value="XÓA" class="w3-btn w3-ripple w3-green col-lg-12"></input>
 			</html:form>
 			
-			<html:form action="mo-khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
-				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="BỎ KHÓA" class="w3-btn w3-ripple w3-green col-lg-12"></input>
-			</html:form>
+<%-- 			<html:form action="mo-khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button"> --%>
+<%-- 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;"> --%>
+<%-- 				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;"> --%>
+<!-- 				<input type="submit" name="submit" value="BỎ KHÓA" class="w3-btn w3-ripple w3-green col-lg-12"></input> -->
+<%-- 			</html:form> --%>
 		</div>
 
 		<div class="thongtin_nguoiban">

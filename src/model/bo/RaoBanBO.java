@@ -179,6 +179,10 @@ public class RaoBanBO {
 		return raoBanDAO.xoaBaiDang(maNguoiRaoBan, maRaoBan);
 	}
 
+	public boolean xoaBaiDangAdmin(String maRaoBan) {
+		return raoBanDAO.xoaBaiDangAdmin(maRaoBan);
+	}
+
 	public boolean banBaiDang(String maNguoiRaoBan, String maRaoBan) {
 		return raoBanDAO.banBaiDang(maNguoiRaoBan, maRaoBan);
 	}
@@ -283,7 +287,7 @@ public class RaoBanBO {
 
 		// Lọc các record bài đăng trùng với bài đăng gốc
 		for (int i = 0; i < list.size(); i++) {
-			if(maRaoBan.equals(list.get(i).getMaRaoBan())){
+			if (maRaoBan.equals(list.get(i).getMaRaoBan())) {
 				list.remove(i);
 			}
 		}

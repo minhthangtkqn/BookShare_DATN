@@ -40,12 +40,24 @@ public class XoaBaiDangAction extends Action {
 
 		// 1. Kiểm tra đăng nhập
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
+		RaoBanBO raoBanBO = new RaoBanBO();
+		
 		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
 				(String) session.getAttribute("password"));
+		
 		if( type == 0){
-			return mapping.findForward("trangCaNhan");
+			// ADMIN XOA BAI DANG
+			if (StringProcess.notVaild(dangBanForm.getMaRaoBan())) {
+				return mapping.findForward("trangCaNhan");
+			} else {
+				System.out.println("ADMIN Xoa bai dang ---");
+				System.out.println("Ma rao ban: " + dangBanForm.getMaRaoBan());
+				raoBanBO.xoaBaiDangAdmin(dangBanForm.getMaRaoBan());
+				return mapping.findForward("thanhCong");
+			}
 		}
 		if(type == 2){
+			// NGUOI DUNG BI KHOA KHONG THE XOA BAI DANG
 			ActionErrors errors = new ActionErrors();
 			errors.add("error", new ActionMessage("error.blockedAccount.error"));
 			saveErrors(request, errors);
@@ -55,8 +67,6 @@ public class XoaBaiDangAction extends Action {
 			return mapping.findForward("dangNhapLai");
 		}
 
-		RaoBanBO raoBanBO = new RaoBanBO();
-
 		// 2.2. Kiểm tra 'maRaoBan'
 		if (StringProcess.notVaild(dangBanForm.getMaRaoBan())) {
 
@@ -65,7 +75,6 @@ public class XoaBaiDangAction extends Action {
 			return mapping.findForward("trangCaNhan");
 
 		} else {
-
 			// 2.2.2. Có maRaoBan --> gọi hàm xử lý
 			System.out.println("Xoa bai dang ---");
 			System.out.println("Ma nguoi dung: " + (String) session.getAttribute("userID"));
