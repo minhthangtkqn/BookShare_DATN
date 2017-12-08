@@ -165,7 +165,6 @@ public class NguoiDungDAO {
 		System.out.println("KIEM TRA DANG NHAP FUNCTION");
 		System.out.println("TaiKhoan: " + taiKhoan);
 		System.out.println("MatKhau: " + matKhau);
-		System.out.println(sql);
 		ResultSet rs = null;
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

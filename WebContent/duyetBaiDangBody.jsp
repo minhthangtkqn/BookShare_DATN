@@ -87,16 +87,20 @@
 				<input type="submit" name="submit" value="BỎ DUYỆT" class="w3-btn w3-ripple w3-red col-lg-12"></input>
 			</html:form>
 			
-			<html:form action="xoa-bai-dang.do" method="post" styleClass="col-lg-12 features_button">
-				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="XÓA" class="w3-btn w3-ripple w3-green col-lg-12"></input>
-			</html:form>
-			
-<%-- 			<html:form action="mo-khoa-bai-dang.do" method="post" styleClass="col-lg-6 features_button"> --%>
+<%-- 			<html:form action="xoa-bai-dang.do" method="post" styleClass="col-lg-12 features_button"> --%>
 <%-- 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;"> --%>
-<%-- 				<input type="text" name="maNguoiRaoBan" value="${maNguoiRaoBan}" style="display: none;"> --%>
-<!-- 				<input type="submit" name="submit" value="BỎ KHÓA" class="w3-btn w3-ripple w3-green col-lg-12"></input> -->
+<!-- 				<input type="submit" name="submit" value="XÓA" class="w3-btn w3-ripple w3-green col-lg-12"></input> -->
 <%-- 			</html:form> --%>
+			
+			<form id="xoa_bai_dang_${maRaoBan}" action="xoa-bai-dang.do" 
+					method="post" onsubmit="return confirm('Bạn có thực sự muốn XÓA bài đăng này?');"
+					class="col-lg-12 features_button">
+				<input name="maRaoBan" value="${maRaoBan}" style="display: none;">
+				<a style="width: 100%; height: 100%;" class="w3-btn w3-ripple w3-green col-lg-12"
+					onclick="if(document.getElementById('xoa_bai_dang_${maRaoBan}').onsubmit()){document.getElementById('xoa_bai_dang_${maRaoBan}').submit()};"
+					href="javascript:{}">XÓA</a>
+			</form>
+			
 		</div>
 
 		<div class="thongtin_nguoiban">

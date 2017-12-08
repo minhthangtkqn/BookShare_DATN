@@ -57,8 +57,13 @@ public class ChiTietBaiDangAction extends Action {
 			}
 			return mapping.findForward("baiDangKhongTonTaiLogged");
 		}
+		
 		chiTietBaiDangForm.setChiTiet(raoBan);
+		
+		System.out.println("Lay uy tin nguoi ban");
 		chiTietBaiDangForm.setUyTinNguoiBan(danhGiaBO.getAverageRatingPoint(raoBan.getMaNguoiRaoBan()));
+		
+		System.out.println("Lay danh sach binh luan");
 		chiTietBaiDangForm.setDsBinhLuan(binhLuanBO.layDsBinhLuan(chiTietBaiDangForm.getMaRaoBan()));
 
 		/**
