@@ -13,6 +13,15 @@ public class DangNhapForm extends ActionForm {
 	private String prevTask;
 
 	private String error;
+	private String submit;
+
+	public String getSubmit() {
+		return submit;
+	}
+
+	public void setSubmit(String submit) {
+		this.submit = submit;
+	}
 
 	public String getPrevTask() {
 		return prevTask;

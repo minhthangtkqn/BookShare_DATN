@@ -56,7 +56,7 @@ $(document).ready(function() {
 	var scrollTop = document.createElement("a");
 	$(scrollTop).attr("class", "scrollToTop");
 	$(scrollTop).attr("href", "#");
-	$(scrollTop).attr("style", "color: white;");
+	$(scrollTop).attr("style", "color: white; border-radius: 5px;");
 
 	var icon = document.createElement("i");
 	$(icon).attr("class", "glyphicon glyphicon-arrow-up");

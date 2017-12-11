@@ -65,6 +65,11 @@ public class DangNhapAction extends Action {
 			return mapping.findForward("errorLoggedPage");
 		}
 
+		if (StringProcess.notVaild(dangNhapForm.getSubmit())) {
+			session.setAttribute("prevTask", StringProcess.getVaildString(dangNhapForm.getPrevTask()));
+			return mapping.findForward("dangNhap");
+		}
+
 		String maNguoiDung;
 		String anh;
 
@@ -87,7 +92,12 @@ public class DangNhapAction extends Action {
 			session.setAttribute("password", dangNhapForm.getMatKhau());
 			session.setAttribute("Avatar", StringProcess.notVaild(anh) ? Constant.NO_IMAGE_DEFAULT : anh);
 
-			System.out.println("Forward den trang-ca-nhan.do");
+			try {
+				session.removeAttribute("prevTask");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 			return mapping.findForward("trangQuanLy");
 
 		case 1:// Day la nguoi dung
@@ -107,7 +117,18 @@ public class DangNhapAction extends Action {
 			System.out.println("USERNAME: " + taiKhoan);
 			System.out.println("LINK ANH: " + anh);
 
-			return mapping.findForward("trangChu");
+			if (StringProcess.notVaild((String) session.getAttribute("prevTask"))) {
+				return mapping.findForward("trangChu");
+			} else {
+				ActionForward forward = new ActionForward((String) session.getAttribute("prevTask"));
+				try {
+					session.removeAttribute("prevTask");
+					return forward;
+				} catch (Exception e) {
+					e.printStackTrace();
+					return mapping.findForward("trangChu");
+				}
+			}
 
 		case 2:// Day la nguoi dung bi chan
 
@@ -129,6 +150,13 @@ public class DangNhapAction extends Action {
 			ActionErrors errors = new ActionErrors();
 			errors.add("error", new ActionMessage("error.blockedAccount.error"));
 			saveErrors(request, errors);
+
+			try {
+				session.removeAttribute("prevTask");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 			return mapping.findForward("errorLoggedPage");
 
 		case 3:

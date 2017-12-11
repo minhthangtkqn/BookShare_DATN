@@ -168,7 +168,8 @@
 			<% if(StringProcess.notVaild((String)session.getAttribute("userID"))){ %>
 			<br><br>
 			<p style="float: left;">
-				<a href="dangNhap.jsp">Đăng nhập</a> để hỏi người bán
+				<a style="color: black;" 
+					href="dang-nhap.do?prevTask=/chi-tiet-bai-dang.do?maRaoBan=${maRaoBanChiTiet}">Đăng nhập</a> để hỏi người bán
 			</p>
 			<% } %>
 			
