@@ -9,8 +9,9 @@ import java.util.ArrayList;
 
 import common.Constant;
 import model.bean.BinhLuan;
+import model.bean.ThongBao;
 
-public class BinhLuanDAO {
+public class ThongBaoDAO {
 	PreparedStatement statement;
 	Connection connection;
 
@@ -32,54 +33,47 @@ public class BinhLuanDAO {
 		}
 	}
 
-	public ArrayList<BinhLuan> layDsBinhLuan(String maRaoBan) {
+	public ArrayList<ThongBao> layDanhSachThongBao(String maNguoiDung) {
 		connect();
 
-		String sql = "SELECT * FROM " + Constant.VIEW_DANH_SACH_BINH_LUAN
-				+ " WHERE MaRaoBan = ? ORDER BY ThoiGian DESC";
+		String sql = "SELECT * FROM " + Constant.TABLE_THONG_BAO + " WHERE MaNguoiDung = ?";
+		ArrayList<ThongBao> list = new ArrayList<>();
 
 		try {
 			statement = connection.prepareStatement(sql);
-			statement.setString(1, maRaoBan);
+
+			statement.setString(1, maNguoiDung);
 
 			ResultSet rs = statement.executeQuery();
-			ArrayList<BinhLuan> listBinhLuan = new ArrayList<>();
-			BinhLuan bl;
+			ThongBao thongBao = new ThongBao();
+
 			while (rs.next()) {
-				bl = new BinhLuan();
+				thongBao = new ThongBao();
 
-				bl.setTaiKhoan(rs.getString("TaiKhoan"));
-				bl.setMaNguoiBinhLuan(rs.getString("MaNguoiBinhLuan"));
-				bl.setMaRaoBan(rs.getString("MaRaoBan"));
-				bl.setBinhLuan(rs.getNString("BinhLuan"));
-				bl.setThoiGian(rs.getDate("ThoiGian"));
-				bl.setLinkAnh(rs.getString("Anh"));
-				bl.setMaBinhLuan(rs.getString("MaBinhLuan"));
-				bl.setMaBinhLuanDuocTraLoi(rs.getString("MaBinhLuanDuocTraLoi"));
+				thongBao.setMaThongBao(rs.getString("MaThongBao"));
+				thongBao.setMaNguoiDung(rs.getString("MaNguoiDung"));
+				thongBao.setNoiDung(rs.getNString("NoiDung"));
+				thongBao.setThoiGian(rs.getDate("ThoiGian"));
 
-				listBinhLuan.add(bl);
+				list.add(thongBao);
 			}
-			return listBinhLuan;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return null;
+		return list;
 	}
 
-	public boolean dangBinhLuan(BinhLuan binhLuan) {
+	public boolean taoThongBao(String maNguoiDung, String noiDung) {
 		connect();
-
-		String sql = "EXEC " + Constant.PROC_THEM_BINH_LUAN + " ?, ?, ?, ?";
+		String sql = "EXEC " + Constant.PROC_THEM_THONG_BAO + " ?, ?";
 
 		try {
 			statement = connection.prepareStatement(sql);
-			statement.setString(1, binhLuan.getMaNguoiBinhLuan());
-			statement.setString(2, binhLuan.getMaRaoBan());
-			statement.setNString(3, binhLuan.getBinhLuan());
-			statement.setString(4, binhLuan.getMaBinhLuanDuocTraLoi());
 
-			if (statement.executeUpdate() > 0) {
+			statement.setString(1, maNguoiDung);
+			statement.setNString(2, noiDung);
+
+			if(statement.executeUpdate() > 0){
 				return true;
 			}
 		} catch (Exception e) {

@@ -42,12 +42,14 @@ public class Constant {
 	public static final String TABLE_XEM_SAU = "[tblXemSau]";
 	public static final String TABLE_DANH_MUC = "[tblDanhMuc]";
 	public static final String TABLE_DANH_GIA = "[tblDanhGia]";
+	public static final String TABLE_THONG_BAO = "[tblThongBao]";
 	public static final String TABLE_BINH_LUAN = "[tblBinhLuan]";
 	public static final String TABLE_YEU_CAU_SACH = "[tblYeuCau]";
 	public static final String TABLE_NGUOI_DUNG = "[tblNguoiDung]";
 	public static final String TABLE_RAO_BAN_DA_XEM = "[tblRaoBanDaXem]";
 	public static final String TABLE_TU_KHOA_TIM_KIEM = "[tblTuKhoaTimKiem]";
 
+	
 	// Views Name
 	public static final String VIEW_DANH_SACH_MOI_NHAT = "[v_dsMoiNhat]";
 	public static final String VIEW_GOI_Y_MOI_NGUOI_CUNG_XEM = "[v_GoiYMoiNguoiRaoBan]";
@@ -93,6 +95,9 @@ public class Constant {
 
 	public static final String FUNCTION_THEM_DANH_MUC = "[p_themDanhMuc]";
 	public static final String FUNCTION_SUA_DANH_MUC = "[p_suaDanhMuc]";
+	
+	public static final String PROC_THEM_THONG_BAO = "[p_themThongBao]";
+	public static final String PROC_XOA_THONG_BAO = "[p_xoaThongBao]";
 
 	// Table-valued function
 	public static final String FUNCTION_LAY_THONG_TIN_BAI_DANG = "f_LayThongTinRaoBan";
