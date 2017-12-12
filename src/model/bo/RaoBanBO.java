@@ -243,7 +243,7 @@ public class RaoBanBO {
 
 		// Tim sach cung ten
 		ArrayList<RaoBan> list = new ArrayList<>();
-		list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(tuKhoa, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
+		list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(tuKhoa, "all", "all", Constant.DEFAULT_SAP_XEP_GIA_TANG_DAN,
 				Constant.DEFAULT_SAP_XEP_THOI_GIAN));
 
 		/*
@@ -258,7 +258,7 @@ public class RaoBanBO {
 			for (int j = 1; j <= i - 1; j++) {
 				item += " " + arrayTuKhoa[j];
 			}
-			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all", Constant.DEFAULT_SAP_XEP_GIA_TANG_DAN,
 					Constant.DEFAULT_SAP_XEP_THOI_GIAN));
 		}
 		/*
@@ -270,12 +270,12 @@ public class RaoBanBO {
 		 */
 
 		// Tim sach cung tac gia
-		list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(tacGia, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
+		list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(tacGia, "all", "all", Constant.DEFAULT_SAP_XEP_GIA_TANG_DAN,
 				Constant.DEFAULT_SAP_XEP_THOI_GIAN));
 
 		// Tim sach co ten chua string tuong tu
 		for (String item : arrayTuKhoa) {
-			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
+			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all", Constant.DEFAULT_SAP_XEP_GIA_TANG_DAN,
 					Constant.DEFAULT_SAP_XEP_THOI_GIAN));
 		}
 

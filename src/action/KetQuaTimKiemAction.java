@@ -67,9 +67,9 @@ public class KetQuaTimKiemAction extends Action {
 							? Constant.DEFAULT_SAP_XEP_THOI_GIAN : "ASC");
 			ketQuaTimKiemForm.setSapXepThoiGian(sapXepThoiGian);
 
-			String sapXepGia = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepGia()) ? Constant.DEFAULT_SAP_XEP_GIA
-					: (Constant.DEFAULT_SAP_XEP_GIA.equals(ketQuaTimKiemForm.getSapXepGia())
-							? Constant.DEFAULT_SAP_XEP_GIA : "DESC");
+			String sapXepGia = StringProcess.notVaild(ketQuaTimKiemForm.getSapXepGia()) ? Constant.DEFAULT_SAP_XEP_GIA_TANG_DAN
+					: (Constant.DEFAULT_SAP_XEP_GIA_TANG_DAN.equals(ketQuaTimKiemForm.getSapXepGia())
+							? Constant.DEFAULT_SAP_XEP_GIA_TANG_DAN : "DESC");
 			ketQuaTimKiemForm.setSapXepGia(sapXepGia);
 
 			String maDanhMuc = (StringProcess.notVaild(ketQuaTimKiemForm.getMaDanhMuc()) ? "all"

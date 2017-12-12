@@ -39,7 +39,7 @@
 					</div>
 					<div class="dropdown-content">
 						<div><a href="trang-ca-nhan.do">Trang cá nhân</a></div>
-						<div><a href="#">Thông báo của bạn</a></div>
+						<div><a href="danh-sach-thong-bao.do">Thông báo của bạn</a></div>
 					</div>
 				</li> &nbsp;&nbsp;
 				<li><div style="height: 40px; padding-top: 7px;">

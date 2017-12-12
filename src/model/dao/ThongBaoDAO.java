@@ -36,7 +36,7 @@ public class ThongBaoDAO {
 	public ArrayList<ThongBao> layDanhSachThongBao(String maNguoiDung) {
 		connect();
 
-		String sql = "SELECT * FROM " + Constant.TABLE_THONG_BAO + " WHERE MaNguoiDung = ?";
+		String sql = "SELECT * FROM " + Constant.TABLE_THONG_BAO + " WHERE MaNguoiDung = ? ORDER BY ThoiGian DESC";
 		ArrayList<ThongBao> list = new ArrayList<>();
 
 		try {

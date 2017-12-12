@@ -16,7 +16,7 @@ public class Constant {
 	/**
 	 * gia thap -> cao (ASC)
 	 */
-	public static final String DEFAULT_SAP_XEP_GIA = "ASC";
+	public static final String DEFAULT_SAP_XEP_GIA_TANG_DAN = "ASC";
 
 	/**
 	 * bai` moi' truoc (DESC)

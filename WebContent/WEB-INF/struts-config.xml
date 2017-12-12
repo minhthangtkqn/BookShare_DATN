@@ -21,6 +21,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="danhGiaNguoiBanForm" type="form.DanhGiaNguoiBanForm"></form-bean>
 		<form-bean name="xemSauForm" type="form.XemSauForm"></form-bean>
 		<form-bean name="yeuCauForm" type="form.YeuCauForm"></form-bean>
+		<form-bean name="thongBaoForm" type="form.ThongBaoForm"></form-bean>
 
 		<form-bean name="testForm" type="form.TestForm" />
 		<form-bean name="testUploadFileForm" type="form.TestUploadFileForm" />
@@ -37,6 +38,14 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 	</global-forwards>
 
 	<action-mappings>
+
+		<!-- DANH SACH THONG BAO -->
+		<action path="/danh-sach-thong-bao" input="/dangNhap.jsp" name="thongBaoForm"
+			type="action.DanhSachThongBaoAction" scope="request">
+			<forward name="danhSachThongBao" path="/danhSachThongBao.jsp"></forward>
+		</action>
+		<!-- END DANH SACH THONG BAO -->
+
 
 		<!-- XOA YEU CAU SACH -->
 		<action path="/xoa-yeu-cau" input="/dangNhap.jsp" name="yeuCauForm"
