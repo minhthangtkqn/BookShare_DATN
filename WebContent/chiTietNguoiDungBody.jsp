@@ -116,36 +116,46 @@
 				</div>
 			</div>
 		</div>
-		
+		<% try{ %>
+		<% if((Integer)session.getAttribute("type") == 0){ %>
 		<div style="float: left; width: 100%;">
-			<div class="col-lg-6">
-				<div class="form-group">
-					<form action="mo-khoa-nguoi-dung.do" method="post">
-						<input type="text" name="maNguoiDung" value="${maNguoiDung}"
-							style="display: none;">
-						<div class="col-lg-12">
-							<input class="form-control" type="text" name="ghiChu"  placeholder="Note ...">
-							<input type="submit" name="submit" value="MỞ KHÓA"
-								class="w3-btn w3-ripple w3-red form-control">
-						</div>
-					</form>
+		
+			<logic:equal value="1" name="nguoiDungForm" property="thaoTacKhaDung">
+				<div class="col-lg-12">
+					<div class="form-group">
+						<form action="mo-khoa-nguoi-dung.do" method="post">
+							<input type="text" name="maNguoiDung" value="${maNguoiDung}"
+								style="display: none;">
+							<div class="col-lg-12">
+								<input class="form-control" type="text" name="ghiChu"  placeholder="Ghi chú ...">
+								<input type="submit" name="submit" value="MỞ KHÓA"
+									class="w3-btn w3-ripple w3-red form-control">
+							</div>
+						</form>
+					</div>
 				</div>
-			</div>
+			</logic:equal>
 	
-			<div class="col-lg-6">
-				<div class="form-group">
-					<form action="khoa-nguoi-dung.do" method="post">
-						<input type="text" name="maNguoiDung" value="${maNguoiDung}"
-							style="display: none;">
-						<div class="col-lg-12">
-							<input class="form-control" type="text" name="ghiChu" placeholder="Note ...">
-							<input class="w3-btn w3-ripple w3-red form-control" type="submit"
-								name="submit" value="KHÓA">
-						</div>
-					</form>
+			<logic:equal value="0" name="nguoiDungForm" property="thaoTacKhaDung">
+				<div class="col-lg-12">
+					<div class="form-group">
+						<form action="khoa-nguoi-dung.do" method="post">
+							<input type="text" name="maNguoiDung" value="${maNguoiDung}"
+								style="display: none;">
+							<div class="col-lg-12">
+								<input class="form-control" type="text" name="ghiChu" placeholder="Ghi chú ...">
+								<input class="w3-btn w3-ripple w3-red form-control" type="submit"
+									name="submit" value="KHÓA">
+							</div>
+						</form>
+					</div>
 				</div>
-			</div>
+			</logic:equal>
+			
 		</div>
+		<% } %>
+		<% }catch(Exception e){ %>
+		<% } %>
 		
 	</div>
 

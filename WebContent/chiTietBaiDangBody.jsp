@@ -109,7 +109,9 @@
 			<div class="anh_nguoiban">
 				<bean:define id="anhNguoiBan" name="chiTietBaiDang"
 					property="anhNguoiBan"></bean:define>
-				<img style="height: 100%; width: 100%;" src="${anhNguoiBan}">
+				<a href="chi-tiet-nguoi-dung.do?maNguoiDung=${maNguoiRaoBan}">
+					<img style="height: 100%; width: 100%;" src="${anhNguoiBan}">
+				</a>
 			</div>
 			<div class="text_info">
 <!-- 				<p> -->

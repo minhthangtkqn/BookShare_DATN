@@ -31,6 +31,8 @@ public class ChiTietBaiDangAction extends Action {
 		HttpSession session = request.getSession();
 		ChiTietBaiDangForm chiTietBaiDangForm = (ChiTietBaiDangForm) form;
 
+		long startTime = System.currentTimeMillis();
+		
 		// Kiem tra MA RAO BAN co hay khong
 		if (StringProcess.notVaild(chiTietBaiDangForm.getMaRaoBan())) {
 			System.out.println("Khong co MA RAO BAN");
@@ -83,6 +85,8 @@ public class ChiTietBaiDangAction extends Action {
 		} else {
 			chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachLienQuan(chiTietBaiDangForm.getChiTiet().getMaRaoBan()));
 
+			System.out.println("Total time: " + (System.currentTimeMillis() - startTime));
+			
 			// luu lich su xem vao` CSDL
 			if (raoBanBO.luuLichSuXemRaoBan(StringProcess.getVaildString((String) session.getAttribute("userID")),
 					chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {

@@ -25,8 +25,19 @@
 
 <body>
 	<div id="page">
+	<% try{ %>
+		<% if((Integer)session.getAttribute("type") == 0){ %>
 		<jsp:include page="/adminHeader.jsp"></jsp:include>
-
+		<% }else{ %>
+		<% if((Integer)session.getAttribute("type") == 1 || (Integer)session.getAttribute("type") == 2){ %>
+		<jsp:include page="/loggedHeader.jsp"></jsp:include>
+		<% }else{ %>
+		<jsp:include page="/unloggedHeader.jsp"></jsp:include>
+		<% }} %>
+	<% }catch(Exception e){ %>
+		<jsp:include page="/unloggedHeader.jsp"></jsp:include>
+	<% } %>
+	
 		<jsp:include page="/chiTietNguoiDungBody.jsp"></jsp:include>
 
 		<jsp:include page="/footer.jsp"></jsp:include>

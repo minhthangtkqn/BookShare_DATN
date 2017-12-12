@@ -83,22 +83,26 @@ public class RaoBanBO {
 		for (String item : arrayTuKhoa) {
 			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 		}
-		list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(StringProcess.removeDiacritics(tuKhoa), maTinh, maDanhMuc,
-				sapXepGia, sapXepThoiGian));
-		for (String item : arrayTuKhoaKhongDau) {
-			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-		}
+		// list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(StringProcess.removeDiacritics(tuKhoa),
+		// maTinh, maDanhMuc,
+		// sapXepGia, sapXepThoiGian));
+		// for (String item : arrayTuKhoaKhongDau) {
+		// list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, maTinh,
+		// maDanhMuc, sapXepGia, sapXepThoiGian));
+		// }
 
 		// tim kiem theo ten tac gia
 		list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(tuKhoa, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 		for (String item : arrayTuKhoa) {
 			list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
 		}
-		list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(StringProcess.removeDiacritics(tuKhoa), maTinh, maDanhMuc,
-				sapXepGia, sapXepThoiGian));
-		for (String item : arrayTuKhoaKhongDau) {
-			list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(item, maTinh, maDanhMuc, sapXepGia, sapXepThoiGian));
-		}
+		// list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(StringProcess.removeDiacritics(tuKhoa),
+		// maTinh, maDanhMuc,
+		// sapXepGia, sapXepThoiGian));
+		// for (String item : arrayTuKhoaKhongDau) {
+		// list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(item, maTinh,
+		// maDanhMuc, sapXepGia, sapXepThoiGian));
+		// }
 
 		// Lọc lại các kết quả tìm kiếm trùng nhau
 		for (int i = 0; i < list.size(); i++) {
@@ -231,17 +235,24 @@ public class RaoBanBO {
 		RaoBan raoBan = raoBanDAO.layThongTinBaiDang(maRaoBan);
 
 		String tuKhoa = raoBan.getTenSach();
-		String[] arrayTuKhoa = tuKhoa.split("\\s+");
-		String[] arrayTuKhoaKhongDau = StringProcess.removeDiacritics(tuKhoa).split("\\s+");
+		String tacGia = raoBan.getTacGia();
 
+		String[] arrayTuKhoa = tuKhoa.split("\\s+");
+		// String[] arrayTuKhoaKhongDau =
+		// StringProcess.removeDiacritics(tuKhoa).split("\\s+");
+
+		// Tim sach cung ten
 		ArrayList<RaoBan> list = new ArrayList<>();
 		list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(tuKhoa, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
 				Constant.DEFAULT_SAP_XEP_THOI_GIAN));
 
-		list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(StringProcess.removeDiacritics(tuKhoa), "all", "all",
-				Constant.DEFAULT_SAP_XEP_GIA, Constant.DEFAULT_SAP_XEP_THOI_GIAN));
+		/*
+		 * list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(StringProcess.
+		 * removeDiacritics(tuKhoa), "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
+		 * Constant.DEFAULT_SAP_XEP_THOI_GIAN));
+		 */
 
-		// code cat duoi
+		// code cat duoi - tim sach co' ten cung` chuoi~ ky' tu
 		for (int i = arrayTuKhoa.length; i >= 2; i--) {
 			String item = arrayTuKhoa[0];
 			for (int j = 1; j <= i - 1; j++) {
@@ -250,24 +261,29 @@ public class RaoBanBO {
 			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
 					Constant.DEFAULT_SAP_XEP_THOI_GIAN));
 		}
-		for (int i = arrayTuKhoaKhongDau.length; i >= 2; i--) {
-			String item = arrayTuKhoaKhongDau[0];
-			for (int j = 1; j <= i - 1; j++) {
-				item += " " + arrayTuKhoaKhongDau[j];
-			}
-			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
-					Constant.DEFAULT_SAP_XEP_THOI_GIAN));
-		}
+		/*
+		 * for (int i = arrayTuKhoaKhongDau.length; i >= 2; i--) { String item =
+		 * arrayTuKhoaKhongDau[0]; for (int j = 1; j <= i - 1; j++) { item +=
+		 * " " + arrayTuKhoaKhongDau[j]; }
+		 * list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all",
+		 * Constant.DEFAULT_SAP_XEP_GIA, Constant.DEFAULT_SAP_XEP_THOI_GIAN)); }
+		 */
 
+		// Tim sach cung tac gia
+		list.addAll(raoBanDAO.layDanhSachTimKiemTenTacGia(tacGia, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
+				Constant.DEFAULT_SAP_XEP_THOI_GIAN));
+
+		// Tim sach co ten chua string tuong tu
 		for (String item : arrayTuKhoa) {
 			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
 					Constant.DEFAULT_SAP_XEP_THOI_GIAN));
 		}
 
-		for (String item : arrayTuKhoaKhongDau) {
-			list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all", Constant.DEFAULT_SAP_XEP_GIA,
-					Constant.DEFAULT_SAP_XEP_THOI_GIAN));
-		}
+		/*
+		 * for (String item : arrayTuKhoaKhongDau) {
+		 * list.addAll(raoBanDAO.layDanhSachTimKiemTenSach(item, "all", "all",
+		 * Constant.DEFAULT_SAP_XEP_GIA, Constant.DEFAULT_SAP_XEP_THOI_GIAN)); }
+		 */
 
 		// thêm một số kết quả mới nhất, phòng trường họp không tìm
 		// được bài đăng liên quan

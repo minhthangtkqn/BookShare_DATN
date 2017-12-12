@@ -80,7 +80,7 @@
 		
 		<script>
 			$('.owl-carousel').owlCarousel({
-				rtl : true,
+				rtl : false,
 				loop : true,
 				margin : 10,
 				nav : false,
