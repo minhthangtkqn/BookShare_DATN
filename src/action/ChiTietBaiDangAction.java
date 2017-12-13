@@ -32,7 +32,7 @@ public class ChiTietBaiDangAction extends Action {
 		ChiTietBaiDangForm chiTietBaiDangForm = (ChiTietBaiDangForm) form;
 
 		long startTime = System.currentTimeMillis();
-		
+
 		// Kiem tra MA RAO BAN co hay khong
 		if (StringProcess.notVaild(chiTietBaiDangForm.getMaRaoBan())) {
 			System.out.println("Khong co MA RAO BAN");
@@ -44,6 +44,10 @@ public class ChiTietBaiDangAction extends Action {
 		DanhGiaBO danhGiaBO = new DanhGiaBO();
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 
+		// kiem tra da dang nhap hay chua
+		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password"));
+
 		// lay du lieu hien thi
 		RaoBan raoBan = raoBanBO.layThongTinBaiDang(chiTietBaiDangForm.getMaRaoBan());
 
@@ -54,39 +58,34 @@ public class ChiTietBaiDangAction extends Action {
 			errors.add("error", new ActionMessage("error.baiDang.null"));
 			saveErrors(request, errors);
 
-			if (StringProcess.notVaild((String) session.getAttribute("userID"))) {
+			if (type != 1 && type != 2 && type != 0) {
 				return mapping.findForward("baiDangKhongTonTai");
 			}
 			return mapping.findForward("baiDangKhongTonTaiLogged");
 		}
-		
+
 		chiTietBaiDangForm.setChiTiet(raoBan);
-		
+
 		System.out.println("Lay uy tin nguoi ban");
 		chiTietBaiDangForm.setUyTinNguoiBan(danhGiaBO.getAverageRatingPoint(raoBan.getMaNguoiRaoBan()));
-		
+
 		System.out.println("Lay danh sach binh luan");
 		chiTietBaiDangForm.setDsBinhLuan(binhLuanBO.layDsBinhLuan(chiTietBaiDangForm.getMaRaoBan()));
 
 		/**
 		 * Kiem tra nguoi dung de phan luong hien thi
 		 */
-		String userID;
-		int userType;
-
-		// kiem tra da dang nhap hay chua
-		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
-				(String) session.getAttribute("password"));
 
 		// PHÂN LUỒNG
 		if (type == 0) {
 			// admin
 			return mapping.findForward("xemCheDoQuanLy");
 		} else {
-			chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(raoBanBO.layDanhSachLienQuan(chiTietBaiDangForm.getChiTiet().getMaRaoBan()));
+			chiTietBaiDangForm.setDsGoiYMoiNguoiCungXem(
+					raoBanBO.layDanhSachLienQuan(chiTietBaiDangForm.getChiTiet().getMaRaoBan()));
 
 			System.out.println("Total time: " + (System.currentTimeMillis() - startTime));
-			
+
 			// luu lich su xem vao` CSDL
 			if (raoBanBO.luuLichSuXemRaoBan(StringProcess.getVaildString((String) session.getAttribute("userID")),
 					chiTietBaiDangForm.getChiTiet().getMaRaoBan())) {

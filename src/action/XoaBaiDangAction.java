@@ -11,10 +11,13 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
+import common.Constant;
 import common.StringProcess;
 import form.DangBanForm;
+import model.bean.RaoBan;
 import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
+import model.bo.ThongBaoBO;
 
 public class XoaBaiDangAction extends Action {
 
@@ -27,7 +30,7 @@ public class XoaBaiDangAction extends Action {
 
 		System.out.println("Xoa Bai Dang Action");
 		DangBanForm dangBanForm = (DangBanForm) form;
-		
+
 		// Các loại bài đăng có thể xóa:
 		// Chờ duyệt (0)
 		// Đang bán (1)
@@ -41,22 +44,31 @@ public class XoaBaiDangAction extends Action {
 		// 1. Kiểm tra đăng nhập
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
 		RaoBanBO raoBanBO = new RaoBanBO();
-		
+
 		int type = nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
 				(String) session.getAttribute("password"));
-		
-		if( type == 0){
+
+		if (type == 0) {
 			// ADMIN XOA BAI DANG
 			if (StringProcess.notVaild(dangBanForm.getMaRaoBan())) {
 				return mapping.findForward("trangCaNhan");
 			} else {
 				System.out.println("ADMIN Xoa bai dang ---");
 				System.out.println("Ma rao ban: " + dangBanForm.getMaRaoBan());
-				raoBanBO.xoaBaiDangAdmin(dangBanForm.getMaRaoBan());
-				return mapping.findForward("thanhCong");
+				
+				ThongBaoBO thongBaoBO = new ThongBaoBO();
+				RaoBan raoBan = (new RaoBanBO()).layThongTinBaiDang(dangBanForm.getMaRaoBan());
+				if (raoBanBO.xoaBaiDangAdmin(dangBanForm.getMaRaoBan())) {
+
+					thongBaoBO.taoThongBao(raoBan.getMaNguoiRaoBan(), Constant.PREFIX_NOTIFICATION_XOA_BAI_DANG
+							+ raoBan.getTenSach() + Constant.SUFFIX_NOTIFICATION_XOA_BAI_DANG);
+
+					return mapping.findForward("thanhCong");
+				}
+				return mapping.findForward("thatBai");
 			}
 		}
-		if(type == 2){
+		if (type == 2) {
 			// NGUOI DUNG BI KHOA KHONG THE XOA BAI DANG
 			ActionErrors errors = new ActionErrors();
 			errors.add("error", new ActionMessage("error.blockedAccount.error"));
@@ -79,7 +91,7 @@ public class XoaBaiDangAction extends Action {
 			System.out.println("Xoa bai dang ---");
 			System.out.println("Ma nguoi dung: " + (String) session.getAttribute("userID"));
 			System.out.println("Ma rao ban: " + dangBanForm.getMaRaoBan());
-			
+
 			raoBanBO.xoaBaiDang((String) session.getAttribute("userID"), dangBanForm.getMaRaoBan());
 			return mapping.findForward("thanhCong");
 		}

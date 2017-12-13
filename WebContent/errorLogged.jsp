@@ -20,7 +20,14 @@
 </head>
 <body>
 	<div id="page">
+		
+		<% if((Integer)session.getAttribute("type") == 0){ %>
+		<jsp:include page="/adminHeader.jsp"></jsp:include>
+		<% }else{ %>
+		<% if((Integer)session.getAttribute("type") == 1 || (Integer)session.getAttribute("type") == 2){ %>
 		<jsp:include page="/loggedHeader.jsp"></jsp:include>
+		<% }} %>
+
 		<div id="page-body" class="container">
 			<br> <br> <br>
 			<div class="body-row">

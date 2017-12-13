@@ -9,10 +9,13 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import common.Constant;
 import common.StringProcess;
 import form.ChiTietBaiDangForm;
+import model.bean.RaoBan;
 import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
+import model.bo.ThongBaoBO;
 
 public class KhongDuyetBaiDangAction extends Action {
 
@@ -47,8 +50,16 @@ public class KhongDuyetBaiDangAction extends Action {
 		if (!StringProcess.notVaild(chiTietBaiDangForm.getSubmit())) {
 			// Neu co submit --> goi ham` duyet bai dang
 			System.out.println("Submit tu` trang duyet bai dang");
-			raoBanBO.khongDuyetBaiDang(chiTietBaiDangForm.getMaRaoBan());
-			return mapping.findForward("thanhCong");
+			ThongBaoBO thongBaoBO = new ThongBaoBO();
+			RaoBan raoBan = (new RaoBanBO()).layThongTinBaiDang(chiTietBaiDangForm.getMaRaoBan());
+			if (raoBanBO.khongDuyetBaiDang(chiTietBaiDangForm.getMaRaoBan())) {
+
+				thongBaoBO.taoThongBao(raoBan.getMaNguoiRaoBan(), Constant.PREFIX_NOTIFICATION_BO_DUYET_BAI_DANG
+						+ raoBan.getTenSach() + Constant.SUFFIX_NOTIFICATION_BO_DUYET_BAI_DANG);
+
+				return mapping.findForward("thanhCong");
+			}
+			return mapping.findForward("thatBai");
 		} else {
 			// KHONG CO submit
 			return mapping.findForward("thatBai");

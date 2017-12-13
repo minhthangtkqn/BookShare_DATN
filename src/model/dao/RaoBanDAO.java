@@ -922,8 +922,9 @@ public class RaoBanDAO {
 
 			statement.setString(1, maRaoBan);
 
-			statement.executeUpdate();
-			return true;
+			if (statement.executeUpdate() > 0) {
+				return true;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -940,8 +941,9 @@ public class RaoBanDAO {
 
 			statement.setString(1, maRaoBan);
 
-			statement.executeUpdate();
-			return true;
+			if (statement.executeUpdate() > 0) {
+				return true;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

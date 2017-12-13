@@ -15,8 +15,10 @@ import common.Constant;
 import common.StringProcess;
 import form.ChiTietBaiDangForm;
 import model.bean.RaoBan;
+import model.bean.ThongBao;
 import model.bo.NguoiDungBO;
 import model.bo.RaoBanBO;
+import model.bo.ThongBaoBO;
 
 public class DuyetBaiDangAction extends Action {
 
@@ -31,7 +33,8 @@ public class DuyetBaiDangAction extends Action {
 
 		// Kiem tra admin dang nhap
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
-		if(nguoiDungBO.kiemTraDangNhap((String)session.getAttribute("userName"), (String)session.getAttribute("password")) != 0){
+		if (nguoiDungBO.kiemTraDangNhap((String) session.getAttribute("userName"),
+				(String) session.getAttribute("password")) != 0) {
 			System.out.println("chua dang nhap hoac khong phai admin");
 			return mapping.findForward("trangChu");
 		}
@@ -50,8 +53,16 @@ public class DuyetBaiDangAction extends Action {
 		if (!StringProcess.notVaild(chiTietBaiDangForm.getSubmit())) {
 			// Neu co submit --> goi ham` duyet bai dang
 			System.out.println("Submit tu` trang duyet bai dang");
-			raoBanBO.duyetBaiDang(chiTietBaiDangForm.getMaRaoBan());
-			return mapping.findForward("thanhCong");
+			ThongBaoBO thongBaoBO = new ThongBaoBO();
+			RaoBan raoBan = (new RaoBanBO()).layThongTinBaiDang(chiTietBaiDangForm.getMaRaoBan());
+			if (raoBanBO.duyetBaiDang(chiTietBaiDangForm.getMaRaoBan())) {
+
+				thongBaoBO.taoThongBao(raoBan.getMaNguoiRaoBan(), Constant.PREFIX_NOTIFICATION_DUYET_BAI_DANG
+						+ raoBan.getTenSach() + Constant.SUFFIX_NOTIFICATION_DUYET_BAI_DANG);
+
+				return mapping.findForward("thanhCong");
+			}
+			return mapping.findForward("thatBai");
 		} else {
 			// KHONG CO submit
 			return mapping.findForward("thatBai");

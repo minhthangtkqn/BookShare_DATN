@@ -77,15 +77,19 @@
 				<b>Giá: <bean:write name="chiTietBaiDang" property="gia" /></b>
 			</p>
 			
-			<html:form action="duyet-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
-				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="DUYỆT" class="w3-btn w3-ripple w3-red col-lg-12"></input>
-			</html:form>
+			<logic:equal value="0" name="chiTietBaiDang" property="trangThaiRaoBan">
+				<html:form action="duyet-bai-dang.do" method="post" styleClass="col-lg-12 features_button">
+					<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
+					<input type="submit" name="submit" value="DUYỆT" class="w3-btn w3-ripple w3-red col-lg-12"></input>
+				</html:form>
+			</logic:equal>
 			
-			<html:form action="khong-duyet-bai-dang.do" method="post" styleClass="col-lg-6 features_button">
-				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
-				<input type="submit" name="submit" value="BỎ DUYỆT" class="w3-btn w3-ripple w3-red col-lg-12"></input>
-			</html:form>
+			<logic:equal value="1" name="chiTietBaiDang" property="trangThaiRaoBan">
+				<html:form action="khong-duyet-bai-dang.do" method="post" styleClass="col-lg-12 features_button">
+					<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;">
+					<input type="submit" name="submit" value="BỎ DUYỆT" class="w3-btn w3-ripple w3-red col-lg-12"></input>
+				</html:form>
+			</logic:equal>
 			
 <%-- 			<html:form action="xoa-bai-dang.do" method="post" styleClass="col-lg-12 features_button"> --%>
 <%-- 				<input type="text" name="maRaoBan" value="${maRaoBan}" style="display: none;"> --%>

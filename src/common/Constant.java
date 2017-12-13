@@ -13,6 +13,16 @@ public class Constant {
 
 	// Default values
 	public static final String NO_IMAGE_DEFAULT = "images/No-image.jpg";
+	
+	public static final String PREFIX_NOTIFICATION_DUYET_BAI_DANG = "Admin đã duyệt bài đăng \"";
+	public static final String SUFFIX_NOTIFICATION_DUYET_BAI_DANG = "\" của bạn";
+	
+	public static final String PREFIX_NOTIFICATION_BO_DUYET_BAI_DANG = "Admin đã bỏ duyệt bài đăng \"";
+	public static final String SUFFIX_NOTIFICATION_BO_DUYET_BAI_DANG = "\" của bạn";
+	
+	public static final String PREFIX_NOTIFICATION_XOA_BAI_DANG = "Admin đã xóa bài đăng \"";
+	public static final String SUFFIX_NOTIFICATION_XOA_BAI_DANG = "\" của bạn";
+	
 	/**
 	 * gia thap -> cao (ASC)
 	 */
