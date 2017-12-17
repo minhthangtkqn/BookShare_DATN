@@ -44,73 +44,93 @@ function disableSelects() {
 	}
 }
 
-function getValidString(s){
-	if(s === null){
+function getValidString(s) {
+	if (s === null) {
 		s = "";
 	}
 	return s;
 }
 
-$(document).ready(function() {
-	var pageBody = document.getElementById("page-body");
-	var scrollTop = document.createElement("a");
-	$(scrollTop).attr("class", "scrollToTop");
-	$(scrollTop).attr("href", "#");
-	$(scrollTop).attr("style", "color: white; border-radius: 5px;");
+$(document).ready(
+		function() {
+			var pageBody = document.getElementById("page-body");
+			var scrollTop = document.createElement("a");
+			$(scrollTop).attr("class", "scrollToTop");
+			$(scrollTop).attr("href", "#");
+			$(scrollTop).attr("style", "color: white; border-radius: 5px;");
 
-	var icon = document.createElement("i");
-	$(icon).attr("class", "glyphicon glyphicon-arrow-up");
+			var icon = document.createElement("i");
+			$(icon).attr("class", "glyphicon glyphicon-arrow-up");
 
-	scrollTop.appendChild(icon);
-	pageBody.appendChild(scrollTop);
+			scrollTop.appendChild(icon);
+			pageBody.appendChild(scrollTop);
 
-	// Check to see if the window is top if not then display button
-	$(window).scroll(function() {
-		if ($(this).scrollTop() > 100) {
-			$('.scrollToTop').fadeIn();
-		} else {
-			$('.scrollToTop').fadeOut();
-		}
-	});
+			// Check to see if the window is top if not then display button
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 100) {
+					$('.scrollToTop').fadeIn();
+				} else {
+					$('.scrollToTop').fadeOut();
+				}
+			});
 
-	// Click event to scroll to top
-	$('.scrollToTop').click(function() {
-		$('html, body').animate({
-			scrollTop : 0
-		}, 500);
-		return false;
-	});
-
-	// +++++++++++++++++++++++++++
-	// +++++++++++++++++++++++++++
-	// +++++++++++++++++++++++++++
-
-	// Add smooth scrolling to all links
-	$("a").on('click', function(event) {
-
-		// Make sure this.hash has a value before overriding default behavior
-		
-		if (!getValidString(this.getAttribute("class")).includes('default-link')){
-			if (this.hash !== "") {
-				// Prevent default anchor click behavior
-				event.preventDefault();
-
-				// Store hash
-				var hash = this.hash;
-
-				// Using jQuery's animate() method to add smooth page scroll
-				// The optional number (800) specifies the number of
-				// milliseconds it
-				// takes to scroll to the specified area
+			// Click event to scroll to top
+			$('.scrollToTop').click(function() {
 				$('html, body').animate({
-					scrollTop : $(hash).offset().top
-				}, 800, function() {
+					scrollTop : 0
+				}, 500);
+				return false;
+			});
 
-					// Add hash (#) to URL when done scrolling (default click
-					// behavior)
-					window.location.hash = hash;
-				});
-			} // End if
+			// +++++++++++++++++++++++++++
+			// +++++++++++++++++++++++++++
+			// +++++++++++++++++++++++++++
+
+			// Add smooth scrolling to all links
+			$("a").on(
+					'click',
+					function(event) {
+
+						// Make sure this.hash has a value before overriding
+						// default behavior
+
+						if (!getValidString(this.getAttribute("class"))
+								.includes('default-link')) {
+							if (this.hash !== "") {
+								// Prevent default anchor click behavior
+								event.preventDefault();
+
+								// Store hash
+								var hash = this.hash;
+
+								// Using jQuery's animate() method to add smooth
+								// page scroll
+								// The optional number (800) specifies the
+								// number of
+								// milliseconds it
+								// takes to scroll to the specified area
+								$('html, body').animate({
+									scrollTop : $(hash).offset().top
+								}, 800, function() {
+
+									// Add hash (#) to URL when done scrolling
+									// (default click
+									// behavior)
+									window.location.hash = hash;
+								});
+							} // End if
+						}
+					});
+		});
+
+function readURL(input, output) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function(e) {
+			$(output).attr('src', e.target.result);
 		}
-	});
-});
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}

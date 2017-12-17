@@ -28,7 +28,7 @@
 	color: white;
 	text-decoration-line: none;
 	font-weight: bold;
-	cursor: auto;
+/* 	cursor: auto; */
 }
 
 #credentials a:link:active, a:visited:active {

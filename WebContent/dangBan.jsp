@@ -109,38 +109,43 @@
 
 					<br>
 
-					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Ảnh 1</label>
-						<div class="col-lg-5">
-							<html:file property="anh1" />
+					<div class="row form-group col-lg-offset-1 col-lg-7 note black-border">
+						<label class="col-lg-2">Ảnh 1</label>
+						<div class="col-lg-10">
+							<html:file styleClass="col-lg-3" property="anh1" styleId="anh1"/>
+							<img class="col-lg-8" id="showAnh1" src="#" alt="" />
 							<html:errors property="linkAnh1Error" />
 						</div>
 					</div>
-					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Ảnh 2</label>
-						<div class="col-lg-5">
-							<html:file property="anh2" />
+					<div class="row form-group col-lg-offset-1 col-lg-7 note black-border">
+						<label class="col-lg-2">Ảnh 2</label>
+						<div class="col-lg-10">
+							<html:file styleClass="col-lg-3" property="anh2" styleId="anh2"/>
+							<img class="col-lg-8" id="showAnh2" src="#" alt="" />
 							<html:errors property="linkAnh2Error" />
 						</div>
 					</div>
-					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Ảnh 3</label>
-						<div class="col-lg-5">
-							<html:file property="anh3" />
+					<div class="row form-group col-lg-offset-1 col-lg-7 note black-border">
+						<label class="col-lg-2">Ảnh 3</label>
+						<div class="col-lg-10">
+							<html:file styleClass="col-lg-3" property="anh3" styleId="anh3"/>
+							<img class="col-lg-8" id="showAnh3" src="#" alt="" />
 							<html:errors property="linkAnh3Error" />
 						</div>
 					</div>
-					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Ảnh 4</label>
-						<div class="col-lg-5">
-							<html:file property="anh4" />
+					<div class="row form-group col-lg-offset-1 col-lg-7 note black-border">
+						<label class="col-lg-2">Ảnh 4</label>
+						<div class="col-lg-10">
+							<html:file styleClass="col-lg-3" property="anh4" styleId="anh4"/>
+							<img class="col-lg-8" id="showAnh4" src="#" alt="" />
 							<html:errors property="linkAnh4Error" />
 						</div>
 					</div>
-					<div class="row form-group">
-						<label class="col-lg-offset-1 col-lg-2">Ảnh 5</label>
-						<div class="col-lg-5">
-							<html:file property="anh5" />
+					<div class="row form-group col-lg-offset-1 col-lg-7 note black-border">
+						<label class="col-lg-2">Ảnh 5</label>
+						<div class="col-lg-10">
+							<html:file styleClass="col-lg-3" property="anh5" styleId="anh5"/>
+							<img class="col-lg-8" id="showAnh5" src="#" alt="" />
 							<html:errors property="linkAnh5Error" />
 						</div>
 					</div>
@@ -165,6 +170,23 @@
 		
 		
 		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript">
+		$("#anh1").change(function(){
+	        readURL(this, "#showAnh1");
+	    });
+		$("#anh2").change(function(){
+	        readURL(this, "#showAnh2");
+	    });
+		$("#anh3").change(function(){
+	        readURL(this, "#showAnh3");
+	    });
+		$("#anh4").change(function(){
+	        readURL(this, "#showAnh4");
+	    });
+		$("#anh5").change(function(){
+	        readURL(this, "#showAnh5");
+	    });
+		</script>
 	</div>
 </body>
 </html>

@@ -18,11 +18,17 @@
 
 		<div class="float-right" style="height: 100%; margin-top: 3px;">
 			<ul class="list-inline list-unstyled">
-				<li><div style="height: 40px;">
+				<li class="dropdown">
+					<div style="height: 40px;">
 						<a href="trang-ca-nhan.do" style="color: black;"><img class="img-circle"
 							style="height: 40px; width: 40px;" alt="" src="${Avatar}">
 							${userName} </a>
-					</div></li> &nbsp;&nbsp;
+					</div>
+					<div class="dropdown-content">
+						<div><a href="trang-ca-nhan.do">Trang cá nhân</a></div>
+						<div><a href="danh-sach-thong-bao.do">Thông báo của bạn</a></div>
+					</div>
+				</li> &nbsp;&nbsp;
 				<li><div style="height: 40px; padding-top: 7px;">
 						<a href="dang-xuat.do" style="color: black;"><i class="glyphicon glyphicon-off"></i>
 							Đăng xuất</a>
